@@ -1,0 +1,45 @@
+@import "fonts.css";
+
+.imgBackground{
+    -fx-background-image: url("/view/img/imgBackground.png");
+    -fx-background-repeat: repeat;
+    -fx-opacity: 0.5;
+    -fx-background-size: 60 60;
+
+    -fx-border-color: #4071F7;
+}
+
+.paneMain{
+    -fx-border-width: 2px;
+    -fx-background-color: white;
+    -fx-border-color: #4071F7;
+    -fx-alignment: center;
+}
+
+.textLogo{
+    -fx-font-family: College;
+    -fx-text-fill: #4071F7;
+    -fx-font-size: 30px;
+}
+
+.textLoading{
+    -fx-font-family: Lato;
+    -fx-font-weight: bold;
+    -fx-text-fill: #4071F7;
+    -fx-font-size: 16px;
+}
+
+.progress-bar{
+    -fx-border-color: #4071F7;
+    -fx-background-color: white;
+}
+
+.progress-bar > .track{
+    -fx-border-color: #4071F7;
+    -fx-background-color: white;
+}
+
+.progress-bar > .bar{
+    -fx-border-color: #E2F2FB;
+    -fx-background-color: #E2F2FB;
+}
