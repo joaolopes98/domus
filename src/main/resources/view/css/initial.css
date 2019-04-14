@@ -3,6 +3,7 @@
 .background{
     -fx-background-color: #C94EC0;
 }
+
 .imgBackground{
     -fx-background-color: linear-gradient(to bottom left, reflect,#C94EC0, #4258D0);
     -fx-background-image: url("/view/img/dot.png");
@@ -19,15 +20,15 @@
 
 .textLogo{
     -fx-font-family: College;
-    -fx-text-fill: linear-gradient(to top left, #455765, #36434C);
+    -fx-text-fill: linear-gradient(to top left, #36434C, #36434C);
     -fx-font-size: 70px;
 }
 
-.textLoading{
-    -fx-font-family: Lato;
+.textLogin{
+    -fx-font-family: Teko;
     -fx-font-weight: bold;
-    -fx-text-fill: #4071F7;
-    -fx-font-size: 16px;
+    -fx-text-fill: #36434C;
+    -fx-font-size: 40px;
 }
 
 .progress-bar{
