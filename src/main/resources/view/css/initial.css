@@ -1,25 +1,26 @@
 @import "fonts.css";
 
+.background{
+    -fx-background-color: #C94EC0;
+}
 .imgBackground{
-    -fx-background-image: url("/view/img/imgBackground.png");
+    -fx-background-color: linear-gradient(to bottom left, reflect,#C94EC0, #4258D0);
+    -fx-background-image: url("/view/img/dot.png");
     -fx-background-repeat: repeat;
-    -fx-opacity: 0.5;
-    -fx-background-size: 60 60;
+    -fx-background-size: 10 10;
 
-    -fx-border-color: #4071F7;
 }
 
 .paneMain{
-    -fx-border-width: 2px;
+    -fx-background-radius: 10px;
     -fx-background-color: white;
-    -fx-border-color: #4071F7;
     -fx-alignment: center;
 }
 
 .textLogo{
     -fx-font-family: College;
-    -fx-text-fill: #4071F7;
-    -fx-font-size: 30px;
+    -fx-text-fill: linear-gradient(to top left, #455765, #36434C);
+    -fx-font-size: 70px;
 }
 
 .textLoading{
@@ -31,15 +32,15 @@
 
 .progress-bar{
     -fx-border-color: #4071F7;
-    -fx-background-color: white;
+    -fx-background-color: #E2F2FB;
 }
 
 .progress-bar > .track{
     -fx-border-color: #4071F7;
-    -fx-background-color: white;
+    -fx-background-color: #E2F2FB;
 }
 
 .progress-bar > .bar{
-    -fx-border-color: #E2F2FB;
-    -fx-background-color: #E2F2FB;
+    -fx-border-color: transparent;
+    -fx-background-color: #4071F7;
 }

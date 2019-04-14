@@ -1,36 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ProgressBar?>
-<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="420.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.controller.InitialController">
+<AnchorPane maxHeight="600.0" maxWidth="900.0" minHeight="600.0" minWidth="900.0" styleClass="background" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.controller.InitialController">
    <children>
-      <AnchorPane fx:id="imgBackground" prefHeight="200.0" prefWidth="200.0" styleClass="imgBackground" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="1.0">
+      <AnchorPane fx:id="imgBackground" prefHeight="200.0" prefWidth="200.0" styleClass="imgBackground" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <VBox fx:id="paneMain" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0" styleClass="paneMain" AnchorPane.bottomAnchor="75.0" AnchorPane.leftAnchor="175.0" AnchorPane.rightAnchor="175.0" AnchorPane.topAnchor="75.0">
+            <HBox fx:id="paneMain" styleClass="paneMain" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="100.0">
                <children>
-                  <Label styleClass="textLogo" text="DOMUS" />
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                  <VBox alignment="CENTER" HBox.hgrow="ALWAYS">
                      <children>
-                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                           <children>
-                              <Label styleClass="textLoading" text="Carregando ..." />
-                              <ProgressBar prefWidth="200.0" progress="0.0" />
-                           </children>
-                        </VBox>
+                        <ImageView fitHeight="130.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="/view/img/logo.png" />
+                           </image>
+                        </ImageView>
+                        <Label styleClass="textLogo" text="DOMUS" />
                      </children>
-                  </AnchorPane>
+                  </VBox>
+                  <VBox HBox.hgrow="ALWAYS" />
                </children>
-               <effect>
-                  <DropShadow color="#00000033" offsetX="2.0" offsetY="5.0" />
-               </effect>
-               <padding>
-                  <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
-               </padding></VBox>
+            </HBox>
          </children></AnchorPane>
    </children>
 </AnchorPane>
