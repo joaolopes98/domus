@@ -1,7 +1,7 @@
 @import "fonts.css";
 
 .root{
-    -fx-background-color: #40368f;
+    -fx-background-color: linear-gradient(to bottom, reflect, WHITE, #4258d0);
     -fx-background-image: url("/view/img/dotLogin.png");
     -fx-background-repeat: repeat;
     -fx-background-size: 10 10;
@@ -13,14 +13,19 @@
     -fx-alignment: center;
 }
 
-.paneGrey{
+.paneBlue{
     -fx-background-repeat: repeat;
     -fx-background-size: 10 10;
-    -fx-background-color: #5C4ED080;
+    -fx-background-color: #4258d0;
     -fx-background-radius: 10px;
-    -fx-border-color: #554eaa;
+    -fx-border-color: #353b87;
     -fx-border-radius: 10px;
     -fx-alignment: center;
+}
+
+.borderRightBlue{
+    -fx-border-color: #353b87;
+    -fx-border-width: 0 1 0 0;
 }
 
 .input{
@@ -30,15 +35,41 @@
     -fx-padding: 0;
     -fx-font-family: Lato;
     -fx-font-weight: bold;
-    -fx-text-fill: #DCDCDC;
-    -fx-prompt-text-fill: #989898;
+    -fx-text-fill: white;
+    -fx-prompt-text-fill: #FFFFFF80;
     -fx-font-size: 24px;
 }
 
 .subtitleWhite{
-    -fx-text-fill: #DCDCDC;
+    -fx-text-fill: white;
     -fx-font-family: Lato;
     -fx-font-weight: bold;
     -fx-font-size: 14px;
     -fx-alignment: center;
+}
+
+
+.btnPaneRight, .btnPaneLeft{
+    -fx-background-color: transparent;
+    -fx-cursor: hand;
+}
+
+.btnPaneRight{
+    -fx-background-radius: 0px 9px 9px 0px;
+}
+
+.btnPaneLeft{
+    -fx-background-radius: 9px 0px 0px 9px;
+}
+
+.btnPaneRight:hover, .btnPaneLeft:hover{
+    -fx-background-color: #00000070;
+}
+
+.btnText{
+    -fx-background-color: transparent;
+    -fx-font-family: Lato;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-font-size: 20px;
 }

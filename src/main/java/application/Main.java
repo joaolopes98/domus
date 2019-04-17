@@ -11,6 +11,7 @@ public class Main extends Application {
     }
 
     public void start(Stage primaryStage) {
-        Window.changeScene(primaryStage, "initial", null);
+//        Window.changeScene(primaryStage, "initial", null);
+        Window.changeScene(primaryStage, "pdv", null);
     }
 }

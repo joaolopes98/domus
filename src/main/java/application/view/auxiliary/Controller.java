@@ -1,6 +1,7 @@
 package application.view.auxiliary;
 
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 public abstract class Controller implements Screen{
@@ -15,6 +16,7 @@ public abstract class Controller implements Screen{
         this.oldStage = oldStage;
         this.oldController = oldController;
 
+        this.stage.getIcons().add(new Image(Window.ICON));
         this.stage.setScene(scene);
         this.stage.show();
     }

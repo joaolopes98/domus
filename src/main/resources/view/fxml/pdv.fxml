@@ -9,7 +9,6 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-
 <AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.controller.PDVController">
    <children>
       <VBox layoutX="10.0" layoutY="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -18,7 +17,7 @@
                <children>
                   <VBox prefWidth="1000.0" HBox.hgrow="ALWAYS">
                      <children>
-                        <HBox maxHeight="60.0" minHeight="60.0" styleClass="paneGrey" VBox.vgrow="ALWAYS">
+                        <HBox maxHeight="60.0" minHeight="60.0" styleClass="paneBlue" VBox.vgrow="ALWAYS">
                            <children>
                               <HBox alignment="CENTER_LEFT" maxHeight="60.0" minHeight="60.0" HBox.hgrow="ALWAYS">
                                  <children>
@@ -34,7 +33,7 @@
                                     <AnchorPane HBox.hgrow="ALWAYS">
                                        <children>
                                           <Label layoutX="10.0" layoutY="10.0" maxHeight="20.0" minHeight="20.0" styleClass="subtitleWhite" text="Produto" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="0.0" />
-                                          <TextField styleClass="input" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0" />
+                                          <TextField promptText="Pesquisar ..." styleClass="input" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0" />
                                        </children>
                                     </AnchorPane>
                                  </children>
@@ -55,10 +54,43 @@
                   </VBox>
                   <VBox prefWidth="1000.0" HBox.hgrow="ALWAYS">
                      <children>
-                        <HBox maxHeight="60.0" minHeight="60.0" styleClass="paneGrey">
+                        <HBox maxHeight="60.0" minHeight="60.0" styleClass="paneBlue">
                            <children>
-                              <HBox HBox.hgrow="ALWAYS" />
-                              <HBox HBox.hgrow="ALWAYS" />
+                              <HBox styleClass="borderRightBlue" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <AnchorPane styleClass="btnPaneLeft" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <children>
+                                                <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="/view/img/customerPDV.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <Label styleClass="btnText" text="CLIENTE (FX)" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </AnchorPane>
+                                 </children></HBox>
+                              <HBox HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <AnchorPane styleClass="btnPaneRight" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <children>
+                                                <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="/view/img/animalPDV.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <Label styleClass="btnText" text="ANIMAL (FX)" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </HBox>
                            </children>
                         </HBox>
                      </children>

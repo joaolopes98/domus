@@ -1,6 +1,7 @@
 package application.view.controller;
 
 import application.view.auxiliary.Controller;
+import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyCombination;
@@ -22,6 +23,7 @@ public class PDVController extends Controller {
 
 //        this.stage.setFullScreenExitKeyCombination(KeyCombination.NO_MATCH);
         this.stage.setFullScreenExitHint("Pressione F11 para sair do modo FullScreen");
+        this.stage.setTitle("DOMUS PDV");
         super.initialize(oldStage, scene, oldController, objects);
         this.stage.setMaximized(true);
         this.stage.setFullScreen(true);
