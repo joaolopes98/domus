@@ -26,4 +26,11 @@ public abstract class Window {
             e.printStackTrace();
         }
     }
+
+    public static void setModal(Stage stage, Stage oldStage) {
+        stage.setResizable(false);
+        stage.initStyle(StageStyle.UNDECORATED);
+        stage.initOwner(oldStage);
+        stage.initModality(Modality.APPLICATION_MODAL);
+    }
 }

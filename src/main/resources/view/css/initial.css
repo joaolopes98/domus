@@ -9,7 +9,6 @@
     -fx-background-image: url("/view/img/dotLogin.png");
     -fx-background-repeat: repeat;
     -fx-background-size: 10 10;
-
 }
 
 .paneMain{
@@ -20,7 +19,7 @@
 
 .textLogo{
     -fx-font-family: College;
-    -fx-text-fill: linear-gradient(to top left, #455765, #36434C);
+    -fx-text-fill: linear-gradient(to top left, #5c6f7d, #36434C);
     -fx-font-size: 70px;
 }
 

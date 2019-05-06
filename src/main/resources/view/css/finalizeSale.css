@@ -1,0 +1,22 @@
+@import "waitScreen.css";
+
+.root{
+    /*-fx-background-color: linear-gradient(to bottom left, reflect, #c94ec0, #4258d0);*/
+    -fx-background-color: #36434C;
+}
+
+.paneWhite{
+    -fx-background-color: #EDEDED;
+}
+
+.paneBlueDark{
+    -fx-background-color: #36434C;
+    -fx-alignment: center;
+}
+
+.paneBlueLight{
+    -fx-background-repeat: repeat;
+    -fx-background-size: 10 10;
+    -fx-background-color: #5c6f7d;
+    -fx-alignment: center;
+}

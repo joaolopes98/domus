@@ -7,12 +7,14 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
-public class PDVController extends Controller {
+public class FinalizeSaleController extends Controller {
+
     @Override
     public void initialize(Stage oldStage, Scene scene, Controller oldController, Object... objects) {
+
         scene.addEventFilter(KeyEvent.KEY_PRESSED, e -> {
             if(e.getCode() == KeyCode.ESCAPE){
-                System.out.println("AKI");
+                stage.close();
                 e.consume();
             } else if (e.getCode() == KeyCode.F11){
                 stage.setFullScreen(!stage.isFullScreen());
@@ -20,13 +22,7 @@ public class PDVController extends Controller {
             }
         });
 
-//        this.stage.setFullScreenExitKeyCombination(KeyCombination.NO_MATCH);
-        this.stage.setFullScreenExitHint("Pressione F11 para sair do modo FullScreen");
-        this.stage.setTitle("DOMUS PDV");
+        Window.setModal(this.stage, oldStage);
         super.initialize(oldStage, scene, oldController, objects);
-        this.stage.setMaximized(true);
-        this.stage.setFullScreen(true);
-
-        Window.changeScene(this.stage, "finalizeSale", this);
     }
 }

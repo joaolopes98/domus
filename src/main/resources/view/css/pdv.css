@@ -1,31 +1,84 @@
 @import "fonts.css";
+@import "waitScreen.css";
 
 .root{
-    -fx-background-color: linear-gradient(to bottom, reflect, WHITE, #4258d0);
+    -fx-background-color: #36434C;
+
+    /*-fx-background-color: linear-gradient(to bottom, reflect, WHITE, #4258d0);*/
+    /*-fx-background-image: url("/view/img/dotLogin.png");*/
+    /*-fx-background-repeat: repeat;*/
+    /*-fx-background-size: 10 10;*/
+}
+
+.paneBackground{
+    -fx-background-color: #EDEDED;
+    -fx-alignment: center;
+
     -fx-background-image: url("/view/img/dotLogin.png");
     -fx-background-repeat: repeat;
-    -fx-background-size: 10 10;
+    -fx-background-size: 5 5;
 }
 
 .paneWhite{
-    -fx-background-radius: 10px;
-    -fx-background-color: white;
+    -fx-background-color: #EDEDED;
     -fx-alignment: center;
 }
 
-.paneBlue{
+.paneBlueDark{
+    -fx-background-color: #36434C;
+    -fx-alignment: center;
+}
+
+.paneBlueLight{
     -fx-background-repeat: repeat;
     -fx-background-size: 10 10;
-    -fx-background-color: #4258d0;
-    -fx-background-radius: 10px;
-    -fx-border-color: #353b87;
-    -fx-border-radius: 10px;
+    -fx-background-color: #5c6f7d;
     -fx-alignment: center;
 }
 
-.borderRightBlue{
-    -fx-border-color: #353b87;
-    -fx-border-width: 0 1 0 0;
+.btnBlue{
+    -fx-background-color: #5c6f7d;
+    -fx-cursor: hand;
+}
+
+.btnBlue:hover{
+    -fx-background-color: #36434C;
+}
+
+.paneRedDark{
+    -fx-background-color: #772222;
+    -fx-alignment: center;
+}
+
+.btnRed{
+    -fx-background-color: #AA2222;
+    -fx-cursor: hand;
+}
+
+.btnRed:hover{
+    -fx-background-color: #7d2222;
+}
+
+.paneGreenDark{
+    -fx-background-color: #227722;
+    -fx-alignment: center;
+}
+
+.btnGreen{
+    -fx-background-color: #22AA22;
+    -fx-cursor: hand;
+}
+
+.btnGreen:hover{
+    -fx-background-color: #227722;
+}
+
+.btnText{
+    -fx-background-color: transparent;
+    -fx-font-family: Lato;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-font-size: 13px;
 }
 
 .input{
@@ -48,28 +101,89 @@
     -fx-alignment: center;
 }
 
+#tableItems{
+    -fx-font-family: Lato;
+    -fx-padding: 0;
+    -fx-background-color: #EDEDED;
+    -fx-border-width: 2px;
+    -fx-border-color: #36434C;
+}
 
-.btnPaneRight, .btnPaneLeft{
+#tableItems .column-header {
+    -fx-background-color: #5c6f7d;
+    -fx-font-size: 17px;
+    -fx-border-width: 0 0 2 0;
+    -fx-border-color: #36434C;
+}
+
+#tableItems .column-header .label{
     -fx-background-color: transparent;
-    -fx-cursor: hand;
+    -fx-padding: 19 7;
+    -fx-alignment: center-left;
+    -fx-text-fill: white;
 }
 
-.btnPaneRight{
-    -fx-background-radius: 0px 9px 9px 0px;
+#tableItems .table-cell {
+    -fx-font-family: Lato;
+    -fx-border-color: transparent;
+    -fx-alignment: center-left;
+    -fx-font-size: 15px;
+    -fx-text-fill: #36434C;
+    -fx-padding: 0 10;
+
 }
 
-.btnPaneLeft{
-    -fx-background-radius: 9px 0px 0px 9px;
+.paneMenuLogo{
+    -fx-opacity: 0.5;
 }
 
-.btnPaneRight:hover, .btnPaneLeft:hover{
-    -fx-background-color: #00000070;
+.textLogo{
+    -fx-font-family: College;
+    -fx-text-fill: linear-gradient(to top left, #5c6f7d, #36434C);
+    -fx-font-size: 100px;
 }
 
-.btnText{
+.textBold{
     -fx-background-color: transparent;
     -fx-font-family: Lato;
     -fx-font-weight: bold;
-    -fx-text-fill: white;
-    -fx-font-size: 20px;
+    -fx-text-fill: #36434C;
+    -fx-font-size: 13px;
+}
+
+.textNormal {
+    -fx-background-color: transparent;
+    -fx-font-family: Lato;
+    -fx-text-fill: #36434C;
+    -fx-font-size: 13px;
+}
+
+.textBoldSmall{
+    -fx-background-color: transparent;
+    -fx-font-family: Lato;
+    -fx-font-weight: bold;
+    -fx-text-fill: #36434C;
+    -fx-font-size: 18px;
+}
+
+.textNormalSmall{
+    -fx-background-color: transparent;
+    -fx-font-family: Lato;
+    -fx-text-fill: #36434C;
+    -fx-font-size: 18px;
+}
+
+.textBoldBig{
+    -fx-background-color: transparent;
+    -fx-font-family: Lato;
+    -fx-font-weight: bold;
+    -fx-text-fill: #36434C;
+    -fx-font-size: 50px;
+}
+
+.textNormalBig{
+    -fx-background-color: transparent;
+    -fx-font-family: Lato;
+    -fx-text-fill: #36434C;
+    -fx-font-size: 50px;
 }

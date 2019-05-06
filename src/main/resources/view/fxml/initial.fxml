@@ -22,7 +22,7 @@
                <children>
                   <VBox alignment="CENTER" maxWidth="350.0" minWidth="350.0" HBox.hgrow="ALWAYS">
                      <children>
-                        <ImageView fitHeight="130.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="175.0" fitWidth="175.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="/view/img/logoGrande.png" />
                            </image>
