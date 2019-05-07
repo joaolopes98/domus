@@ -1,8 +1,12 @@
 @import "waitScreen.css";
 
-.root{
-    /*-fx-background-color: linear-gradient(to bottom left, reflect, #c94ec0, #4258d0);*/
-    -fx-background-color: #36434C;
+.paneBackground{
+    -fx-background-color: #EDEDED;
+    -fx-alignment: center;
+
+    -fx-background-image: url("/view/img/dotLogin.png");
+    -fx-background-repeat: repeat;
+    -fx-background-size: 5 5;
 }
 
 .paneWhite{
@@ -19,4 +23,183 @@
     -fx-background-size: 10 10;
     -fx-background-color: #5c6f7d;
     -fx-alignment: center;
+}
+
+.textTitle{
+    -fx-font-family: Lato;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-font-size: 20px;
+}
+
+.subtitleWhite{
+    -fx-text-fill: white;
+    -fx-font-family: Lato;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-alignment: center;
+}
+
+.subtitleDark{
+    -fx-text-fill: #36434C;
+    -fx-font-family: Lato;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-alignment: center;
+}
+
+.inputWhite{
+    -fx-background-color: transparent;
+    -fx-border-color: white;
+    -fx-border-width: 0 0 2;
+    -fx-padding: 0 10;
+
+    -fx-font-weight: bold;
+    -fx-font-size: 25px;
+    -fx-text-fill: white;
+    -fx-alignment: center-right;
+}
+
+.inputWhiteBig{
+    -fx-background-color: transparent;
+    -fx-border-color: white;
+    -fx-border-width: 0 0 2;
+    -fx-padding: 0 10;
+
+    -fx-font-weight: bold;
+    -fx-font-size: 40px;
+    -fx-text-fill: white;
+    -fx-alignment: center-right;
+}
+
+.boxWhite{
+    -fx-background-color: transparent;
+    -fx-border-color: white;
+    -fx-border-width: 2px;
+
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-alignment: center-right;
+}
+
+.boxWhite .list-cell{
+    -fx-text-fill: white;
+    -fx-prompt-text-fill: #FFFFFF80;
+}
+
+.boxWhite .arrow{
+    -fx-background-color: white;
+}
+
+.boxWhite .list-view{
+    -fx-background-color: #36434C;
+}
+
+#tablePayments{
+    -fx-font-family: Lato;
+    -fx-padding: 0;
+    -fx-background-color: #EDEDED;
+    -fx-border-width: 2px;
+    -fx-border-color: #36434C;
+}
+
+#tablePayments .column-header {
+    -fx-background-color: #5c6f7d;
+    -fx-font-size: 20px;
+    -fx-border-width: 0 0 2 0;
+    -fx-border-color: #36434C;
+}
+
+#tablePayments .column-header .label{
+    -fx-background-color: transparent;
+    -fx-padding: 10 7;
+    -fx-alignment: center-left;
+    -fx-text-fill: white;
+}
+
+#tablePayments .table-cell {
+    -fx-font-family: Lato;
+    -fx-border-color: transparent;
+    -fx-alignment: center-left;
+    -fx-font-size: 15px;
+    -fx-text-fill: #36434C;
+    -fx-padding: 0 10;
+
+}
+
+#tableItems{
+    -fx-font-family: Lato;
+    -fx-padding: 0;
+    -fx-background-color: #EDEDED;
+    -fx-border-width: 2px;
+    -fx-border-color: #36434C;
+}
+
+#tableItems .column-header {
+    -fx-background-color: #5c6f7d;
+    -fx-font-size: 20px;
+    -fx-border-width: 0 0 2 0;
+    -fx-border-color: #36434C;
+}
+
+#tableItems .column-header .label{
+    -fx-background-color: transparent;
+    -fx-padding: 23 7;
+    -fx-alignment: center-left;
+    -fx-text-fill: white;
+}
+
+#tableItems .table-cell {
+    -fx-font-family: Lato;
+    -fx-border-color: transparent;
+    -fx-alignment: center-left;
+    -fx-font-size: 15px;
+    -fx-text-fill: #36434C;
+    -fx-padding: 0 10;
+
+}
+
+.textBold{
+    -fx-padding: 0 10;
+
+    -fx-font-weight: bold;
+    -fx-font-size: 25px;
+    -fx-text-fill: #36434C;
+    -fx-alignment: center-right;
+}
+
+.paneRedDark{
+    -fx-background-color: #772222;
+    -fx-alignment: center;
+}
+
+.btnRed{
+    -fx-background-color: #AA2222;
+    -fx-cursor: hand;
+}
+
+.btnRed:hover{
+    -fx-background-color: #7d2222;
+}
+
+.paneGreenDark{
+    -fx-background-color: #227722;
+    -fx-alignment: center;
+}
+
+.btnGreen{
+    -fx-background-color: #22AA22;
+    -fx-cursor: hand;
+}
+
+.btnGreen:hover{
+    -fx-background-color: #227722;
+}
+
+.btnText{
+    -fx-background-color: transparent;
+    -fx-font-family: Lato;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-font-size: 13px;
 }

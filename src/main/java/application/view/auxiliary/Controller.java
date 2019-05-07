@@ -4,7 +4,7 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
-public abstract class Controller implements Screen{
+public abstract class Controller implements ScreenInterface {
     protected Stage stage = new Stage();
     protected Stage oldStage;
     protected Controller oldController;

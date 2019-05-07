@@ -4,6 +4,7 @@ import application.view.auxiliary.Controller;
 import application.view.auxiliary.Window;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyCombination;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
@@ -24,8 +25,10 @@ public class PDVController extends Controller {
         this.stage.setFullScreenExitHint("Pressione F11 para sair do modo FullScreen");
         this.stage.setTitle("DOMUS PDV");
         super.initialize(oldStage, scene, oldController, objects);
-        this.stage.setMaximized(true);
+//        this.stage.setMaximized(true);
+        Window.setFullScreen(this.stage);
         this.stage.setFullScreen(true);
+
 
         Window.changeScene(this.stage, "finalizeSale", this);
     }

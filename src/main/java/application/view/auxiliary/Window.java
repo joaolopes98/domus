@@ -1,10 +1,10 @@
 package application.view.auxiliary;
 
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Modality;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -20,17 +20,24 @@ public abstract class Window {
             Scene scene = new Scene(root);
             scene.getStylesheets().add("/View/css/" + sceneName + ".css");
 
-            Screen screen = loader.getController();
-            screen.initialize(stage, scene, oldController, objects);
+            ScreenInterface screenInterface = loader.getController();
+            screenInterface.initialize(stage, scene, oldController, objects);
         } catch (IOException e){
             e.printStackTrace();
         }
     }
 
     public static void setModal(Stage stage, Stage oldStage) {
-        stage.setResizable(false);
         stage.initStyle(StageStyle.UNDECORATED);
+        stage.initModality(Modality.WINDOW_MODAL);
         stage.initOwner(oldStage);
-        stage.initModality(Modality.APPLICATION_MODAL);
+    }
+
+    public static void setFullScreen(Stage stage){
+       stage.setMaxHeight(Screen.getPrimary().getVisualBounds().getHeight());
+       stage.setMinHeight(Screen.getPrimary().getVisualBounds().getHeight());
+
+        stage.setMaxWidth(Screen.getPrimary().getVisualBounds().getWidth());
+        stage.setMinWidth(Screen.getPrimary().getVisualBounds().getWidth());
     }
 }

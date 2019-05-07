@@ -1,4 +1,9 @@
 .waitScreen{
-    -fx-background-color: #36434C;
+    /*-fx-background-color: #36434C;*/
     -fx-opacity: 0.8;
+
+    -fx-background-color: linear-gradient(to bottom left, reflect, #c94ec0, #4258d0);
+    -fx-background-image: url("/view/img/dotLogin.png");
+    -fx-background-repeat: repeat;
+    -fx-background-size: 10 10;
 }
