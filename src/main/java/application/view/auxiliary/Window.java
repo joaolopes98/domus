@@ -32,12 +32,4 @@ public abstract class Window {
         stage.initModality(Modality.WINDOW_MODAL);
         stage.initOwner(oldStage);
     }
-
-    public static void setFullScreen(Stage stage){
-       stage.setMaxHeight(Screen.getPrimary().getVisualBounds().getHeight());
-       stage.setMinHeight(Screen.getPrimary().getVisualBounds().getHeight());
-
-        stage.setMaxWidth(Screen.getPrimary().getVisualBounds().getWidth());
-        stage.setMinWidth(Screen.getPrimary().getVisualBounds().getWidth());
-    }
 }

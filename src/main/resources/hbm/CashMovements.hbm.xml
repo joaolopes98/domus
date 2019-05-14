@@ -1,0 +1,20 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name = "application.controller.object.CashMovement" table = "cash_movements">
+        <id name = "id" type = "int">
+            <generator class="increment"/>
+        </id>
+        <property name="value" type="double"/>
+        <property name="date" type="timestamp"/>
+        <property name="closed" type="boolean"/>
+        <property name="closed_at" type="timestamp"/>
+        <property name="value_closed_input" type="double"/>
+        <property name="value_closed_system" type="double"/>
+        <many-to-one name="opened_by" class="application.controller.object.Access"/>
+        <many-to-one name="closed_by" class="application.controller.object.Access"/>
+    </class>
+</hibernate-mapping>

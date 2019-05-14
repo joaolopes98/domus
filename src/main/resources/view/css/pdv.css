@@ -45,28 +45,32 @@
     -fx-background-color: #36434C;
 }
 
-.paneRedDark{
-    -fx-background-color: #772222;
-    -fx-alignment: center;
-}
-
 .btnRed{
     -fx-background-color: #AA2222;
+    -fx-border-color: #772222;
+    -fx-border-width: 2px;
     -fx-cursor: hand;
+
+    fx-font-family: Lato;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-font-size: 13px;
 }
 
 .btnRed:hover{
     -fx-background-color: #7d2222;
 }
 
-.paneGreenDark{
-    -fx-background-color: #227722;
-    -fx-alignment: center;
-}
-
 .btnGreen{
     -fx-background-color: #22AA22;
+    -fx-border-color: #227722;
+    -fx-border-width: 2px;
     -fx-cursor: hand;
+
+    fx-font-family: Lato;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-font-size: 13px;
 }
 
 .btnGreen:hover{

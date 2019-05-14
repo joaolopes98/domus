@@ -30,6 +30,32 @@
     -fx-font-size: 40px;
 }
 
+.textError{
+    -fx-font-family: Lato;
+    -fx-text-fill: #AA2222;
+    -fx-font-size: 14px;
+}
+
+.textConfig{
+    -fx-font-family: Lato;
+    -fx-font-weight: bold;
+    -fx-text-fill: #36434C;
+    -fx-font-size: 18px;
+}
+
+.progressBar{
+    -fx-background-color: #36434C;
+    -fx-border-color: #36434C;
+}
+
+.progressBar .track{
+    -fx-background-color: #5c6f7d;
+    -fx-border-color: #36434C;
+}
+
+.progressBar .bar{
+    -fx-background-color: #36434C;
+}
 
 .input{
     -fx-padding: 0 0 0 50;

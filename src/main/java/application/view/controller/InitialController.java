@@ -1,8 +1,13 @@
 package application.view.controller;
 
+import application.controller.object.Access;
+import application.model.AccessModel;
+import application.model.HibernateUtilities;
 import application.view.auxiliary.Controller;
 import application.view.auxiliary.Window;
 import javafx.animation.FadeTransition;
+import javafx.concurrent.Service;
+import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -10,6 +15,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
@@ -18,7 +24,15 @@ import javafx.util.Duration;
 @SuppressWarnings("ALL")
 public class InitialController extends Controller {
     @FXML private AnchorPane imgBackground;
-    @FXML private HBox paneMain;
+    @FXML private AnchorPane paneMain;
+
+    @FXML private HBox paneLogin;
+
+    @FXML private VBox paneConfig;
+    @FXML private Label lblConfig;
+    @FXML private ProgressBar progressBar;
+
+    @FXML private Label lblError;
 
     @FXML private TextField inputUser;
     @FXML private PasswordField inputPassword;
@@ -68,6 +82,7 @@ public class InitialController extends Controller {
         fadeInMain.setFromValue(0);
         fadeInMain.setToValue(1);
         fadeInMain.setCycleCount(1);
+        fadeInMain.setOnFinished( e -> setupProgressBar());
 
 
         FadeTransition fadeInImg = new FadeTransition(Duration.seconds(2), imgBackground);
@@ -78,9 +93,72 @@ public class InitialController extends Controller {
         fadeInImg.play();
     }
 
+    private void setupProgressBar(){
+        progressBar.progressProperty().addListener((observable, oldValue, newValue) -> {
+            if(progressBar.getProgress() == 1){
+                setVisibleLogin();
+            }
+        });
+
+        Service service = new Service() {
+            @Override
+            protected Task createTask() {
+                return new Task() {
+                    @Override
+                    protected Object call() throws Exception {
+                        updateMessage("Configurando...");
+                        updateProgress(0,3);
+                        Thread.sleep(1000);
+
+                        updateProgress(1,3);
+                        updateMessage("Conectando ao Banco de Dados ..");
+                        HibernateUtilities.load();
+
+                        updateProgress(2,3);
+                        updateMessage("Abrindo Login ..");
+                        Thread.sleep(500);
+
+                        updateProgress(3,3);
+
+                        return null;
+                    }
+                };
+            }
+        };
+
+        lblConfig.textProperty().bind(service.messageProperty());
+        progressBar.progressProperty().bind(service.progressProperty());
+        service.start();
+    }
+
+    private void setVisibleLogin() {
+        FadeTransition fadeIn = new FadeTransition(Duration.seconds(1), paneLogin);
+        fadeIn.setFromValue(0);
+        fadeIn.setToValue(1);
+        fadeIn.setCycleCount(1);
+
+        FadeTransition fadeOut = new FadeTransition(Duration.seconds(1), paneConfig);
+        fadeOut.setFromValue(1);
+        fadeOut.setToValue(0);
+        fadeOut.setCycleCount(1);
+        fadeOut.setOnFinished( e -> {
+            paneLogin.setOpacity(0);
+            paneLogin.setVisible(true);
+            fadeIn.play();
+            paneConfig.setVisible(false);
+        });
+        fadeOut.play();
+    }
+
     @FXML private void login(){
-        Window.changeScene(this.stage, "pdv", this);
-        this.stage.close();
+
+        if(AccessModel.isLogin(inputUser.getText(), inputPassword.getText())){
+            Window.changeScene(this.stage, "pdv", this);
+            this.stage.close();
+        } else {
+            lblError.setText("Usuário ou senha incorretos");
+            lblError.setVisible(true);
+        }
     }
 
     @FXML private void out(){

@@ -12,6 +12,9 @@ public class FinalizeSaleController extends Controller {
     @Override
     public void initialize(Stage oldStage, Scene scene, Controller oldController, Object... objects) {
 
+        PDVController pdv = (PDVController) oldController;
+        pdv.activeWaitScreen(true);
+
         scene.addEventFilter(KeyEvent.KEY_PRESSED, e -> {
             if(e.getCode() == KeyCode.ESCAPE){
                 stage.close();
@@ -24,5 +27,7 @@ public class FinalizeSaleController extends Controller {
 
         Window.setModal(this.stage, oldStage);
         super.initialize(oldStage, scene, oldController, objects);
+
+        this.stage.showingProperty().addListener( e -> pdv.activeWaitScreen(false));
     }
 }

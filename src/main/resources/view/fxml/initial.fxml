@@ -6,6 +6,7 @@
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
@@ -18,90 +19,109 @@
    <children>
       <AnchorPane fx:id="imgBackground" prefHeight="200.0" prefWidth="200.0" styleClass="imgBackground" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <HBox fx:id="paneMain" styleClass="paneMain" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="100.0">
+            <AnchorPane fx:id="paneMain" layoutX="93.0" layoutY="96.0" styleClass="paneMain" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="100.0">
                <children>
-                  <VBox alignment="CENTER" maxWidth="350.0" minWidth="350.0" HBox.hgrow="ALWAYS">
+                  <HBox fx:id="paneLogin" layoutX="7.0" layoutY="4.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <ImageView fitHeight="175.0" fitWidth="175.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="/view/img/logoGrande.png" />
-                           </image>
-                        </ImageView>
-                        <Label styleClass="textLogo" text="DOMUS" />
-                     </children>
-                  </VBox>
-                  <VBox alignment="CENTER" spacing="20.0" HBox.hgrow="ALWAYS">
-                     <children>
-                        <Label styleClass="textLogin" text="Login">
-                           <VBox.margin>
-                              <Insets />
-                           </VBox.margin>
-                        </Label>
-                        <VBox spacing="10.0">
+                        <VBox alignment="CENTER" maxWidth="350.0" minWidth="350.0" HBox.hgrow="ALWAYS">
                            <children>
+                              <ImageView fitHeight="175.0" fitWidth="175.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="/view/img/logoGrande.png" />
+                                 </image>
+                              </ImageView>
+                              <Label styleClass="textLogo" text="DOMUS" />
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" spacing="20.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label styleClass="textLogin" text="Login">
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </Label>
+                              <Label fx:id="lblError" styleClass="textError" visible="false">
+                                 <VBox.margin>
+                                    <Insets bottom="-10.0" top="-10.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <VBox spacing="10.0">
+                                 <children>
+                                    <AnchorPane maxHeight="40.0" minHeight="40.0">
+                                       <children>
+                                          <TextField fx:id="inputUser" promptText="User" styleClass="input" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                          <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="10.0">
+                                             <image>
+                                                <Image url="/view/img/userLogin.png" />
+                                             </image>
+                                             <cursor>
+                                                <Cursor fx:constant="TEXT" />
+                                             </cursor>
+                                          </ImageView>
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane maxHeight="40.0" minHeight="40.0">
+                                       <children>
+                                          <PasswordField fx:id="inputPassword" promptText="Password" styleClass="input" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                          <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="10.0">
+                                             <image>
+                                                <Image url="/view/img/passwordLogin.png" />
+                                             </image>
+                                             <cursor>
+                                                <Cursor fx:constant="TEXT" />
+                                             </cursor>
+                                          </ImageView>
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding>
+                              </VBox>
                               <AnchorPane maxHeight="40.0" minHeight="40.0">
                                  <children>
-                                    <TextField fx:id="inputUser" promptText="User" styleClass="input" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="10.0">
-                                       <image>
-                                          <Image url="/view/img/userLogin.png" />
-                                       </image>
+                                    <Button maxHeight="40.0" minHeight="40.0" mnemonicParsing="false" onAction="#login" styleClass="btnLogin" text="LOGIN" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                        <cursor>
-                                          <Cursor fx:constant="TEXT" />
+                                          <Cursor fx:constant="HAND" />
                                        </cursor>
-                                    </ImageView>
+                                    </Button>
                                  </children>
                               </AnchorPane>
-                              <AnchorPane maxHeight="40.0" minHeight="40.0">
+                              <AnchorPane maxWidth="45.0" minWidth="45.0">
+                                 <VBox.margin>
+                                    <Insets top="40.0" />
+                                 </VBox.margin>
                                  <children>
-                                    <PasswordField fx:id="inputPassword" promptText="Password" styleClass="input" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="10.0">
+                                    <ImageView fitHeight="13.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="6.0">
                                        <image>
-                                          <Image url="/view/img/passwordLogin.png" />
+                                          <Image url="/view/img/logoutSmall.png" />
                                        </image>
-                                       <cursor>
-                                          <Cursor fx:constant="TEXT" />
-                                       </cursor>
                                     </ImageView>
+                                    <Hyperlink fx:id="linkLogout" alignment="TOP_LEFT" onAction="#out" styleClass="linkOut" text="Sair" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                  </children>
                               </AnchorPane>
                            </children>
                            <padding>
-                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                              <Insets left="20.0" right="20.0" />
                            </padding>
                         </VBox>
-                        <AnchorPane maxHeight="40.0" minHeight="40.0">
-                           <children>
-                              <Button maxHeight="40.0" minHeight="40.0" mnemonicParsing="false" onAction="#login" styleClass="btnLogin" text="LOGIN" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </Button>
-                           </children>
-                        </AnchorPane>
-                        <AnchorPane maxWidth="45.0" minWidth="45.0">
-                           <VBox.margin>
-                              <Insets top="40.0" />
-                           </VBox.margin>
-                           <children>
-                              <ImageView fitHeight="13.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="6.0">
-                                 <image>
-                                    <Image url="/view/img/logoutSmall.png" />
-                                 </image>
-                              </ImageView>
-                              <Hyperlink fx:id="linkLogout" alignment="TOP_LEFT" onAction="#out" styleClass="linkOut" text="Sair" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                           </children>
-                        </AnchorPane>
                      </children>
-                     <padding>
-                        <Insets left="20.0" right="20.0" />
-                     </padding>
+                     <effect>
+                        <DropShadow color="#00000033" offsetX="2.0" offsetY="5.0" />
+                     </effect>
+                  </HBox>
+                  <VBox fx:id="paneConfig" alignment="CENTER" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Label fx:id="lblConfig" styleClass="textConfig" />
+                        <ProgressBar fx:id="progressBar" maxHeight="40.0" maxWidth="400.0" minHeight="40.0" minWidth="400.0" progress="0.0" styleClass="progressBar">
+                           <effect>
+                              <DropShadow color="#00000033" offsetX="2.0" offsetY="5.0" />
+                           </effect>
+                        </ProgressBar>
+                     </children>
                   </VBox>
                </children>
-               <effect>
-                  <DropShadow color="#00000033" offsetX="2.0" offsetY="5.0" />
-               </effect>
-            </HBox>
+            </AnchorPane>
          </children></AnchorPane>
    </children>
 </AnchorPane>
