@@ -36,7 +36,7 @@
                                     <AnchorPane HBox.hgrow="ALWAYS">
                                        <children>
                                           <Label layoutX="10.0" layoutY="10.0" maxHeight="20.0" minHeight="20.0" styleClass="subtitleWhite" text="Produto" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="0.0" />
-                                          <TextField promptText="Pesquisar ..." styleClass="input" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0" />
+                                          <TextField fx:id="txtSearchItem" promptText="Pesquisar ..." styleClass="input" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0" />
                                        </children>
                                     </AnchorPane>
                                  </children>
@@ -46,7 +46,7 @@
                                     <AnchorPane HBox.hgrow="ALWAYS">
                                        <children>
                                           <Label maxHeight="20.0" minHeight="20.0" styleClass="subtitleWhite" text="Qnt" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                                          <TextField alignment="CENTER" styleClass="input" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0" />
+                                          <TextField fx:id="txtQuantityItem" alignment="CENTER" styleClass="input" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0" />
                                        </children>
                                     </AnchorPane>
                                  </children>
@@ -68,7 +68,34 @@
                                     <Label styleClass="textLogo" text="DOMUS" />
                                  </children>
                               </VBox>
-                              <VBox alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                              <VBox fx:id="paneSearchMenu" alignment="CENTER" styleClass="paneBlueDark" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <VBox styleClass="paneBlueDark">
+                                       <children>
+                                          <HBox alignment="CENTER" maxHeight="50.0" minHeight="50.0" spacing="3.0" styleClass="paneWhite" VBox.vgrow="ALWAYS">
+                                             <children>
+                                                <Label fx:id="lblQuantitySearch" styleClass="textBold" text="0" />
+                                                <Label styleClass="textBold" text="PRODUTOS ENCONTRADOS" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                       <padding>
+                                          <Insets left="2.0" right="2.0" />
+                                       </padding>
+                                    </VBox>
+                                    <TableView id="tableSearch" fx:id="tableSearch" VBox.vgrow="ALWAYS">
+                                       <placeholder>
+                                          <Label />
+                                       </placeholder>
+                                      <columns>
+                                        <TableColumn fx:id="nameSearch" prefWidth="75.0" text="NOME DO ITEM" />
+                                        <TableColumn fx:id="priceSearch" maxWidth="3000.0" prefWidth="75.0" text="PREÇO" />
+                                      </columns>
+                                       <columnResizePolicy>
+                                          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                       </columnResizePolicy>
+                                    </TableView>
+                                 </children></VBox>
                            </children>
                         </AnchorPane>
                      </children>
@@ -77,17 +104,17 @@
                      <children>
                         <VBox prefHeight="200.0" prefWidth="100.0" VBox.vgrow="ALWAYS">
                            <children>
-                              <TableView id="tableItems" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                              <TableView id="tableItems" fx:id="tableSale" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                                  <placeholder>
                                     <Label />
                                  </placeholder>
                                  <columns>
-                                  <TableColumn maxWidth="1500.0" prefWidth="75.0" sortable="false" text="#" />
-                                  <TableColumn prefWidth="75.0" sortable="false" text="PRODUTO" />
-                                    <TableColumn maxWidth="2500.0" prefWidth="75.0" sortable="false" text="PREÇO" />
-                                    <TableColumn maxWidth="2000.0" prefWidth="75.0" sortable="false" text="QNT" />
-                                    <TableColumn maxWidth="2500.0" prefWidth="75.0" sortable="false" text="DESC" />
-                                    <TableColumn maxWidth="4000.0" prefWidth="75.0" sortable="false" text="SUBTOTAL" />
+                                  <TableColumn fx:id="codeSale" maxWidth="1500.0" prefWidth="75.0" sortable="false" text="#" />
+                                  <TableColumn fx:id="nameSale" prefWidth="75.0" sortable="false" text="PRODUTO" />
+                                    <TableColumn fx:id="priceSale" maxWidth="2500.0" prefWidth="75.0" sortable="false" text="PREÇO" />
+                                    <TableColumn fx:id="quantitySale" maxWidth="2000.0" prefWidth="75.0" sortable="false" text="QNT" />
+                                    <TableColumn fx:id="discountSale" maxWidth="3000.0" prefWidth="75.0" sortable="false" text="DESC" />
+                                    <TableColumn fx:id="subtotalSale" maxWidth="3000.0" prefWidth="75.0" sortable="false" text="SUBTOTAL" />
                                 </columns>
                                  <columnResizePolicy>
                                     <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -111,24 +138,16 @@
                      <children>
                         <VBox prefWidth="1000.0" spacing="10.0" HBox.hgrow="ALWAYS">
                            <children>
-                              <HBox maxHeight="53.0" spacing="10.0" VBox.vgrow="ALWAYS">
+                              <HBox spacing="10.0" VBox.vgrow="ALWAYS">
                                  <children>
-                                    <AnchorPane prefWidth="500.0" styleClass="paneBlueDark">
+                                    <AnchorPane prefWidth="500.0">
                                        <children>
-                                          <HBox alignment="CENTER" styleClass="btnBlue" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
-                                             <children>
-                                                <Label styleClass="btnText" text="ENTRADA FINANCEIRA" />
-                                             </children>
-                                          </HBox>
+                                          <Button mnemonicParsing="false" onAction="#insertInflows" styleClass="btnBlue" text="ENTRADA FINANCEIRA" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                        </children>
                                     </AnchorPane>
-                                    <AnchorPane prefWidth="500.0" styleClass="paneBlueDark">
+                                    <AnchorPane prefWidth="500.0">
                                        <children>
-                                          <HBox alignment="CENTER" styleClass="btnBlue" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
-                                             <children>
-                                                <Label styleClass="btnText" text="CLIENTE" />
-                                             </children>
-                                          </HBox>
+                                          <Button mnemonicParsing="false" onAction="#linkCustomer" styleClass="btnBlue" text="VINCULAR CLIENTE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                        </children>
                                     </AnchorPane>
                                     <AnchorPane onMouseClicked="#openFinalizeSale" prefWidth="500.0" styleClass="paneGreenDark">
@@ -138,24 +157,16 @@
                                     </AnchorPane>
                                  </children>
                               </HBox>
-                              <HBox maxHeight="53.0" spacing="10.0" VBox.vgrow="ALWAYS">
+                              <HBox spacing="10.0" VBox.vgrow="ALWAYS">
                                  <children>
-                                    <AnchorPane prefWidth="500.0" styleClass="paneBlueDark">
+                                    <AnchorPane prefWidth="500.0">
                                        <children>
-                                          <HBox alignment="CENTER" styleClass="btnBlue" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
-                                             <children>
-                                                <Label styleClass="btnText" text="SAIDA FINANCEIRA" />
-                                             </children>
-                                          </HBox>
+                                          <Button mnemonicParsing="false" onAction="#insertOutflows" styleClass="btnBlue" text="SAIDA FINANCEIRA" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                        </children>
                                     </AnchorPane>
-                                    <AnchorPane prefWidth="500.0" styleClass="paneBlueDark">
+                                    <AnchorPane prefWidth="500.0">
                                        <children>
-                                          <HBox alignment="CENTER" styleClass="btnBlue" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
-                                             <children>
-                                                <Label styleClass="btnText" text="ANIMAL" />
-                                             </children>
-                                          </HBox>
+                                          <Button mnemonicParsing="false" onAction="#linkAnimal" styleClass="btnBlue" text="VINCULAR ANIMAL" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                        </children>
                                     </AnchorPane>
                                     <AnchorPane prefWidth="500.0">
@@ -171,22 +182,22 @@
                            <children>
                               <VBox spacing="10.0" HBox.hgrow="ALWAYS">
                                  <children>
-                                    <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                                    <HBox alignment="CENTER_LEFT" VBox.vgrow="ALWAYS">
                                        <children>
                                           <Label styleClass="textBoldSmall" text="DESCONTO :" />
                                           <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
                                              <children>
-                                                <Label styleClass="textBoldSmall" text="R$ 0,00" />
+                                                <Label fx:id="lblDiscount" styleClass="textBoldSmall" text="R$ 0,00" />
                                              </children>
                                           </HBox>
                                        </children>
                                     </HBox>
-                                    <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                                    <HBox alignment="CENTER_LEFT" VBox.vgrow="ALWAYS">
                                        <children>
                                           <Label styleClass="textBoldBig" text="TOTAL :" />
                                           <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
                                              <children>
-                                                <Label styleClass="textBoldBig" text="R$ 0,00" />
+                                                <Label fx:id="lblTotal" styleClass="textBoldBig" text="R$ 0,00" />
                                              </children>
                                           </HBox>
                                        </children>
@@ -224,13 +235,13 @@
                                           <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                                              <children>
                                                 <Label styleClass="textBold" text="USUÁRIO :" />
-                                                <Label fx:id="lblUser" styleClass="textNormal" text="João Lopes" />
+                                                <Label fx:id="lblUser" styleClass="textNormal" />
                                              </children>
                                           </HBox>
                                           <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                                              <children>
                                                 <Label styleClass="textBold" text="LOGADO DESDE :" />
-                                                <Label fx:id="lblDate" styleClass="textNormal" text="03/05/2019 às 19:00" />
+                                                <Label fx:id="lblDate" styleClass="textNormal" />
                                              </children>
                                           </HBox>
                                        </children>
@@ -248,13 +259,9 @@
                                           </HBox>
                                        </children>
                                     </AnchorPane>
-                                    <AnchorPane prefWidth="500.0" styleClass="paneBlueDark">
+                                    <AnchorPane prefWidth="500.0">
                                        <children>
-                                          <HBox alignment="CENTER" styleClass="btnBlue" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
-                                             <children>
-                                                <Label styleClass="btnText" text="FECHAR CAIXA" />
-                                             </children>
-                                          </HBox>
+                                          <Button mnemonicParsing="false" onAction="#closeCash" styleClass="btnBlue" text="FECHAR CAIXA" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                        </children>
                                     </AnchorPane>
                                     <AnchorPane prefWidth="500.0">

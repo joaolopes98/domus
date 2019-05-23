@@ -29,8 +29,11 @@ public class OpenCashController extends Controller {
 
         scene.addEventFilter(KeyEvent.KEY_PRESSED, e -> {
             if(e.getCode() == KeyCode.ESCAPE){
-                stage.close();
                 e.consume();
+                cancel();
+            } else if ( e.getCode() == KeyCode.ENTER){
+                e.consume();
+                open();
             }
         });
 
@@ -38,7 +41,7 @@ public class OpenCashController extends Controller {
         super.initialize(oldStage, scene, oldController, objects);
 
         this.stage.showingProperty().addListener( e -> pdvController.activeWaitScreen(false));
-        Mask.maskMoney(txtValue);
+        Mask.money(txtValue);
     }
 
     public void cancel() {

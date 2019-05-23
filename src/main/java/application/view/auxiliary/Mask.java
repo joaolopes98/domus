@@ -1,12 +1,19 @@
 package application.view.auxiliary;
 
+import javafx.beans.value.ObservableValue;
 import javafx.geometry.Pos;
 import javafx.scene.control.TextField;
 
 import java.text.DecimalFormat;
 
 public abstract class Mask {
-    public static void maskMoney(TextField textField){
+    public static void toUpperCase(TextField textField) {
+        textField.textProperty().addListener((ObservableValue<? extends String> observable, String oldValue, String newValue) -> {
+            textField.setText(newValue.toUpperCase());
+        });
+    }
+
+    public static void money(TextField textField){
         textField.setText("R$ 0,00");
         textField.setAlignment(Pos.CENTER_RIGHT);
         textField.textProperty().addListener((observable, oldValue, newValue) -> {
@@ -40,5 +47,39 @@ public abstract class Mask {
                 .replace(",",".");
 
         return Double.parseDouble(text);
+    }
+
+    public static void zeroTo(TextField textField, int max){
+        textField.setText("1");
+        textField.textProperty().addListener((observable, oldValue, newValue) -> {
+            String text = newValue.replaceAll("\\D", "");
+            text = text.replaceAll("[0]*(\\d+)", "$1");
+
+            if(text.isEmpty()){
+                textField.setText("0");
+            } else {
+                int integer = Integer.parseInt(text);
+                if(integer > max){
+                    textField.setText(String.valueOf(max));
+                } else {
+                    textField.setText(text);
+                }
+            }
+        });
+    }
+
+    public static int unmaskInteger(String text){
+        text = text.replaceAll("//D", "");
+        return Integer.parseInt(text);
+    }
+
+    public static String formatDoubleToMoney(double value){
+        DecimalFormat decimalFormat = new DecimalFormat("'R$' #,##0.00");
+        return decimalFormat.format(value);
+    }
+
+    public static String formatStringCode(int code){
+        DecimalFormat decimalFormat = new DecimalFormat("000");
+        return decimalFormat.format(code);
     }
 }

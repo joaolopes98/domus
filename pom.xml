@@ -27,13 +27,6 @@
             <version>5.3.0.Final</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.hibernate.dialect/sqlite-dialect -->
-        <dependency>
-            <groupId>org.hibernate.dialect</groupId>
-            <artifactId>sqlite-dialect</artifactId>
-            <version>0.1.0</version>
-        </dependency>
-
         <!-- https://mvnrepository.com/artifact/org.xerial/sqlite-jdbc -->
         <dependency>
             <groupId>org.xerial</groupId>

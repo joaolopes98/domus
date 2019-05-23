@@ -16,5 +16,21 @@
         <property name="value_closed_system" type="double"/>
         <many-to-one name="opened_by" class="application.controller.object.Access"/>
         <many-to-one name="closed_by" class="application.controller.object.Access"/>
+
+        <set name="sales" inverse="true" cascade="all">
+            <key column="cash_id" not-null="false"/>
+            <one-to-many class="application.controller.object.Sale"/>
+        </set>
+
+        <set name="financialInflows" inverse="true" cascade="all">
+            <key column="cash_id" not-null="false"/>
+            <one-to-many class="application.controller.object.FinancialInflow"/>
+        </set>
+
+        <set name="financialOutflows" inverse="true" cascade="all">
+            <key column="cash_id" not-null="false"/>
+            <one-to-many class="application.controller.object.FinancialOutflow"/>
+        </set>
+
     </class>
 </hibernate-mapping>

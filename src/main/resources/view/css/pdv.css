@@ -38,7 +38,15 @@
 
 .btnBlue{
     -fx-background-color: #5c6f7d;
+    -fx-border-color: #36434C;
+    -fx-border-width: 2px;
     -fx-cursor: hand;
+    -fx-padding: 0;
+
+    -fx-font-family: Lato;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-font-size: 13px;
 }
 
 .btnBlue:hover{
@@ -50,8 +58,9 @@
     -fx-border-color: #772222;
     -fx-border-width: 2px;
     -fx-cursor: hand;
+    -fx-padding: 0;
 
-    fx-font-family: Lato;
+    -fx-font-family: Lato;
     -fx-font-weight: bold;
     -fx-text-fill: white;
     -fx-font-size: 13px;
@@ -66,8 +75,9 @@
     -fx-border-color: #227722;
     -fx-border-width: 2px;
     -fx-cursor: hand;
+    -fx-padding: 0;
 
-    fx-font-family: Lato;
+    -fx-font-family: Lato;
     -fx-font-weight: bold;
     -fx-text-fill: white;
     -fx-font-size: 13px;
@@ -75,14 +85,6 @@
 
 .btnGreen:hover{
     -fx-background-color: #227722;
-}
-
-.btnText{
-    -fx-background-color: transparent;
-    -fx-font-family: Lato;
-    -fx-font-weight: bold;
-    -fx-text-fill: white;
-    -fx-font-size: 13px;
 }
 
 .input{
@@ -103,6 +105,54 @@
     -fx-font-weight: bold;
     -fx-font-size: 14px;
     -fx-alignment: center;
+}
+
+#tableSearch{
+    -fx-font-family: Lato;
+    -fx-padding: 0;
+    -fx-background-color: #EDEDED;
+    -fx-border-width: 2px;
+    -fx-border-color: #36434C;
+}
+
+#tableSearch .column-header {
+    -fx-background-color: #36434C;
+    -fx-font-size: 17px;
+    -fx-border-width: 0 0 2 0;
+    -fx-border-color: #36434C;
+}
+
+#tableSearch .column-header .label{
+    -fx-background-color: transparent;
+    -fx-padding: 19 7;
+    -fx-alignment: center-left;
+    -fx-text-fill: white;
+}
+
+#tableSearch .table-row-cell {
+    -fx-background-color: #EDEDED;
+    -fx-border-color: #36434C;
+    -fx-border-width: 0 0 2 0;
+    -fx-cell-size: 50px;
+}
+
+#tableSearch .table-row-cell:empty {
+    -fx-border-color: transparent;
+}
+
+#tableSearch .table-row-cell:focused .table-column{
+    -fx-background-color: #5c6f7d;
+    -fx-text-fill: white;
+}
+
+#tableSearch .table-cell {
+    -fx-font-family: Lato;
+    -fx-border-color: transparent;
+    -fx-alignment: center-left;
+    -fx-font-size: 15px;
+    -fx-text-fill: #36434C;
+    -fx-padding: 0 10;
+
 }
 
 #tableItems{
@@ -127,6 +177,26 @@
     -fx-text-fill: white;
 }
 
+#tableItems .table-row-cell {
+    -fx-background-color: #EDEDED;
+    -fx-border-color: #36434C;
+    -fx-border-width: 0 0 2 0;
+    -fx-cell-size: 50px;
+}
+
+#tableItems .table-row-cell:empty {
+    -fx-border-color: transparent;
+}
+
+#tableItems .table-row-cell:focused .table-column{
+    -fx-background-color: #5c6f7d;
+    -fx-text-fill: white;
+}
+
+#tableItems .table-row-cell:focused .inputDiscount{
+    -fx-text-fill: white;
+}
+
 #tableItems .table-cell {
     -fx-font-family: Lato;
     -fx-border-color: transparent;
@@ -135,6 +205,19 @@
     -fx-text-fill: #36434C;
     -fx-padding: 0 10;
 
+}
+
+.inputDiscount{
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+
+    -fx-font-family: Lato;
+    -fx-font-size: 15px;
+    -fx-text-fill: #36434C;
+}
+
+.inputDiscount:focused{
+    -fx-border-color: #36434C;
 }
 
 .paneMenuLogo{
@@ -191,3 +274,19 @@
     -fx-text-fill: #36434C;
     -fx-font-size: 50px;
 }
+
+
+/*
+
+#tableProduct .table-cell {
+	-fx-border-color: transparent;
+	-fx-alignment: center-left;
+	-fx-font-size: 12px;
+	-fx-padding: 0;
+
+	-fx-text-overrun: clip;
+}
+
+
+
+ */

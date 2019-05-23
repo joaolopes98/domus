@@ -3,6 +3,8 @@ package application.controller.object;
 import application.model.Model;
 
 import java.sql.Timestamp;
+import java.util.HashSet;
+import java.util.Set;
 
 public class CashMovement implements Model {
     private int id;
@@ -14,6 +16,10 @@ public class CashMovement implements Model {
     private double value_closed_system;
     private Access opened_by;
     private Access closed_by;
+
+    private Set<Sale> sales = new HashSet<>();
+    private Set<FinancialInflow> financialInflows = new HashSet<>();
+    private Set<FinancialOutflow> financialOutflows = new HashSet<>();
 
     public int getId() {
         return id;
@@ -85,5 +91,29 @@ public class CashMovement implements Model {
 
     public void setClosed_by(Access closed_by) {
         this.closed_by = closed_by;
+    }
+
+    public Set<Sale> getSales() {
+        return sales;
+    }
+
+    public void setSales(Set<Sale> sales) {
+        this.sales = sales;
+    }
+
+    public Set<FinancialInflow> getFinancialInflows() {
+        return financialInflows;
+    }
+
+    public void setFinancialInflows(Set<FinancialInflow> financialInflows) {
+        this.financialInflows = financialInflows;
+    }
+
+    public Set<FinancialOutflow> getFinancialOutflows() {
+        return financialOutflows;
+    }
+
+    public void setFinancialOutflows(Set<FinancialOutflow> financialOutflows) {
+        this.financialOutflows = financialOutflows;
     }
 }

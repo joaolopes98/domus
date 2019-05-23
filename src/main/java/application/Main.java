@@ -1,5 +1,7 @@
 package application;
 
+import application.controller.object.CashMovement;
+import application.model.CashMovementModel;
 import application.model.HibernateUtilities;
 import application.view.auxiliary.Window;
 import javafx.application.Application;

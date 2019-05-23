@@ -119,7 +119,6 @@ public class InitialController extends Controller {
                         Thread.sleep(500);
 
                         updateProgress(3,3);
-
                         return null;
                     }
                 };
