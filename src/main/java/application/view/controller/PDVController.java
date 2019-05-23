@@ -14,10 +14,7 @@ import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyCombination;
@@ -136,7 +133,7 @@ public class PDVController extends Controller {
                     if (paneSearchMenu.isVisible()) {
                         selectedSearch = tableSearch.getSelectionModel().getSelectedItem();
                         txtSearchItem.setText(selectedSearch.getName());
-                        toLastPosition(txtSearchItem);
+                        Mask.toLastPosition(txtSearchItem);
                         txtQuantityItem.requestFocus();
                         paneSearchMenu.setVisible(false);
                     } else {
@@ -173,7 +170,7 @@ public class PDVController extends Controller {
                 e.consume();
             } else if(e.getCode() == KeyCode.ENTER){
                 if(selectedSearch == null){
-                    toLastPosition(txtSearchItem);
+                    Mask.toLastPosition(txtSearchItem);
                     openMenuSearch();
                 } else {
                     if(txtSearchItem.getText().equals(selectedSearch.getName())) {
@@ -192,11 +189,20 @@ public class PDVController extends Controller {
         nameSearch.setCellValueFactory(new PropertyValueFactory<>("name"));
         priceSearch.setCellValueFactory(new PropertyValueFactory<>("price"));
         tableSearch.setItems(obsSearchFields);
-        tableSearch.focusedProperty().addListener((observable, oldValue, newValue) -> {
-            if(newValue){
-                txtSearchItem.requestFocus();
-                txtSearchItem.positionCaret(txtSearchItem.getText().length());
-            }
+
+        tableSearch.setRowFactory( e -> {
+            TableRow<ItemSearchField> row = new TableRow<>();
+            row.setOnMouseClicked( f -> {
+                if(f.getClickCount() == 1 && !row.isEmpty()){
+                    Mask.toLastPosition(txtSearchItem);
+                    f.consume();
+                } else if(f.getClickCount() == 2 && !row.isEmpty()){
+                    selectedSearch = row.getItem();
+                    addItemToTableSale();
+                    f.consume();
+                }
+            });
+            return row;
         });
 
         //Configurando Items de Busca
@@ -240,13 +246,8 @@ public class PDVController extends Controller {
         txtSearchItem.setText("");
         txtQuantityItem.setText("1");
         selectedSearch = null;
-        toLastPosition(txtSearchItem);
+        Mask.toLastPosition(txtSearchItem);
         tableSale.getSelectionModel().clearSelection();
-    }
-
-    private void toLastPosition(TextField textField){
-        textField.requestFocus();
-        textField.positionCaret(textField.getText().length());
     }
 
     private void openMenuSearch(){
@@ -304,5 +305,17 @@ public class PDVController extends Controller {
 
     public TableView<ItemSaleField> getTableSale() {
         return tableSale;
+    }
+
+    public ObservableList<ItemSaleField> getObsSaleFields() {
+        return obsSaleFields;
+    }
+
+    public double getTotal() {
+        return total;
+    }
+
+    public double getDiscount() {
+        return discount;
     }
 }

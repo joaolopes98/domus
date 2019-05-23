@@ -38,7 +38,8 @@ public abstract class Mask {
         });
 
         textField.setOnMouseClicked( e -> textField.positionCaret(textField.getText().length()+1));
-        textField.setOnKeyPressed( e -> textField.positionCaret(textField.getText().length()+1));
+//        textField.setOnKeyPressed( e -> textField.positionCaret(textField.getText().length()+1));
+        textField.positionCaret(textField.getText().length()+1);
     }
 
     public static double unmaskMoney(String value){
@@ -81,5 +82,10 @@ public abstract class Mask {
     public static String formatStringCode(int code){
         DecimalFormat decimalFormat = new DecimalFormat("000");
         return decimalFormat.format(code);
+    }
+
+    public static void toLastPosition(TextField textField){
+        textField.requestFocus();
+        textField.positionCaret(textField.getText().length());
     }
 }
