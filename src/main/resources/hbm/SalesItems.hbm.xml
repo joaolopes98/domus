@@ -1,0 +1,20 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name = "application.controller.object.SaleItem" table = "sales_items">
+        <id name = "id" type = "int">
+            <generator class="increment"/>
+        </id>
+        <property name="price" type="double"/>
+        <property name="quantity" type="integer"/>
+        <property name="discount" type="double"/>
+        <property name="subtotal" type="double"/>
+        <many-to-one name="sale" class="application.controller.object.Sale" column="sale_id"/>
+        <many-to-one name="product" class="application.controller.object.Product" column="product_id"/>
+        <many-to-one name="service" class="application.controller.object.Service" column="service_id"/>
+        <many-to-one name="animal" class="application.controller.object.Animal" column="animal_id"/>
+    </class>
+</hibernate-mapping>

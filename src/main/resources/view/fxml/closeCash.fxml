@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="277.0" maxWidth="510.0" minHeight="277.0" minWidth="510.0" styleClass="paneBlueDark" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.controller.CloseCashController">
+    <children>
+      <AnchorPane layoutX="10.0" layoutY="10.0" maxHeight="50.0" minHeight="50.0" styleClass="paneBlueLight" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
+         <children>
+            <HBox alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Label styleClass="textTitle" text="FECHAR CAIXA" />
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+        <VBox prefHeight="200.0" prefWidth="100.0" spacing="20.0" styleClass="paneWhite" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="54.0">
+            <padding>
+                <Insets bottom="20.0" left="40.0" right="40.0" top="20.0" />
+            </padding>
+            <children>
+                <AnchorPane maxHeight="40.0" minHeight="40.0" VBox.vgrow="ALWAYS">
+                    <children>
+                        <Label fx:id="lblInfo" alignment="CENTER" styleClass="lblInfo" text="Indique o valor final do caixa" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <font>
+                                <Font name="Noto Sans" size="14.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </AnchorPane>
+                <HBox alignment="CENTER" maxHeight="50.0" minHeight="50.0" spacing="10.0" VBox.vgrow="ALWAYS">
+                    <children>
+                        <Label styleClass="lblValue" text="Valor :">
+                            <font>
+                                <Font name="Noto Sans" size="18.0" />
+                            </font>
+                        </Label>
+                        <AnchorPane maxWidth="200.0" minWidth="200.0" HBox.hgrow="ALWAYS">
+                            <children>
+                                <TextField fx:id="txtValue" styleClass="input" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <font>
+                                        <Font name="Noto Sans" size="20.0" />
+                                    </font>
+                                </TextField>
+                            </children>
+                        </AnchorPane>
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER" maxHeight="50.0" minHeight="50.0" spacing="20.0" VBox.vgrow="ALWAYS">
+                    <children>
+                        <AnchorPane maxWidth="185.0" minWidth="185.0">
+                            <children>
+                                <Button mnemonicParsing="false" onAction="#cancel" styleClass="btnRed" text="CANCELAR" textFill="#2b2f33" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <font>
+                                        <Font name="Noto Sans Bold" size="10.0" />
+                                    </font>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </Button>
+                            </children>
+                        </AnchorPane>
+                        <AnchorPane maxWidth="185.0" minWidth="185.0">
+                            <children>
+                                <Button mnemonicParsing="false" onAction="#close" styleClass="btnGreen" text="FECHAR CAIXA" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <font>
+                                        <Font name="Noto Sans Bold" size="10.0" />
+                                    </font>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </Button>
+                            </children>
+                        </AnchorPane>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

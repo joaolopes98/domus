@@ -1,0 +1,18 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name = "application.controller.object.FinancialInflow" table = "financial_inflows">
+        <id name = "id" type = "int">
+            <generator class="increment"/>
+        </id>
+        <property name="value" type="double"/>
+        <property name="date" type="timestamp"/>
+        <many-to-one name="cashMovement" class="application.controller.object.CashMovement" column="cash_id"/>
+        <many-to-one name="sale" class="application.controller.object.Sale" column="sale_id"/>
+        <many-to-one name="paymentMethod" class="application.controller.object.PaymentMethod" column="payment_id"/>
+        <many-to-one name="access" class="application.controller.object.Access" column="access_id"/>
+    </class>
+</hibernate-mapping>

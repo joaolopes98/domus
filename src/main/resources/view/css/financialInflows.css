@@ -1,0 +1,91 @@
+@import "fonts.css";
+
+.paneBackground{
+    -fx-background-color: #EDEDED;
+    -fx-alignment: center;
+
+    -fx-background-image: url("/view/img/dotLogin.png");
+    -fx-background-repeat: repeat;
+    -fx-background-size: 5 5;
+}
+
+.paneWhite{
+    -fx-background-color: #EDEDED;
+}
+
+.paneBlueDark{
+    -fx-background-color: #36434C;
+    -fx-alignment: center;
+}
+
+.paneBlueLight{
+    -fx-background-repeat: repeat;
+    -fx-background-size: 10 10;
+    -fx-background-color: #5c6f7d;
+    -fx-alignment: center;
+}
+
+.textTitle{
+    -fx-font-family: Lato;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-font-size: 20px;
+}
+
+.lblInfo{
+    -fx-font-family: Lato;
+    -fx-font-weight: bold;
+    -fx-text-fill: #36434C;
+    -fx-font-size: 16px;
+}
+
+.lblValue{
+    -fx-font-family: Lato;
+    -fx-font-weight: bold;
+    -fx-text-fill: #36434C;
+    -fx-font-size: 20px;
+}
+
+.input{
+    -fx-background-color: transparent;
+    -fx-border-color: #36434C;
+    -fx-border-width: 0 0 2;
+    -fx-padding: 0 10;
+
+    -fx-font-weight: bold;
+    -fx-font-size: 25px;
+    -fx-text-fill: #36434C;
+    -fx-alignment: center-right;
+}
+
+.btnRed{
+    -fx-background-color: #AA2222;
+    -fx-border-color: #772222;
+    -fx-border-width: 2px;
+    -fx-cursor: hand;
+
+    fx-font-family: Lato;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-font-size: 13px;
+}
+
+.btnRed:hover{
+    -fx-background-color: #7d2222;
+}
+
+.btnGreen{
+    -fx-background-color: #22AA22;
+    -fx-border-color: #227722;
+    -fx-border-width: 2px;
+    -fx-cursor: hand;
+
+    fx-font-family: Lato;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-font-size: 13px;
+}
+
+.btnGreen:hover{
+    -fx-background-color: #227722;
+}
