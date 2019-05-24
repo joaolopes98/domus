@@ -63,7 +63,7 @@
                                        <children>
                                           <AnchorPane maxHeight="40.0" minHeight="40.0">
                                              <children>
-                                                <ComboBox prefWidth="150.0" promptText="FORMA DE PAGAMENTO" styleClass="boxWhite" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                                <ComboBox fx:id="comboPayment" prefWidth="150.0" promptText="FORMA DE PAGAMENTO" styleClass="boxWhite" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                              </children>
                                           </AnchorPane>
                                        </children>

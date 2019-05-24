@@ -83,8 +83,18 @@
 }
 
 .boxWhite .list-cell{
+    -fx-background-color: transparent;
     -fx-text-fill: white;
     -fx-prompt-text-fill: #FFFFFF80;
+}
+
+.boxWhite .list-view{
+    -fx-background-color: transparent;
+}
+
+.boxWhite .list-cell:hover{
+    -fx-background-color: #5c6f7d;
+    -fx-cursor: hand;
 }
 
 .boxWhite .arrow{

@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="600.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.controller.PDVController">
+<AnchorPane prefHeight="600.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.controller.PDVController">
    <children>
       <VBox layoutX="10.0" layoutY="10.0" spacing="10.0" styleClass="paneBackground" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -150,9 +150,9 @@
                                           <Button mnemonicParsing="false" onAction="#linkCustomer" styleClass="btnBlue" text="VINCULAR CLIENTE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                        </children>
                                     </AnchorPane>
-                                    <AnchorPane onMouseClicked="#openFinalizeSale" prefWidth="500.0" styleClass="paneGreenDark">
+                                    <AnchorPane prefWidth="500.0">
                                        <children>
-                                          <Button mnemonicParsing="false" onAction="#openFinalizeSale" styleClass="btnGreen" text="FINALIZAR VENDA" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                          <Button fx:id="btnFinalizeSale" disable="true" mnemonicParsing="false" onAction="#openFinalizeSale" styleClass="btnGreen" text="FINALIZAR VENDA" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                        </children>
                                     </AnchorPane>
                                  </children>
@@ -171,7 +171,7 @@
                                     </AnchorPane>
                                     <AnchorPane prefWidth="500.0">
                                        <children>
-                                          <Button mnemonicParsing="false" styleClass="btnRed" text="CANCELAR VENDA" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                          <Button fx:id="btnCancelItem" disable="true" mnemonicParsing="false" onAction="#cancelItem" styleClass="btnRed" text="CANCELAR ITEM" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                        </children>
                                     </AnchorPane>
                                  </children>

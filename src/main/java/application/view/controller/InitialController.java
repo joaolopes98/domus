@@ -107,18 +107,18 @@ public class InitialController extends Controller {
                     @Override
                     protected Object call() throws Exception {
                         updateMessage("Configurando...");
-                        updateProgress(0,3);
+                        updateProgress(1,4);
                         Thread.sleep(1000);
 
-                        updateProgress(1,3);
+                        updateProgress(2,4);
                         updateMessage("Conectando ao Banco de Dados ..");
                         HibernateUtilities.load();
 
-                        updateProgress(2,3);
+                        updateProgress(3,4);
                         updateMessage("Abrindo Login ..");
                         Thread.sleep(500);
 
-                        updateProgress(3,3);
+                        updateProgress(4,4);
                         return null;
                     }
                 };

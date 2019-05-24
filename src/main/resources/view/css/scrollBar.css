@@ -1,0 +1,37 @@
+.scroll-bar:horizontal, .scroll-bar:vertical{
+    -fx-background-color: #5c6f7d;
+}
+
+.scroll-bar:vertical {
+    -fx-pref-width: 16.5;
+}
+
+.scroll-bar:horizontal {
+    -fx-pref-height: 16.5;
+}
+
+.scroll-bar .increment-button,.scroll-bar .decrement-button {
+    -fx-pref-height: 16.5;
+    -fx-pref-width: 16.5;
+    -fx-cursor: hand;
+}
+
+.scroll-bar .increment-button:hover, .scroll-bar .decrement-button:hover {
+    -fx-background-color: #36434C;
+}
+
+.scroll-bar:horizontal .track, .scroll-bar:vertical .track{
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-radius: 0;
+}
+
+.scroll-bar:horizontal .thumb, .scroll-bar:vertical .thumb {
+    -fx-background-color: #36434C;
+    -fx-background-radius: 0;
+    -fx-cursor: hand;
+}
+
+.scroll-bar:vertical .thumb:hover, .scroll-bar:horizontal .thumb:hover {
+    -fx-background-color: #36434C;
+}

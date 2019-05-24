@@ -57,6 +57,9 @@ public class PDVController extends Controller {
     private double total= 0;
     private double discount = 0;
 
+    @FXML private Button btnFinalizeSale;
+    @FXML private Button btnCancelItem;
+
     @FXML private Label lblUser;
     @FXML private Label lblDate;
 
@@ -224,9 +227,13 @@ public class PDVController extends Controller {
         subtotalSale.setCellValueFactory(new PropertyValueFactory<>("subtotal"));
         subtotalSale.setStyle("-fx-alignment: center-right");
         tableSale.setItems(obsSaleFields);
+        tableSale.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            btnCancelItem.setDisable(newValue == null);
+        });
 
         obsSaleFields.addListener((ListChangeListener<ItemSaleField>) e -> {
             updateValues();
+            btnFinalizeSale.setDisable(obsSaleFields.size() == 0);
         });
     }
 
@@ -288,6 +295,11 @@ public class PDVController extends Controller {
 
     @FXML private void openFinalizeSale(){
         Window.changeScene(this.stage, "finalizeSale", this);
+    }
+
+    @FXML private void cancelItem(){
+        obsSaleFields.remove(tableSale.getSelectionModel().getSelectedItem());
+        tableSale.getSelectionModel().clearSelection();
     }
 
     @FXML public void closeCash(){

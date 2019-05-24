@@ -1,5 +1,6 @@
 @import "fonts.css";
 @import "waitScreen.css";
+@import "scrollBar.css";
 
 .root{
     -fx-background-color: #36434C;
@@ -155,6 +156,10 @@
 
 }
 
+#tableSearch .filler{
+
+}
+
 #tableItems{
     -fx-font-family: Lato;
     -fx-padding: 0;
@@ -205,6 +210,12 @@
     -fx-text-fill: #36434C;
     -fx-padding: 0 10;
 
+}
+
+#tableItems .filler{
+    -fx-background-color: #5c6f7d;
+    -fx-border-width: 0 0 2 0;
+    -fx-border-color: #36434C;
 }
 
 .inputDiscount{

@@ -1,20 +1,21 @@
 package application.view.controller;
 
 import application.controller.ItemSaleField;
+import application.controller.object.PaymentMethod;
+import application.model.PaymentMethodModel;
 import application.view.auxiliary.Controller;
 import application.view.auxiliary.Mask;
 import application.view.auxiliary.Window;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 
 public class FinalizeSaleController extends Controller {
 
@@ -25,10 +26,13 @@ public class FinalizeSaleController extends Controller {
 
     @FXML private TextField txtDiscount;
     @FXML private TextField txtPaymentValue;
+    @FXML private ComboBox<PaymentMethod> comboPayment;
 
     @FXML private Label lblTotal;
 
     private ObservableList<ItemSaleField> obsSale;
+    private double totalRoot;
+
     private double total;
     private double discount;
 
@@ -36,6 +40,7 @@ public class FinalizeSaleController extends Controller {
     public void initialize(Stage oldStage, Scene scene, Controller oldController, Object... objects) {
         PDVController pdv = (PDVController) oldController;
         this.obsSale = pdv.getObsSaleFields();
+        this.totalRoot = pdv.getTotal();
         this.total = pdv.getTotal();
         this.discount = pdv.getDiscount();
         pdv.activeWaitScreen(true);
@@ -57,6 +62,7 @@ public class FinalizeSaleController extends Controller {
 
         setupTableItems();
         setupInputs();
+        setupComboBox();
         setupInfos();
     }
 
@@ -70,19 +76,22 @@ public class FinalizeSaleController extends Controller {
     private void setupInputs(){
         Mask.money(txtDiscount);
         txtDiscount.setOnKeyPressed( e -> {
-            if(e.getCode() == KeyCode.TAB){
+            if(e.getCode() == KeyCode.TAB || e.getCode() == KeyCode.ENTER){
                 Mask.toLastPosition(txtPaymentValue);
                 System.out.println("AKI");
                 e.consume();
             }
         });
-        txtDiscount.textProperty().addListener( e -> {
+        txtDiscount.textProperty().addListener((observable, oldValue, newValue) -> {
             double discount = Mask.unmaskMoney(this.txtDiscount.getText());
 
-            if(discount > this.total){
-                this.txtDiscount.setText(Mask.formatDoubleToMoney(this.total));
+            if(discount > this.totalRoot){
+                this.txtDiscount.setText(Mask.formatDoubleToMoney(this.totalRoot));
             }
 
+            this.discount = Mask.unmaskMoney(this.txtDiscount.getText());
+            this.total = this.totalRoot - this.discount;
+            lblTotal.setText(Mask.formatDoubleToMoney(this.total));
         });
 
         Mask.money(txtPaymentValue);
@@ -96,7 +105,31 @@ public class FinalizeSaleController extends Controller {
         Mask.toLastPosition(txtPaymentValue);
     }
 
+    private void setupComboBox() {
+        ObservableList<PaymentMethod> obsPayment = FXCollections.observableArrayList(PaymentMethodModel.getAll());
+        Callback<ListView<PaymentMethod>, ListCell<PaymentMethod>> cellFactoryPaymentMethod = new Callback<ListView<PaymentMethod>, ListCell<PaymentMethod>>() {
+            @Override
+            public ListCell<PaymentMethod> call(ListView<PaymentMethod> l) {
+                return new ListCell<PaymentMethod>() {
+                    @Override
+                    protected void updateItem(PaymentMethod item, boolean empty) {
+                        super.updateItem(item, empty);
+                        if (item == null || empty) {
+                            setGraphic(null);
+                        } else {
+                            setText(item.getName());
+                        }
+                    }
+                } ;
+            }
+        };
+        comboPayment.setButtonCell(cellFactoryPaymentMethod.call(null));
+        comboPayment.setCellFactory(cellFactoryPaymentMethod);
+        comboPayment.setItems(obsPayment);
+        comboPayment.getSelectionModel().selectFirst();
+    }
+
     private void setupInfos(){
-        lblTotal.setText(Mask.formatDoubleToMoney(this.total));
+        lblTotal.setText(Mask.formatDoubleToMoney(this.totalRoot));
     }
 }
