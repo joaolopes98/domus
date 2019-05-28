@@ -76,7 +76,7 @@ public abstract class Mask {
 
     public static String formatDoubleToMoney(double value){
         DecimalFormat decimalFormat = new DecimalFormat("'R$' #,##0.00");
-        return decimalFormat.format(value);
+        return decimalFormat.format(value).replace("-", "");
     }
 
     public static String formatStringCode(int code){

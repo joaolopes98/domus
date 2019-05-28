@@ -1,12 +1,14 @@
 package application.view.controller;
 
 import application.controller.ItemSaleField;
+import application.controller.PaymentField;
 import application.controller.object.PaymentMethod;
 import application.model.PaymentMethodModel;
 import application.view.auxiliary.Controller;
 import application.view.auxiliary.Mask;
 import application.view.auxiliary.Window;
 import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
@@ -23,15 +25,24 @@ public class FinalizeSaleController extends Controller {
     @FXML private TableColumn<ItemSaleField, String> codeItem;
     @FXML private TableColumn<ItemSaleField, String> nameItem;
     @FXML private TableColumn<ItemSaleField, String> subtotalItem;
+    private ObservableList<ItemSaleField> obsSale;
+
+    @FXML private TableView<PaymentField> tablePayments;
+    @FXML private TableColumn<PaymentField, String> paymentName;
+    @FXML private TableColumn<PaymentField, String> paymentValue;
+    @FXML private TableColumn<PaymentField, Button> paymentRemove;
+    private ObservableList<PaymentField> obsPayments = FXCollections.observableArrayList();
+
 
     @FXML private TextField txtDiscount;
     @FXML private TextField txtPaymentValue;
     @FXML private ComboBox<PaymentMethod> comboPayment;
 
+    @FXML private Label lblInfo;
     @FXML private Label lblTotal;
 
-    private ObservableList<ItemSaleField> obsSale;
     private double totalRoot;
+    private double payments;
 
     private double total;
     private double discount;
@@ -61,6 +72,7 @@ public class FinalizeSaleController extends Controller {
         this.stage.showingProperty().addListener( e -> pdv.activeWaitScreen(false));
 
         setupTableItems();
+        setupTablePayments();
         setupInputs();
         setupComboBox();
         setupInfos();
@@ -73,6 +85,15 @@ public class FinalizeSaleController extends Controller {
         tableItem.setItems(obsSale);
     }
 
+    private void setupTablePayments(){
+        paymentName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        paymentValue.setCellValueFactory(new PropertyValueFactory<>("value"));
+        paymentRemove.setCellValueFactory(new PropertyValueFactory<>("delete"));
+        tablePayments.setItems(this.obsPayments);
+
+        obsPayments.addListener((ListChangeListener<PaymentField>) c -> updateValues());
+    }
+
     private void setupInputs(){
         Mask.money(txtDiscount);
         txtDiscount.setOnKeyPressed( e -> {
@@ -83,22 +104,18 @@ public class FinalizeSaleController extends Controller {
             }
         });
         txtDiscount.textProperty().addListener((observable, oldValue, newValue) -> {
-            double discount = Mask.unmaskMoney(this.txtDiscount.getText());
-
-            if(discount > this.totalRoot){
-                this.txtDiscount.setText(Mask.formatDoubleToMoney(this.totalRoot));
-            }
-
-            this.discount = Mask.unmaskMoney(this.txtDiscount.getText());
-            this.total = this.totalRoot - this.discount;
-            lblTotal.setText(Mask.formatDoubleToMoney(this.total));
+            updateValues();
         });
 
         Mask.money(txtPaymentValue);
+        txtPaymentValue.setText(Mask.formatDoubleToMoney(this.totalRoot));
         txtPaymentValue.setOnKeyPressed( e -> {
             if(e.getCode() == KeyCode.TAB){
                 Mask.toLastPosition(txtDiscount);
-                System.out.println("AKI 2");
+                e.consume();
+            } else if (e.getCode() == KeyCode.ENTER){
+                addPayment();
+                updateValues();
                 e.consume();
             }
         });
@@ -131,5 +148,42 @@ public class FinalizeSaleController extends Controller {
 
     private void setupInfos(){
         lblTotal.setText(Mask.formatDoubleToMoney(this.totalRoot));
+    }
+
+    private void updateValues(){
+        double discount = Mask.unmaskMoney(this.txtDiscount.getText());
+
+        if(discount > this.totalRoot){
+            this.txtDiscount.setText(Mask.formatDoubleToMoney(this.totalRoot));
+        }
+
+        this.discount = Mask.unmaskMoney(this.txtDiscount.getText());
+        this.total = this.totalRoot - this.discount;
+
+        this.payments = 0;
+        obsPayments.forEach( payment -> this.payments += Mask.unmaskMoney(payment.getValue()));
+
+        this.total -= this.payments;
+        if(this.total <= 0){
+            lblInfo.setText("TROCO");
+            lblTotal.setText(Mask.formatDoubleToMoney(this.total));
+            txtPaymentValue.setText(Mask.formatDoubleToMoney(0));
+            txtPaymentValue.setDisable(true);
+        } else {
+            lblInfo.setText("TOTAL");
+            lblTotal.setText(Mask.formatDoubleToMoney(this.total));
+            txtPaymentValue.setText(Mask.formatDoubleToMoney(this.total));
+            txtPaymentValue.setDisable(false);
+        }
+
+
+    }
+
+    private void addPayment(){
+        PaymentMethod paymentSelected = comboPayment.getSelectionModel().getSelectedItem();
+        String value = txtPaymentValue.getText();
+        PaymentField paymentField = new PaymentField(paymentSelected, value, this.obsPayments);
+
+        obsPayments.add(paymentField);
     }
 }

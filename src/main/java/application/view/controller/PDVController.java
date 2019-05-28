@@ -23,6 +23,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -56,6 +57,7 @@ public class PDVController extends Controller {
     @FXML private Label lblDiscount;
     private double total= 0;
     private double discount = 0;
+    private int code = 1;
 
     @FXML private Button btnFinalizeSale;
     @FXML private Button btnCancelItem;
@@ -234,6 +236,13 @@ public class PDVController extends Controller {
         obsSaleFields.addListener((ListChangeListener<ItemSaleField>) e -> {
             updateValues();
             btnFinalizeSale.setDisable(obsSaleFields.size() == 0);
+
+            DecimalFormat codeFormat = new DecimalFormat("000");
+            this.code = 1;
+            obsSaleFields.forEach( item -> {
+                item.setCode(codeFormat.format(this.code));
+                this.code++;
+            });
         });
     }
 

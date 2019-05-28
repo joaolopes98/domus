@@ -1,4 +1,5 @@
 @import "fonts.css";
+@import "scrollBar.css";
 
 .paneBackground{
     -fx-background-color: #EDEDED;
@@ -127,6 +128,21 @@
     -fx-text-fill: white;
 }
 
+#tablePayments .table-row-cell {
+    -fx-background-color: #EDEDED;
+    -fx-border-color: #36434C;
+    -fx-border-width: 0 0 2 0;
+    -fx-cell-size: 50px;
+}
+
+#tablePayments .table-row-cell:empty {
+    -fx-border-color: transparent;
+}
+
+#tablePayments .table-row-cell:focused .table-column{
+    -fx-background-color: #EDEDED;
+}
+
 #tablePayments .table-cell {
     -fx-font-family: Lato;
     -fx-border-color: transparent;
@@ -135,6 +151,12 @@
     -fx-text-fill: #36434C;
     -fx-padding: 0 10;
 
+}
+
+#tablePayments .filler{
+    -fx-background-color: #5c6f7d;
+    -fx-border-width: 0 0 2 0;
+    -fx-border-color: #36434C;
 }
 
 #tableItems{
@@ -159,6 +181,21 @@
     -fx-text-fill: white;
 }
 
+#tableItems .table-row-cell {
+    -fx-background-color: #EDEDED;
+    -fx-border-color: #36434C;
+    -fx-border-width: 0 0 2 0;
+    -fx-cell-size: 50px;
+}
+
+#tableItems .table-row-cell:empty {
+    -fx-border-color: transparent;
+}
+
+#tableItems .table-row-cell:focused .table-column{
+    -fx-background-color: #EDEDED;
+}
+
 #tableItems .table-cell {
     -fx-font-family: Lato;
     -fx-border-color: transparent;
@@ -167,6 +204,12 @@
     -fx-text-fill: #36434C;
     -fx-padding: 0 10;
 
+}
+
+#tableItems .filler{
+    -fx-background-color: #5c6f7d;
+    -fx-border-width: 0 0 2 0;
+    -fx-border-color: #36434C;
 }
 
 .textBold{
@@ -212,4 +255,13 @@
     -fx-font-weight: bold;
     -fx-text-fill: white;
     -fx-font-size: 13px;
+}
+
+.btnRemovePayment{
+    -fx-background-color: #AA2222;
+    -fx-cursor: hand;
+}
+
+.btnRemovePayment:hover{
+    -fx-background-color: #7d2222;
 }

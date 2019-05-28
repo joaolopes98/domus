@@ -88,14 +88,14 @@
                         </AnchorPane>
                         <AnchorPane maxHeight="150.0" minHeight="150.0" styleClass="paneBlueDark">
                            <children>
-                              <TableView id="tablePayments" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <TableView id="tablePayments" fx:id="tablePayments" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <placeholder>
                                     <Label />
                                  </placeholder>
                                  <columns>
-                                    <TableColumn prefWidth="75.0" text="PAGAMENTO" />
-                                    <TableColumn maxWidth="3500.0" prefWidth="75.0" text="VALOR" />
-                                    <TableColumn maxWidth="1000.0" prefWidth="75.0" />
+                                    <TableColumn fx:id="paymentName" prefWidth="75.0" text="PAGAMENTO" />
+                                    <TableColumn fx:id="paymentValue" maxWidth="3500.0" prefWidth="75.0" text="VALOR" />
+                                    <TableColumn fx:id="paymentRemove" maxWidth="1000.0" prefWidth="75.0" />
                                  </columns>
                                  <columnResizePolicy>
                                     <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -132,7 +132,7 @@
                                        <children>
                                           <HBox alignment="CENTER_LEFT" maxHeight="25.0" minHeight="25.0" VBox.vgrow="ALWAYS">
                                              <children>
-                                                <Label styleClass="subtitleDark" text="TOTAL" />
+                                                <Label fx:id="lblInfo" styleClass="subtitleDark" text="TOTAL" />
                                              </children>
                                           </HBox>
                                           <AnchorPane VBox.vgrow="ALWAYS">
