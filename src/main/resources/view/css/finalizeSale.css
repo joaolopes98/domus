@@ -1,5 +1,6 @@
 @import "fonts.css";
 @import "scrollBar.css";
+@import "buttons.css";
 
 .paneBackground{
     -fx-background-color: #EDEDED;
@@ -219,49 +220,4 @@
     -fx-font-size: 25px;
     -fx-text-fill: #36434C;
     -fx-alignment: center-right;
-}
-
-.paneRedDark{
-    -fx-background-color: #772222;
-    -fx-alignment: center;
-}
-
-.btnRed{
-    -fx-background-color: #AA2222;
-    -fx-cursor: hand;
-}
-
-.btnRed:hover{
-    -fx-background-color: #7d2222;
-}
-
-.paneGreenDark{
-    -fx-background-color: #227722;
-    -fx-alignment: center;
-}
-
-.btnGreen{
-    -fx-background-color: #22AA22;
-    -fx-cursor: hand;
-}
-
-.btnGreen:hover{
-    -fx-background-color: #227722;
-}
-
-.btnText{
-    -fx-background-color: transparent;
-    -fx-font-family: Lato;
-    -fx-font-weight: bold;
-    -fx-text-fill: white;
-    -fx-font-size: 13px;
-}
-
-.btnRemovePayment{
-    -fx-background-color: #AA2222;
-    -fx-cursor: hand;
-}
-
-.btnRemovePayment:hover{
-    -fx-background-color: #7d2222;
 }

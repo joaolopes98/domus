@@ -2,8 +2,10 @@ package application.view.controller;
 
 import application.controller.ItemSaleField;
 import application.controller.PaymentField;
-import application.controller.object.PaymentMethod;
+import application.controller.object.*;
+import application.model.CashMovementModel;
 import application.model.PaymentMethodModel;
+import application.model.SaleModel;
 import application.view.auxiliary.Controller;
 import application.view.auxiliary.Mask;
 import application.view.auxiliary.Window;
@@ -18,6 +20,10 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import javafx.util.Callback;
+
+import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.Date;
 
 public class FinalizeSaleController extends Controller {
 
@@ -41,6 +47,8 @@ public class FinalizeSaleController extends Controller {
     @FXML private Label lblInfo;
     @FXML private Label lblTotal;
 
+    @FXML private Button btnFinalize;
+
     private double totalRoot;
     private double payments;
 
@@ -58,7 +66,7 @@ public class FinalizeSaleController extends Controller {
 
         scene.addEventFilter(KeyEvent.KEY_PRESSED, e -> {
             if(e.getCode() == KeyCode.ESCAPE){
-                stage.close();
+                cancel();
                 e.consume();
             } else if (e.getCode() == KeyCode.F11){
                 stage.setFullScreen(!stage.isFullScreen());
@@ -76,6 +84,7 @@ public class FinalizeSaleController extends Controller {
         setupInputs();
         setupComboBox();
         setupInfos();
+        updateValues();
     }
 
     private void setupTableItems(){
@@ -169,14 +178,14 @@ public class FinalizeSaleController extends Controller {
             lblTotal.setText(Mask.formatDoubleToMoney(this.total));
             txtPaymentValue.setText(Mask.formatDoubleToMoney(0));
             txtPaymentValue.setDisable(true);
+            btnFinalize.setDisable(false);
         } else {
             lblInfo.setText("TOTAL");
             lblTotal.setText(Mask.formatDoubleToMoney(this.total));
             txtPaymentValue.setText(Mask.formatDoubleToMoney(this.total));
             txtPaymentValue.setDisable(false);
+            btnFinalize.setDisable(true);
         }
-
-
     }
 
     private void addPayment(){
@@ -185,5 +194,55 @@ public class FinalizeSaleController extends Controller {
         PaymentField paymentField = new PaymentField(paymentSelected, value, this.obsPayments);
 
         obsPayments.add(paymentField);
+    }
+
+    @FXML private void finalizeSale(){
+        Timestamp now = new Timestamp(new Date().getTime());
+        CashMovement cashMovement = CashMovementModel.getOpened();
+
+        Sale sale = new Sale();
+        sale.setValue(this.totalRoot);
+        sale.setDiscount(Mask.unmaskMoney(txtDiscount.getText()));
+        sale.setDate(now);
+        sale.setCashMovement(cashMovement);
+        sale.setAccess(User.getUser());
+
+        for(ItemSaleField item: obsSale){
+            SaleItem saleItem = new SaleItem();
+            saleItem.setPrice(item.getProduct().getPrice());
+            saleItem.setQuantity(item.getQuantity());
+            saleItem.setDiscount(Mask.unmaskMoney(item.getDiscount().getText()));
+            saleItem.setSubtotal(Mask.unmaskMoney(item.getSubtotal()));
+            saleItem.setSale(sale);
+            saleItem.setProduct(item.getProduct());
+
+
+            sale.getSaleItems().add(saleItem);
+        }
+
+        for(PaymentField payment : obsPayments){
+            FinancialInflow financialInflow = new FinancialInflow();
+            financialInflow.setValue(Mask.unmaskMoney(payment.getValue()));
+            financialInflow.setDate(now);
+            financialInflow.setCashMovement(cashMovement);
+            financialInflow.setSale(sale);
+            financialInflow.setPaymentMethod(payment.getPayment());
+            financialInflow.setAccess(User.getUser());
+
+            sale.getFinancialInflows().add(financialInflow);
+        }
+
+        if(SaleModel.create(sale)){
+            System.out.println("SIM");
+            this.cancel();
+        } else {
+            System.out.println("NÃO");
+        }
+
+
+    }
+
+    @FXML private void cancel(){
+        this.stage.close();
     }
 }

@@ -14,5 +14,15 @@
         <many-to-one name="cashMovement" class="application.controller.object.CashMovement" column="cash_id"/>
         <many-to-one name="access" class="application.controller.object.Access" column="access_id"/>
         <many-to-one name="customer" class="application.controller.object.Customer" column="customer_id"/>
+
+        <set name="saleItems" inverse="true" cascade="all">
+            <key column="sale_id" not-null="false"/>
+            <one-to-many class="application.controller.object.SaleItem"/>
+        </set>
+
+        <set name="financialInflows" inverse="true" cascade="all">
+            <key column="sale_id" not-null="false"/>
+            <one-to-many class="application.controller.object.FinancialInflow"/>
+        </set>
     </class>
 </hibernate-mapping>

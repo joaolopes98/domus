@@ -96,4 +96,12 @@ public class ItemSaleField {
     public void setSubtotal(String subtotal) {
         this.subtotal = subtotal;
     }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
 }

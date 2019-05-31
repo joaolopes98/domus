@@ -1,6 +1,7 @@
 @import "fonts.css";
 @import "waitScreen.css";
 @import "scrollBar.css";
+@import "buttons.css";
 
 .root{
     -fx-background-color: #36434C;
@@ -35,57 +36,6 @@
     -fx-background-size: 10 10;
     -fx-background-color: #5c6f7d;
     -fx-alignment: center;
-}
-
-.btnBlue{
-    -fx-background-color: #5c6f7d;
-    -fx-border-color: #36434C;
-    -fx-border-width: 2px;
-    -fx-cursor: hand;
-    -fx-padding: 0;
-
-    -fx-font-family: Lato;
-    -fx-font-weight: bold;
-    -fx-text-fill: white;
-    -fx-font-size: 13px;
-}
-
-.btnBlue:hover{
-    -fx-background-color: #36434C;
-}
-
-.btnRed{
-    -fx-background-color: #AA2222;
-    -fx-border-color: #772222;
-    -fx-border-width: 2px;
-    -fx-cursor: hand;
-    -fx-padding: 0;
-
-    -fx-font-family: Lato;
-    -fx-font-weight: bold;
-    -fx-text-fill: white;
-    -fx-font-size: 13px;
-}
-
-.btnRed:hover{
-    -fx-background-color: #7d2222;
-}
-
-.btnGreen{
-    -fx-background-color: #22AA22;
-    -fx-border-color: #227722;
-    -fx-border-width: 2px;
-    -fx-cursor: hand;
-    -fx-padding: 0;
-
-    -fx-font-family: Lato;
-    -fx-font-weight: bold;
-    -fx-text-fill: white;
-    -fx-font-size: 13px;
-}
-
-.btnGreen:hover{
-    -fx-background-color: #227722;
 }
 
 .input{

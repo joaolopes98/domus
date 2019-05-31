@@ -1,0 +1,56 @@
+.btnRed{
+    -fx-background-color: #AA2222;
+    -fx-background-radius: 0;
+    -fx-border-color: #772222;
+    -fx-border-radius: 0;
+    -fx-border-width: 2px;
+    -fx-cursor: hand;
+    -fx-padding: 0;
+
+    -fx-font-family: Lato;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-font-size: 13px;
+}
+
+.btnRed:hover{
+    -fx-background-color: #772222;
+}
+
+.btnGreen{
+    -fx-background-color: #22AA22;
+    -fx-background-radius: 0;
+    -fx-border-color: #227722;
+    -fx-border-radius: 0;
+    -fx-border-width: 2px;
+    -fx-cursor: hand;
+    -fx-padding: 0;
+
+    -fx-font-family: Lato;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-font-size: 13px;
+}
+
+.btnGreen:hover{
+    -fx-background-color: #227722;
+}
+
+.btnBlue{
+    -fx-background-color: #5c6f7d;
+    -fx-background-radius: 0;
+    -fx-border-color: #36434C;
+    -fx-border-radius: 0;
+    -fx-border-width: 2px;
+    -fx-cursor: hand;
+    -fx-padding: 0;
+
+    -fx-font-family: Lato;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-font-size: 13px;
+}
+
+.btnBlue:hover{
+    -fx-background-color: #36434C;
+}
