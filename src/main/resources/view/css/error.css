@@ -1,0 +1,33 @@
+@import "fonts.css";
+@import "scrollBar.css";
+@import "buttons.css";
+
+.paneWhite{
+    -fx-background-color: #EDEDED;
+}
+
+.paneRedDark{
+    -fx-background-color: #772222;
+    -fx-alignment: center;
+}
+
+.paneRedLight{
+    -fx-background-repeat: repeat;
+    -fx-background-size: 10 10;
+    -fx-background-color: #AA2222;
+    -fx-alignment: center;
+}
+
+.textTitle{
+    -fx-font-family: Lato;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-font-size: 20px;
+}
+
+.lblInfo{
+    -fx-font-family: Lato;
+    -fx-font-weight: bold;
+    -fx-text-fill: #36434C;
+    -fx-font-size: 20px;
+}

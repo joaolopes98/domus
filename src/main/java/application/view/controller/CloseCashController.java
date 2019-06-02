@@ -26,7 +26,6 @@ public class CloseCashController extends Controller {
 
     public void initialize(Stage oldStage, Scene scene, Controller oldController, Object... objects) {
         pdvController = (PDVController) oldController;
-        pdvController.activeWaitScreen(true);
 
         scene.addEventFilter(KeyEvent.KEY_PRESSED, e -> {
             if(e.getCode() == KeyCode.ESCAPE){
@@ -38,10 +37,9 @@ public class CloseCashController extends Controller {
             }
         });
 
-        Window.setModal(this.stage, oldStage);
+        Window.setModal(this.stage, oldStage, oldController);
         super.initialize(oldStage, scene, oldController, objects);
 
-        this.stage.showingProperty().addListener( e -> pdvController.activeWaitScreen(false));
         Mask.money(txtValue);
     }
 

@@ -37,7 +37,7 @@ public class OpenCashController extends Controller {
             }
         });
 
-        Window.setModal(this.stage, oldStage);
+        Window.setModal(this.stage, oldStage, oldController);
         super.initialize(oldStage, scene, oldController, objects);
 
         this.stage.showingProperty().addListener( e -> pdvController.activeWaitScreen(false));

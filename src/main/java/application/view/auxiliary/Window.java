@@ -27,9 +27,11 @@ public abstract class Window {
         }
     }
 
-    public static void setModal(Stage stage, Stage oldStage) {
+    public static void setModal(Stage stage, Stage oldStage, Controller controller) {
         stage.initStyle(StageStyle.UNDECORATED);
         stage.initModality(Modality.WINDOW_MODAL);
         stage.initOwner(oldStage);
+
+        stage.showingProperty().addListener( e -> controller.activeWaitScreen(stage.isShowing()));
     }
 }

@@ -12,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.sql.Timestamp;
@@ -21,13 +22,10 @@ public class FinancialInflowsController extends Controller {
 
     @FXML private TextField txtValue;
 
-    private PDVController pdvController;
+    @FXML private AnchorPane waitScreen;
 
     @Override
     public void initialize(Stage oldStage, Scene scene, Controller oldController, Object... objects) {
-        pdvController = (PDVController) oldController;
-        pdvController.activeWaitScreen(true);
-
         scene.addEventFilter(KeyEvent.KEY_PRESSED, e -> {
             if(e.getCode() == KeyCode.ESCAPE){
                 e.consume();
@@ -38,10 +36,9 @@ public class FinancialInflowsController extends Controller {
             }
         });
 
-        Window.setModal(this.stage, oldStage);
+        Window.setModal(this.stage, oldStage, oldController);
         super.initialize(oldStage, scene, oldController, objects);
 
-        this.stage.showingProperty().addListener( e -> pdvController.activeWaitScreen(false));
         Mask.money(txtValue);
     }
 
@@ -61,10 +58,15 @@ public class FinancialInflowsController extends Controller {
             if(FinancialInflowModel.create(fi)) {
                 stage.close();
             } else {
-                System.out.println("ERRO - Erro ao Inserir Entrada Financeira");
+                Window.changeScene(this.stage, "error", this, "Erro ao Inserir Entrada Financeira");
             }
         } else {
-            System.out.println("ERRO - Entrada Financeira Zerada");
+            Window.changeScene(this.stage, "error", this, "Não é possivel inserir entrada financeira zerada");
         }
+    }
+
+    @Override
+    public void activeWaitScreen(boolean wait){
+        waitScreen.setVisible(wait);
     }
 }

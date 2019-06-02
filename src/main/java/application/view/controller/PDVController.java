@@ -295,11 +295,11 @@ public class PDVController extends Controller {
     }
 
     @FXML private void linkCustomer(){
-        System.out.println("CLIENTE");
+        Window.changeScene(this.stage, "error", this, "Funcionalidade não disponivel no momento");
     }
 
     @FXML private void linkAnimal(){
-        System.out.println("ANIMAL");
+        Window.changeScene(this.stage, "error", this, "Funcionalidade não disponivel no momento");
     }
 
     @FXML private void openFinalizeSale(){
@@ -311,6 +311,10 @@ public class PDVController extends Controller {
         tableSale.getSelectionModel().clearSelection();
     }
 
+    @FXML private void manageOptions(){
+        Window.changeScene(this.stage, "manageOptions", this);
+    }
+
     @FXML public void closeCash(){
         Window.changeScene(this.stage, "closeCash", this);
     }
@@ -320,7 +324,8 @@ public class PDVController extends Controller {
         Window.changeScene(this.stage, "initial", null);
     }
 
-    void activeWaitScreen(boolean wait){
+    @Override
+    public void activeWaitScreen(boolean wait){
         waitScreen.setVisible(wait);
     }
 

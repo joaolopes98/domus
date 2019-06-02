@@ -9,7 +9,7 @@ public class CashCalc {
         double value = cashMovement.getValue();
 
         for(FinancialInflow fi : cashMovement.getFinancialInflows()){
-            if(fi.getPaymentMethod() == null || fi.getPaymentMethod().getName().endsWith("DINHEIRO")) {
+            if(fi.getPaymentMethod() == null || fi.getPaymentMethod().getName().equals("Dinheiro")) {
                 value += fi.getValue();
             }
         }

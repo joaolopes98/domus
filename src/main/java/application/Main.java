@@ -1,7 +1,5 @@
 package application;
 
-import application.controller.object.CashMovement;
-import application.model.CashMovementModel;
 import application.model.HibernateUtilities;
 import application.view.auxiliary.Window;
 import javafx.application.Application;
@@ -16,7 +14,6 @@ public class Main extends Application {
 
     public void start(Stage primaryStage) {
         Window.changeScene(primaryStage, "initial", null);
-//        Window.changeScene(primaryStage, "openCash", null);
     }
 
     @Override

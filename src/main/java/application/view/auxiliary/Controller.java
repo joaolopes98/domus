@@ -20,4 +20,7 @@ public abstract class Controller implements ScreenInterface {
         this.stage.setScene(scene);
         this.stage.show();
     }
+
+    public void activeWaitScreen(boolean wait){
+    }
 }
