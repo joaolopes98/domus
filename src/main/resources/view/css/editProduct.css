@@ -1,0 +1,55 @@
+@import "fonts.css";
+@import "scrollBar.css";
+@import "buttons.css";
+@import "waitScreen.css";
+
+.paneBackground{
+    -fx-background-color: #EDEDED;
+    -fx-alignment: center;
+
+    -fx-background-image: url("/view/img/dotLogin.png");
+    -fx-background-repeat: repeat;
+    -fx-background-size: 5 5;
+}
+
+.paneWhite{
+    -fx-background-color: #EDEDED;
+}
+
+.paneBlueDark{
+    -fx-background-color: #36434C;
+    -fx-alignment: center;
+}
+
+.paneBlueLight{
+    -fx-background-repeat: repeat;
+    -fx-background-size: 10 10;
+    -fx-background-color: #5c6f7d;
+    -fx-alignment: center;
+}
+
+.textTitle{
+    -fx-font-family: Lato;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-font-size: 20px;
+}
+
+.subtitleDark{
+    -fx-text-fill: #36434C;
+    -fx-font-family: Lato;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-alignment: center;
+}
+
+.input{
+    -fx-background-color: transparent;
+    -fx-border-color: #36434C;
+    -fx-border-width: 0 0 2;
+    -fx-padding: 0 10;
+
+    -fx-font-weight: bold;
+    -fx-font-size: 25px;
+    -fx-text-fill: #36434C;
+}

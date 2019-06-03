@@ -67,6 +67,8 @@ public abstract class Mask {
                 }
             }
         });
+
+        textField.setOnMouseClicked( e -> Mask.toLastPosition(textField));
     }
 
     public static int unmaskInteger(String text){

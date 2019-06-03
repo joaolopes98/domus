@@ -1,0 +1,113 @@
+@import "fonts.css";
+@import "scrollBar.css";
+@import "buttons.css";
+@import "waitScreen.css";
+
+.paneBackground{
+    -fx-background-color: #EDEDED;
+    -fx-alignment: center;
+
+    -fx-background-image: url("/view/img/dotLogin.png");
+    -fx-background-repeat: repeat;
+    -fx-background-size: 5 5;
+}
+
+.paneWhite{
+    -fx-background-color: #EDEDED;
+}
+
+.paneBlueDark{
+    -fx-background-color: #36434C;
+    -fx-alignment: center;
+}
+
+.paneBlueLight{
+    -fx-background-repeat: repeat;
+    -fx-background-size: 10 10;
+    -fx-background-color: #5c6f7d;
+    -fx-alignment: center;
+}
+
+.textTitle{
+    -fx-font-family: Lato;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-font-size: 20px;
+}
+
+#tableProducts{
+    -fx-font-family: Lato;
+    -fx-padding: 0;
+    -fx-background-color: #EDEDED;
+    -fx-border-width: 2px;
+    -fx-border-color: #36434C;
+}
+
+#tableProducts .column-header {
+    -fx-background-color: #5c6f7d;
+    -fx-font-size: 20px;
+    -fx-border-width: 0 0 2 0;
+    -fx-border-color: #36434C;
+}
+
+#tableProducts .column-header .label{
+    -fx-background-color: transparent;
+    -fx-padding: 10 7;
+    -fx-alignment: center-left;
+    -fx-text-fill: white;
+}
+
+#tableProducts .activated {
+    -fx-background-color: #EDEDED;
+    -fx-border-color: #36434C;
+    -fx-border-width: 0 0 2 0;
+    -fx-cell-size: 50px;
+}
+
+#tableProducts .disabled{
+    -fx-background-color: #5c6f7d;
+    -fx-border-color: #36434C;
+    -fx-border-width: 0 0 2 0;
+    -fx-cell-size: 50px;
+}
+
+#tableProducts .table-row-cell {
+    -fx-background-color: #EDEDED;
+    -fx-border-color: #36434C;
+    -fx-border-width: 0 0 2 0;
+    -fx-cell-size: 50px;
+}
+
+#tableProducts .table-row-cell:empty {
+    -fx-border-color: transparent;
+}
+
+#tableProducts .table-row-cell:focused .table-column{
+    -fx-background-color: #EDEDED;
+}
+
+
+#tableProducts .table-cell {
+    -fx-font-family: Lato;
+    -fx-border-color: transparent;
+    -fx-alignment: center-left;
+    -fx-font-size: 15px;
+    -fx-text-fill: #36434C;
+    -fx-padding: 0 10;
+
+}
+
+#tableProducts .filler{
+    -fx-background-color: #5c6f7d;
+    -fx-border-width: 0 0 2 0;
+    -fx-border-color: #36434C;
+}
+
+.textBold{
+    -fx-padding: 0 10;
+
+    -fx-font-weight: bold;
+    -fx-font-size: 25px;
+    -fx-text-fill: #36434C;
+    -fx-alignment: center-right;
+}

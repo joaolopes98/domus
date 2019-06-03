@@ -23,4 +23,8 @@ public abstract class Controller implements ScreenInterface {
 
     public void activeWaitScreen(boolean wait){
     }
+
+    public Stage getStage() {
+        return stage;
+    }
 }

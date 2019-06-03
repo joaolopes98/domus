@@ -214,6 +214,11 @@ public class PDVController extends Controller {
         obsSearchFields.addListener((ListChangeListener<ItemSearchField>) c -> {
             lblQuantitySearch.setText(String.valueOf(obsSearchFields.size()));
         });
+        updateProducts();
+    }
+
+    private void updateProducts() {
+        obsSearchProduct.clear();
         ArrayList<Product> obsProducts = new ArrayList<>(ProductModel.getAllSellable());
         obsProducts.forEach( product -> obsSearchProduct.add(new ItemSearchField(product)));
     }
@@ -327,6 +332,11 @@ public class PDVController extends Controller {
     @Override
     public void activeWaitScreen(boolean wait){
         waitScreen.setVisible(wait);
+
+        if(!wait){
+            updateProducts();
+            Mask.toLastPosition(txtSearchItem);
+        }
     }
 
     public TableView<ItemSaleField> getTableSale() {

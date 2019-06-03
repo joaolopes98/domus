@@ -54,3 +54,41 @@
 .btnBlue:hover{
     -fx-background-color: #36434C;
 }
+
+.btnYellow{
+    -fx-background-color: #AAAA22;
+    -fx-background-radius: 0;
+    -fx-border-color: #777722;
+    -fx-border-radius: 0;
+    -fx-border-width: 2px;
+    -fx-cursor: hand;
+    -fx-padding: 0;
+
+    -fx-font-family: Lato;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-font-size: 13px;
+}
+
+.btnYellow:hover{
+    -fx-background-color: #777700;
+}
+
+.btnBlueLight{
+    -fx-background-color: #2222AA;
+    -fx-background-radius: 0;
+    -fx-border-color: #222277;
+    -fx-border-radius: 0;
+    -fx-border-width: 2px;
+    -fx-cursor: hand;
+    -fx-padding: 0;
+
+    -fx-font-family: Lato;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-font-size: 13px;
+}
+
+.btnBlueLight:hover{
+    -fx-background-color: #222277;
+}
