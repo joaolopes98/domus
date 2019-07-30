@@ -27,7 +27,6 @@ public class ProductField {
     private Button status = new Button();
 
     public ProductField(Product product, Controller controller) {
-        System.out.println(product.getId());
         this.product = product;
 
         this.code = product.getId();

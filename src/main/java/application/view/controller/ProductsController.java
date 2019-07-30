@@ -4,6 +4,7 @@ import application.controller.ProductField;
 import application.controller.object.Product;
 import application.model.ProductModel;
 import application.view.auxiliary.Controller;
+import application.view.auxiliary.Mask;
 import application.view.auxiliary.Window;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -12,6 +13,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -24,6 +26,7 @@ import java.util.ArrayList;
 
 public class ProductsController extends Controller {
 
+    @FXML private TextField txtSearch;
     @FXML private TableView<ProductField> tableProducts;
     @FXML private TableColumn<ProductField, Integer> productCode;
     @FXML private TableColumn<ProductField, String> productName;
@@ -46,7 +49,16 @@ public class ProductsController extends Controller {
         Window.setModal(this.stage, oldStage, oldController);
         super.initialize(oldStage, scene, oldController, objects);
 
+        setupTxtSearch();
         setupTableProducts();
+    }
+
+    private void setupTxtSearch(){
+        Mask.toUpperCase(txtSearch);
+        txtSearch.textProperty().addListener(((observable, oldValue, newValue) -> {
+            updateTable();
+            tableProducts.refresh();
+        }));
     }
 
     private void setupTableProducts() {
@@ -75,7 +87,6 @@ public class ProductsController extends Controller {
                         }
                     }
                 };
-
                 return row;
             }
         });
@@ -85,8 +96,14 @@ public class ProductsController extends Controller {
 
     public void updateTable() {
         obsProducts.clear();
-        ArrayList<Product> products = new ArrayList<>(ProductModel.getAll(""));
+        ArrayList<Product> products = new ArrayList<>();
+        if(txtSearch.getText().isEmpty()){
+            products.addAll(ProductModel.getAll(""));
+        } else {
+            products.addAll(ProductModel.getAll("WHERE name LIKE '%" + txtSearch.getText() + "%'"));
+        }
         products.forEach( product -> obsProducts.add(new ProductField(product, this)));
+
     }
 
     @FXML private void createProduct(){

@@ -1,6 +1,8 @@
 package application.controller.object;
 
-public class Access {
+import application.model.Model;
+
+public class Access implements Model {
     private int id;
     private String name;
     private String document;

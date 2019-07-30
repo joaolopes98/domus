@@ -5,11 +5,12 @@ import javafx.geometry.Pos;
 import javafx.scene.control.TextField;
 
 import java.text.DecimalFormat;
+import java.text.Normalizer;
 
 public abstract class Mask {
     public static void toUpperCase(TextField textField) {
         textField.textProperty().addListener((ObservableValue<? extends String> observable, String oldValue, String newValue) -> {
-            textField.setText(newValue.toUpperCase());
+            textField.setText(removeAccentuation(newValue.toUpperCase()));
         });
     }
 
@@ -89,5 +90,9 @@ public abstract class Mask {
     public static void toLastPosition(TextField textField){
         textField.requestFocus();
         textField.positionCaret(textField.getText().length());
+    }
+
+    public static String removeAccentuation(String str) {
+        return Normalizer.normalize(str, Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", "");
     }
 }

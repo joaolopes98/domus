@@ -5,11 +5,12 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="600.0" maxWidth="900.0" minHeight="600.0" minWidth="900.0" styleClass="paneBlueDark" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.controller.ProductsController">
+<AnchorPane maxHeight="600.0" maxWidth="900.0" minHeight="600.0" minWidth="900.0" styleClass="paneBlueDark" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.controller.ProductsController">
    <children>
       <AnchorPane maxHeight="50.0" minHeight="50.0" styleClass="paneBlueLight" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
          <children>
@@ -24,9 +25,25 @@
          <children>
             <VBox spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0" VBox.vgrow="ALWAYS">
+                  <HBox maxHeight="40.0" spacing="10.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <AnchorPane styleClass="paneBlueDark" HBox.hgrow="ALWAYS">
+                           <children>
+                              <AnchorPane styleClass="paneWhite" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
+                                 <children>
+                                    <TextField fx:id="txtSearch" promptText="PESQUISE POR NOME OU EAN" styleClass="input" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </HBox>
+                  <VBox spacing="10.0" VBox.vgrow="ALWAYS">
                      <children>
                         <TableView id="tableProducts" fx:id="tableProducts" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                           <placeholder>
+                              <Label text="Nenhum Produto Encontrado"/>
+                           </placeholder>
                           <columns>
                             <TableColumn fx:id="productCode" maxWidth="1000.0" prefWidth="75.0" text="#" />
                             <TableColumn fx:id="productName" prefWidth="75.0" text="NOME" />

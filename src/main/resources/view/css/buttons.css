@@ -92,3 +92,22 @@
 .btnBlueLight:hover{
     -fx-background-color: #222277;
 }
+
+.btnWhite{
+    -fx-background-color: transparent;
+    -fx-background-radius: 0;
+    -fx-border-color: white;
+    -fx-border-radius: 0;
+    -fx-border-width: 2px;
+    -fx-cursor: hand;
+    -fx-padding: 0;
+
+    -fx-font-family: Lato;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-font-size: 13px;
+}
+
+.btnWhite:hover{
+    -fx-background-color: #FFFFFF10;
+}

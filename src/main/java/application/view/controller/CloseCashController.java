@@ -59,7 +59,8 @@ public class CloseCashController extends Controller {
             stage.close();
             pdvController.logout();
         } else {
-            System.out.println("ERRO - Fechar Caixa");
+            Window.changeScene(this.stage, "error", this,
+                    "Não foi possivel fechar o caixa");
         }
     }
 }

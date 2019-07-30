@@ -43,6 +43,7 @@ public class FinalizeSaleController extends Controller {
     @FXML private TextField txtDiscount;
     @FXML private TextField txtPaymentValue;
     @FXML private ComboBox<PaymentMethod> comboPayment;
+    @FXML private Button btnAddPayment;
 
     @FXML private Label lblInfo;
     @FXML private Label lblTotal;
@@ -83,6 +84,7 @@ public class FinalizeSaleController extends Controller {
         setupTablePayments();
         setupInputs();
         setupComboBox();
+        setupButton();
         setupInfos();
         updateValues();
     }
@@ -108,7 +110,6 @@ public class FinalizeSaleController extends Controller {
         txtDiscount.setOnKeyPressed( e -> {
             if(e.getCode() == KeyCode.TAB || e.getCode() == KeyCode.ENTER){
                 Mask.toLastPosition(txtPaymentValue);
-                System.out.println("AKI");
                 e.consume();
             }
         });
@@ -124,7 +125,6 @@ public class FinalizeSaleController extends Controller {
                 e.consume();
             } else if (e.getCode() == KeyCode.ENTER){
                 addPayment();
-                updateValues();
                 e.consume();
             }
         });
@@ -153,6 +153,12 @@ public class FinalizeSaleController extends Controller {
         comboPayment.setCellFactory(cellFactoryPaymentMethod);
         comboPayment.setItems(obsPayment);
         comboPayment.getSelectionModel().selectFirst();
+        comboPayment.valueProperty().addListener((observable -> Mask.toLastPosition(txtPaymentValue)));
+    }
+
+    private void setupButton(){
+        btnAddPayment.disableProperty().bind(txtPaymentValue.disabledProperty());
+        btnAddPayment.setOnAction( e -> addPayment());
     }
 
     private void setupInfos(){
@@ -194,6 +200,7 @@ public class FinalizeSaleController extends Controller {
         PaymentField paymentField = new PaymentField(paymentSelected, value, this.obsPayments);
 
         obsPayments.add(paymentField);
+        updateValues();
     }
 
     @FXML private void finalizeSale(){

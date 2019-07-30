@@ -52,4 +52,7 @@ public abstract class AccessModel {
         return true;
     }
 
+    public static boolean create(Access access){
+        return GenericModel.create(access);
+    }
 }

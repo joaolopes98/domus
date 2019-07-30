@@ -54,7 +54,6 @@ public class CreateProductController extends Controller {
                 product.setQuantity(Mask.unmaskInteger(txtQuantity.getText()));
                 product.setStatus(true);
 
-
                 if (ProductModel.create(product)) {
                     this.stage.close();
                 } else {

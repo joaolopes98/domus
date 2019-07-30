@@ -120,7 +120,6 @@ public class PDVController extends Controller {
                 if(paneSearchMenu.isVisible()){
                     int posSelected = tableSearch.getSelectionModel().getSelectedIndex();
                     posSelected --;
-                    System.out.println(posSelected);
                     tableSearch.getSelectionModel().select(posSelected);
                 }
             } else if (e.getCode() == KeyCode.DOWN){
@@ -128,7 +127,6 @@ public class PDVController extends Controller {
                 if(paneSearchMenu.isVisible()){
                     int posSelected = tableSearch.getSelectionModel().getSelectedIndex();
                     posSelected++;
-                    System.out.println(posSelected);
                     tableSearch.getSelectionModel().select(posSelected);
                 }
             } else if (e.getCode() == KeyCode.ENTER){

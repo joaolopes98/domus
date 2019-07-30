@@ -1,5 +1,6 @@
 package application.model;
 
+import application.controller.object.Access;
 import application.controller.object.Product;
 
 import java.util.List;

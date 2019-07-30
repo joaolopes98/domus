@@ -61,7 +61,8 @@ public class OpenCashController extends Controller {
         if(CashMovementModel.create(cashMovement)){
             stage.close();
         } else {
-            System.out.println("Erro");
+            Window.changeScene(this.stage, "error", this,
+                    "Não foi possivel criar o caixa");
         }
     }
 }
