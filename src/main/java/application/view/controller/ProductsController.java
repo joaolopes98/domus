@@ -100,7 +100,8 @@ public class ProductsController extends Controller {
         if(txtSearch.getText().isEmpty()){
             products.addAll(ProductModel.getAll(""));
         } else {
-            products.addAll(ProductModel.getAll("WHERE name LIKE '%" + txtSearch.getText() + "%'"));
+            products.addAll(ProductModel.getAll("WHERE name LIKE '%" + txtSearch.getText() + "%' " +
+                    "OR ean LIKE '%" + txtSearch.getText() + "%'"));
         }
         products.forEach( product -> obsProducts.add(new ProductField(product, this)));
 

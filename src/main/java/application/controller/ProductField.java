@@ -65,7 +65,8 @@ public class ProductField {
                 if (ProductModel.update(product)) {
                     productsController.updateTable();
                 } else {
-                    Window.changeScene(controller.getStage(), "error", controller, "Erro ao desabilitar produto");
+                    Window.changeScene(controller.getStage(), "error", controller,
+                            "Erro ao desabilitar produto");
                 }
             });
             ImageView imageRemove = new ImageView(new Image("/view/img/active.png"));
@@ -83,7 +84,8 @@ public class ProductField {
                 if (ProductModel.update(product)) {
                     productsController.updateTable();
                 } else {
-                    Window.changeScene(controller.getStage(), "error", controller, "Erro ao habilitar produto");
+                    Window.changeScene(controller.getStage(), "error", controller,
+                            "Erro ao habilitar produto");
                 }
             });
             ImageView imageRemove = new ImageView(new Image("/view/img/active.png"));

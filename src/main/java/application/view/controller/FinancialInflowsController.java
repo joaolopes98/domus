@@ -58,10 +58,12 @@ public class FinancialInflowsController extends Controller {
             if(FinancialInflowModel.create(fi)) {
                 stage.close();
             } else {
-                Window.changeScene(this.stage, "error", this, "Erro ao Inserir Entrada Financeira");
+                Window.changeScene(this.stage, "error", this,
+                        "Erro ao Inserir Entrada Financeira");
             }
         } else {
-            Window.changeScene(this.stage, "error", this, "Não é possivel inserir entrada financeira zerada");
+            Window.changeScene(this.stage, "error", this,
+                    "Não é possivel inserir entrada financeira zerada");
         }
     }
 

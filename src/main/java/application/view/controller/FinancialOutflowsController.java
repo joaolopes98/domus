@@ -62,13 +62,16 @@ public class FinancialOutflowsController extends Controller {
                 if (FinancialOutflowModel.create(fo)) {
                     stage.close();
                 } else {
-                    Window.changeScene(this.stage, "error", this, "Erro ao Inserir Saida Financeira");
+                    Window.changeScene(this.stage, "error", this,
+                            "Erro ao Inserir Saida Financeira");
                 }
             } else {
-                Window.changeScene(this.stage, "error", this, "Caixa não possui dinheiro necessario");
+                Window.changeScene(this.stage, "error", this,
+                        "Caixa não possui dinheiro necessario");
             }
         } else {
-            Window.changeScene(this.stage, "error", this, "Não é possivel inserir saida financeira zerada");
+            Window.changeScene(this.stage, "error", this,
+                    "Não é possivel inserir saida financeira zerada");
         }
     }
 

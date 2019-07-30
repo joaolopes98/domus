@@ -60,13 +60,16 @@ public class EditProductController extends Controller {
                 if (ProductModel.update(product)) {
                     this.stage.close();
                 } else {
-                    Window.changeScene(this.stage, "error", this, "Não foi possivel salvar produto");
+                    Window.changeScene(this.stage, "error", this,
+                            "Não foi possivel salvar produto");
                 }
             } else {
-                Window.changeScene(this.stage, "error", this, "Não é possivel salvar um produto com o preço zerado");
+                Window.changeScene(this.stage, "error", this,
+                        "Não é possivel salvar um produto com o preço zerado");
             }
         } else {
-            Window.changeScene(this.stage, "error", this, "Não é possivel salvar um produto sem nome");
+            Window.changeScene(this.stage, "error", this,
+                    "Não é possivel salvar um produto sem nome");
         }
     }
 

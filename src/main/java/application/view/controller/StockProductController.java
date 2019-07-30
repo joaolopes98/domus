@@ -60,7 +60,8 @@ public class StockProductController extends Controller {
             lblQuantity.setText(String.valueOf(quantity));
             txtQuantity.setText("0");
         } else {
-            Window.changeScene(this.stage, "error", this, "Impossivel remover essa quantidade do estoque");
+            Window.changeScene(this.stage, "error", this,
+                    "Impossivel remover essa quantidade do estoque");
             txtQuantity.setText("0");
         }
     }
@@ -71,7 +72,8 @@ public class StockProductController extends Controller {
         if(ProductModel.update(product)){
             this.stage.close();
         } else{
-            Window.changeScene(this.stage, "error", this, "Não foi possivel atualizar o estoque deste produto");
+            Window.changeScene(this.stage, "error", this,
+                    "Não foi possivel atualizar o estoque deste produto");
         }
     }
 

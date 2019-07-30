@@ -298,11 +298,13 @@ public class PDVController extends Controller {
     }
 
     @FXML private void linkCustomer(){
-        Window.changeScene(this.stage, "error", this, "Funcionalidade não disponivel no momento");
+        Window.changeScene(this.stage, "error", this,
+                "Funcionalidade não disponivel no momento");
     }
 
     @FXML private void linkAnimal(){
-        Window.changeScene(this.stage, "error", this, "Funcionalidade não disponivel no momento");
+        Window.changeScene(this.stage, "error", this,
+                "Funcionalidade não disponivel no momento");
     }
 
     @FXML private void openFinalizeSale(){

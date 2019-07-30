@@ -13,6 +13,8 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
+import java.util.ArrayList;
+
 public class CreateProductController extends Controller {
 
     @FXML private TextField txtName;
@@ -45,25 +47,36 @@ public class CreateProductController extends Controller {
 
     @FXML private void create (){
         double price = Mask.unmaskMoney(txtPrice.getText());
+        ArrayList<Product> products = new ArrayList<>(
+                ProductModel.getAll("WHERE ean LIKE '" + txtEan.getText() + "'"));
+        System.out.println(products.size());
         if(!txtName.getText().isEmpty()) {
             if (price > 0) {
-                Product product = new Product();
-                product.setName(txtName.getText());
-                product.setEan(txtEan.getText());
-                product.setPrice(price);
-                product.setQuantity(Mask.unmaskInteger(txtQuantity.getText()));
-                product.setStatus(true);
+                if(products.isEmpty()) {
+                    Product product = new Product();
+                    product.setName(txtName.getText());
+                    product.setEan(txtEan.getText());
+                    product.setPrice(price);
+                    product.setQuantity(Mask.unmaskInteger(txtQuantity.getText()));
+                    product.setStatus(true);
 
-                if (ProductModel.create(product)) {
-                    this.stage.close();
+                    if (ProductModel.create(product)) {
+                        this.stage.close();
+                    } else {
+                        Window.changeScene(this.stage, "error", this,
+                                "Não foi possivel criar produto");
+                    }
                 } else {
-                    Window.changeScene(this.stage, "error", this, "Não foi possivel criar produto");
+                    Window.changeScene(this.stage, "error", this,
+                            "EAN já existente");
                 }
             } else {
-                Window.changeScene(this.stage, "error", this, "Não é possivel criar um produto com o preço zerado");
+                Window.changeScene(this.stage, "error", this,
+                        "Não é possivel criar um produto com o preço zerado");
             }
         } else {
-            Window.changeScene(this.stage, "error", this, "Não é possivel criar um produto sem nome");
+            Window.changeScene(this.stage, "error", this,
+                    "Não é possivel criar um produto sem nome");
         }
     }
 
