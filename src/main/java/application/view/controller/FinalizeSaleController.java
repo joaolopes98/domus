@@ -5,6 +5,7 @@ import application.controller.PaymentField;
 import application.controller.object.*;
 import application.model.CashMovementModel;
 import application.model.PaymentMethodModel;
+import application.model.ProductModel;
 import application.model.SaleModel;
 import application.view.auxiliary.Controller;
 import application.view.auxiliary.Mask;
@@ -56,6 +57,8 @@ public class FinalizeSaleController extends Controller {
     private double total;
     private double discount;
 
+    private ArrayList<Product> changeStock = new ArrayList<>();
+
     @Override
     public void initialize(Stage oldStage, Scene scene, Controller oldController, Object... objects) {
         PDVController pdv = (PDVController) oldController;
@@ -77,8 +80,6 @@ public class FinalizeSaleController extends Controller {
 
         Window.setModal(this.stage, oldStage, oldController);
         super.initialize(oldStage, scene, oldController, objects);
-
-
 
         setupTableItems();
         setupTablePayments();
@@ -216,13 +217,23 @@ public class FinalizeSaleController extends Controller {
 
         for(ItemSaleField item: obsSale){
             SaleItem saleItem = new SaleItem();
-            saleItem.setPrice(item.getProduct().getPrice());
+            saleItem.setPrice(Mask.unmaskMoney(item.getPrice()));
             saleItem.setQuantity(item.getQuantity());
             saleItem.setDiscount(Mask.unmaskMoney(item.getDiscount().getText()));
             saleItem.setSubtotal(Mask.unmaskMoney(item.getSubtotal()));
             saleItem.setSale(sale);
-            saleItem.setProduct(item.getProduct());
 
+            if(item.isTypeProduct()) {
+                saleItem.setProduct(item.getProduct());
+                if(!changeStock.contains(item.getProduct())){
+                    changeStock.add(item.getProduct());
+                }
+                // Diminuir Estoque
+                Product product = item.getProduct();
+                product.setQuantity(product.getQuantity() - item.getQuantity());
+            } else {
+                saleItem.setService(item.getService());
+            }
 
             sale.getSaleItems().add(saleItem);
         }
@@ -240,13 +251,14 @@ public class FinalizeSaleController extends Controller {
         }
 
         if(SaleModel.create(sale)){
+            changeStock.forEach(ProductModel::update);
             this.obsSale.clear();
             this.cancel();
         } else {
-            Window.changeScene(this.stage, "error", this, "Teste de Funcionamento");
+            this.cancel();
+            Window.changeScene(this.oldStage, "error", this,
+                    "Não foi possivel finalizar venda");
         }
-
-
     }
 
     @FXML private void cancel(){

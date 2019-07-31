@@ -3,9 +3,11 @@ package application.view.controller;
 import application.controller.ItemSaleField;
 import application.controller.ItemSearchField;
 import application.controller.object.Product;
+import application.controller.object.Service;
 import application.controller.object.User;
 import application.model.CashMovementModel;
 import application.model.ProductModel;
+import application.model.ServiceModel;
 import application.view.auxiliary.Controller;
 import application.view.auxiliary.Mask;
 import application.view.auxiliary.Window;
@@ -39,7 +41,7 @@ public class PDVController extends Controller {
     @FXML private TableView<ItemSearchField> tableSearch;
     @FXML private TableColumn<ItemSearchField, String> nameSearch;
     @FXML private TableColumn<ItemSearchField, String> priceSearch;
-    private ObservableList<ItemSearchField> obsSearchProduct = FXCollections.observableArrayList();
+    private ObservableList<ItemSearchField> obsSearchItems = FXCollections.observableArrayList();
     private ObservableList<ItemSearchField> obsSearchFields = FXCollections.observableArrayList();
     @FXML private Label lblQuantitySearch;
 
@@ -101,7 +103,7 @@ public class PDVController extends Controller {
             obsSearchFields.clear();
             if(newValue){
                 String search = txtSearchItem.getText();
-                obsSearchProduct.forEach( product -> {
+                obsSearchItems.forEach(product -> {
                     if (product.getName().contains(search)){
                         obsSearchFields.add(product);
                     }
@@ -159,7 +161,7 @@ public class PDVController extends Controller {
             } else {
                 obsSearchFields.clear();
                 String search = txtSearchItem.getText();
-                obsSearchProduct.forEach( product -> {
+                obsSearchItems.forEach(product -> {
                     if (product.getName().contains(search)){
                         obsSearchFields.add(product);
                     }
@@ -216,9 +218,12 @@ public class PDVController extends Controller {
     }
 
     private void updateProducts() {
-        obsSearchProduct.clear();
+        obsSearchItems.clear();
         ArrayList<Product> obsProducts = new ArrayList<>(ProductModel.getAllSellable());
-        obsProducts.forEach( product -> obsSearchProduct.add(new ItemSearchField(product)));
+        obsProducts.forEach( product -> obsSearchItems.add(new ItemSearchField(product)));
+
+        ArrayList<Service> obsService = new ArrayList<>(ServiceModel.getAllSellable());
+        obsService.forEach( service -> obsSearchItems.add(new ItemSearchField(service)));
     }
 
     private void setupSale(){
@@ -258,10 +263,23 @@ public class PDVController extends Controller {
 
     private void addItemToTableSale() {
         int code = obsSaleFields.size() + 1;
-        Product product = selectedSearch.getProduct();
         int quantity = Mask.unmaskInteger(txtQuantityItem.getText());
-        obsSaleFields.add(new ItemSaleField(code, product, quantity, this));
+        if(selectedSearch.isTypeProduct()) {
+            if(selectedSearch.getQuantity() >= quantity) {
+                selectedSearch.setQuantity(selectedSearch.getQuantity() - quantity);
+                obsSaleFields.add(new ItemSaleField(code, selectedSearch, quantity, this));
+                resetSearch();
+            } else {
+                Window.changeScene(this.stage, "error", this,
+                        "O produto ( " + selectedSearch.getName() + " ) não possui estoque");
+            }
+        } else {
+            obsSaleFields.add(new ItemSaleField(code, selectedSearch, quantity, this));
+            resetSearch();
+        }
+    }
 
+    private void resetSearch(){
         txtSearchItem.setText("");
         txtQuantityItem.setText("1");
         selectedSearch = null;
@@ -312,8 +330,20 @@ public class PDVController extends Controller {
     }
 
     @FXML private void cancelItem(){
-        obsSaleFields.remove(tableSale.getSelectionModel().getSelectedItem());
+        ItemSaleField itemSaleField = tableSale.getSelectionModel().getSelectedItem();
+        obsSaleFields.remove(itemSaleField);
         tableSale.getSelectionModel().clearSelection();
+
+        if(itemSaleField.isTypeProduct()) {
+            obsSearchItems.forEach(item -> {
+                if (item.isTypeProduct()) {
+                    if (itemSaleField.getProduct().getId() == item.getProduct().getId()) {
+                        item.setQuantity(item.getQuantity() + itemSaleField.getQuantity());
+                    }
+                }
+            });
+        }
+
     }
 
     @FXML private void manageOptions(){
@@ -334,7 +364,6 @@ public class PDVController extends Controller {
         waitScreen.setVisible(wait);
 
         if(!wait){
-            updateProducts();
             Mask.toLastPosition(txtSearchItem);
         }
     }

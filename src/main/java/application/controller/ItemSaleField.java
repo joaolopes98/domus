@@ -1,6 +1,7 @@
 package application.controller;
 
 import application.controller.object.Product;
+import application.controller.object.Service;
 import application.view.auxiliary.Mask;
 import application.view.controller.PDVController;
 import javafx.beans.value.ChangeListener;
@@ -17,15 +18,26 @@ public class ItemSaleField {
     private String subtotal;
 
     private Product product;
+    private Service service;
+    private boolean typeProduct;
 
-    public ItemSaleField(int code, Product product, int quantity, PDVController pdvController) {
-        this.product = product;
-
+    public ItemSaleField(int code, ItemSearchField itemSearch, int quantity, PDVController pdvController) {
         this.code = Mask.formatStringCode(code);
-        this.name = product.getName();
-        this.price = Mask.formatDoubleToMoney(product.getPrice());
+
+        this.typeProduct = itemSearch.isTypeProduct();
+        if(this.typeProduct){
+            this.product = itemSearch.getProduct();
+            this.name = product.getName();
+            this.price = Mask.formatDoubleToMoney(product.getPrice());
+        } else {
+            this.service = itemSearch.getService();
+            this.name = service.getName();
+            this.price = Mask.formatDoubleToMoney(service.getPrice());
+        }
+
         if(quantity != 0) this.quantity = quantity;
         else this.quantity = 1;
+
         Mask.money(discount);
         discount.getStyleClass().add("inputDiscount");
         discount.focusedProperty().addListener((observable, oldValue, newValue) -> {
@@ -35,18 +47,25 @@ public class ItemSaleField {
         });
         discount.textProperty().addListener( e -> {
             double discount = Mask.unmaskMoney(this.discount.getText());
-            double subtotal = product.getPrice() * this.quantity;
+            double subtotal;
+            if(this.typeProduct){
+                subtotal = product.getPrice() * this.quantity;
+            } else {
+                subtotal = service.getPrice() * this.quantity;
+            }
             if(discount > subtotal){
                 this.discount.setText(Mask.formatDoubleToMoney(subtotal));
             }
 
             subtotal -= discount;
-
             this.subtotal = Mask.formatDoubleToMoney(subtotal);
-
             pdvController.updateValues();
         });
-        this.subtotal = Mask.formatDoubleToMoney(product.getPrice() * this.quantity);
+        if(typeProduct) {
+            this.subtotal = Mask.formatDoubleToMoney(product.getPrice() * this.quantity);
+        } else {
+            this.subtotal = Mask.formatDoubleToMoney(service.getPrice() * this.quantity);
+        }
     }
 
     public String getCode() {
@@ -103,5 +122,17 @@ public class ItemSaleField {
 
     public void setProduct(Product product) {
         this.product = product;
+    }
+
+    public Service getService() {
+        return service;
+    }
+
+    public void setService(Service service) {
+        this.service = service;
+    }
+
+    public boolean isTypeProduct() {
+        return typeProduct;
     }
 }

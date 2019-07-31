@@ -49,13 +49,12 @@ public class CreateProductController extends Controller {
         double price = Mask.unmaskMoney(txtPrice.getText());
         ArrayList<Product> products = new ArrayList<>(
                 ProductModel.getAll("WHERE ean LIKE '" + txtEan.getText() + "'"));
-        System.out.println(products.size());
         if(!txtName.getText().isEmpty()) {
             if (price > 0) {
                 if(products.isEmpty()) {
                     Product product = new Product();
                     product.setName(txtName.getText());
-                    product.setEan(txtEan.getText());
+                    if(!txtEan.getText().isEmpty()) product.setEan(txtEan.getText());
                     product.setPrice(price);
                     product.setQuantity(Mask.unmaskInteger(txtQuantity.getText()));
                     product.setStatus(true);

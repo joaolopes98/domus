@@ -1,6 +1,5 @@
 package application.model;
 
-import application.controller.object.Access;
 import application.controller.object.Product;
 
 import java.util.List;
@@ -12,6 +11,10 @@ public abstract class ProductModel {
 
     public static List<Product> getAll(String search) {
         return GenericModel.getAll("FROM Product " + search);
+    }
+
+    public static Product get(String search){
+        return (Product) GenericModel.get("FROM Product " + search);
     }
 
     public static boolean update(Product product) {
