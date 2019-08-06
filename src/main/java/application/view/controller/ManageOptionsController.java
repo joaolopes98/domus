@@ -6,9 +6,12 @@ import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class ManageOptionsController extends Controller {
+
+    @FXML private AnchorPane waitScreen;
 
     @Override
     public void initialize(Stage oldStage, Scene scene, Controller oldController, Object... objects) {
@@ -22,6 +25,14 @@ public class ManageOptionsController extends Controller {
         super.initialize(oldStage, scene, oldController, objects);
     }
 
+    @FXML private void insertInflows(){
+        Window.changeScene(this.stage, "financialInflows", this);
+    }
+
+    @FXML private void insertOutflows(){
+        Window.changeScene(this.stage, "financialOutflows", this);
+    }
+
     @FXML private void products(){
         Window.changeScene(this.stage, "products", this);
     }
@@ -31,6 +42,13 @@ public class ManageOptionsController extends Controller {
     }
 
     @FXML private void cancel(){
+        PDVController pdv = (PDVController) this.oldController;
+        pdv.updateProducts();
         this.stage.close();
+    }
+
+    @Override
+    public void activeWaitScreen(boolean wait) {
+        waitScreen.setVisible(wait);
     }
 }

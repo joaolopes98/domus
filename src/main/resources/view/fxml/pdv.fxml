@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="600.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.controller.PDVController">
+<AnchorPane prefHeight="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.controller.PDVController">
    <children>
       <VBox layoutX="10.0" layoutY="10.0" spacing="10.0" styleClass="paneBackground" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -129,7 +129,7 @@
                   </VBox>
                </children>
             </HBox>
-            <HBox maxHeight="140.0" minHeight="140.0" spacing="2.0" styleClass="paneBlueDark">
+            <HBox spacing="2.0" styleClass="paneBlueDark">
                <padding>
                   <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                </padding>
@@ -142,12 +142,12 @@
                                  <children>
                                     <AnchorPane prefWidth="500.0">
                                        <children>
-                                          <Button mnemonicParsing="false" onAction="#insertInflows" styleClass="btnBlue" text="ENTRADA FINANCEIRA" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                          <Button mnemonicParsing="false" onAction="#customer" styleClass="btnBlue" text="CLIENTE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                        </children>
                                     </AnchorPane>
                                     <AnchorPane prefWidth="500.0">
                                        <children>
-                                          <Button mnemonicParsing="false" onAction="#linkCustomer" styleClass="btnBlue" text="VINCULAR CLIENTE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                          <Button fx:id="btnLinkCustomer" disable="true" mnemonicParsing="false" onAction="#linkCustomer" styleClass="btnBlue" text="VINCULAR CLIENTE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                        </children>
                                     </AnchorPane>
                                     <AnchorPane prefWidth="500.0">
@@ -161,12 +161,12 @@
                                  <children>
                                     <AnchorPane prefWidth="500.0">
                                        <children>
-                                          <Button mnemonicParsing="false" onAction="#insertOutflows" styleClass="btnBlue" text="SAIDA FINANCEIRA" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                          <Button mnemonicParsing="false" onAction="#animal" styleClass="btnBlue" text="ANIMAL" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                        </children>
                                     </AnchorPane>
                                     <AnchorPane prefWidth="500.0">
                                        <children>
-                                          <Button mnemonicParsing="false" onAction="#linkAnimal" styleClass="btnBlue" text="VINCULAR ANIMAL" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                          <Button fx:id="btnLinkAnimal" disable="true" mnemonicParsing="false" onAction="#linkAnimal" styleClass="btnBlue" text="VINCULAR ANIMAL" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                        </children>
                                     </AnchorPane>
                                     <AnchorPane prefWidth="500.0">
@@ -252,7 +252,7 @@
                                  <children>
                                     <AnchorPane prefWidth="500.0">
                                        <children>
-                                          <Button mnemonicParsing="false" onAction="#manageOptions" styleClass="btnBlue" text="GERENCIAR" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                          <Button fx:id="btnManageOptions" mnemonicParsing="false" onAction="#manageOptions" styleClass="btnBlue" text="GERENCIAR" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                        </children>
                                     </AnchorPane>
                                     <AnchorPane prefWidth="500.0">

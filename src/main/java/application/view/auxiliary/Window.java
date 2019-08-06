@@ -11,7 +11,7 @@ import javafx.stage.StageStyle;
 import java.io.IOException;
 
 public abstract class Window {
-    public static final String ICON = "/View/img/logoGrande.png";
+    static final String ICON = "/View/img/logoGrande.png";
 
     public static void changeScene(Stage stage, String sceneName, Controller oldController, Object... objects){
         try {

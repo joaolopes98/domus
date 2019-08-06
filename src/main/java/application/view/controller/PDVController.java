@@ -61,8 +61,12 @@ public class PDVController extends Controller {
     private double discount = 0;
     private int code = 1;
 
+    @FXML private Button btnLinkCustomer;
+    @FXML private Button btnLinkAnimal;
     @FXML private Button btnFinalizeSale;
     @FXML private Button btnCancelItem;
+
+    @FXML private Button btnManageOptions;
 
     @FXML private Label lblUser;
     @FXML private Label lblDate;
@@ -217,7 +221,7 @@ public class PDVController extends Controller {
         updateProducts();
     }
 
-    private void updateProducts() {
+    void updateProducts() {
         obsSearchItems.clear();
         ArrayList<Product> obsProducts = new ArrayList<>(ProductModel.getAllSellable());
         obsProducts.forEach( product -> obsSearchItems.add(new ItemSearchField(product)));
@@ -239,11 +243,14 @@ public class PDVController extends Controller {
         tableSale.setItems(obsSaleFields);
         tableSale.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             btnCancelItem.setDisable(newValue == null);
+            btnLinkAnimal.setDisable(newValue == null);
         });
 
         obsSaleFields.addListener((ListChangeListener<ItemSaleField>) e -> {
             updateValues();
             btnFinalizeSale.setDisable(obsSaleFields.size() == 0);
+            btnLinkCustomer.setDisable(obsSaleFields.size() == 0);
+            btnManageOptions.setDisable(obsSaleFields.size() != 0);
 
             DecimalFormat codeFormat = new DecimalFormat("000");
             this.code = 1;
@@ -307,12 +314,14 @@ public class PDVController extends Controller {
         lblDiscount.setText(Mask.formatDoubleToMoney(this.discount));
     }
 
-    @FXML private void insertInflows(){
-        Window.changeScene(this.stage, "financialInflows", this);
+    @FXML private void customer(){
+        Window.changeScene(this.stage, "error", this,
+                "Funcionalidade não disponivel no momento");
     }
 
-    @FXML private void insertOutflows(){
-        Window.changeScene(this.stage, "financialOutflows", this);
+    @FXML private void animal(){
+        Window.changeScene(this.stage, "error", this,
+                "Funcionalidade não disponivel no momento");
     }
 
     @FXML private void linkCustomer(){
