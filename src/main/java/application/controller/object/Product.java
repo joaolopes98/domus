@@ -2,6 +2,9 @@ package application.controller.object;
 
 import application.model.Model;
 
+import java.util.Date;
+
+
 public class Product implements Model {
     private int id;
     private String name;
@@ -9,6 +12,7 @@ public class Product implements Model {
     private double price;
     private int quantity;
     private boolean status;
+    private Date shelf_date;
 
     public int getId() {
         return id;
@@ -56,5 +60,13 @@ public class Product implements Model {
 
     public void setStatus(boolean status) {
         this.status = status;
+    }
+
+    public Date getShelf_date() {
+        return shelf_date;
+    }
+
+    public void setShelf_date(Date shelf_date) {
+        this.shelf_date = shelf_date;
     }
 }

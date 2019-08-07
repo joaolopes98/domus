@@ -25,7 +25,6 @@ public class OpenCashController extends Controller {
     @Override
     public void initialize(Stage oldStage, Scene scene, Controller oldController, Object... objects) {
         pdvController = (PDVController) oldController;
-        pdvController.activeWaitScreen(true);
 
         scene.addEventFilter(KeyEvent.KEY_PRESSED, e -> {
             if(e.getCode() == KeyCode.ESCAPE){
@@ -40,7 +39,6 @@ public class OpenCashController extends Controller {
         Window.setModal(this.stage, oldStage, oldController);
         super.initialize(oldStage, scene, oldController, objects);
 
-        this.stage.showingProperty().addListener( e -> pdvController.activeWaitScreen(false));
         Mask.money(txtValue);
     }
 
@@ -60,6 +58,7 @@ public class OpenCashController extends Controller {
 
         if(CashMovementModel.create(cashMovement)){
             stage.close();
+            pdvController.verifyShelfDate();
         } else {
             Window.changeScene(this.stage, "error", this,
                     "Não foi possivel criar o caixa");

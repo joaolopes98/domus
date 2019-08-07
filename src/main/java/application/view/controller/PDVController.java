@@ -28,6 +28,7 @@ import javafx.stage.Stage;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 
 public class PDVController extends Controller {
@@ -99,6 +100,8 @@ public class PDVController extends Controller {
 
         if(CashMovementModel.getOpened() == null) {
             Window.changeScene(this.stage, "openCash", this);
+        } else {
+            verifyShelfDate();
         }
     }
 
@@ -391,5 +394,24 @@ public class PDVController extends Controller {
 
     public double getDiscount() {
         return discount;
+    }
+
+    public void verifyShelfDate(){
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(new Date());
+        calendar.add(Calendar.DAY_OF_MONTH, 1);
+        ArrayList<Product> shelfDateProducts = new ArrayList<>(
+                ProductModel.getAll("WHERE status = TRUE AND shelf_date <= '"
+                        + calendar.getTime().getTime() + "'"));
+
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        StringBuilder productsDate = new StringBuilder();
+        if(!shelfDateProducts.isEmpty()) {
+            for (Product product : shelfDateProducts){
+                productsDate.append("*" + product.getName()+" - Validade : "+ formatter.format(product.getShelf_date()) +"\n");
+            }
+            Window.changeScene(this.stage, "error", this,
+                    productsDate.toString());
+        }
     }
 }

@@ -13,5 +13,6 @@
         <property name="price" type="double"/>
         <property name="quantity" type="integer"/>
         <property name="status" type="boolean"/>
+        <property name="shelf_date" type="date"/>
     </class>
 </hibernate-mapping>
