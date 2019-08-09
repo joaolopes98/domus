@@ -5,6 +5,7 @@ import application.controller.object.User;
 import application.model.CashMovementModel;
 import application.model.FinancialInflowModel;
 import application.view.auxiliary.Controller;
+import application.view.auxiliary.Formatter;
 import application.view.auxiliary.Mask;
 import application.view.auxiliary.Window;
 import javafx.fxml.FXML;
@@ -47,7 +48,7 @@ public class FinancialInflowsController extends Controller {
     }
 
     @FXML public void insertValue() {
-        double value = Mask.unmaskMoney(txtValue.getText());
+        double value = Formatter.unmaskMoney(txtValue.getText());
         if(value != 0) {
             FinancialInflow fi = new FinancialInflow();
             fi.setValue(value);

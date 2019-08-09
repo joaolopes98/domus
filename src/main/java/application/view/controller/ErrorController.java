@@ -2,19 +2,15 @@ package application.view.controller;
 
 import application.view.auxiliary.Controller;
 import application.view.auxiliary.Window;
-import javafx.animation.RotateTransition;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 
 public class ErrorController extends Controller {
 
-    @FXML private HBox paneImage;
     @FXML private Label lblInfo;
 
     @Override
@@ -37,6 +33,5 @@ public class ErrorController extends Controller {
 
     @FXML private void close (){
         this.stage.close();
-        oldController.activeWaitScreen(false);
     }
 }

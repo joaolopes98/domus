@@ -3,6 +3,7 @@ package application.view.controller;
 import application.controller.object.Product;
 import application.model.ProductModel;
 import application.view.auxiliary.Controller;
+import application.view.auxiliary.Formatter;
 import application.view.auxiliary.Mask;
 import application.view.auxiliary.Window;
 import com.jfoenix.controls.JFXDatePicker;
@@ -53,7 +54,7 @@ public class CreateProductController extends Controller {
     }
 
     @FXML private void create (){
-        double price = Mask.unmaskMoney(txtPrice.getText());
+        double price = Formatter.unmaskMoney(txtPrice.getText());
         if(!txtName.getText().isEmpty()) {
             if (price > 0) {
                 ArrayList<Product> products = new ArrayList<>(
@@ -74,7 +75,7 @@ public class CreateProductController extends Controller {
                         }
                     }
                     product.setPrice(price);
-                    product.setQuantity(Mask.unmaskInteger(txtQuantity.getText()));
+                    product.setQuantity(Formatter.unmaskInteger(txtQuantity.getText()));
                     product.setStatus(true);
 
                     if (ProductModel.create(product)) {

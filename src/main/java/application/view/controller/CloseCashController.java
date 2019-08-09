@@ -5,6 +5,7 @@ import application.controller.object.CashMovement;
 import application.controller.object.User;
 import application.model.CashMovementModel;
 import application.view.auxiliary.Controller;
+import application.view.auxiliary.Formatter;
 import application.view.auxiliary.Mask;
 import application.view.auxiliary.Window;
 import javafx.fxml.FXML;
@@ -52,7 +53,7 @@ public class CloseCashController extends Controller {
         cashMovement.setClosed(true);
         cashMovement.setClosed_at(new Timestamp(new Date().getTime()));
         cashMovement.setValue_closed_system(CashCalc.money(cashMovement));
-        cashMovement.setValue_closed_input(Mask.unmaskMoney(txtValue.getText()));
+        cashMovement.setValue_closed_input(Formatter.unmaskMoney(txtValue.getText()));
         cashMovement.setClosed_by(User.getUser());
 
         if(CashMovementModel.update(cashMovement)){

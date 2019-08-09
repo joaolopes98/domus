@@ -3,6 +3,7 @@ package application.view.controller;
 import application.controller.object.Product;
 import application.model.ProductModel;
 import application.view.auxiliary.Controller;
+import application.view.auxiliary.Formatter;
 import application.view.auxiliary.Mask;
 import application.view.auxiliary.Window;
 import javafx.fxml.FXML;
@@ -45,16 +46,16 @@ public class StockProductController extends Controller {
     }
 
     @FXML private void upQuantity(){
-        int quantity = Mask.unmaskInteger(lblQuantity.getText());
-        quantity += Mask.unmaskInteger(txtQuantity.getText());
+        int quantity = Formatter.unmaskInteger(lblQuantity.getText());
+        quantity += Formatter.unmaskInteger(txtQuantity.getText());
 
         lblQuantity.setText(String.valueOf(quantity));
         txtQuantity.setText("0");
     }
 
     @FXML private void downQuantity(){
-        int quantity = Mask.unmaskInteger(lblQuantity.getText());
-        quantity -= Mask.unmaskInteger(txtQuantity.getText());
+        int quantity = Formatter.unmaskInteger(lblQuantity.getText());
+        quantity -= Formatter.unmaskInteger(txtQuantity.getText());
 
         if(quantity >= 0) {
             lblQuantity.setText(String.valueOf(quantity));
@@ -67,7 +68,7 @@ public class StockProductController extends Controller {
     }
 
     @FXML private void save(){
-        this.product.setQuantity(Mask.unmaskInteger(lblQuantity.getText()));
+        this.product.setQuantity(Formatter.unmaskInteger(lblQuantity.getText()));
 
         if(ProductModel.update(product)){
             this.stage.close();

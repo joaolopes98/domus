@@ -4,6 +4,7 @@ import application.controller.object.CashMovement;
 import application.controller.object.User;
 import application.model.CashMovementModel;
 import application.view.auxiliary.Controller;
+import application.view.auxiliary.Formatter;
 import application.view.auxiliary.Mask;
 import application.view.auxiliary.Window;
 import javafx.fxml.FXML;
@@ -49,7 +50,7 @@ public class OpenCashController extends Controller {
 
     public void open() {
 
-        double value = Mask.unmaskMoney(txtValue.getText());
+        double value = Formatter.unmaskMoney(txtValue.getText());
 
         CashMovement cashMovement = new CashMovement();
         cashMovement.setValue(value);

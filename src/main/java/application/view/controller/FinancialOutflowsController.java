@@ -6,6 +6,7 @@ import application.controller.object.User;
 import application.model.CashMovementModel;
 import application.model.FinancialOutflowModel;
 import application.view.auxiliary.Controller;
+import application.view.auxiliary.Formatter;
 import application.view.auxiliary.Mask;
 import application.view.auxiliary.Window;
 import javafx.fxml.FXML;
@@ -49,7 +50,7 @@ public class FinancialOutflowsController extends Controller {
     }
 
     @FXML public void removeValue() {
-        double value = Mask.unmaskMoney(txtValue.getText());
+        double value = Formatter.unmaskMoney(txtValue.getText());
         if(value != 0) {
             if(CashCalc.money(CashMovementModel.getOpened()) >= value) {
                 FinancialOutflow fo = new FinancialOutflow();

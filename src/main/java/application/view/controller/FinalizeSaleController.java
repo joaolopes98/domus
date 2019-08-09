@@ -8,6 +8,7 @@ import application.model.PaymentMethodModel;
 import application.model.ProductModel;
 import application.model.SaleModel;
 import application.view.auxiliary.Controller;
+import application.view.auxiliary.Formatter;
 import application.view.auxiliary.Mask;
 import application.view.auxiliary.Window;
 import javafx.collections.FXCollections;
@@ -119,7 +120,7 @@ public class FinalizeSaleController extends Controller {
         });
 
         Mask.money(txtPaymentValue);
-        txtPaymentValue.setText(Mask.formatDoubleToMoney(this.totalRoot));
+        txtPaymentValue.setText(Formatter.formatDoubleToMoney(this.totalRoot));
         txtPaymentValue.setOnKeyPressed( e -> {
             if(e.getCode() == KeyCode.TAB){
                 Mask.toLastPosition(txtDiscount);
@@ -163,33 +164,33 @@ public class FinalizeSaleController extends Controller {
     }
 
     private void setupInfos(){
-        lblTotal.setText(Mask.formatDoubleToMoney(this.totalRoot));
+        lblTotal.setText(Formatter.formatDoubleToMoney(this.totalRoot));
     }
 
     private void updateValues(){
-        double discount = Mask.unmaskMoney(this.txtDiscount.getText());
+        double discount = Formatter.unmaskMoney(this.txtDiscount.getText());
 
         if(discount > this.totalRoot){
-            this.txtDiscount.setText(Mask.formatDoubleToMoney(this.totalRoot));
+            this.txtDiscount.setText(Formatter.formatDoubleToMoney(this.totalRoot));
         }
 
-        this.discount = Mask.unmaskMoney(this.txtDiscount.getText());
+        this.discount = Formatter.unmaskMoney(this.txtDiscount.getText());
         this.total = this.totalRoot - this.discount;
 
         this.payments = 0;
-        obsPayments.forEach( payment -> this.payments += Mask.unmaskMoney(payment.getValue()));
+        obsPayments.forEach( payment -> this.payments += Formatter.unmaskMoney(payment.getValue()));
 
         this.total -= this.payments;
         if(this.total <= 0){
             lblInfo.setText("TROCO");
-            lblTotal.setText(Mask.formatDoubleToMoney(this.total));
-            txtPaymentValue.setText(Mask.formatDoubleToMoney(0));
+            lblTotal.setText(Formatter.formatDoubleToMoney(this.total));
+            txtPaymentValue.setText(Formatter.formatDoubleToMoney(0));
             txtPaymentValue.setDisable(true);
             btnFinalize.setDisable(false);
         } else {
             lblInfo.setText("TOTAL");
-            lblTotal.setText(Mask.formatDoubleToMoney(this.total));
-            txtPaymentValue.setText(Mask.formatDoubleToMoney(this.total));
+            lblTotal.setText(Formatter.formatDoubleToMoney(this.total));
+            txtPaymentValue.setText(Formatter.formatDoubleToMoney(this.total));
             txtPaymentValue.setDisable(false);
             btnFinalize.setDisable(true);
         }
@@ -210,17 +211,17 @@ public class FinalizeSaleController extends Controller {
 
         Sale sale = new Sale();
         sale.setValue(this.totalRoot);
-        sale.setDiscount(Mask.unmaskMoney(txtDiscount.getText()));
+        sale.setDiscount(Formatter.unmaskMoney(txtDiscount.getText()));
         sale.setDate(now);
         sale.setCashMovement(cashMovement);
         sale.setAccess(User.getUser());
 
         for(ItemSaleField item: obsSale){
             SaleItem saleItem = new SaleItem();
-            saleItem.setPrice(Mask.unmaskMoney(item.getPrice()));
+            saleItem.setPrice(Formatter.unmaskMoney(item.getPrice()));
             saleItem.setQuantity(item.getQuantity());
-            saleItem.setDiscount(Mask.unmaskMoney(item.getDiscount().getText()));
-            saleItem.setSubtotal(Mask.unmaskMoney(item.getSubtotal()));
+            saleItem.setDiscount(Formatter.unmaskMoney(item.getDiscount().getText()));
+            saleItem.setSubtotal(Formatter.unmaskMoney(item.getSubtotal()));
             saleItem.setSale(sale);
 
             if(item.isTypeProduct()) {
@@ -240,7 +241,7 @@ public class FinalizeSaleController extends Controller {
 
         for(PaymentField payment : obsPayments){
             FinancialInflow financialInflow = new FinancialInflow();
-            financialInflow.setValue(Mask.unmaskMoney(payment.getValue()));
+            financialInflow.setValue(Formatter.unmaskMoney(payment.getValue()));
             financialInflow.setDate(now);
             financialInflow.setCashMovement(cashMovement);
             financialInflow.setSale(sale);

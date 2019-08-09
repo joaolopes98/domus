@@ -3,6 +3,7 @@ package application.view.controller;
 import application.controller.object.Product;
 import application.model.ProductModel;
 import application.view.auxiliary.Controller;
+import application.view.auxiliary.Formatter;
 import application.view.auxiliary.Mask;
 import application.view.auxiliary.Window;
 import com.jfoenix.controls.JFXDatePicker;
@@ -55,11 +56,11 @@ public class EditProductController extends Controller {
             SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
             txtDate.getEditor().setText(formatter.format(this.product.getShelf_date()));
         }
-        txtPrice.setText(Mask.formatDoubleToMoney(this.product.getPrice()));
+        txtPrice.setText(Formatter.formatDoubleToMoney(this.product.getPrice()));
     }
 
     @FXML private void save(){
-        double price = Mask.unmaskMoney(txtPrice.getText());
+        double price = Formatter.unmaskMoney(txtPrice.getText());
         if(!txtName.getText().isEmpty()) {
             if (price > 0) {
                 product.setName(txtName.getText());

@@ -4,15 +4,20 @@
     <list default="true" id="596f29fa-0cc5-4e5a-a056-63460e674cfd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/banco.db" beforeDir="false" afterPath="$PROJECT_DIR$/banco.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/controller/object/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/controller/object/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/controller/ItemSaleField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/controller/ItemSaleField.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/controller/ItemSearchField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/controller/ItemSearchField.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/controller/ProductField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/controller/ProductField.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/view/auxiliary/Mask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/view/auxiliary/Mask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/view/controller/CloseCashController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/view/controller/CloseCashController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/application/view/controller/CreateProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/view/controller/CreateProductController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/application/view/controller/EditProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/view/controller/EditProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/view/controller/ErrorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/view/controller/ErrorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/view/controller/FinalizeSaleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/view/controller/FinalizeSaleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/view/controller/FinancialInflowsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/view/controller/FinancialInflowsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/view/controller/FinancialOutflowsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/view/controller/FinancialOutflowsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/application/view/controller/OpenCashController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/view/controller/OpenCashController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/application/view/controller/PDVController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/view/controller/PDVController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/hbm/Products.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hbm/Products.hbm.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/fxml/createProduct.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/fxml/createProduct.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/fxml/editProduct.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/fxml/editProduct.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/view/controller/StockProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/view/controller/StockProductController.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -54,61 +59,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/6f46db23-a8b7-4657-9ec3-8beae04d7244/console.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/application/view/controller/PDVController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="146">
-              <caret line="411" column="12" lean-forward="true" selection-start-line="411" selection-start-column="12" selection-end-line="411" selection-end-column="12" />
-              <folding>
-                <element signature="e#3859#8674#0" />
-                <element signature="e#8680#9100#0" />
-                <element signature="e#9106#10631#0" />
-                <element signature="e#10637#10848#0" />
-                <element signature="e#10854#11655#0" />
-                <element signature="e#11661#11898#0" />
-                <element signature="e#11904#12130#0" />
-                <element signature="e#12136#12582#0" />
-                <element signature="e#12588#12739#0" />
-                <element signature="e#12745#12894#0" />
-                <element signature="e#12900#13055#0" />
-                <element signature="e#13061#13214#0" />
-                <element signature="e#13332#13942#0" />
-                <element signature="e#14159#14277#0" />
-                <element signature="e#14283#14461#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/application/view/controller/OpenCashController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-406">
-              <caret line="26" column="54" selection-start-line="26" selection-start-column="54" selection-end-line="26" selection-end-column="54" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/application/view/controller/EditProductController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-148">
-              <caret line="55" column="86" lean-forward="true" selection-start-line="55" selection-start-column="86" selection-end-line="55" selection-end-column="86" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#3348#3349#0" expanded="true" />
-                <element signature="e#3382#3383#0" expanded="true" />
-                <element signature="e#3890#3891#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="204">
+              <caret line="12" column="23" lean-forward="true" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -149,6 +104,7 @@
       <find>&quot;products</find>
       <find>SimpleDateFormat</find>
       <find>error</find>
+      <find>Simple</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -157,11 +113,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/application/controller/PaymentField.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/view/css/btnRed.cdd.css" />
-        <option value="$PROJECT_DIR$/src/main/resources/view/css/btnRed.css" />
-        <option value="$PROJECT_DIR$/src/main/resources/view/css/finalizeSale.css" />
-        <option value="$PROJECT_DIR$/src/main/resources/view/css/closeCash.css" />
         <option value="$PROJECT_DIR$/src/main/resources/view/css/openCash.css" />
         <option value="$PROJECT_DIR$/src/main/java/application/model/SaleModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/application/controller/object/Sale.java" />
@@ -182,19 +133,10 @@
         <option value="$PROJECT_DIR$/src/main/resources/view/css/pdv.css" />
         <option value="$PROJECT_DIR$/src/main/resources/view/fxml/products.fxml" />
         <option value="$PROJECT_DIR$/src/main/resources/view/css/products.css" />
-        <option value="$PROJECT_DIR$/src/main/java/application/view/auxiliary/Mask.java" />
-        <option value="$PROJECT_DIR$/src/main/java/application/view/controller/CloseCashController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/view/css/buttons.css" />
-        <option value="$PROJECT_DIR$/src/main/java/application/view/controller/FinancialOutflowsController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/application/view/controller/FinancialInflowsController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/application/controller/ProductField.java" />
-        <option value="$PROJECT_DIR$/src/main/java/application/view/controller/ErrorController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/application/controller/ItemSearchField.java" />
         <option value="$PROJECT_DIR$/src/main/java/application/model/ServiceModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/application/model/ProductModel.java" />
-        <option value="$PROJECT_DIR$/src/main/java/application/controller/ItemSaleField.java" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
-        <option value="$PROJECT_DIR$/src/main/java/application/view/controller/FinalizeSaleController.java" />
         <option value="$PROJECT_DIR$/src/main/java/application/view/controller/ProductsController.java" />
         <option value="$PROJECT_DIR$/src/main/java/application/view/controller/ManageOptionsController.java" />
         <option value="$PROJECT_DIR$/src/main/java/application/view/auxiliary/Window.java" />
@@ -202,12 +144,26 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/hbm/Products.hbm.xml" />
         <option value="$PROJECT_DIR$/src/main/java/application/controller/object/Product.java" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/6f46db23-a8b7-4657-9ec3-8beae04d7244/console.sql" />
+        <option value="$PROJECT_DIR$/src/main/resources/view/css/shelfDate.css" />
+        <option value="$PROJECT_DIR$/src/main/resources/view/fxml/shelfDate.fxml" />
+        <option value="$PROJECT_DIR$/src/main/java/application/view/controller/ErrorController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/application/view/controller/ShelfDateController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/application/controller/ShelfDateField.java" />
+        <option value="$PROJECT_DIR$/src/main/java/application/view/auxiliary/Formatter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/application/view/auxiliary/Mask.java" />
+        <option value="$PROJECT_DIR$/src/main/java/application/view/controller/OpenCashController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/application/view/controller/PDVController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/application/view/controller/FinalizeSaleController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/application/controller/ItemSaleField.java" />
+        <option value="$PROJECT_DIR$/src/main/java/application/controller/ItemSearchField.java" />
+        <option value="$PROJECT_DIR$/src/main/java/application/controller/ProductField.java" />
+        <option value="$PROJECT_DIR$/src/main/java/application/view/controller/CloseCashController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/application/view/controller/FinancialInflowsController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/application/view/controller/EditProductController.java" />
         <option value="$PROJECT_DIR$/src/main/java/application/view/controller/StockProductController.java" />
         <option value="$PROJECT_DIR$/src/main/java/application/view/controller/CreateProductController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/application/view/controller/EditProductController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/application/view/controller/OpenCashController.java" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/6f46db23-a8b7-4657-9ec3-8beae04d7244/console.sql" />
-        <option value="$PROJECT_DIR$/src/main/java/application/view/controller/PDVController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/application/view/controller/FinancialOutflowsController.java" />
       </list>
     </option>
   </component>
@@ -253,8 +209,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -304,8 +258,7 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-              <item name="object" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="domus" type="b2602c69:ProjectViewProjectNode" />
@@ -315,6 +268,7 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="application" type="462c0819:PsiDirectoryNode" />
               <item name="view" type="462c0819:PsiDirectoryNode" />
+              <item name="auxiliary" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="domus" type="b2602c69:ProjectViewProjectNode" />
@@ -340,11 +294,22 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="view" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="domus" type="b2602c69:ProjectViewProjectNode" />
+              <item name="domus" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+              <item name="img" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -355,8 +320,8 @@
     <property name="GenerateAntBuildDialog.outputFileNameProperty" value="domus" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1564535885325" />
-    <property name="database.console.LAST_STATE" value="false" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1565313671955" />
+    <property name="database.console.LAST_STATE" value="true" />
     <property name="database.data.extractors.current.id" value="Tab-separated (TSV)_id" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -365,19 +330,19 @@
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="application.model" />
-      <recent name="application.controller.object" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\joaop\Desktop\Faculdade\PROJETO\domus\src\main\resources\view\css" />
+      <recent name="C:\Users\joaop\Desktop\Faculdade\PROJETO\domus\src\main\resources\view\img" />
+      <recent name="C:\Users\joaop\Desktop\Faculdade\PROJETO\domus\src\main\resources\view\fxml" />
+      <recent name="C:\Users\joaop\Desktop\Faculdade\PROJETO\domus\src\main\resources\hbm" />
+      <recent name="C:\Users\joaop\Desktop\Faculdade\PROJETO\domus\src\main\resources\view\font" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="application.controller.object" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\joaop\Desktop\Faculdade\PROJETO\domus\src\main\resources\view\img" />
-      <recent name="C:\Users\joaop\Desktop\Faculdade\PROJETO\domus\src\main\resources\view\css" />
-      <recent name="C:\Users\joaop\Desktop\Faculdade\PROJETO\domus\src\main\resources\view\fxml" />
-      <recent name="C:\Users\joaop\Desktop\Faculdade\PROJETO\domus\src\main\resources\hbm" />
-      <recent name="C:\Users\joaop\Desktop\Faculdade\PROJETO\domus\src\main\resources\view\font" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="application.model" />
+      <recent name="application.controller.object" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -450,7 +415,9 @@
       <workItem from="1564438661766" duration="9074000" />
       <workItem from="1564524446724" duration="10148000" />
       <workItem from="1565043130980" duration="7754000" />
-      <workItem from="1565130347258" duration="8105000" />
+      <workItem from="1565130347258" duration="8324000" />
+      <workItem from="1565216266066" duration="836000" />
+      <workItem from="1565310008143" duration="3466000" />
     </task>
     <task id="LOCAL-00001" summary="Finalização de Procura e inclusão de item na comanda, e adição de desconto no item">
       <created>1558570743810</created>
@@ -529,17 +496,24 @@
       <option name="project" value="LOCAL" />
       <updated>1565132400399</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Inicio da implementação de validade de produtos">
+      <created>1565141027307</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1565141027307</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="206982000" />
+    <option name="totallyTimeSpent" value="211503000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2655068" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2730711" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -559,7 +533,7 @@
       <window_info anchor="bottom" id="Database Changes" order="9" weight="0.3289689" />
       <window_info anchor="bottom" id="Terminal" order="10" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5015129" side_tool="true" weight="0.3289689" />
-      <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.49924356" weight="0.3289689" />
+      <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.49924356" weight="0.3420622" />
       <window_info anchor="bottom" id="Java Enterprise" order="13" />
       <window_info anchor="bottom" id="Database Console" order="14" weight="0.3289689" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -664,93 +638,33 @@
     <MESSAGE value="Removendo acentuação, implementação da pesquisa de produtos e adição do botão de adição de pagamento" />
     <MESSAGE value="Ajuste na formatação do código e pesquisa de produto por EAN" />
     <MESSAGE value="Alteração do READEME.md, Metas e Mudanças" />
-    <option name="LAST_COMMIT_MESSAGE" value="Alteração do READEME.md, Metas e Mudanças" />
+    <MESSAGE value="Inicio da implementação de validade de produtos" />
+    <option name="LAST_COMMIT_MESSAGE" value="Inicio da implementação de validade de produtos" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/application/controller/PaymentField.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="18" column="27" lean-forward="true" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/view/css/closeCash.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="49" selection-start-line="49" selection-end-line="59" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/view/css/editProduct.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="15" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="15" />
-          <folding>
-            <element signature="e#111#299#0" />
-            <element signature="e#311#349#0" />
-            <element signature="e#364#429#0" />
-            <element signature="e#445#577#0" />
-            <element signature="e#589#697#0" />
-            <element signature="e#712#849#0" />
-            <element signature="e#857#1063#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/view/css/stockProduct.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="45" column="9" selection-start-line="45" selection-start-column="1" selection-end-line="45" selection-end-column="9" />
-          <folding>
-            <element signature="e#111#299#0" />
-            <element signature="e#311#349#0" />
-            <element signature="e#364#429#0" />
-            <element signature="e#445#577#0" />
-            <element signature="e#589#697#0" />
-            <element signature="e#857#1063#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/view/fxml/editProduct.fxml">
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="236" selection-start-line="10" selection-start-column="236" selection-end-line="10" selection-end-column="236" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/view/fxml/error.fxml">
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="10" column="235" selection-start-line="10" selection-start-column="235" selection-end-line="10" selection-end-column="235" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/view/fxml/manageOptions.fxml">
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
       <provider editor-type-id="text-editor">
         <state relative-caret-position="-136">
           <caret line="9" column="239" selection-start-line="9" selection-start-column="239" selection-end-line="9" selection-end-column="239" />
         </state>
       </provider>
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/view/fxml/stockProduct.fxml">
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
       <provider editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" column="233" selection-start-line="12" selection-start-column="233" selection-end-line="12" selection-end-column="233" />
         </state>
       </provider>
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/view/fxml/createProduct.fxml">
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
       <provider editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="10" column="245" selection-start-line="10" selection-start-column="245" selection-end-line="10" selection-end-column="245" />
         </state>
       </provider>
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/application/model/GenericModel.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -802,49 +716,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/view/fxml/products.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="44" column="49" selection-start-line="44" selection-start-column="43" selection-end-line="44" selection-end-column="49" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/view/css/products.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="118" column="21" selection-start-line="118" selection-start-column="21" selection-end-line="118" selection-end-column="21" />
-          <folding>
-            <element signature="e#111#299#0" />
-            <element signature="e#311#349#0" />
-            <element signature="e#589#697#0" />
-            <element signature="e#705#945#0" />
-            <element signature="e#713#856#0" />
-            <element signature="e#888#1013#0" />
-            <element signature="e#1051#1174#0" />
-            <element signature="e#1202#1327#0" />
-            <element signature="e#1353#1478#0" />
-            <element signature="e#1511#1636#0" />
-            <element signature="e#1675#1713#0" />
-            <element signature="e#1767#1805#0" />
-            <element signature="e#2033#2133#0" />
-            <element signature="e#2144#2284#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/view/css/pdv.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="44" column="19" lean-forward="true" selection-start-line="44" selection-start-column="19" selection-end-line="44" selection-end-column="19" />
-          <folding>
-            <element signature="e#101#359#0" />
-            <element signature="e#376#564#0" />
-            <element signature="e#576#641#0" />
-            <element signature="e#656#721#0" />
-            <element signature="e#737#869#0" />
-          </folding>
-        </state>
-      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="das://6f46db23-a8b7-4657-9ec3-8beae04d7244/schema/main/table/products">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
@@ -867,37 +744,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/application/view/controller/CloseCashController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="960">
-          <caret line="63" column="9" lean-forward="true" selection-start-line="63" selection-start-column="9" selection-end-line="63" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/application/view/controller/FinancialInflowsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="65" column="20" lean-forward="true" selection-start-line="65" selection-start-column="20" selection-end-line="65" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#initialize#0;class#FinancialInflowsController#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/application/view/controller/FinancialOutflowsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="73" column="20" lean-forward="true" selection-start-line="73" selection-start-column="20" selection-end-line="73" selection-end-column="20" />
-          <folding>
-            <element signature="method#initialize#0;class#FinancialOutflowsController#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/application/view/controller/InitialController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -907,43 +753,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/view/img/logo.ico">
       <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/view/css/buttons.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="33" selection-start-line="1" selection-start-column="27" selection-end-line="1" selection-end-column="33" />
-          <folding>
-            <element signature="e#322#360#0" />
-            <element signature="e#371#671#0" />
-            <element signature="e#688#726#0" />
-            <element signature="e#736#1036#0" />
-            <element signature="e#1052#1090#0" />
-            <element signature="e#1102#1402#0" />
-            <element signature="e#1420#1458#0" />
-            <element signature="e#1473#1773#0" />
-            <element signature="e#1794#1832#0" />
-            <element signature="e#1843#2145#0" />
-            <element signature="e#2162#2202#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/application/view/controller/ErrorController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="40" column="5" selection-start-line="37" selection-start-column="31" selection-end-line="40" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/application/controller/ProductField.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="83" column="33" selection-start-line="83" selection-start-column="33" selection-end-line="83" selection-end-column="33" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/application/controller/object/User.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -969,17 +778,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/application/controller/ItemSearchField.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="57" column="41" selection-start-line="57" selection-start-column="41" selection-end-line="57" selection-end-column="41" />
-          <folding>
-            <element signature="method#ItemSearchField#0;class#ItemSearchField#0" />
-            <element signature="method#ItemSearchField#1;class#ItemSearchField#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/application/model/ProductModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -993,69 +791,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/application/controller/ItemSaleField.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="134" column="34" selection-start-line="134" selection-start-column="34" selection-end-line="134" selection-end-column="34" />
-          <folding>
-            <element signature="method#ItemSaleField#0;class#ItemSaleField#0" />
-            <element signature="e#923#1100#1" />
-            <element signature="e#1106#1283#1" />
-            <element signature="e#1502#1668#0" />
-            <element signature="e#1564#1658#1" />
-            <element signature="e#1716#2296#0" />
-            <element signature="e#1857#1935#1" />
-            <element signature="e#1941#2019#1" />
-            <element signature="e#2055#2145#1" />
-            <element signature="e#2323#2424#1" />
-            <element signature="e#2430#2531#1" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/application/view/controller/FinalizeSaleController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="266" column="1" selection-start-line="266" selection-start-column="1" selection-end-line="266" selection-end-column="1" />
-          <folding>
-            <element signature="method#initialize#0;class#FinalizeSaleController#0" />
-            <element signature="method#setupTableItems#0;class#FinalizeSaleController#0" />
-            <element signature="method#setupTablePayments#0;class#FinalizeSaleController#0" />
-            <element signature="method#setupInputs#0;class#FinalizeSaleController#0" />
-            <element signature="method#setupComboBox#0;class#FinalizeSaleController#0" />
-            <element signature="method#setupButton#0;class#FinalizeSaleController#0" />
-            <element signature="n#!!block;n#setupInfos#0;n#FinalizeSaleController#0" />
-            <element signature="method#updateValues#0;class#FinalizeSaleController#0" />
-            <element signature="method#addPayment#0;class#FinalizeSaleController#0" />
-            <element signature="method#finalizeSale#0;class#FinalizeSaleController#0" />
-            <element signature="n#!!block;n#cancel#0;n#FinalizeSaleController#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/application/view/auxiliary/Mask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
-          <folding>
-            <element signature="method#money#0;class#Mask#0" />
-            <element signature="method#unmaskMoney#0;class#Mask#0" />
-            <element signature="method#zeroTo#0;class#Mask#0" />
-            <element signature="method#unmaskInteger#0;class#Mask#0" />
-            <element signature="method#formatDoubleToMoney#0;class#Mask#0" />
-            <element signature="method#formatStringCode#0;class#Mask#0" />
-            <element signature="method#toLastPosition#0;class#Mask#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/view/fxml/pdv.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
           <caret line="152" column="28" selection-start-line="152" selection-start-column="28" selection-end-line="152" selection-end-column="28" />
         </state>
       </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/application/view/controller/ManageOptionsController.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1127,26 +869,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/application/view/controller/StockProductController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="37" column="16" selection-start-line="37" selection-start-column="16" selection-end-line="37" selection-end-column="16" />
-          <folding>
-            <element signature="e#936#1068#0" />
-            <element signature="e#988#1058#1" />
-            <element signature="method#setup#0;class#StockProductController#0" />
-            <element signature="method#upQuantity#0;class#StockProductController#0" />
-            <element signature="method#downQuantity#0;class#StockProductController#0" />
-            <element signature="e#1831#1939#1" />
-            <element signature="e#1945#2122#1" />
-            <element signature="method#save#0;class#StockProductController#0" />
-            <element signature="e#2279#2322#1" />
-            <element signature="e#2327#2471#1" />
-            <element signature="n#!!block;n#cancel#0;n#StockProductController#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/view/css/createProduct.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="169">
@@ -1162,44 +884,397 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/view/img/error.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/view/css/pdv.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="478">
+          <caret line="168" column="1" lean-forward="true" selection-start-line="112" selection-end-line="168" selection-end-column="1" />
+          <folding>
+            <element signature="e#101#359#0" />
+            <element signature="e#376#564#0" />
+            <element signature="e#576#641#0" />
+            <element signature="e#656#721#0" />
+            <element signature="e#737#869#0" />
+            <element signature="e#877#1117#0" />
+            <element signature="e#1133#1268#0" />
+            <element signature="e#1282#1425#0" />
+            <element signature="e#1455#1580#0" />
+            <element signature="e#1616#1739#0" />
+            <element signature="e#1770#1895#0" />
+            <element signature="e#1932#1970#0" />
+            <element signature="e#2022#2086#0" />
+            <element signature="e#2113#2287#0" />
+            <element signature="e#2309#2313#0" />
+            <element signature="e#2326#2469#0" />
+            <element signature="e#2498#2623#0" />
+            <element signature="e#2658#2781#0" />
+            <element signature="e#2811#2936#0" />
+            <element signature="e#2972#3010#0" />
+            <element signature="e#3061#3125#0" />
+            <element signature="e#3177#3206#0" />
+            <element signature="e#3232#3406#0" />
+            <element signature="e#3427#3527#0" />
+            <element signature="e#3543#3701#0" />
+            <element signature="e#3725#3759#0" />
+            <element signature="e#3774#3799#0" />
+            <element signature="e#3810#3936#0" />
+            <element signature="e#3947#4096#0" />
+            <element signature="e#4110#4232#0" />
+            <element signature="e#4248#4397#0" />
+            <element signature="e#4415#4537#0" />
+            <element signature="e#4551#4700#0" />
+            <element signature="e#4716#4838#0" />
+            <element signature="e#4841#5007#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/view/css/products.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="49" selection-start-line="49" selection-end-line="121" selection-end-column="1" />
+          <folding>
+            <element signature="e#111#299#0" />
+            <element signature="e#311#349#0" />
+            <element signature="e#364#429#0" />
+            <element signature="e#445#577#0" />
+            <element signature="e#589#697#0" />
+            <element signature="e#705#954#0" />
+            <element signature="e#1145#1270#0" />
+            <element signature="e#1308#1431#0" />
+            <element signature="e#1459#1584#0" />
+            <element signature="e#1610#1735#0" />
+            <element signature="e#1768#1893#0" />
+            <element signature="e#1932#1970#0" />
+            <element signature="e#2024#2062#0" />
+            <element signature="e#2091#2265#0" />
+            <element signature="e#2289#2389#0" />
+            <element signature="e#2418#2528#0" />
+            <element signature="e#2539#2679#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/view/css/shelfDate.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="32" column="1" lean-forward="true" selection-start-line="32" selection-start-column="1" selection-end-line="32" selection-end-column="1" />
+          <folding>
+            <element signature="e#80#118#0" />
+            <element signature="e#132#197#0" />
+            <element signature="e#212#344#0" />
+            <element signature="e#356#464#0" />
+            <element signature="e#474#584#0" />
+            <element signature="e#606#749#0" />
+            <element signature="e#781#906#0" />
+            <element signature="e#944#1067#0" />
+            <element signature="e#1404#1529#0" />
+            <element signature="e#1568#1606#0" />
+            <element signature="e#1660#1698#0" />
+            <element signature="e#1727#1901#0" />
+            <element signature="e#1925#2025#0" />
+            <element signature="e#2054#2164#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/view/css/buttons.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="58" column="33" selection-start-line="58" selection-start-column="27" selection-end-line="58" selection-end-column="33" />
+          <folding>
+            <element signature="e#7#307#0" />
+            <element signature="e#322#360#0" />
+            <element signature="e#371#671#0" />
+            <element signature="e#688#726#0" />
+            <element signature="e#736#1036#0" />
+            <element signature="e#1052#1090#0" />
+            <element signature="e#1420#1458#0" />
+            <element signature="e#1473#1773#0" />
+            <element signature="e#1794#1832#0" />
+            <element signature="e#1843#2145#0" />
+            <element signature="e#2162#2202#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/application/view/auxiliary/Window.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
+        <state relative-caret-position="348">
           <caret line="29" column="23" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/application/view/controller/EditProductController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/application/view/controller/ErrorController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-148">
-          <caret line="55" column="86" lean-forward="true" selection-start-line="55" selection-start-column="86" selection-end-line="55" selection-end-column="86" />
+        <state relative-caret-position="291">
+          <caret line="27" column="21" lean-forward="true" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3348#3349#0" expanded="true" />
-            <element signature="e#3382#3383#0" expanded="true" />
-            <element signature="e#3890#3891#0" expanded="true" />
+            <element signature="e#1026#1027#0" expanded="true" />
+            <element signature="e#1060#1061#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/view/fxml/shelfDate.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-547">
+          <caret line="12" column="247" lean-forward="true" selection-start-line="12" selection-start-column="247" selection-end-line="12" selection-end-column="247" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/application/controller/ShelfDateField.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="20" column="5" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
+          <folding>
+            <element signature="method#ShelfDateField#0;class#ShelfDateField#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/application/view/controller/ShelfDateController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-442">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1200#1201#0" expanded="true" />
+            <element signature="e#1216#1217#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/application/view/auxiliary/Mask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+          <folding>
+            <element signature="method#money#0;class#Mask#0" />
+            <element signature="method#zeroTo#0;class#Mask#0" />
+            <element signature="method#toLastPosition#0;class#Mask#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/application/view/auxiliary/Formatter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="44" column="5" selection-start-line="44" selection-start-column="5" selection-end-line="44" selection-end-column="5" />
+          <folding>
+            <element signature="method#toDateHour#0;class#Formatter#0" />
+            <element signature="method#toDate#0;class#Formatter#0" />
+            <element signature="method#unmaskMoney#0;class#Formatter#0" />
+            <element signature="method#unmaskInteger#0;class#Formatter#0" />
+            <element signature="method#formatDoubleToMoney#0;class#Formatter#0" />
+            <element signature="method#formatStringCode#0;class#Formatter#0" />
+            <element signature="method#removeAccentuation#0;class#Formatter#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/application/view/controller/OpenCashController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-406">
-          <caret line="26" column="54" selection-start-line="26" selection-start-column="54" selection-end-line="26" selection-end-column="54" />
+        <state relative-caret-position="128">
+          <caret line="52" column="32" selection-start-line="52" selection-start-column="32" selection-end-line="52" selection-end-column="32" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/6f46db23-a8b7-4657-9ec3-8beae04d7244/console.sql">
+    <entry file="file://$PROJECT_DIR$/src/main/java/application/controller/ProductField.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        <state relative-caret-position="255">
+          <caret line="35" column="30" selection-start-line="35" selection-start-column="30" selection-end-line="35" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/application/controller/ItemSearchField.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="27" column="5" lean-forward="true" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+          <folding>
+            <element signature="method#ItemSearchField#0;class#ItemSearchField#0" />
+            <element signature="method#ItemSearchField#1;class#ItemSearchField#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/application/controller/ItemSaleField.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="25" column="53" lean-forward="true" selection-start-line="25" selection-start-column="53" selection-end-line="25" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/application/view/controller/FinalizeSaleController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="53">
+          <caret line="245" column="58" lean-forward="true" selection-start-line="245" selection-start-column="58" selection-end-line="245" selection-end-column="58" />
+          <folding>
+            <element signature="method#initialize#0;class#FinalizeSaleController#0" />
+            <element signature="method#setupTableItems#0;class#FinalizeSaleController#0" />
+            <element signature="method#setupTablePayments#0;class#FinalizeSaleController#0" />
+            <element signature="method#setupComboBox#0;class#FinalizeSaleController#0" />
+            <element signature="method#setupButton#0;class#FinalizeSaleController#0" />
+            <element signature="method#updateValues#0;class#FinalizeSaleController#0" />
+            <element signature="method#addPayment#0;class#FinalizeSaleController#0" />
+            <element signature="n#!!block;n#cancel#0;n#FinalizeSaleController#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/application/view/controller/PDVController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="316" column="68" lean-forward="true" selection-start-line="316" selection-start-column="68" selection-end-line="316" selection-end-column="68" />
+          <folding>
+            <element signature="e#2821#3928#0" />
+            <element signature="e#2985#3149#0" />
+            <element signature="e#3035#3139#1" />
+            <element signature="e#3505#3545#0" />
+            <element signature="e#3801#3874#1" />
+            <element signature="e#3880#3922#1" />
+            <element signature="e#3934#8749#0" />
+            <element signature="e#4016#4461#0" />
+            <element signature="e#4115#4396#1" />
+            <element signature="e#4213#4380#0" />
+            <element signature="e#4285#4362#1" />
+            <element signature="e#4539#6390#0" />
+            <element signature="e#4588#4680#1" />
+            <element signature="e#4716#5025#1" />
+            <element signature="e#4793#5011#1" />
+            <element signature="e#5063#5371#1" />
+            <element signature="e#5140#5357#1" />
+            <element signature="e#5410#6380#1" />
+            <element signature="e#5485#5990#1" />
+            <element signature="e#5539#5901#1" />
+            <element signature="e#5907#5972#1" />
+            <element signature="e#5996#6366#1" />
+            <element signature="e#6079#6148#1" />
+            <element signature="e#6154#6348#1" />
+            <element signature="e#6443#6961#0" />
+            <element signature="e#6499#6564#1" />
+            <element signature="e#6570#6951#1" />
+            <element signature="e#6709#6876#0" />
+            <element signature="e#6781#6858#1" />
+            <element signature="e#7005#7610#0" />
+            <element signature="e#7054#7144#1" />
+            <element signature="e#7182#7600#1" />
+            <element signature="e#7226#7339#1" />
+            <element signature="e#7345#7586#1" />
+            <element signature="e#7428#7497#1" />
+            <element signature="e#7503#7568#1" />
+            <element signature="e#7979#8504#0" />
+            <element signature="e#8083#8468#0" />
+            <element signature="e#8150#8258#1" />
+            <element signature="e#8308#8454#1" />
+            <element signature="e#8620#8715#0" />
+            <element signature="e#8755#9175#0" />
+            <element signature="e#9181#10706#0" />
+            <element signature="e#9976#10135#0" />
+            <element signature="e#10209#10698#0" />
+            <element signature="e#10574#10686#0" />
+            <element signature="e#10929#11730#0" />
+            <element signature="e#11123#11592#1" />
+            <element signature="e#11182#11405#1" />
+            <element signature="e#11411#11582#1" />
+            <element signature="e#11598#11724#1" />
+            <element signature="e#11736#11973#0" />
+            <element signature="e#11979#12205#0" />
+            <element signature="e#12088#12199#1" />
+            <element signature="e#12663#12814#0" />
+            <element signature="e#12820#12969#0" />
+            <element signature="e#12975#13130#0" />
+            <element signature="e#13136#13289#0" />
+            <element signature="e#13332#13401#0" />
+            <element signature="e#13407#14017#0" />
+            <element signature="e#13671#14010#1" />
+            <element signature="e#13708#13998#0" />
+            <element signature="e#13760#13984#1" />
+            <element signature="e#13851#13966#1" />
+            <element signature="e#14057#14127#0" />
+            <element signature="e#14162#14228#0" />
+            <element signature="e#14234#14352#0" />
+            <element signature="e#14358#14536#0" />
+            <element signature="e#14471#14530#1" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/application/view/controller/CloseCashController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="55" column="52" selection-start-line="55" selection-start-column="52" selection-end-line="55" selection-end-column="52" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/application/view/controller/FinancialInflowsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-130">
+          <caret line="50" column="32" selection-start-line="50" selection-start-column="32" selection-end-line="50" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#initialize#0;class#FinancialInflowsController#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/application/view/controller/StockProductController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="78" column="5" lean-forward="true" selection-start-line="78" selection-start-column="5" selection-end-line="78" selection-end-column="5" />
+          <folding>
+            <element signature="method#initialize#0;class#StockProductController#0" />
+            <element signature="e#936#1068#0" />
+            <element signature="e#988#1058#1" />
+            <element signature="method#setup#0;class#StockProductController#0" />
+            <element signature="method#upQuantity#0;class#StockProductController#0" />
+            <element signature="method#downQuantity#0;class#StockProductController#0" />
+            <element signature="e#1831#1939#1" />
+            <element signature="e#1945#2122#1" />
+            <element signature="method#save#0;class#StockProductController#0" />
+            <element signature="e#2279#2322#1" />
+            <element signature="e#2327#2471#1" />
+            <element signature="n#!!block;n#cancel#0;n#StockProductController#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/application/view/controller/EditProductController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-338">
+          <caret line="62" column="65" lean-forward="true" selection-start-line="62" selection-start-column="65" selection-end-line="62" selection-end-column="65" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3847#3848#0" expanded="true" />
+            <element signature="e#3890#3891#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/application/view/controller/FinancialOutflowsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="58" column="66" lean-forward="true" selection-start-line="58" selection-start-column="66" selection-end-line="58" selection-end-column="66" />
+          <folding>
+            <element signature="method#initialize#0;class#FinancialOutflowsController#0" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/application/view/controller/CreateProductController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="90" column="16" lean-forward="true" selection-start-line="90" selection-start-column="16" selection-end-line="91" selection-end-column="78" />
+        <state relative-caret-position="-49">
+          <caret line="77" column="49" selection-start-line="77" selection-start-column="49" selection-end-line="77" selection-end-column="49" />
           <folding>
             <element signature="method#initialize#0;class#CreateProductController#0" />
             <element signature="e#3917#3918#0" expanded="true" />
@@ -1208,27 +1283,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/application/view/controller/PDVController.java">
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/6f46db23-a8b7-4657-9ec3-8beae04d7244/console.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="411" column="12" lean-forward="true" selection-start-line="411" selection-start-column="12" selection-end-line="411" selection-end-column="12" />
-          <folding>
-            <element signature="e#3859#8674#0" />
-            <element signature="e#8680#9100#0" />
-            <element signature="e#9106#10631#0" />
-            <element signature="e#10637#10848#0" />
-            <element signature="e#10854#11655#0" />
-            <element signature="e#11661#11898#0" />
-            <element signature="e#11904#12130#0" />
-            <element signature="e#12136#12582#0" />
-            <element signature="e#12588#12739#0" />
-            <element signature="e#12745#12894#0" />
-            <element signature="e#12900#13055#0" />
-            <element signature="e#13061#13214#0" />
-            <element signature="e#13332#13942#0" />
-            <element signature="e#14159#14277#0" />
-            <element signature="e#14283#14461#0" />
-          </folding>
+        <state relative-caret-position="204">
+          <caret line="12" column="23" lean-forward="true" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
         </state>
       </provider>
     </entry>

@@ -9,6 +9,7 @@ import application.model.CashMovementModel;
 import application.model.ProductModel;
 import application.model.ServiceModel;
 import application.view.auxiliary.Controller;
+import application.view.auxiliary.Formatter;
 import application.view.auxiliary.Mask;
 import application.view.auxiliary.Window;
 import javafx.collections.FXCollections;
@@ -273,7 +274,7 @@ public class PDVController extends Controller {
 
     private void addItemToTableSale() {
         int code = obsSaleFields.size() + 1;
-        int quantity = Mask.unmaskInteger(txtQuantityItem.getText());
+        int quantity = Formatter.unmaskInteger(txtQuantityItem.getText());
         if(selectedSearch.isTypeProduct()) {
             if(selectedSearch.getQuantity() >= quantity) {
                 selectedSearch.setQuantity(selectedSearch.getQuantity() - quantity);
@@ -309,12 +310,12 @@ public class PDVController extends Controller {
         this.total = 0;
         this.discount = 0;
         for(ItemSaleField itemSaleField : obsSaleFields){
-            this.total += Mask.unmaskMoney(itemSaleField.getSubtotal());
-            this.discount += Mask.unmaskMoney(itemSaleField.getDiscount().getText());
+            this.total += Formatter.unmaskMoney(itemSaleField.getSubtotal());
+            this.discount += Formatter.unmaskMoney(itemSaleField.getDiscount().getText());
         }
 
-        lblTotal.setText(Mask.formatDoubleToMoney(this.total));
-        lblDiscount.setText(Mask.formatDoubleToMoney(this.discount));
+        lblTotal.setText(Formatter.formatDoubleToMoney(this.total));
+        lblDiscount.setText(Formatter.formatDoubleToMoney(this.discount));
     }
 
     @FXML private void customer(){
@@ -404,14 +405,8 @@ public class PDVController extends Controller {
                 ProductModel.getAll("WHERE status = TRUE AND shelf_date <= '"
                         + calendar.getTime().getTime() + "'"));
 
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-        StringBuilder productsDate = new StringBuilder();
         if(!shelfDateProducts.isEmpty()) {
-            for (Product product : shelfDateProducts){
-                productsDate.append("*" + product.getName()+" - Validade : "+ formatter.format(product.getShelf_date()) +"\n");
-            }
-            Window.changeScene(this.stage, "error", this,
-                    productsDate.toString());
+            Window.changeScene(this.stage, "shelfDate", this, shelfDateProducts);
         }
     }
 }

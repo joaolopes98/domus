@@ -3,6 +3,7 @@ package application.controller;
 import application.controller.object.Product;
 import application.model.ProductModel;
 import application.view.auxiliary.Controller;
+import application.view.auxiliary.Formatter;
 import application.view.auxiliary.Mask;
 import application.view.auxiliary.Window;
 import application.view.controller.ProductsController;
@@ -32,7 +33,7 @@ public class ProductField {
         this.code = product.getId();
         this.name = product.getName();
         this.ean = product.getEan();
-        this.price = Mask.formatDoubleToMoney(product.getPrice());
+        this.price = Formatter.formatDoubleToMoney(product.getPrice());
         this.quantity = product.getQuantity();
 
         ProductsController productsController = (ProductsController) controller;

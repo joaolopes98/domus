@@ -10,7 +10,7 @@ import java.text.Normalizer;
 public abstract class Mask {
     public static void toUpperCase(TextField textField) {
         textField.textProperty().addListener((ObservableValue<? extends String> observable, String oldValue, String newValue) -> {
-            textField.setText(removeAccentuation(newValue.toUpperCase()));
+            textField.setText(Formatter.removeAccentuation(newValue.toUpperCase()));
         });
     }
 
@@ -43,14 +43,6 @@ public abstract class Mask {
         textField.positionCaret(textField.getText().length()+1);
     }
 
-    public static double unmaskMoney(String value){
-        String text = value.replace("R$", "")
-                .replace(".","")
-                .replace(",",".");
-
-        return Double.parseDouble(text);
-    }
-
     public static void zeroTo(TextField textField, int max){
         textField.setText("1");
         textField.textProperty().addListener((observable, oldValue, newValue) -> {
@@ -72,27 +64,8 @@ public abstract class Mask {
         textField.setOnMouseClicked( e -> Mask.toLastPosition(textField));
     }
 
-    public static int unmaskInteger(String text){
-        text = text.replaceAll("//D", "");
-        return Integer.parseInt(text);
-    }
-
-    public static String formatDoubleToMoney(double value){
-        DecimalFormat decimalFormat = new DecimalFormat("'R$' #,##0.00");
-        return decimalFormat.format(value).replace("-", "");
-    }
-
-    public static String formatStringCode(int code){
-        DecimalFormat decimalFormat = new DecimalFormat("000");
-        return decimalFormat.format(code);
-    }
-
     public static void toLastPosition(TextField textField){
         textField.requestFocus();
         textField.positionCaret(textField.getText().length());
-    }
-
-    public static String removeAccentuation(String str) {
-        return Normalizer.normalize(str, Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", "");
     }
 }
