@@ -4,11 +4,8 @@ import javafx.beans.value.ObservableValue;
 import javafx.geometry.Pos;
 import javafx.scene.control.TextField;
 
-import java.text.DecimalFormat;
-import java.text.Normalizer;
-
 public abstract class Mask {
-    public static void toUpperCase(TextField textField) {
+    public static void upperCase(TextField textField) {
         textField.textProperty().addListener((ObservableValue<? extends String> observable, String oldValue, String newValue) -> {
             textField.setText(Formatter.removeAccentuation(newValue.toUpperCase()));
         });
@@ -67,5 +64,75 @@ public abstract class Mask {
     public static void toLastPosition(TextField textField){
         textField.requestFocus();
         textField.positionCaret(textField.getText().length());
+    }
+
+    public static void phone(TextField textField){
+        textField.setAlignment(Pos.CENTER_LEFT);
+        textField.setText("");
+        textField.textProperty().addListener(
+                (ObservableValue<? extends String> observable, String oldValue, String newValue) -> {
+
+            String numeros = newValue;
+            numeros = numeros.replaceAll("\\D", "");
+
+            switch (numeros.length()) {
+                case 0:
+                    textField.setText("");
+                    break;
+
+                case 1:
+                case 2:
+                    textField.setText("(" + numeros);
+                    break;
+
+                case 3:
+                case 4:
+                case 5:
+                case 6:
+                    textField.setText("(" + numeros.substring(0,2) + ")" + numeros.substring(2));
+                    break;
+
+                case 7:
+                case 8:
+                case 9:
+                case 10:
+                    textField.setText("(" + numeros.substring(0,2) + ")" + numeros.substring(2,6) + "-"
+                            + numeros.substring(6));
+                    break;
+
+                case 11:
+                    textField.setText("(" + numeros.substring(0,2) + ")" + numeros.substring(2,7) + "-"
+                            + numeros.substring(7));
+                    break;
+
+                default:
+                    textField.setText("(" + numeros.substring(0,2) + ")" + numeros.substring(2,7) + "-"
+                            + numeros.substring(7, 11));
+                    break;
+            }
+            textField.positionCaret(textField.getText().length());
+        });
+
+
+        textField.setOnMouseClicked((EventHandler) -> {
+            textField.positionCaret(textField.getText().length());
+        });
+    }
+
+    public static void document(TextField textField){
+        textField.textProperty().addListener((ObservableValue<? extends String> observable, String oldValue, String newValue) -> {
+
+            String text = newValue.replaceAll("\\D", "");
+
+            if(text.length() <= 6) text = text.replaceAll("(\\d{3})(\\d+)", "$1.$2");
+            else if(text.length() <= 9) text = text.replaceAll("(\\d{3})(\\d{3})(\\d+)", "$1.$2.$3");
+            else if(text.length() <= 11) text = text.replaceAll("(\\d{3})(\\d{3})(\\d{3})(\\d+)", "$1.$2.$3-$4");
+            else text = oldValue;
+
+            textField.setText(text);
+            textField.positionCaret(textField.getText().length());
+        });
+
+        textField.setOnMouseClicked((EventHandler) -> textField.positionCaret(textField.getText().length()));
     }
 }

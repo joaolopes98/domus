@@ -1,8 +1,22 @@
 @import "fonts.css";
 @import "scrollBar.css";
 @import "buttons.css";
-@import "waitScreen.css";
-@import "panes.css";
+
+.paneWhite{
+    -fx-background-color: #EDEDED;
+}
+
+.paneYellowDark{
+    -fx-background-color: #777722;
+    -fx-alignment: center;
+}
+
+.paneYellowLight{
+    -fx-background-repeat: repeat;
+    -fx-background-size: 10 10;
+    -fx-background-color: #AAAA22;
+    -fx-alignment: center;
+}
 
 .textTitle{
     -fx-font-family: Lato;
@@ -11,15 +25,10 @@
     -fx-font-size: 20px;
 }
 
-.input{
-    -fx-background-color: transparent;
-    -fx-border-color: transparent;
-
-    -fx-padding: 0 0 0 15;
+.lblInfo{
     -fx-font-family: Lato;
     -fx-font-weight: bold;
     -fx-text-fill: #36434C;
-    -fx-prompt-text-fill: #5c6f7d80;
     -fx-font-size: 20px;
 }
 
@@ -28,14 +37,14 @@
     -fx-padding: 0;
     -fx-background-color: #EDEDED;
     -fx-border-width: 2px;
-    -fx-border-color: #36434C;
+    -fx-border-color: #777722;
 }
 
 #tableProducts .column-header {
-    -fx-background-color: #5c6f7d;
+    -fx-background-color: #AAAA22;
     -fx-font-size: 20px;
     -fx-border-width: 0 0 2 0;
-    -fx-border-color: #36434C;
+    -fx-border-color: #777722;
 }
 
 #tableProducts .column-header .label{
@@ -45,23 +54,9 @@
     -fx-text-fill: white;
 }
 
-#tableProducts .activated {
-    -fx-background-color: #EDEDED;
-    -fx-border-color: #36434C;
-    -fx-border-width: 0 0 2 0;
-    -fx-cell-size: 50px;
-}
-
-#tableProducts .disabled{
-    -fx-background-color: #5c6f7d;
-    -fx-border-color: #36434C;
-    -fx-border-width: 0 0 2 0;
-    -fx-cell-size: 50px;
-}
-
 #tableProducts .table-row-cell {
     -fx-background-color: #EDEDED;
-    -fx-border-color: #36434C;
+    -fx-border-color: #777722;
     -fx-border-width: 0 0 2 0;
     -fx-cell-size: 50px;
 }
@@ -85,23 +80,14 @@
 }
 
 #tableProducts .filler{
-    -fx-background-color: #5c6f7d;
+    -fx-background-color: #AAAA22;
     -fx-border-width: 0 0 2 0;
-    -fx-border-color: #36434C;
+    -fx-border-color: #777722;
 }
 
 #tableProducts .placeholder{
     -fx-font-family: Lato;
     -fx-font-size: 20px;
-    -fx-text-fill: #36434C;
+    -fx-text-fill: #777722;
     -fx-font-weight: bold;
-}
-
-.textBold{
-    -fx-padding: 0 10;
-
-    -fx-font-weight: bold;
-    -fx-font-size: 25px;
-    -fx-text-fill: #36434C;
-    -fx-alignment: center-right;
 }

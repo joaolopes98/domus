@@ -195,7 +195,7 @@ public class PDVController extends Controller {
             }
         });
 
-        Mask.toUpperCase(txtSearchItem);
+        Mask.upperCase(txtSearchItem);
         Mask.zeroTo(txtQuantityItem, 999);
 
         //Configurações da Tabela de Busca
@@ -247,7 +247,7 @@ public class PDVController extends Controller {
         tableSale.setItems(obsSaleFields);
         tableSale.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             btnCancelItem.setDisable(newValue == null);
-            btnLinkAnimal.setDisable(newValue == null);
+            btnLinkAnimal.setDisable(!(newValue != null && !newValue.isTypeProduct()));
         });
 
         obsSaleFields.addListener((ListChangeListener<ItemSaleField>) e -> {
@@ -314,13 +314,12 @@ public class PDVController extends Controller {
             this.discount += Formatter.unmaskMoney(itemSaleField.getDiscount().getText());
         }
 
-        lblTotal.setText(Formatter.formatDoubleToMoney(this.total));
-        lblDiscount.setText(Formatter.formatDoubleToMoney(this.discount));
+        lblTotal.setText(Formatter.formatMoney(this.total));
+        lblDiscount.setText(Formatter.formatMoney(this.discount));
     }
 
     @FXML private void customer(){
-        Window.changeScene(this.stage, "error", this,
-                "Funcionalidade não disponivel no momento");
+        Window.changeScene(this.stage, "customers", this);
     }
 
     @FXML private void animal(){

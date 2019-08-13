@@ -23,7 +23,7 @@
     -fx-font-size: 20px;
 }
 
-#tableProducts{
+#tableCustomers{
     -fx-font-family: Lato;
     -fx-padding: 0;
     -fx-background-color: #EDEDED;
@@ -31,50 +31,50 @@
     -fx-border-color: #36434C;
 }
 
-#tableProducts .column-header {
+#tableCustomers .column-header {
     -fx-background-color: #5c6f7d;
     -fx-font-size: 20px;
     -fx-border-width: 0 0 2 0;
     -fx-border-color: #36434C;
 }
 
-#tableProducts .column-header .label{
+#tableCustomers .column-header .label{
     -fx-background-color: transparent;
     -fx-padding: 10 7;
     -fx-alignment: center-left;
     -fx-text-fill: white;
 }
 
-#tableProducts .activated {
+#tableCustomers .activated {
     -fx-background-color: #EDEDED;
     -fx-border-color: #36434C;
     -fx-border-width: 0 0 2 0;
     -fx-cell-size: 50px;
 }
 
-#tableProducts .disabled{
+#tableCustomers .disabled{
     -fx-background-color: #5c6f7d;
     -fx-border-color: #36434C;
     -fx-border-width: 0 0 2 0;
     -fx-cell-size: 50px;
 }
 
-#tableProducts .table-row-cell {
+#tableCustomers .table-row-cell {
     -fx-background-color: #EDEDED;
     -fx-border-color: #36434C;
     -fx-border-width: 0 0 2 0;
     -fx-cell-size: 50px;
 }
 
-#tableProducts .table-row-cell:empty {
+#tableCustomers .table-row-cell:empty {
     -fx-border-color: transparent;
 }
 
-#tableProducts .table-row-cell:focused .table-column{
+#tableCustomers .table-row-cell:focused .table-column{
     -fx-background-color: #EDEDED;
 }
 
-#tableProducts .table-cell {
+#tableCustomers .table-cell {
     -fx-font-family: Lato;
     -fx-border-color: transparent;
     -fx-alignment: center-left;
@@ -84,13 +84,13 @@
 
 }
 
-#tableProducts .filler{
+#tableCustomers .filler{
     -fx-background-color: #5c6f7d;
     -fx-border-width: 0 0 2 0;
     -fx-border-color: #36434C;
 }
 
-#tableProducts .placeholder{
+#tableCustomers .placeholder{
     -fx-font-family: Lato;
     -fx-font-size: 20px;
     -fx-text-fill: #36434C;

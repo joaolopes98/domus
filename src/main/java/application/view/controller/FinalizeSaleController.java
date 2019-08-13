@@ -120,7 +120,7 @@ public class FinalizeSaleController extends Controller {
         });
 
         Mask.money(txtPaymentValue);
-        txtPaymentValue.setText(Formatter.formatDoubleToMoney(this.totalRoot));
+        txtPaymentValue.setText(Formatter.formatMoney(this.totalRoot));
         txtPaymentValue.setOnKeyPressed( e -> {
             if(e.getCode() == KeyCode.TAB){
                 Mask.toLastPosition(txtDiscount);
@@ -164,14 +164,14 @@ public class FinalizeSaleController extends Controller {
     }
 
     private void setupInfos(){
-        lblTotal.setText(Formatter.formatDoubleToMoney(this.totalRoot));
+        lblTotal.setText(Formatter.formatMoney(this.totalRoot));
     }
 
     private void updateValues(){
         double discount = Formatter.unmaskMoney(this.txtDiscount.getText());
 
         if(discount > this.totalRoot){
-            this.txtDiscount.setText(Formatter.formatDoubleToMoney(this.totalRoot));
+            this.txtDiscount.setText(Formatter.formatMoney(this.totalRoot));
         }
 
         this.discount = Formatter.unmaskMoney(this.txtDiscount.getText());
@@ -183,14 +183,14 @@ public class FinalizeSaleController extends Controller {
         this.total -= this.payments;
         if(this.total <= 0){
             lblInfo.setText("TROCO");
-            lblTotal.setText(Formatter.formatDoubleToMoney(this.total));
-            txtPaymentValue.setText(Formatter.formatDoubleToMoney(0));
+            lblTotal.setText(Formatter.formatMoney(this.total));
+            txtPaymentValue.setText(Formatter.formatMoney(0));
             txtPaymentValue.setDisable(true);
             btnFinalize.setDisable(false);
         } else {
             lblInfo.setText("TOTAL");
-            lblTotal.setText(Formatter.formatDoubleToMoney(this.total));
-            txtPaymentValue.setText(Formatter.formatDoubleToMoney(this.total));
+            lblTotal.setText(Formatter.formatMoney(this.total));
+            txtPaymentValue.setText(Formatter.formatMoney(this.total));
             txtPaymentValue.setDisable(false);
             btnFinalize.setDisable(true);
         }

@@ -3,9 +3,6 @@ package application.controller;
 import application.controller.object.Product;
 import application.controller.object.Service;
 import application.view.auxiliary.Formatter;
-import application.view.auxiliary.Mask;
-
-import java.text.DecimalFormat;
 
 public class ItemSearchField {
     private Product product;
@@ -21,7 +18,7 @@ public class ItemSearchField {
         this.product = product;
 
         this.name = product.getName();
-        this.price = Formatter.formatDoubleToMoney(product.getPrice());
+        this.price = Formatter.formatMoney(product.getPrice());
         this.quantity = product.getQuantity();
 
         this.typeProduct = true;
@@ -31,7 +28,7 @@ public class ItemSearchField {
         this.service = service;
 
         this.name = service.getName();
-        this.price = Formatter.formatDoubleToMoney(service.getPrice());
+        this.price = Formatter.formatMoney(service.getPrice());
 
         this.typeProduct = false;
     }

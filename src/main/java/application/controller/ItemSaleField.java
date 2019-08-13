@@ -5,9 +5,6 @@ import application.controller.object.Service;
 import application.view.auxiliary.Formatter;
 import application.view.auxiliary.Mask;
 import application.view.controller.PDVController;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
 public class ItemSaleField {
@@ -29,11 +26,11 @@ public class ItemSaleField {
         if(this.typeProduct){
             this.product = itemSearch.getProduct();
             this.name = product.getName();
-            this.price = Formatter.formatDoubleToMoney(product.getPrice());
+            this.price = Formatter.formatMoney(product.getPrice());
         } else {
             this.service = itemSearch.getService();
             this.name = service.getName();
-            this.price = Formatter.formatDoubleToMoney(service.getPrice());
+            this.price = Formatter.formatMoney(service.getPrice());
         }
 
         if(quantity != 0) this.quantity = quantity;
@@ -55,17 +52,17 @@ public class ItemSaleField {
                 subtotal = service.getPrice() * this.quantity;
             }
             if(discount > subtotal){
-                this.discount.setText(Formatter.formatDoubleToMoney(subtotal));
+                this.discount.setText(Formatter.formatMoney(subtotal));
             }
 
             subtotal -= discount;
-            this.subtotal = Formatter.formatDoubleToMoney(subtotal);
+            this.subtotal = Formatter.formatMoney(subtotal);
             pdvController.updateValues();
         });
         if(typeProduct) {
-            this.subtotal = Formatter.formatDoubleToMoney(product.getPrice() * this.quantity);
+            this.subtotal = Formatter.formatMoney(product.getPrice() * this.quantity);
         } else {
-            this.subtotal = Formatter.formatDoubleToMoney(service.getPrice() * this.quantity);
+            this.subtotal = Formatter.formatMoney(service.getPrice() * this.quantity);
         }
     }
 

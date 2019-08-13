@@ -1,31 +1,7 @@
 @import "fonts.css";
 @import "scrollBar.css";
 @import "buttons.css";
-
-.paneBackground{
-    -fx-background-color: #EDEDED;
-    -fx-alignment: center;
-
-    -fx-background-image: url("/view/img/dotLogin.png");
-    -fx-background-repeat: repeat;
-    -fx-background-size: 5 5;
-}
-
-.paneWhite{
-    -fx-background-color: #EDEDED;
-}
-
-.paneBlueDark{
-    -fx-background-color: #36434C;
-    -fx-alignment: center;
-}
-
-.paneBlueLight{
-    -fx-background-repeat: repeat;
-    -fx-background-size: 10 10;
-    -fx-background-color: #5c6f7d;
-    -fx-alignment: center;
-}
+@import "panes.css";
 
 .textTitle{
     -fx-font-family: Lato;

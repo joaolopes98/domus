@@ -1,9 +1,10 @@
 package application.view.controller;
 
-import application.controller.ProductField;
-import application.controller.object.Product;
-import application.model.ProductModel;
+import application.controller.CustomerField;
+import application.controller.object.Customer;
+import application.model.CustomerModel;
 import application.view.auxiliary.Controller;
+import application.view.auxiliary.Formatter;
 import application.view.auxiliary.Mask;
 import application.view.auxiliary.Window;
 import javafx.collections.FXCollections;
@@ -24,17 +25,16 @@ import javafx.util.Callback;
 
 import java.util.ArrayList;
 
-public class ProductsController extends Controller {
+public class CustomersController extends Controller {
 
     @FXML private TextField txtSearch;
-    @FXML private TableView<ProductField> tableProducts;
-    @FXML private TableColumn<ProductField, Integer> productCode;
-    @FXML private TableColumn<ProductField, String> productName;
-    @FXML private TableColumn<ProductField, String> productEan;
-    @FXML private TableColumn<ProductField, String> productPrice;
-    @FXML private TableColumn<ProductField, Integer> productQuantity;
-    @FXML private TableColumn<ProductField, HBox> productAction;
-    private ObservableList<ProductField> obsProducts = FXCollections.observableArrayList();
+    @FXML private TableView<CustomerField> tableCustomers;
+    @FXML private TableColumn<CustomerField, Integer> customerCode;
+    @FXML private TableColumn<CustomerField, String> customerName;
+    @FXML private TableColumn<CustomerField, String> customerDocument;
+    @FXML private TableColumn<CustomerField, String> customerPhone;
+    @FXML private TableColumn<CustomerField, HBox> customerAction;
+    private ObservableList<CustomerField> obsCustomer = FXCollections.observableArrayList();
 
     @FXML private AnchorPane waitScreen;
 
@@ -50,36 +50,35 @@ public class ProductsController extends Controller {
         super.initialize(oldStage, scene, oldController, objects);
 
         setupTxtSearch();
-        setupTableProducts();
+        setupTableCustomers();
     }
 
     private void setupTxtSearch(){
         Mask.upperCase(txtSearch);
         txtSearch.textProperty().addListener(((observable, oldValue, newValue) -> {
             updateTable();
-            tableProducts.refresh();
+            tableCustomers.refresh();
         }));
     }
 
-    private void setupTableProducts() {
-        productCode.setCellValueFactory(new PropertyValueFactory<>("code"));
-        productName.setCellValueFactory(new PropertyValueFactory<>("name"));
-        productEan.setCellValueFactory(new PropertyValueFactory<>("ean"));
-        productPrice.setCellValueFactory(new PropertyValueFactory<>("price"));
-        productQuantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
-        productAction.setCellValueFactory(new PropertyValueFactory<>("action"));
-        tableProducts.setItems(obsProducts);
+    private void setupTableCustomers() {
+        customerCode.setCellValueFactory(new PropertyValueFactory<>("code"));
+        customerName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        customerDocument.setCellValueFactory(new PropertyValueFactory<>("document"));
+        customerPhone.setCellValueFactory(new PropertyValueFactory<>("phone"));
+        customerAction.setCellValueFactory(new PropertyValueFactory<>("action"));
+        tableCustomers.setItems(obsCustomer);
 
-        tableProducts.setRowFactory( new Callback<TableView<ProductField>, TableRow<ProductField>>() {
+        tableCustomers.setRowFactory( new Callback<TableView<CustomerField>, TableRow<CustomerField>>() {
             @Override
-            public TableRow<ProductField> call(TableView<ProductField> tableView) {
-                final TableRow<ProductField> row = new TableRow<ProductField>() {
+            public TableRow<CustomerField> call(TableView<CustomerField> tableView) {
+                return new TableRow<CustomerField>() {
                     @Override
-                    protected void updateItem(ProductField productField, boolean empty) {
+                    protected void updateItem(CustomerField productField, boolean empty) {
                         super.updateItem(productField, empty);
                         if(!empty) {
                             getStyleClass().clear();
-                            if (productField.getProduct().isStatus()) {
+                            if (productField.getCustomer().isStatus()) {
                                 getStyleClass().add("activated");
                             } else {
                                 getStyleClass().add("disabled");
@@ -87,7 +86,6 @@ public class ProductsController extends Controller {
                         }
                     }
                 };
-                return row;
             }
         });
 
@@ -95,20 +93,20 @@ public class ProductsController extends Controller {
     }
 
     public void updateTable() {
-        obsProducts.clear();
-        ArrayList<Product> products = new ArrayList<>();
+        obsCustomer.clear();
+        ArrayList<Customer> customers = new ArrayList<>();
         if(txtSearch.getText().isEmpty()){
-            products.addAll(ProductModel.getAll(""));
+            customers.addAll(CustomerModel.getAll(""));
         } else {
-            products.addAll(ProductModel.getAll("WHERE name LIKE '%" + txtSearch.getText() + "%' " +
-                    "OR ean LIKE '%" + txtSearch.getText() + "%'"));
+            customers.addAll(CustomerModel.getAll("WHERE name LIKE '%" + txtSearch.getText() + "%' " +
+                    "OR document LIKE '%" + Formatter.unmaskOnlyNumber(txtSearch.getText()) + "%' " +
+                    "OR phone LIKE '%" + Formatter.unmaskOnlyNumber(txtSearch.getText()) + "%'"));
         }
-        products.forEach( product -> obsProducts.add(new ProductField(product, this)));
-
+        customers.forEach( customer -> obsCustomer.add(new CustomerField(customer, this)));
     }
 
-    @FXML private void createProduct(){
-        Window.changeScene(this.stage, "createProduct", this);
+    @FXML private void createCustomer(){
+        Window.changeScene(this.stage, "createCustomer", this);
     }
 
     @FXML private void cancel(){

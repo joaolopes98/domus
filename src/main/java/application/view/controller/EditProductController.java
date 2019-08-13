@@ -45,8 +45,8 @@ public class EditProductController extends Controller {
     }
 
     private void setupInputs() {
-        Mask.toUpperCase(txtName);
-        Mask.toUpperCase(txtEan);
+        Mask.upperCase(txtName);
+        Mask.upperCase(txtEan);
         Mask.money(txtPrice);
         txtPrice.setAlignment(Pos.CENTER_LEFT);
 
@@ -56,7 +56,7 @@ public class EditProductController extends Controller {
             SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
             txtDate.getEditor().setText(formatter.format(this.product.getShelf_date()));
         }
-        txtPrice.setText(Formatter.formatDoubleToMoney(this.product.getPrice()));
+        txtPrice.setText(Formatter.formatMoney(this.product.getPrice()));
     }
 
     @FXML private void save(){

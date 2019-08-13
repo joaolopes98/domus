@@ -15,7 +15,6 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -45,8 +44,8 @@ public class CreateProductController extends Controller {
     }
 
     private void setupInputs() {
-        Mask.toUpperCase(txtName);
-        Mask.toUpperCase(txtEan);
+        Mask.upperCase(txtName);
+        Mask.upperCase(txtEan);
         Mask.money(txtPrice);
         Mask.zeroTo(txtQuantity, 999);
 

@@ -2,22 +2,7 @@
 @import "scrollBar.css";
 @import "buttons.css";
 @import "waitScreen.css";
-
-.paneBlueDark{
-    -fx-background-color: #36434C;
-    -fx-alignment: center;
-}
-
-.paneBlueLight{
-    -fx-background-repeat: repeat;
-    -fx-background-size: 10 10;
-    -fx-background-color: #5c6f7d;
-    -fx-alignment: center;
-}
-
-.paneWhite{
-    -fx-background-color: #EDEDED;
-}
+@import "panes.css";
 
 .textTitle{
     -fx-font-family: Lato;
