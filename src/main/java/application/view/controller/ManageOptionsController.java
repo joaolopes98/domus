@@ -21,6 +21,7 @@ public class ManageOptionsController extends Controller {
                 e.consume();
             }
         });
+
         Window.setModal(this.stage, oldStage, oldController);
         super.initialize(oldStage, scene, oldController, objects);
     }
@@ -35,6 +36,10 @@ public class ManageOptionsController extends Controller {
 
     @FXML private void products(){
         Window.changeScene(this.stage, "products", this);
+    }
+
+    @FXML private void services(){
+        Window.changeScene(this.stage, "services", this);
     }
 
     @FXML private void users(){

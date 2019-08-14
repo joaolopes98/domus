@@ -1,0 +1,107 @@
+@import "fonts.css";
+@import "scrollBar.css";
+@import "buttons.css";
+@import "waitScreen.css";
+@import "panes.css";
+
+.textTitle{
+    -fx-font-family: Lato;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-font-size: 20px;
+}
+
+.input{
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+
+    -fx-padding: 0 0 0 15;
+    -fx-font-family: Lato;
+    -fx-font-weight: bold;
+    -fx-text-fill: #36434C;
+    -fx-prompt-text-fill: #5c6f7d80;
+    -fx-font-size: 20px;
+}
+
+#tableServices{
+    -fx-font-family: Lato;
+    -fx-padding: 0;
+    -fx-background-color: #EDEDED;
+    -fx-border-width: 2px;
+    -fx-border-color: #36434C;
+}
+
+#tableServices .column-header {
+    -fx-background-color: #5c6f7d;
+    -fx-font-size: 20px;
+    -fx-border-width: 0 0 2 0;
+    -fx-border-color: #36434C;
+}
+
+#tableServices .column-header .label{
+    -fx-background-color: transparent;
+    -fx-padding: 10 7;
+    -fx-alignment: center-left;
+    -fx-text-fill: white;
+}
+
+#tableServices .activated {
+    -fx-background-color: #EDEDED;
+    -fx-border-color: #36434C;
+    -fx-border-width: 0 0 2 0;
+    -fx-cell-size: 50px;
+}
+
+#tableServices .disabled{
+    -fx-background-color: #5c6f7d;
+    -fx-border-color: #36434C;
+    -fx-border-width: 0 0 2 0;
+    -fx-cell-size: 50px;
+}
+
+#tableServices .table-row-cell {
+    -fx-background-color: #EDEDED;
+    -fx-border-color: #36434C;
+    -fx-border-width: 0 0 2 0;
+    -fx-cell-size: 50px;
+}
+
+#tableServices .table-row-cell:empty {
+    -fx-border-color: transparent;
+}
+
+#tableServices .table-row-cell:focused .table-column{
+    -fx-background-color: #EDEDED;
+}
+
+#tableServices .table-cell {
+    -fx-font-family: Lato;
+    -fx-border-color: transparent;
+    -fx-alignment: center-left;
+    -fx-font-size: 15px;
+    -fx-text-fill: #36434C;
+    -fx-padding: 0 10;
+
+}
+
+#tableServices .filler{
+    -fx-background-color: #5c6f7d;
+    -fx-border-width: 0 0 2 0;
+    -fx-border-color: #36434C;
+}
+
+#tableServices .placeholder{
+    -fx-font-family: Lato;
+    -fx-font-size: 20px;
+    -fx-text-fill: #36434C;
+    -fx-font-weight: bold;
+}
+
+.textBold{
+    -fx-padding: 0 10;
+
+    -fx-font-weight: bold;
+    -fx-font-size: 25px;
+    -fx-text-fill: #36434C;
+    -fx-alignment: center-right;
+}

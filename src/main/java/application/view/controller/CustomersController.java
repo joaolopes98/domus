@@ -57,7 +57,6 @@ public class CustomersController extends Controller {
         Mask.upperCase(txtSearch);
         txtSearch.textProperty().addListener(((observable, oldValue, newValue) -> {
             updateTable();
-            tableCustomers.refresh();
         }));
     }
 
@@ -74,11 +73,11 @@ public class CustomersController extends Controller {
             public TableRow<CustomerField> call(TableView<CustomerField> tableView) {
                 return new TableRow<CustomerField>() {
                     @Override
-                    protected void updateItem(CustomerField productField, boolean empty) {
-                        super.updateItem(productField, empty);
+                    protected void updateItem(CustomerField customerField, boolean empty) {
+                        super.updateItem(customerField, empty);
                         if(!empty) {
                             getStyleClass().clear();
-                            if (productField.getCustomer().isStatus()) {
+                            if (customerField.getCustomer().isStatus()) {
                                 getStyleClass().add("activated");
                             } else {
                                 getStyleClass().add("disabled");
@@ -98,11 +97,16 @@ public class CustomersController extends Controller {
         if(txtSearch.getText().isEmpty()){
             customers.addAll(CustomerModel.getAll(""));
         } else {
-            customers.addAll(CustomerModel.getAll("WHERE name LIKE '%" + txtSearch.getText() + "%' " +
-                    "OR document LIKE '%" + Formatter.unmaskOnlyNumber(txtSearch.getText()) + "%' " +
-                    "OR phone LIKE '%" + Formatter.unmaskOnlyNumber(txtSearch.getText()) + "%'"));
+            if(txtSearch.getText().matches("\\D+")) {
+                customers.addAll(CustomerModel.getAll("WHERE name LIKE '%" + txtSearch.getText() + "%'"));
+            } else {
+                customers.addAll(CustomerModel.getAll(
+                        "WHERE document LIKE '%" + Formatter.unmaskOnlyNumber(txtSearch.getText()) + "%' " +
+                                "OR phone LIKE '%" + Formatter.unmaskOnlyNumber(txtSearch.getText()) + "%'"));
+            }
         }
         customers.forEach( customer -> obsCustomer.add(new CustomerField(customer, this)));
+        this.tableCustomers.refresh();
     }
 
     @FXML private void createCustomer(){

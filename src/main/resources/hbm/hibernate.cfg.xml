@@ -8,9 +8,8 @@
 
         <!--Banco Local-->
         <property name="hibernate.connection.url">jdbc:sqlite:banco.db</property>
-        <!--<property name="hibernate.connection.username">mercury_terminal</property>-->
-        <!--<property name="hibernate.connection.password">coala472</property>-->
         <property name="show_sql">true</property>
+        <property name="format_sql">true</property>
 
         <mapping resource="hbm/Accesses.hbm.xml"/>
         <mapping resource="hbm/CashMovements.hbm.xml"/>

@@ -48,7 +48,6 @@ public class EditProductController extends Controller {
         Mask.upperCase(txtName);
         Mask.upperCase(txtEan);
         Mask.money(txtPrice);
-        txtPrice.setAlignment(Pos.CENTER_LEFT);
 
         txtName.setText(this.product.getName());
         if(this.product.getEan() != null) txtEan.setText(this.product.getEan());

@@ -16,9 +16,9 @@ public abstract class Window {
     public static void changeScene(Stage stage, String sceneName, Controller oldController, Object... objects){
         try {
             FXMLLoader loader = new FXMLLoader();
-            Parent root = loader.load(Window.class.getResource("/View/fxml/" + sceneName + ".fxml").openStream());
+            Parent root = loader.load(Window.class.getResource("/view/fxml/" + sceneName + ".fxml").openStream());
             Scene scene = new Scene(root);
-            scene.getStylesheets().add("/View/css/" + sceneName + ".css");
+            scene.getStylesheets().add("/view/css/" + sceneName + ".css");
 
             ScreenInterface screenInterface = loader.getController();
             screenInterface.initialize(stage, scene, oldController, objects);

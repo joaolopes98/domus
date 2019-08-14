@@ -3,9 +3,10 @@ package application.view.auxiliary;
 import javafx.beans.value.ObservableValue;
 import javafx.geometry.Pos;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextInputControl;
 
 public abstract class Mask {
-    public static void upperCase(TextField textField) {
+    public static void upperCase(TextInputControl textField) {
         textField.textProperty().addListener((ObservableValue<? extends String> observable, String oldValue, String newValue) -> {
             textField.setText(Formatter.removeAccentuation(newValue.toUpperCase()));
         });
