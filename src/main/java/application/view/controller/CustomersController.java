@@ -29,7 +29,7 @@ public class CustomersController extends Controller {
 
     @FXML private TextField txtSearch;
     @FXML private TableView<CustomerField> tableCustomers;
-    @FXML private TableColumn<CustomerField, Integer> customerCode;
+    @FXML private TableColumn<CustomerField, String> customerCode;
     @FXML private TableColumn<CustomerField, String> customerName;
     @FXML private TableColumn<CustomerField, String> customerDocument;
     @FXML private TableColumn<CustomerField, String> customerPhone;

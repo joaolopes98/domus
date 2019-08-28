@@ -12,5 +12,10 @@
         <property name="document" type="string"/>
         <property name="phone" type="string"/>
         <property name="status" type="boolean"/>
+
+        <set name="animals" inverse="true" cascade="all">
+            <key column="customer_id" not-null="false"/>
+            <one-to-many class="application.controller.object.Animal"/>
+        </set>
     </class>
 </hibernate-mapping>

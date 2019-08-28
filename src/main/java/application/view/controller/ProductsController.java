@@ -28,7 +28,7 @@ public class ProductsController extends Controller {
 
     @FXML private TextField txtSearch;
     @FXML private TableView<ProductField> tableProducts;
-    @FXML private TableColumn<ProductField, Integer> productCode;
+    @FXML private TableColumn<ProductField, String> productCode;
     @FXML private TableColumn<ProductField, String> productName;
     @FXML private TableColumn<ProductField, String> productEan;
     @FXML private TableColumn<ProductField, String> productPrice;

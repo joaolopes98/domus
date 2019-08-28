@@ -34,7 +34,7 @@ public class CreateCustomerController extends Controller {
     }
 
     private void setupInputs() {
-        Mask.upperCase(txtName);
+        Mask.onlyLetters(txtName);
         Mask.document(txtDocument);
         Mask.phone(txtPhone);
     }

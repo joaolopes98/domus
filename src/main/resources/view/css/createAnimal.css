@@ -1,0 +1,35 @@
+@import "fonts.css";
+@import "scrollBar.css";
+@import "buttons.css";
+@import "waitScreen.css";
+@import "panes.css";
+
+.textTitle{
+    -fx-font-family: Lato;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-font-size: 20px;
+}
+
+.subtitleDark{
+    -fx-text-fill: #36434C;
+    -fx-font-family: Lato;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-alignment: center;
+}
+
+.input{
+    -fx-background-color: transparent;
+    -fx-border-color: #36434C;
+    -fx-border-width: 0 0 2;
+    -fx-padding: 0 10;
+
+    -fx-font-weight: bold;
+    -fx-font-size: 25px;
+    -fx-text-fill: #36434C;
+}
+
+.input:disabled{
+    -fx-opacity: 1;
+}

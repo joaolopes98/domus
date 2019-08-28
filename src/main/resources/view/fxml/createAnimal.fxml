@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane maxHeight="400.0" maxWidth="600.0" minHeight="400.0" minWidth="600.0" styleClass="paneBlueDark" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.controller.CreateAnimalController">
+   <children>
+      <AnchorPane maxHeight="50.0" minHeight="50.0" styleClass="paneBlueLight" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
+         <children>
+            <HBox alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Label styleClass="textTitle" text="CADASTRAR ANIMAL" />
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="10.0" layoutY="10.0" styleClass="paneWhite" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="54.0">
+         <children>
+            <VBox spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <VBox alignment="CENTER" VBox.vgrow="ALWAYS">
+                           <children>
+                              <HBox alignment="CENTER_LEFT" maxHeight="25.0" minHeight="25.0" VBox.vgrow="ALWAYS">
+                                 <children>
+                                    <Label styleClass="subtitleDark" text="NOME" />
+                                 </children>
+                              </HBox>
+                              <AnchorPane VBox.vgrow="ALWAYS">
+                                 <children>
+                                    <TextField fx:id="txtName" layoutX="47.0" layoutY="2.0" styleClass="input" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                           <padding>
+                              <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                           </padding>
+                        </VBox>
+                        <HBox spacing="10.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <VBox alignment="CENTER" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT" maxHeight="25.0" minHeight="25.0" VBox.vgrow="ALWAYS">
+                                       <children>
+                                          <Label styleClass="subtitleDark" text="ESPÉCIE" />
+                                       </children>
+                                    </HBox>
+                                    <AnchorPane VBox.vgrow="ALWAYS">
+                                       <children>
+                                          <TextField fx:id="txtSpecie" layoutX="47.0" layoutY="2.0" styleClass="input" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                                 </padding>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox spacing="10.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <VBox alignment="CENTER" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT" maxHeight="25.0" minHeight="25.0" VBox.vgrow="ALWAYS">
+                                       <children>
+                                          <Label styleClass="subtitleDark" text="CLIENTE" />
+                                       </children>
+                                    </HBox>
+                                    <AnchorPane VBox.vgrow="ALWAYS">
+                                       <children>
+                                          <TextField fx:id="txtCustomer" layoutX="47.0" layoutY="2.0" styleClass="input" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                          <Button maxWidth="60.0" minWidth="60.0" mnemonicParsing="false" onAction="#selectCustomer" styleClass="btnInvisible" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <graphic>
+                                                <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="/view/img/customer.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
+                                          </Button>
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                                 </padding>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <HBox maxHeight="40.0" spacing="10.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <AnchorPane prefWidth="500.0" styleClass="paneRedDark" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#create" styleClass="btnGreen" text="CADASTRAR" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefWidth="500.0" styleClass="paneRedDark" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#cancel" styleClass="btnRed" text="CANCELAR" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </AnchorPane>
+      <AnchorPane fx:id="waitScreen" layoutX="20.0" layoutY="20.0" styleClass="waitScreen" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+   </children>
+</AnchorPane>

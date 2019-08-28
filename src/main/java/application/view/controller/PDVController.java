@@ -323,8 +323,7 @@ public class PDVController extends Controller {
     }
 
     @FXML private void animal(){
-        Window.changeScene(this.stage, "error", this,
-                "Funcionalidade não disponivel no momento");
+        Window.changeScene(this.stage, "animals", this);
     }
 
     @FXML private void linkCustomer(){
@@ -402,7 +401,7 @@ public class PDVController extends Controller {
         calendar.add(Calendar.DAY_OF_MONTH, 1);
         ArrayList<Product> shelfDateProducts = new ArrayList<>(
                 ProductModel.getAll("WHERE status = TRUE AND shelf_date <= '"
-                        + calendar.getTime().getTime() + "'"));
+                        + calendar.getTime().getTime() + "' ORDER BY shelf_date"));
 
         if(!shelfDateProducts.isEmpty()) {
             Window.changeScene(this.stage, "shelfDate", this, shelfDateProducts);

@@ -6,6 +6,15 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputControl;
 
 public abstract class Mask {
+    public static void onlyLetters(TextInputControl textInputControl){
+        textInputControl.textProperty().addListener(((observable, oldValue, newValue) -> {
+            textInputControl.setText(
+                    Formatter.removeAccentuation(
+                            newValue.toUpperCase()
+                                    .replaceAll("[^\\D]","")));
+        }));
+    }
+
     public static void upperCase(TextInputControl textField) {
         textField.textProperty().addListener((ObservableValue<? extends String> observable, String oldValue, String newValue) -> {
             textField.setText(Formatter.removeAccentuation(newValue.toUpperCase()));
