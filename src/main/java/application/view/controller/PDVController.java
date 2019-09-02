@@ -90,7 +90,7 @@ public class PDVController extends Controller {
         this.stage.setMinWidth(1000);
         this.stage.setMinHeight(720);
         super.initialize(oldStage, scene, oldController, objects);
-//        this.stage.setMaximized(true);
+        this.stage.setMaximized(true);
 //        Window.setFullScreen(this.stage);
         this.stage.setFullScreen(true);
         this.stage.setOnCloseRequest( e -> logout());

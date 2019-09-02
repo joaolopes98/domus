@@ -13,4 +13,8 @@ public class AnimalModel {
         return GenericModel.update(animal);
     }
 
+    public static boolean create(Animal animal){
+        return GenericModel.create(animal);
+    }
+
 }

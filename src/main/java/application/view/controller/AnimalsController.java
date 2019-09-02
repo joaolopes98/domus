@@ -102,6 +102,11 @@ public class AnimalsController extends Controller{
             if(txtSearch.getText().matches("\\D+")) {
                 animals.addAll(AnimalModel.getAll("WHERE name LIKE '%" + txtSearch.getText() + "%' " +
                         "OR specie LIKE '%" + txtSearch.getText() + "%'"));
+
+                ArrayList<Customer> customers = new ArrayList<>(
+                        CustomerModel.getAll(
+                                "WHERE name LIKE '%" + txtSearch.getText() + "%'"));
+                customers.forEach( customer -> animals.addAll(customer.getAnimals()));
             } else {
                 ArrayList<Customer> customers = new ArrayList<>(
                         CustomerModel.getAll(

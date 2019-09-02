@@ -1,7 +1,9 @@
 package application.view.controller;
 
 import application.controller.CustomerField;
+import application.controller.object.Animal;
 import application.controller.object.Customer;
+import application.model.AnimalModel;
 import application.model.CustomerModel;
 import application.view.auxiliary.Controller;
 import application.view.auxiliary.Formatter;
@@ -19,27 +21,31 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
-import javafx.util.Callback;
 
 import java.util.ArrayList;
 
-public class CustomersController extends Controller {
+public class EditAnimalController extends Controller {
 
+    @FXML private TextField txtName;
+    @FXML private TextField txtSpecie;
+    @FXML private TextField txtCustomer;
+
+    @FXML private AnchorPane selectCustomer;
     @FXML private TextField txtSearch;
     @FXML private TableView<CustomerField> tableCustomers;
-    @FXML private TableColumn<CustomerField, String> customerCode;
     @FXML private TableColumn<CustomerField, String> customerName;
     @FXML private TableColumn<CustomerField, String> customerDocument;
     @FXML private TableColumn<CustomerField, String> customerPhone;
-    @FXML private TableColumn<CustomerField, HBox> customerAction;
     private ObservableList<CustomerField> obsCustomer = FXCollections.observableArrayList();
+    private Customer selectedCustomer;
 
+    private Animal animal;
     @FXML private AnchorPane waitScreen;
 
     @Override
     public void initialize(Stage oldStage, Scene scene, Controller oldController, Object... objects) {
+        animal = (Animal) objects[0];
         scene.addEventFilter(KeyEvent.KEY_PRESSED, e -> {
             if(e.getCode() == KeyCode.ESCAPE){
                 cancel();
@@ -49,47 +55,56 @@ public class CustomersController extends Controller {
         Window.setModal(this.stage, oldStage, oldController);
         super.initialize(oldStage, scene, oldController, objects);
 
+        setupInputs();
         setupTxtSearch();
         setupTableCustomers();
     }
 
+    private void setupInputs() {
+        Mask.onlyLetters(txtName);
+        Mask.onlyLetters(txtSpecie);
+        txtCustomer.setOnMouseClicked( e -> {
+            selectedCustomer = null;
+            txtCustomer.setText("");
+        });
+
+        txtName.setText(animal.getName());
+        txtSpecie.setText(animal.getSpecie());
+        txtCustomer.setText(animal.getCustomer().getName());
+        selectedCustomer = animal.getCustomer();
+    }
+
+    @FXML private void selectCustomer(){
+        selectCustomer.setVisible(!selectCustomer.isVisible());
+    }
+
     private void setupTxtSearch(){
         Mask.upperCase(txtSearch);
-        txtSearch.textProperty().addListener(((observable, oldValue, newValue) -> updateTable()));
+        txtSearch.textProperty().addListener(((observable, oldValue, newValue) -> updateTableCustomers()));
     }
 
     private void setupTableCustomers() {
-        customerCode.setCellValueFactory(new PropertyValueFactory<>("code"));
         customerName.setCellValueFactory(new PropertyValueFactory<>("name"));
         customerDocument.setCellValueFactory(new PropertyValueFactory<>("document"));
         customerPhone.setCellValueFactory(new PropertyValueFactory<>("phone"));
-        customerAction.setCellValueFactory(new PropertyValueFactory<>("action"));
         tableCustomers.setItems(obsCustomer);
 
-        tableCustomers.setRowFactory( new Callback<TableView<CustomerField>, TableRow<CustomerField>>() {
-            @Override
-            public TableRow<CustomerField> call(TableView<CustomerField> tableView) {
-                return new TableRow<CustomerField>() {
-                    @Override
-                    protected void updateItem(CustomerField customerField, boolean empty) {
-                        super.updateItem(customerField, empty);
-                        if(!empty) {
-                            getStyleClass().clear();
-                            if (customerField.getCustomer().isStatus()) {
-                                getStyleClass().add("activated");
-                            } else {
-                                getStyleClass().add("disabled");
-                            }
-                        }
-                    }
-                };
-            }
+        tableCustomers.setRowFactory( e -> {
+            TableRow<CustomerField> row = new TableRow<>();
+            row.setOnMouseClicked(event -> {
+                if (event.getClickCount() == 2 && (! row.isEmpty()) ) {
+                    selectedCustomer = row.getItem().getCustomer();
+                    txtCustomer.setText(selectedCustomer.getName());
+                    selectCustomer.setVisible(false);
+                }
+            });
+            return row ;
         });
 
-        updateTable();
+        updateTableCustomers();
     }
 
-    public void updateTable() {
+    private void updateTableCustomers() {
         obsCustomer.clear();
         ArrayList<Customer> customers = new ArrayList<>();
         if(txtSearch.getText().isEmpty()){
@@ -105,10 +120,37 @@ public class CustomersController extends Controller {
         }
         customers.forEach( customer -> obsCustomer.add(new CustomerField(customer, this)));
         this.tableCustomers.refresh();
+        this.tableCustomers.getSelectionModel().clearSelection();
     }
 
-    @FXML private void createCustomer(){
-        Window.changeScene(this.stage, "createCustomer", this);
+    @FXML private void create (){
+        if(!txtName.getText().isEmpty()){
+            animal.setName(txtName.getText());
+            if(!txtSpecie.getText().isEmpty()){
+                animal.setSpecie(txtSpecie.getText());
+
+                if(selectedCustomer != null){
+                    animal.setCustomer(selectedCustomer);
+                    animal.setStatus(true);
+
+                    if(AnimalModel.update(animal)){
+                        this.stage.close();
+                    } else {
+                        Window.changeScene(this.stage, "error", this,
+                                "Não Foi Possivel Cadastrar Animal");
+                    }
+                } else {
+                    Window.changeScene(this.stage, "error", this,
+                            "É Nescessario Vincular o Animal a um Cliente");
+                }
+            } else {
+                Window.changeScene(this.stage, "error", this,
+                        "É Nescessario Espécie do Animal");
+            }
+        } else {
+            Window.changeScene(this.stage, "error", this,
+                    "É Nescessario Nome do Animal");
+        }
     }
 
     @FXML private void cancel(){
@@ -118,9 +160,5 @@ public class CustomersController extends Controller {
     @Override
     public void activeWaitScreen(boolean wait) {
         waitScreen.setVisible(wait);
-
-        if(!wait){
-            updateTable();
-        }
     }
 }

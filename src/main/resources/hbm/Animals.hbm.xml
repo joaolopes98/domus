@@ -10,7 +10,8 @@
         </id>
         <property name="name" type="string"/>
         <property name="specie" type="string"/>
-        <many-to-one name="customer" class="application.controller.object.Customer" column="customer_id"/>
+        <many-to-one name="customer" class="application.controller.object.Customer"
+                     column="customer_id" fetch="join" lazy="false"/>
         <property name="status" type="boolean"/>
     </class>
 </hibernate-mapping>
