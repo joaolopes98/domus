@@ -1,11 +1,13 @@
 package application.view.controller;
 
 import application.controller.CustomerField;
-import application.controller.object.Animal;
+import application.controller.ItemSearchField;
 import application.controller.object.Customer;
-import application.model.AnimalModel;
 import application.model.CustomerModel;
-import application.view.auxiliary.*;
+import application.view.auxiliary.Controller;
+import application.view.auxiliary.Formatter;
+import application.view.auxiliary.Mask;
+import application.view.auxiliary.Window;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -19,25 +21,18 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import javafx.util.Callback;
 
 import java.util.ArrayList;
 
-public class CreateAnimalController extends Controller {
+public class LinkCustomerController extends Controller {
 
-    @FXML private TextField txtName;
-    @FXML private TextField txtSpecie;
-    @FXML private TextField txtCustomer;
-
-    @FXML private AnchorPane selectCustomer;
     @FXML private TextField txtSearch;
     @FXML private TableView<CustomerField> tableCustomers;
+    @FXML private TableColumn<CustomerField, String> customerCode;
     @FXML private TableColumn<CustomerField, String> customerName;
     @FXML private TableColumn<CustomerField, String> customerDocument;
     @FXML private TableColumn<CustomerField, String> customerPhone;
     private ObservableList<CustomerField> obsCustomer = FXCollections.observableArrayList();
-    private Customer selectedCustomer;
-
 
     @FXML private AnchorPane waitScreen;
 
@@ -52,30 +47,17 @@ public class CreateAnimalController extends Controller {
         Window.setModal(this.stage, oldStage, oldController);
         super.initialize(oldStage, scene, oldController, objects);
 
-        setupInputs();
         setupTxtSearch();
         setupTableCustomers();
     }
 
-    private void setupInputs() {
-        Mask.onlyLetters(txtName);
-        Mask.onlyLetters(txtSpecie);
-        txtCustomer.setOnMouseClicked( e -> {
-            selectedCustomer = null;
-            txtCustomer.setText("");
-        });
-    }
-
-    @FXML private void selectCustomer(){
-        selectCustomer.setVisible(!selectCustomer.isVisible());
-    }
-
     private void setupTxtSearch(){
         Mask.upperCase(txtSearch);
-        txtSearch.textProperty().addListener(((observable, oldValue, newValue) -> updateTableCustomers()));
+        txtSearch.textProperty().addListener(((observable, oldValue, newValue) -> updateTable()));
     }
 
     private void setupTableCustomers() {
+        customerCode.setCellValueFactory(new PropertyValueFactory<>("code"));
         customerName.setCellValueFactory(new PropertyValueFactory<>("name"));
         customerDocument.setCellValueFactory(new PropertyValueFactory<>("document"));
         customerPhone.setCellValueFactory(new PropertyValueFactory<>("phone"));
@@ -83,20 +65,18 @@ public class CreateAnimalController extends Controller {
 
         tableCustomers.setRowFactory( e -> {
             TableRow<CustomerField> row = new TableRow<>();
-            row.setOnMouseClicked(event -> {
-                if (event.getClickCount() == 2 && (! row.isEmpty()) ) {
-                    selectedCustomer = row.getItem().getCustomer();
-                    txtCustomer.setText(selectedCustomer.getName());
-                    selectCustomer.setVisible(false);
+            row.setOnMouseClicked( f -> {
+                if(f.getClickCount() == 2 && !row.isEmpty()){
+                    linkCustomer();
                 }
             });
-            return row ;
+            return row;
         });
 
-        updateTableCustomers();
+        updateTable();
     }
 
-    private void updateTableCustomers() {
+    private void updateTable() {
         obsCustomer.clear();
         ArrayList<Customer> customers = new ArrayList<>();
         if(txtSearch.getText().isEmpty()){
@@ -117,35 +97,16 @@ public class CreateAnimalController extends Controller {
         this.tableCustomers.getSelectionModel().clearSelection();
     }
 
-    @FXML private void create (){
-        Animal animal = new Animal();
-        if(!txtName.getText().isEmpty()){
-            animal.setName(txtName.getText());
-            if(!txtSpecie.getText().isEmpty()){
-                animal.setSpecie(txtSpecie.getText());
+    @FXML private void linkCustomer(){
+        Customer customer = tableCustomers.getSelectionModel().getSelectedItem().getCustomer();
 
-                if(selectedCustomer != null){
-                    animal.setCustomer(selectedCustomer);
-                    animal.setStatus(true);
-
-                    if(AnimalModel.create(animal)){
-                        this.stage.close();
-                    } else {
-                        Window.changeScene(this.stage, "error", this,
-                                "Não Foi Possivel Cadastrar Animal");
-                    }
-
-                } else {
-                    Window.changeScene(this.stage, "error", this,
-                            "É Nescessario Vincular o Animal a um Cliente");
-                }
-            } else {
-                Window.changeScene(this.stage, "error", this,
-                        "É Nescessario Espécie do Animal");
-            }
+        if(customer != null){
+            PDVController pdv = (PDVController) oldController;
+            pdv.setLinkedCustomer(customer);
+            this.stage.close();
         } else {
             Window.changeScene(this.stage, "error", this,
-                    "É Nescessario Nome do Animal");
+                    "Selecione um Cliente para Vincula-lo");
         }
     }
 
@@ -156,5 +117,9 @@ public class CreateAnimalController extends Controller {
     @Override
     public void activeWaitScreen(boolean wait) {
         waitScreen.setVisible(wait);
+
+        if(!wait){
+            updateTable();
+        }
     }
 }

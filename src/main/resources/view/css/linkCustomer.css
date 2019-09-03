@@ -11,27 +11,16 @@
     -fx-font-size: 20px;
 }
 
-.subtitleDark{
-    -fx-text-fill: #36434C;
-    -fx-font-family: Lato;
-    -fx-font-weight: bold;
-    -fx-font-size: 14px;
-    -fx-alignment: center;
-}
-
 .input{
     -fx-background-color: transparent;
-    -fx-border-color: #36434C;
-    -fx-border-width: 0 0 2;
-    -fx-padding: 0 10;
+    -fx-border-color: transparent;
 
+    -fx-padding: 0 0 0 15;
+    -fx-font-family: Lato;
     -fx-font-weight: bold;
-    -fx-font-size: 25px;
     -fx-text-fill: #36434C;
-}
-
-.input:disabled{
-    -fx-opacity: 1;
+    -fx-prompt-text-fill: #5c6f7d80;
+    -fx-font-size: 20px;
 }
 
 #tableCustomers{
@@ -51,7 +40,7 @@
 
 #tableCustomers .column-header .label{
     -fx-background-color: transparent;
-    -fx-padding: 5 7;
+    -fx-padding: 10 7;
     -fx-alignment: center-left;
     -fx-text-fill: white;
 }
@@ -60,7 +49,7 @@
     -fx-background-color: #EDEDED;
     -fx-border-color: #36434C;
     -fx-border-width: 0 0 2 0;
-    -fx-cell-size: 40px;
+    -fx-cell-size: 50px;
 }
 
 #tableCustomers .table-row-cell:empty {
@@ -93,4 +82,14 @@
     -fx-font-size: 20px;
     -fx-text-fill: #36434C;
     -fx-font-weight: bold;
+}
+
+
+.textBold{
+    -fx-padding: 0 10;
+
+    -fx-font-weight: bold;
+    -fx-font-size: 25px;
+    -fx-text-fill: #36434C;
+    -fx-alignment: center-right;
 }

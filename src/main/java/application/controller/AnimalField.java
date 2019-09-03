@@ -29,62 +29,64 @@ public class AnimalField {
         this.specie = animal.getSpecie();
         this.customer = animal.getCustomer().getName();
 
-        AnimalsController animalsController = (AnimalsController) controller;
+        if(controller instanceof  AnimalsController) {
+            AnimalsController animalsController = (AnimalsController) controller;
 
-        Button status = new Button();
-        if(this.animal.isStatus()){
-            Button edit = new Button();
-            edit.getStyleClass().add("btnBlueLight");
-            edit.setOnAction(e ->
-                    Window.changeScene(controller.getStage(), "editAnimal", controller, this.animal));
-            edit.setMinSize(30, 30);
-            edit.setMaxSize(30, 30);
-            ImageView imageEdit = new ImageView(new Image("/view/img/edit.png"));
-            imageEdit.setFitHeight(20);
-            imageEdit.setFitWidth(20);
-            edit.setGraphic(imageEdit);
+            Button status = new Button();
+            if (this.animal.isStatus()) {
+                Button edit = new Button();
+                edit.getStyleClass().add("btnBlueLight");
+                edit.setOnAction(e ->
+                        Window.changeScene(controller.getStage(), "editAnimal", controller, this.animal));
+                edit.setMinSize(30, 30);
+                edit.setMaxSize(30, 30);
+                ImageView imageEdit = new ImageView(new Image("/view/img/edit.png"));
+                imageEdit.setFitHeight(20);
+                imageEdit.setFitWidth(20);
+                edit.setGraphic(imageEdit);
 
-            status.setMinSize(30, 30);
-            status.setMaxSize(30, 30);
-            status.getStyleClass().add("btnRed");
-            status.setOnAction(e -> {
-                this.animal.setStatus(false);
-                if (AnimalModel.update(this.animal)) {
-                    animalsController.updateTable();
-                } else {
-                    Window.changeScene(controller.getStage(), "error", controller,
-                            "Erro ao habilitar animal");
-                }
-            });
-            ImageView imageRemove = new ImageView(new Image("/view/img/active.png"));
-            imageRemove.setFitHeight(20);
-            imageRemove.setFitWidth(20);
-            status.setGraphic(imageRemove);
+                status.setMinSize(30, 30);
+                status.setMaxSize(30, 30);
+                status.getStyleClass().add("btnRed");
+                status.setOnAction(e -> {
+                    this.animal.setStatus(false);
+                    if (AnimalModel.update(this.animal)) {
+                        animalsController.updateTable();
+                    } else {
+                        Window.changeScene(controller.getStage(), "error", controller,
+                                "Erro ao habilitar animal");
+                    }
+                });
+                ImageView imageRemove = new ImageView(new Image("/view/img/active.png"));
+                imageRemove.setFitHeight(20);
+                imageRemove.setFitWidth(20);
+                status.setGraphic(imageRemove);
 
-            this.action.getChildren().addAll(edit, status);
-        } else {
-            status.setMinSize(30, 30);
-            status.setMaxSize(30, 30);
-            status.getStyleClass().add("btnGreen");
-            status.setOnAction(e -> {
-                this.animal.setStatus(true);
-                if (AnimalModel.update(this.animal)) {
-                    animalsController.updateTable();
-                } else {
-                    Window.changeScene(controller.getStage(), "error", controller,
-                            "Erro ao habilitar animal");
-                }
-            });
-            ImageView imageRemove = new ImageView(new Image("/view/img/active.png"));
-            imageRemove.setFitHeight(20);
-            imageRemove.setFitWidth(20);
-            status.setGraphic(imageRemove);
+                this.action.getChildren().addAll(edit, status);
+            } else {
+                status.setMinSize(30, 30);
+                status.setMaxSize(30, 30);
+                status.getStyleClass().add("btnGreen");
+                status.setOnAction(e -> {
+                    this.animal.setStatus(true);
+                    if (AnimalModel.update(this.animal)) {
+                        animalsController.updateTable();
+                    } else {
+                        Window.changeScene(controller.getStage(), "error", controller,
+                                "Erro ao habilitar animal");
+                    }
+                });
+                ImageView imageRemove = new ImageView(new Image("/view/img/active.png"));
+                imageRemove.setFitHeight(20);
+                imageRemove.setFitWidth(20);
+                status.setGraphic(imageRemove);
 
-            this.action.getChildren().add(status);
+                this.action.getChildren().add(status);
+            }
+
+            this.action.setAlignment(Pos.CENTER_LEFT);
+            this.action.setSpacing(10);
         }
-
-        this.action.setAlignment(Pos.CENTER_LEFT);
-        this.action.setSpacing(10);
     }
 
     public Animal getAnimal() {

@@ -2,9 +2,7 @@ package application.view.controller;
 
 import application.controller.ItemSaleField;
 import application.controller.ItemSearchField;
-import application.controller.object.Product;
-import application.controller.object.Service;
-import application.controller.object.User;
+import application.controller.object.*;
 import application.model.CashMovementModel;
 import application.model.ProductModel;
 import application.model.ServiceModel;
@@ -64,7 +62,9 @@ public class PDVController extends Controller {
     private int code = 1;
 
     @FXML private Button btnLinkCustomer;
+    private Customer linkedCustomer;
     @FXML private Button btnLinkAnimal;
+    private Animal linkedAnimal;
     @FXML private Button btnFinalizeSale;
     @FXML private Button btnCancelItem;
 
@@ -248,12 +248,18 @@ public class PDVController extends Controller {
         tableSale.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             btnCancelItem.setDisable(newValue == null);
             btnLinkAnimal.setDisable(!(newValue != null && !newValue.isTypeProduct()));
+            if(!btnLinkAnimal.isDisable() && newValue != null && newValue.getLinkedAnimal() != null) {
+                setLinkedAnimal(newValue.getLinkedAnimal());
+            } else {
+                setLinkedAnimal(null);
+            }
         });
 
         obsSaleFields.addListener((ListChangeListener<ItemSaleField>) e -> {
             updateValues();
             btnFinalizeSale.setDisable(obsSaleFields.size() == 0);
             btnLinkCustomer.setDisable(obsSaleFields.size() == 0);
+            if(obsSaleFields.size() == 0) setLinkedCustomer(null);
             btnManageOptions.setDisable(obsSaleFields.size() != 0);
 
             DecimalFormat codeFormat = new DecimalFormat("000");
@@ -327,13 +333,19 @@ public class PDVController extends Controller {
     }
 
     @FXML private void linkCustomer(){
-        Window.changeScene(this.stage, "error", this,
-                "Funcionalidade não disponivel no momento");
+        if(linkedCustomer == null) {
+            Window.changeScene(this.stage, "linkCustomer", this);
+        } else {
+            setLinkedCustomer(null);
+        }
     }
 
     @FXML private void linkAnimal(){
-        Window.changeScene(this.stage, "error", this,
-                "Funcionalidade não disponivel no momento");
+        if(linkedAnimal == null) {
+            Window.changeScene(this.stage, "linkAnimal", this);
+        } else {
+            setLinkedAnimal(null);
+        }
     }
 
     @FXML private void openFinalizeSale(){
@@ -405,6 +417,44 @@ public class PDVController extends Controller {
 
         if(!shelfDateProducts.isEmpty()) {
             Window.changeScene(this.stage, "shelfDate", this, shelfDateProducts);
+        }
+    }
+
+    public void setLinkedCustomer(Customer linkedCustomer) {
+        if(linkedCustomer != null) {
+            this.linkedCustomer = linkedCustomer;
+            btnLinkCustomer.setText(linkedCustomer.getName());
+            btnLinkCustomer.getStyleClass().remove("btnBlue");
+            btnLinkCustomer.getStyleClass().add("btnYellow");
+        } else {
+            btnLinkCustomer.setText("VINCULAR CLIENTE");
+            this.linkedCustomer = null;
+            btnLinkCustomer.getStyleClass().remove("btnYellow");
+            btnLinkCustomer.getStyleClass().add("btnBlue");
+        }
+    }
+
+    public Customer getLinkedCustomer() {
+        return linkedCustomer;
+    }
+
+    public void setLinkedAnimal(Animal linkedAnimal) {
+        if(linkedAnimal != null) {
+            this.linkedAnimal = linkedAnimal;
+            btnLinkAnimal.setText(linkedAnimal.getName());
+            if(btnLinkAnimal.getStyleClass().contains("btnBlue")) {
+                btnLinkAnimal.getStyleClass().remove("btnBlue");
+                btnLinkAnimal.getStyleClass().add("btnYellow");
+            }
+            ItemSaleField selected = tableSale.getSelectionModel().getSelectedItem();
+            selected.setLinkedAnimal(linkedAnimal);
+        } else {
+            btnLinkAnimal.setText("VINCULAR ANIMAL");
+            this.linkedAnimal = null;
+            if(btnLinkAnimal.getStyleClass().contains("btnYellow")) {
+                btnLinkAnimal.getStyleClass().remove("btnYellow");
+                btnLinkAnimal.getStyleClass().add("btnBlue");
+            }
         }
     }
 }

@@ -1,5 +1,6 @@
 package application.controller;
 
+import application.controller.object.Animal;
 import application.controller.object.Product;
 import application.controller.object.Service;
 import application.view.auxiliary.Formatter;
@@ -18,6 +19,8 @@ public class ItemSaleField {
     private Product product;
     private Service service;
     private boolean typeProduct;
+
+    private Animal linkedAnimal;
 
     public ItemSaleField(int code, ItemSearchField itemSearch, int quantity, PDVController pdvController) {
         this.code = Formatter.formatStringCode(code);
@@ -132,5 +135,13 @@ public class ItemSaleField {
 
     public boolean isTypeProduct() {
         return typeProduct;
+    }
+
+    public Animal getLinkedAnimal() {
+        return linkedAnimal;
+    }
+
+    public void setLinkedAnimal(Animal linkedAnimal) {
+        this.linkedAnimal = linkedAnimal;
     }
 }

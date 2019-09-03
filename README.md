@@ -1,16 +1,12 @@
 ## A Fazer
 
-- Controle de estoque / validade
+- Controle de estoque / validade (X)
 
-- Agendamento de serviço
+- Agendamento de serviço ( )
 
-- Separação de servico e produto na venda
+- Receita de veterinario / CRMV ( )
 
-- Receita de veterinario
-
-- CRMV
-
-- Controle de acesso
+- Controle de acesso ( )
 
 ## A Modificar
 

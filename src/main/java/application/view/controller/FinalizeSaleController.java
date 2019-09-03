@@ -60,9 +60,11 @@ public class FinalizeSaleController extends Controller {
 
     private ArrayList<Product> changeStock = new ArrayList<>();
 
+    private PDVController pdv;
+
     @Override
     public void initialize(Stage oldStage, Scene scene, Controller oldController, Object... objects) {
-        PDVController pdv = (PDVController) oldController;
+        this.pdv = (PDVController) oldController;
         this.obsSale = pdv.getObsSaleFields();
         this.totalRoot = pdv.getTotal();
         this.total = pdv.getTotal();
@@ -215,6 +217,7 @@ public class FinalizeSaleController extends Controller {
         sale.setDate(now);
         sale.setCashMovement(cashMovement);
         sale.setAccess(User.getUser());
+        sale.setCustomer(this.pdv.getLinkedCustomer());
 
         for(ItemSaleField item: obsSale){
             SaleItem saleItem = new SaleItem();
@@ -234,6 +237,7 @@ public class FinalizeSaleController extends Controller {
                 product.setQuantity(product.getQuantity() - item.getQuantity());
             } else {
                 saleItem.setService(item.getService());
+                saleItem.setAnimal(item.getLinkedAnimal());
             }
 
             sale.getSaleItems().add(saleItem);

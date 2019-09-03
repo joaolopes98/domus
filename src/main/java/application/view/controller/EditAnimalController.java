@@ -108,14 +108,16 @@ public class EditAnimalController extends Controller {
         obsCustomer.clear();
         ArrayList<Customer> customers = new ArrayList<>();
         if(txtSearch.getText().isEmpty()){
-            customers.addAll(CustomerModel.getAll(""));
+            customers.addAll(CustomerModel.getAll("WHERE status = TRUE"));
         } else {
             if(txtSearch.getText().matches("\\D+")) {
-                customers.addAll(CustomerModel.getAll("WHERE name LIKE '%" + txtSearch.getText() + "%'"));
+                customers.addAll(CustomerModel.getAll("WHERE name LIKE '%" + txtSearch.getText() + "%' " +
+                        "AND status = TRUE"));
             } else {
                 customers.addAll(CustomerModel.getAll(
-                        "WHERE document LIKE '%" + Formatter.unmaskOnlyNumber(txtSearch.getText()) + "%' " +
-                                "OR phone LIKE '%" + Formatter.unmaskOnlyNumber(txtSearch.getText()) + "%'"));
+                        "WHERE (document LIKE '%" + Formatter.unmaskOnlyNumber(txtSearch.getText()) + "%' " +
+                                "OR phone LIKE '%" + Formatter.unmaskOnlyNumber(txtSearch.getText()) + "%') " +
+                                "AND status = TRUE"));
             }
         }
         customers.forEach( customer -> obsCustomer.add(new CustomerField(customer, this)));
