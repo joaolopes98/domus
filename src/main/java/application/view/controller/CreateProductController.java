@@ -15,8 +15,6 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 public class CreateProductController extends Controller {
@@ -63,15 +61,7 @@ public class CreateProductController extends Controller {
                     product.setName(txtName.getText());
                     if(!txtEan.getText().isEmpty()) product.setEan(txtEan.getText());
                     if(!txtDate.getEditor().getText().isEmpty()){
-                        try {
-                            SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-                            product.setShelf_date(formatter.parse(txtDate.getEditor().getText()));
-                        } catch (ParseException e){
-                            e.printStackTrace();
-                            Window.changeScene(this.stage, "error", this,
-                                    "Erro na data de validade");
-                            return;
-                        }
+                        product.setShelf_date(Formatter.toDate(txtDate.getEditor().getText()));
                     }
                     product.setPrice(price);
                     product.setQuantity(Formatter.unmaskInteger(txtQuantity.getText()));

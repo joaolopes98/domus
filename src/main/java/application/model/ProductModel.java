@@ -2,11 +2,17 @@ package application.model;
 
 import application.controller.object.Product;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public abstract class ProductModel {
     public static List<Product> getAllSellable(){
-        return GenericModel.getAll("FROM Product WHERE status = TRUE");
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(new Date());
+        calendar.add(Calendar.DAY_OF_MONTH, -1);
+        return GenericModel.getAll("FROM Product WHERE status = TRUE " +
+                "AND shelf_date <= '" + calendar.getTime().getTime() + "'");
     }
 
     public static List<Product> getAll(String search) {

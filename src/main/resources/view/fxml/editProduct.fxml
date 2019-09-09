@@ -71,7 +71,7 @@
                                     </HBox>
                                     <AnchorPane VBox.vgrow="ALWAYS">
                                        <children>
-                                          <JFXDatePicker fx:id="txtDate" defaultColor="#36434c" styleClass="input" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                          <JFXDatePicker fx:id="txtDate" defaultColor="#36434c" editable="false" styleClass="input" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                        </children>
                                     </AnchorPane>
                                  </children>

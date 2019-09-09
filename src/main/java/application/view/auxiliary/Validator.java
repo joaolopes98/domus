@@ -66,19 +66,6 @@ public class Validator {
         }
     }
 
-    public static boolean isDate(String data){
-        if(data.length() != 10)
-            return false;
-
-        Date dataHoje = new Date();
-        Date date = Formatter.toDate(data);
-        if(date != null) {
-            return date.before(dataHoje) || date.equals(dataHoje);
-        } else {
-            return false;
-        }
-    }
-
     public static boolean isName(String name){
         return name.matches("[A-z].* [A-z].*");
     }

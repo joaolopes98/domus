@@ -25,7 +25,6 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.text.DecimalFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -273,9 +272,7 @@ public class PDVController extends Controller {
 
     private void setupInfo() {
         lblUser.setText(User.getUser().getName());
-
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy 'às' HH:mm");
-        lblDate.setText(sdf.format(new Date()));
+        lblDate.setText(Formatter.formatDateHour(new Date()));
     }
 
     private void addItemToTableSale() {

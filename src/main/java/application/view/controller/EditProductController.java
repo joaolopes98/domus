@@ -8,16 +8,12 @@ import application.view.auxiliary.Mask;
 import application.view.auxiliary.Window;
 import com.jfoenix.controls.JFXDatePicker;
 import javafx.fxml.FXML;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 
 public class EditProductController extends Controller {
 
@@ -52,9 +48,9 @@ public class EditProductController extends Controller {
         txtName.setText(this.product.getName());
         if(this.product.getEan() != null) txtEan.setText(this.product.getEan());
         if(this.product.getShelf_date() != null){
-            SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-            txtDate.getEditor().setText(formatter.format(this.product.getShelf_date()));
+            txtDate.getEditor().setText(Formatter.formatDate(this.product.getShelf_date()));
         }
+        txtDate.getEditor().setOnMouseClicked( e -> txtDate.getEditor().setText(""));
         txtPrice.setText(Formatter.formatMoney(this.product.getPrice()));
     }
 
@@ -69,15 +65,7 @@ public class EditProductController extends Controller {
                     product.setEan(null);
                 }
                 if(!txtDate.getEditor().getText().isEmpty()){
-                    try {
-                        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-                        product.setShelf_date(formatter.parse(txtDate.getEditor().getText()));
-                    } catch (ParseException e){
-                        e.printStackTrace();
-                        Window.changeScene(this.stage, "error", this,
-                                "Erro na data de validade");
-                        return;
-                    }
+                    product.setShelf_date(Formatter.toDate(txtDate.getEditor().getText()));
                 } else {
                     product.setShelf_date(null);
                 }

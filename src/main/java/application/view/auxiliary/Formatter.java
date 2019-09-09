@@ -20,7 +20,7 @@ public abstract class Formatter {
 
     public static Date toDate(String date){
         try {
-            SimpleDateFormat sdf = new SimpleDateFormat("");
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
             sdf.setLenient(false);
             return sdf.parse(date);
         } catch (ParseException e) {
