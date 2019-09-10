@@ -4,6 +4,7 @@ import java.text.DecimalFormat;
 import java.text.Normalizer;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 public abstract class Formatter {
@@ -22,11 +23,21 @@ public abstract class Formatter {
         try {
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
             sdf.setLenient(false);
-            return sdf.parse(date);
+            return resetDate(sdf.parse(date));
         } catch (ParseException e) {
             e.printStackTrace();
             return null;
         }
+    }
+
+    public static Date resetDate(Date date){
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        calendar.set(Calendar.HOUR_OF_DAY, 0);
+        calendar.set(Calendar.MINUTE, 0);
+        calendar.set(Calendar.SECOND, 0);
+        calendar.set(Calendar.MILLISECOND, 0);
+        return calendar.getTime();
     }
 
     public static double unmaskMoney(String money){
