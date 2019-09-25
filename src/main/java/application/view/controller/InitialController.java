@@ -4,6 +4,7 @@ import application.controller.object.Access;
 import application.model.AccessModel;
 import application.model.HibernateUtilities;
 import application.view.auxiliary.Controller;
+import application.view.auxiliary.Mask;
 import application.view.auxiliary.Window;
 import javafx.animation.FadeTransition;
 import javafx.concurrent.Service;
@@ -54,6 +55,7 @@ public class InitialController extends Controller {
     }
 
     private void setupInputs(){
+        Mask.upperCase(inputUser);
         inputUser.setOnKeyPressed( e -> {
             if(e.getCode() == KeyCode.TAB){
                 inputPassword.requestFocus();
@@ -64,6 +66,7 @@ public class InitialController extends Controller {
             }
         });
 
+        Mask.upperCase(inputPassword);
         inputPassword.setOnKeyPressed(e -> {
             if(e.getCode() == KeyCode.TAB){
                 inputUser.requestFocus();

@@ -43,7 +43,7 @@ public class ManageOptionsController extends Controller {
     }
 
     @FXML private void users(){
-
+        Window.changeScene(this.stage, "users", this);
     }
 
     @FXML private void cancel(){

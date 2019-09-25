@@ -68,6 +68,7 @@ public class PDVController extends Controller {
     @FXML private Button btnCancelItem;
 
     @FXML private Button btnManageOptions;
+    @FXML private Button btnCloseCash;
 
     @FXML private Label lblUser;
     @FXML private Label lblDate;
@@ -444,6 +445,8 @@ public class PDVController extends Controller {
             selected.setLinkedAnimal(linkedAnimal);
         } else {
             btnLinkAnimal.setText("VINCULAR ANIMAL");
+            ItemSaleField selected = tableSale.getSelectionModel().getSelectedItem();
+            if(selected != null) selected.setLinkedAnimal(null);
             this.linkedAnimal = null;
             if(btnLinkAnimal.getStyleClass().contains("btnYellow")) {
                 btnLinkAnimal.getStyleClass().remove("btnYellow");

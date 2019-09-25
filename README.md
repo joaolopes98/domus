@@ -4,9 +4,11 @@
 
 - Agendamento de serviço ( )
 
-- Receita de veterinario / CRMV ( )
+- Custo do Produto [Relatorio de Lucro]
 
-- Controle de acesso ( )
+- Receita de veterinario / CRMV ( ) [Gotas, ML, Comprimido, Aplicação e dose]
+
+- Controle de acesso (X)
 
 ## A Modificar
 

@@ -29,8 +29,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AnimalsController extends Controller{
-    @FXML
-    private TextField txtSearch;
+    @FXML private TextField txtSearch;
     @FXML private TableView<AnimalField> tableAnimals;
     @FXML private TableColumn<AnimalField, String> animalCode;
     @FXML private TableColumn<AnimalField, String> animalName;
@@ -57,9 +56,7 @@ public class AnimalsController extends Controller{
 
     private void setupTxtSearch(){
         Mask.upperCase(txtSearch);
-        txtSearch.textProperty().addListener(((observable, oldValue, newValue) -> {
-            updateTable();
-        }));
+        txtSearch.textProperty().addListener(((observable, oldValue, newValue) -> updateTable()));
     }
 
     private void setupTableAnimals() {

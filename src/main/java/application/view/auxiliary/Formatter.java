@@ -1,11 +1,15 @@
 package application.view.auxiliary;
 
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.text.DecimalFormat;
 import java.text.Normalizer;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.regex.Pattern;
 
 public abstract class Formatter {
 
@@ -64,7 +68,11 @@ public abstract class Formatter {
     }
 
     public static String removeAccentuation(String str) {
-        return Normalizer.normalize(str, Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", "");
+        String nfdNormalizedString = Normalizer.normalize(str, Normalizer.Form.NFD);
+        Pattern pattern = Pattern.compile("\\p{InCombiningDiacriticalMarks}+");
+        String noAcc = pattern.matcher(nfdNormalizedString).replaceAll("");
+        return noAcc.replaceAll("[~^´`]", "")
+                .replaceAll("[^0-Z .]", "");
     }
 
     public static String unmaskOnlyNumber(String numbers){
@@ -82,5 +90,26 @@ public abstract class Formatter {
         } else {
             return "(" + phone.substring(0,2) + ")" + phone.substring(2,6) + "-" + phone.substring(6);
         }
+    }
+
+    public static String formatSHA512(String sha512){
+        try {
+            MessageDigest m =  MessageDigest.getInstance("SHA-512");
+            m.update(sha512.getBytes(),0,sha512.length());
+            sha512 = new BigInteger(1,m.digest()).toString(16);
+
+            if (sha512.length() != 32){
+                int zeros = 32 - sha512.length();
+                StringBuilder passBuilder = new StringBuilder(sha512);
+                for (int i = 0; i < zeros; i++){
+                    passBuilder.insert(0, "0");
+                }
+                sha512 = passBuilder.toString();
+            }
+
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+        return sha512;
     }
 }

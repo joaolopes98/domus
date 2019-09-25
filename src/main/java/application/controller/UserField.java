@@ -1,43 +1,42 @@
 package application.controller;
 
-import application.controller.object.Animal;
-import application.model.AnimalModel;
+import application.controller.object.Access;
+import application.model.AccessModel;
 import application.view.auxiliary.Controller;
 import application.view.auxiliary.Formatter;
 import application.view.auxiliary.Window;
-import application.view.controller.AnimalsController;
+import application.view.controller.UsersController;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 
-public class AnimalField {
-    private Animal animal;
+public class UserField {
+    private Access access;
 
     private String code;
     private String name;
-    private String specie;
-    private String customer;
+    private String document;
+    private String phone;
     private HBox action = new HBox();
 
-    public AnimalField(Animal animal, Controller controller) {
-        this.animal = animal;
+    public UserField(Access access, Controller controller){
+        this.access = access;
 
-        this.code = Formatter.formatStringCode(animal.getId());
-        this.name = animal.getName();
-        this.specie = animal.getSpecie();
-        this.customer = animal.getCustomer().getName();
+        this.code = Formatter.formatStringCode(access.getId());
+        this.name = access.getName();
+        this.document = Formatter.formatDocument(access.getDocument());
+        this.phone = Formatter.formatPhone(access.getPhone());
 
-        if(controller instanceof  AnimalsController) {
-            AnimalsController animalsController = (AnimalsController) controller;
-
+        if(controller instanceof UsersController){
+            UsersController usersController = (UsersController) controller;
             Button status = new Button();
-            if (this.animal.isStatus()) {
+            if (this.access.isStatus()) {
                 Button edit = new Button();
                 edit.getStyleClass().add("btnBlueLight");
                 edit.setOnAction(e ->
-                        Window.changeScene(controller.getStage(), "editAnimal", controller, this.animal));
+                        Window.changeScene(controller.getStage(), "editUser", controller, this.access));
                 edit.setMinSize(30, 30);
                 edit.setMaxSize(30, 30);
                 ImageView imageEdit = new ImageView(new Image("/view/img/edit.png"));
@@ -49,12 +48,12 @@ public class AnimalField {
                 status.setMaxSize(30, 30);
                 status.getStyleClass().add("btnRed");
                 status.setOnAction(e -> {
-                    this.animal.setStatus(false);
-                    if (AnimalModel.update(this.animal)) {
-                        animalsController.updateTable();
+                    this.access.setStatus(false);
+                    if (AccessModel.update(this.access)) {
+                        usersController.updateTable();
                     } else {
                         Window.changeScene(controller.getStage(), "error", controller,
-                                "Erro ao desabilitar animal");
+                                "Erro ao desabilitar usuario");
                     }
                 });
                 ImageView imageRemove = new ImageView(new Image("/view/img/active.png"));
@@ -68,12 +67,12 @@ public class AnimalField {
                 status.setMaxSize(30, 30);
                 status.getStyleClass().add("btnGreen");
                 status.setOnAction(e -> {
-                    this.animal.setStatus(true);
-                    if (AnimalModel.update(this.animal)) {
-                        animalsController.updateTable();
+                    this.access.setStatus(true);
+                    if (AccessModel.update(this.access)) {
+                        usersController.updateTable();
                     } else {
                         Window.changeScene(controller.getStage(), "error", controller,
-                                "Erro ao habilitar animal");
+                                "Erro ao habilitar usuario");
                     }
                 });
                 ImageView imageRemove = new ImageView(new Image("/view/img/active.png"));
@@ -89,8 +88,8 @@ public class AnimalField {
         }
     }
 
-    public Animal getAnimal() {
-        return animal;
+    public Access getAccess() {
+        return access;
     }
 
     public String getCode() {
@@ -101,12 +100,12 @@ public class AnimalField {
         return name;
     }
 
-    public String getSpecie() {
-        return specie;
+    public String getDocument() {
+        return document;
     }
 
-    public String getCustomer() {
-        return customer;
+    public String getPhone() {
+        return phone;
     }
 
     public HBox getAction() {
