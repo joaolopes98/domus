@@ -1,6 +1,7 @@
 package application.view.controller;
 
 import application.controller.object.Access;
+import application.controller.object.User;
 import application.model.AccessModel;
 import application.model.HibernateUtilities;
 import application.view.auxiliary.Controller;
@@ -155,8 +156,14 @@ public class InitialController extends Controller {
     @FXML private void login(){
 
         if(AccessModel.isLogin(inputUser.getText(), inputPassword.getText())){
-            Window.changeScene(this.stage, "pdv", this);
-            this.stage.close();
+            Access user = User.getUser();
+            if(user.getRole() != 2) {
+                Window.changeScene(this.stage, "pdv", this);
+                this.stage.close();
+            } else {
+                Window.changeScene(this.stage, "error", this,
+                        "Funcionalidade Não Disponivel");
+            }
         } else {
             lblError.setText("Usuário ou senha incorretos");
             lblError.setVisible(true);

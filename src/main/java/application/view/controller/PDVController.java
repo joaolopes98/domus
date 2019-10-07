@@ -89,6 +89,12 @@ public class PDVController extends Controller {
         this.stage.setTitle("DOMUS PDV");
         this.stage.setMinWidth(1000);
         this.stage.setMinHeight(720);
+
+        Access user = User.getUser();
+        if(user.getRole() == 1){
+            btnManageOptions.setVisible(false);
+        }
+
         super.initialize(oldStage, scene, oldController, objects);
         this.stage.setMaximized(true);
 //        Window.setFullScreen(this.stage);
@@ -409,7 +415,6 @@ public class PDVController extends Controller {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(new Date());
         calendar.add(Calendar.MONTH, -1);
-        System.out.println(calendar.getTime());
         ArrayList<Product> shelfDateProducts = new ArrayList<>(
                 ProductModel.getAll("WHERE status = TRUE AND shelf_date <= '"
                         + Formatter.resetDate(calendar.getTime()).getTime() + "' ORDER BY shelf_date"));
