@@ -406,9 +406,13 @@ public class PDVController extends Controller {
     }
 
     public void verifyShelfDate(){
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(new Date());
+        calendar.add(Calendar.MONTH, -1);
+        System.out.println(calendar.getTime());
         ArrayList<Product> shelfDateProducts = new ArrayList<>(
                 ProductModel.getAll("WHERE status = TRUE AND shelf_date <= '"
-                        + Formatter.resetDate(new Date()).getTime() + "' ORDER BY shelf_date"));
+                        + Formatter.resetDate(calendar.getTime()).getTime() + "' ORDER BY shelf_date"));
 
         if(!shelfDateProducts.isEmpty()) {
             Window.changeScene(this.stage, "shelfDate", this, shelfDateProducts);
