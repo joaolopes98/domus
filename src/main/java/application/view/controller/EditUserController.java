@@ -10,6 +10,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
@@ -23,6 +24,9 @@ public class EditUserController extends Controller {
     @FXML private TextField txtName;
     @FXML private TextField txtDocument;
     @FXML private TextField txtPhone;
+    @FXML private TextField txtCrmv;
+
+    @FXML private VBox paneCrmv;
 
     private ArrayList<Button> listRole = new ArrayList<>();
 
@@ -58,6 +62,13 @@ public class EditUserController extends Controller {
                     role.getStyleClass().remove("btnBlue");
                     role.getStyleClass().add("btnBlueLight");
                 }
+
+                if(role.getText().equals("VETERINARIO")){
+                    paneCrmv.setDisable(false);
+                } else {
+                    paneCrmv.setDisable(true);
+                    txtCrmv.setText("");
+                }
             });
         });
 
@@ -65,14 +76,17 @@ public class EditUserController extends Controller {
             case 1:
                 btnEmployee.getStyleClass().remove("btnBlue");
                 btnEmployee.getStyleClass().add("btnBlueLight");
+                paneCrmv.setDisable(true);
                 break;
             case 2:
                 btnVeterinary.getStyleClass().remove("btnBlue");
                 btnVeterinary.getStyleClass().add("btnBlueLight");
+                paneCrmv.setDisable(false);
                 break;
             case 3:
                 btnManager.getStyleClass().remove("btnBlue");
                 btnManager.getStyleClass().add("btnBlueLight");
+                paneCrmv.setDisable(true);
                 break;
         }
     }
@@ -95,6 +109,11 @@ public class EditUserController extends Controller {
 
         Mask.phone(txtPhone);
         txtPhone.setText(user.getPhone());
+
+        Mask.upperCase(txtCrmv);
+        if(user.getCrmv() != null){
+            txtCrmv.setText(user.getCrmv());
+        }
     }
 
     @FXML
@@ -108,6 +127,9 @@ public class EditUserController extends Controller {
         } else if(!Validator.isPhone(txtPhone.getText())) {
             Window.changeScene(this.stage, "error", this,
                     "Telefone invalido");
+        } else if(!paneCrmv.isDisabled() && txtCrmv.getText().isEmpty()){
+            Window.changeScene(this.stage, "error", this,
+                    "CRMV Obrigatorio para veterinarios");
         } else {
 
             int role = 1;
@@ -119,6 +141,11 @@ public class EditUserController extends Controller {
             user.setPhone(Formatter.unmaskOnlyNumber(txtPhone.getText()));
             user.setRole(role);
             user.setStatus(true);
+            if(!paneCrmv.isDisabled()){
+                user.setCrmv(txtCrmv.getText());
+            } else {
+                user.setCrmv(null);
+            }
 
             if(AccessModel.update(user)){
                 cancel();

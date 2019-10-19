@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxWidth="600.0" minWidth="600.0" styleClass="paneBlueDark" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.controller.EditUserController">
+<AnchorPane maxWidth="600.0" minWidth="600.0" styleClass="paneBlueDark" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.controller.EditUserController">
    <children>
       <AnchorPane maxHeight="50.0" minHeight="50.0" styleClass="paneBlueLight" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
          <children>
@@ -120,6 +120,23 @@
                               </VBox>
                            </children>
                         </HBox>
+                        <VBox fx:id="paneCrmv" alignment="CENTER" disable="true" maxHeight="84.0" minHeight="84.0">
+                           <children>
+                              <HBox alignment="CENTER_LEFT" maxHeight="25.0" minHeight="25.0" VBox.vgrow="ALWAYS">
+                                 <children>
+                                    <Label styleClass="subtitleDark" text="CRMV" />
+                                 </children>
+                              </HBox>
+                              <AnchorPane VBox.vgrow="ALWAYS">
+                                 <children>
+                                    <TextField fx:id="txtCrmv" layoutX="47.0" layoutY="2.0" styleClass="input" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                           <padding>
+                              <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                           </padding>
+                        </VBox>
                      </children>
                   </VBox>
                   <HBox maxHeight="40.0" minHeight="40.0" spacing="10.0" VBox.vgrow="ALWAYS">

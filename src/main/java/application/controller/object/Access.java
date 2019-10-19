@@ -10,6 +10,7 @@ public class Access implements Model {
     private int role;
     private String user;
     private String password;
+    private String crmv;
     private boolean status;
 
     public int getId() {
@@ -66,6 +67,14 @@ public class Access implements Model {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getCrmv() {
+        return crmv;
+    }
+
+    public void setCrmv(String crmv) {
+        this.crmv = crmv;
     }
 
     public boolean isStatus() {

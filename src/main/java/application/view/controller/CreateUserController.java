@@ -12,6 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
@@ -26,6 +27,9 @@ public class CreateUserController extends Controller {
     @FXML private TextField txtPhone;
     @FXML private TextField txtUser;
     @FXML private PasswordField txtPassword;
+    @FXML private TextField txtCrmv;
+
+    @FXML private VBox paneCrmv;
 
     private ArrayList<Button> listRole = new ArrayList<>();
 
@@ -59,6 +63,13 @@ public class CreateUserController extends Controller {
                     role.getStyleClass().remove("btnBlue");
                     role.getStyleClass().add("btnBlueLight");
                 }
+
+                if(role.getText().equals("VETERINARIO")){
+                    paneCrmv.setDisable(false);
+                } else {
+                    paneCrmv.setDisable(true);
+                    txtCrmv.setText("");
+                }
             });
         });
     }
@@ -78,6 +89,7 @@ public class CreateUserController extends Controller {
         Mask.phone(txtPhone);
         Mask.upperCase(txtUser);
         Mask.upperCase(txtPassword);
+        Mask.upperCase(txtCrmv);
     }
 
     @FXML private void create(){
@@ -99,6 +111,9 @@ public class CreateUserController extends Controller {
             Window.changeScene(this.stage, "error", this,
                     "A senha precisa conter 6 ou mais digitos " +
                             "e possuir apenas caracteres alfanumericos sem espaço em branco");
+        } else if(!paneCrmv.isDisabled() && txtCrmv.getText().isEmpty()){
+            Window.changeScene(this.stage, "error", this,
+                    "CRMV Obrigatorio para veterinarios");
         } else {
 
             int role = 1;
@@ -111,6 +126,9 @@ public class CreateUserController extends Controller {
             user.setUser(txtUser.getText());
             user.setPassword(Formatter.formatSHA512(txtPassword.getText()));
             user.setRole(role);
+            if(!paneCrmv.isDisabled()){
+                user.setCrmv(txtCrmv.getText());
+            }
             user.setStatus(true);
 
             if(AccessModel.create(user)){

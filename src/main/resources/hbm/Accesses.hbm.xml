@@ -14,6 +14,7 @@
         <property name="role" type="int"/>
         <property name="user" type="string"/>
         <property name="password" type="string"/>
+        <property name="crmv" type="string"/>
         <property name="status" type="boolean"/>
     </class>
 </hibernate-mapping>
