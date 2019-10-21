@@ -1,0 +1,99 @@
+@import "fonts.css";
+@import "waitScreen.css";
+@import "scrollBar.css";
+@import "buttons.css";
+@import "panes.css";
+
+#tableMedicine{
+    -fx-font-family: Lato;
+    -fx-padding: 0;
+    -fx-background-color: #EDEDED;
+    -fx-border-width: 2px;
+    -fx-border-color: #36434C;
+}
+
+#tableMedicine .column-header {
+    -fx-background-color: #5c6f7d;
+    -fx-font-size: 17px;
+    -fx-border-width: 0 0 2 0;
+    -fx-border-color: #36434C;
+}
+
+#tableMedicine .column-header .label{
+    -fx-background-color: transparent;
+    -fx-padding: 10 7;
+    -fx-alignment: center;
+    -fx-text-fill: white;
+}
+
+#tableMedicine .table-row-cell {
+    -fx-background-color: #EDEDED;
+    -fx-border-color: #36434C;
+    -fx-border-width: 0 0 2 0;
+    -fx-cell-size: 50px;
+}
+
+#tableMedicine .table-row-cell:empty {
+    -fx-border-color: transparent;
+}
+
+#tableMedicine .table-row-cell:focused .table-column{
+    -fx-background-color: #EDEDED;
+    -fx-text-fill: #36434C;
+}
+
+#tableMedicine .table-cell {
+    -fx-font-family: Lato;
+    -fx-border-color: transparent;
+    -fx-alignment: center-left;
+    -fx-font-size: 15px;
+    -fx-text-fill: #36434C;
+    -fx-padding: 0 10;
+
+}
+
+#tableMedicine .filler{
+    -fx-background-color: #5c6f7d;
+    -fx-border-width: 0 0 2 0;
+    -fx-border-color: #36434C;
+}
+
+.comboBox{
+    -fx-background-color: #EDEDED;
+    -fx-border-color: #36434C;
+    -fx-border-width: 2px;
+
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-alignment: center-right;
+}
+
+.comboBox .list-cell{
+    -fx-background-color: #EDEDED;
+    -fx-text-fill: #5c6f7d;
+    -fx-prompt-text-fill: #5c6f7d80;
+}
+
+.comboBox .list-view{
+    -fx-background-color: #EDEDED;
+}
+
+.comboBox .list-cell:hover{
+    -fx-background-color: white;
+    -fx-cursor: hand;
+}
+
+.comboBox .arrow{
+    -fx-background-color: #5c6f7d80;
+}
+
+.input{
+    -fx-background-color: #EDEDED;
+    -fx-border-color: #36434C;
+    -fx-border-width: 2;
+
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-text-fill: #5c6f7d;
+    -fx-alignment: center;
+}

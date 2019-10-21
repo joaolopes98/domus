@@ -2,17 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="596f29fa-0cc5-4e5a-a056-63460e674cfd" name="Default Changelist" comment="Finalização da implementação de validade de produtos, Implementação de clientes">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/banco.db" beforeDir="false" afterPath="$PROJECT_DIR$/banco.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domus.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/controller/object/Access.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/controller/object/Access.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/view/controller/CreateUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/view/controller/CreateUserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/view/controller/EditUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/view/controller/EditUserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/application/view/controller/InitialController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/view/controller/InitialController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/hbm/Accesses.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hbm/Accesses.hbm.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/fxml/createUser.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/fxml/createUser.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/fxml/editUser.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/fxml/editUser.fxml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -60,43 +52,6 @@
       </list>
     </option>
   </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>tableview</find>
-      <find>System.out.p</find>
-      <find>closeCas</find>
-      <find>white</find>
-      <find>EDEDED</find>
-      <find>txtSearchItem.requestFocus()</find>
-      <find>&lt;TableView</find>
-      <find>open</find>
-      <find>print</find>
-      <find>.input{</find>
-      <find>DecimalForma</find>
-      <find>'</find>
-      <find>System.ou</find>
-      <find>erro</find>
-      <find>System.out</find>
-      <find>&quot;error&quot;</find>
-      <find>&quot;error</find>
-      <find>System.out.println</find>
-      <find>//</find>
-      <find>&quot;products</find>
-      <find>SimpleDateFormat</find>
-      <find>error</find>
-      <find>paneBlueLight</find>
-      <find>/View/css</find>
-      <find>Simple</find>
-      <find>SimpleDateFormat formatter = new SimpleDateFormat(&quot;dd/MM/yyyy&quot;);</find>
-      <find>SimpleDateForma</find>
-      <find>Calendar</find>
-      <find>btnYellow</find>
-      <find>error&quot;</find>
-    </findStrings>
-    <replaceStrings>
-      <replace>btnBlue</replace>
-    </replaceStrings>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -130,9 +85,8 @@
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="application.model" />
-      <recent name="application.controller.object" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\joaop\Desktop\Faculdade\PROJETO\domus\src\main\resources\view\fxml" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\joaop\Desktop\Faculdade\PROJETO\domus\src\main\resources\view\css" />
@@ -146,8 +100,10 @@
       <recent name="application.model" />
       <recent name="application.controller.object" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\joaop\Desktop\Faculdade\PROJETO\domus\src\main\resources\view\fxml" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="application.view.controller" />
+      <recent name="application.model" />
+      <recent name="application.controller.object" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -178,7 +134,17 @@
       <serviceView>
         <option name="contentProportion" value="0.17697063" />
         <treeState>
-          <expand />
+          <expand>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@e055a225" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+            </path>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@e055a225" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@55b07ebe" type="9fbbdea:ServiceModel$ServiceNode" />
+            </path>
+          </expand>
           <select />
         </treeState>
       </serviceView>
@@ -253,7 +219,9 @@
       <workItem from="1571104807860" duration="674000" />
       <workItem from="1571106052289" duration="304000" />
       <workItem from="1571441630001" duration="4866000" />
-      <workItem from="1571511270403" duration="2465000" />
+      <workItem from="1571511270403" duration="4168000" />
+      <workItem from="1571587420468" duration="2365000" />
+      <workItem from="1571627343277" duration="6280000" />
     </task>
     <task id="LOCAL-00001" summary="Finalização de Procura e inclusão de item na comanda, e adição de desconto no item">
       <created>1558570743810</created>

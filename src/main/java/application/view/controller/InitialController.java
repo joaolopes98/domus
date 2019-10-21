@@ -161,8 +161,8 @@ public class InitialController extends Controller {
                 Window.changeScene(this.stage, "pdv", this);
                 this.stage.close();
             } else {
-                Window.changeScene(this.stage, "error", this,
-                        "Funcionalidade Não Disponivel");
+                Window.changeScene(this.stage, "veterinaryDashboard", this);
+                this.stage.close();
             }
         } else {
             lblError.setText("Usuário ou senha incorretos");
