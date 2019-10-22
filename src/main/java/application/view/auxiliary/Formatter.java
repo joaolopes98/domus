@@ -23,6 +23,11 @@ public abstract class Formatter {
         return sdf.format(date);
     }
 
+    public static String formatHour(Date date){
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+        return sdf.format(date);
+    }
+
     public static Date toDate(String date){
         try {
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");

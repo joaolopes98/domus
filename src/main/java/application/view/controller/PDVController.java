@@ -329,7 +329,7 @@ public class PDVController extends Controller {
     }
 
     @FXML private void customer(){
-        Window.changeScene(this.stage, "customers", this);
+        Window.changeScene(this.stage, "schedule", this);
     }
 
     @FXML private void animal(){

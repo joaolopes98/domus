@@ -2,11 +2,11 @@
 
 - Controle de estoque / validade (X)
 
-- Agendamento de serviço ( )
+- Agendamento ( )
 
 - Custo do Produto [Relatorio de Lucro]
 
-- Receita de veterinario / CRMV ( ) [Gotas, ML, Comprimido, Aplicação e dose]
+- Receita de veterinario / CRMV (X) [Gotas, ML, Comprimido, Aplicação e dose]
 
 - Controle de acesso (X)
 
