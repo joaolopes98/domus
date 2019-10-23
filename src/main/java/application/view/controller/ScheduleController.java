@@ -20,6 +20,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -53,6 +54,7 @@ public class ScheduleController extends Controller {
         setupInput();
         setupTable();
         searchSchedule();
+        resetOlders();
     }
 
     private void setupInput() {
@@ -68,6 +70,42 @@ public class ScheduleController extends Controller {
         scheduleAction.setCellValueFactory(new PropertyValueFactory<>("action"));
 
         tableSchedule.setItems(obsSchedule);
+
+        tableSchedule.setRowFactory( e -> {
+            TableRow<ScheduleField> row = new TableRow<>();
+            row.setOnMouseClicked( f -> {
+                if(f.getClickCount() == 2 && !row.isEmpty()){
+                    Window.changeScene(this.stage, "scheduleItem", this,
+                            row.getItem().getSchedule());
+                    f.consume();
+                }
+            });
+            return row;
+        });
+
+        tableSchedule.setRowFactory( new Callback<TableView<ScheduleField>, TableRow<ScheduleField>>() {
+            @Override
+            public TableRow<ScheduleField> call(TableView<ScheduleField> tableView) {
+                return new TableRow<ScheduleField>() {
+                    @Override
+                    protected void updateItem(ScheduleField scheduleField, boolean empty) {
+                        super.updateItem(scheduleField, empty);
+                        if(!empty) {
+                            Boolean status = scheduleField.getStatus();
+                            if(status != null){
+                                getStyleClass().clear();
+                                if(status){
+                                    getStyleClass().add("activated");
+                                } else {
+                                    getStyleClass().add("disabled");
+                                }
+                            }
+                        }
+                    }
+                };
+            }
+        });
+
     }
 
     public void searchSchedule() {
@@ -89,11 +127,17 @@ public class ScheduleController extends Controller {
                             " ORDER BY date ASC"));
 
             for (Schedule schedule : schedules) {
-                obsSchedule.add(new ScheduleField(schedule));
+                obsSchedule.add(new ScheduleField(schedule, this));
             }
 
-            btnCreate.setDisable(first < Formatter.resetDate(new Date()).getTime() );
+            btnCreate.setDisable(first < Formatter.resetDate(new Date()).getTime());
         }
+        tableSchedule.refresh();
+    }
+
+    private void resetOlders(){
+        ScheduleModel.updateAll("SET status = FALSE WHERE date < '" +
+                Formatter.resetDate(new Date()).getTime() + "'");
     }
 
     @FXML private void lastDate(){

@@ -103,4 +103,28 @@ public abstract class GenericModel {
         }
         return result;
     }
+
+    static boolean updateAll(String queryHQL){
+        boolean result = true;
+        Session session = HibernateUtilities.getSession();
+        try {
+            boolean active = session.getTransaction().isActive();
+            if(!active) {
+                session.beginTransaction();
+                Query query = session.createQuery(queryHQL);
+                System.out.println(query.executeUpdate());
+                session.getTransaction().commit();
+            } else {
+                Query query = session.createQuery(queryHQL);
+                System.out.println(query.executeUpdate());
+            }
+        } catch (Exception e) {
+            session.getTransaction().rollback();
+            e.printStackTrace();
+            result = false;
+        } finally {
+            session.close();
+        }
+        return result;
+    }
 }

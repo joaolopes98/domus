@@ -11,18 +11,26 @@
     -fx-font-size: 20px;
 }
 
+.subtitleDark{
+    -fx-text-fill: #36434C;
+    -fx-font-family: Lato;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-alignment: center;
+}
+
 .input{
     -fx-background-color: transparent;
-    -fx-border-color: #777700;
+    -fx-border-color: #36434C;
     -fx-border-width: 0 0 2;
     -fx-padding: 0 10;
 
     -fx-font-weight: bold;
-    -fx-font-size: 18px;
-    -fx-text-fill: #AAAA22;
+    -fx-font-size: 25px;
+    -fx-text-fill: #36434C;
 }
 
-#tableSchedule{
+#tableScheduleItem{
     -fx-font-family: Lato;
     -fx-padding: 0;
     -fx-background-color: #EDEDED;
@@ -30,50 +38,36 @@
     -fx-border-color: #36434C;
 }
 
-#tableSchedule .column-header {
+#tableScheduleItem .column-header {
     -fx-background-color: #5c6f7d;
-    -fx-font-size: 20px;
+    -fx-font-size: 14px;
     -fx-border-width: 0 0 2 0;
     -fx-border-color: #36434C;
 }
 
-#tableSchedule .column-header .label{
+#tableScheduleItem .column-header .label{
     -fx-background-color: transparent;
     -fx-padding: 10 7;
     -fx-alignment: center-left;
     -fx-text-fill: white;
 }
 
-#tableSchedule .activated {
-    -fx-background-color: #22AA2250;
-    -fx-border-color: #36434C;
-    -fx-border-width: 0 0 2 0;
-    -fx-cell-size: 50px;
-}
-
-#tableSchedule .disabled{
-    -fx-background-color: #AA222250;
-    -fx-border-color: #36434C;
-    -fx-border-width: 0 0 2 0;
-    -fx-cell-size: 50px;
-}
-
-#tableSchedule .table-row-cell {
+#tableScheduleItem .table-row-cell {
     -fx-background-color: #EDEDED;
     -fx-border-color: #36434C;
     -fx-border-width: 0 0 2 0;
     -fx-cell-size: 50px;
 }
 
-#tableSchedule .table-row-cell:empty {
+#tableScheduleItem .table-row-cell:empty {
     -fx-border-color: transparent;
 }
 
-#tableSchedule .table-row-cell:focused .table-column{
+#tableScheduleItem .table-row-cell:focused .table-column{
     -fx-background-color: #EDEDED;
 }
 
-#tableSchedule .table-cell {
+#tableScheduleItem .table-cell {
     -fx-font-family: Lato;
     -fx-border-color: transparent;
     -fx-alignment: center-left;
@@ -83,24 +77,8 @@
 
 }
 
-#tableSchedule .filler{
+#tableScheduleItem .filler{
     -fx-background-color: #5c6f7d;
     -fx-border-width: 0 0 2 0;
     -fx-border-color: #36434C;
-}
-
-#tableSchedule .placeholder{
-    -fx-font-family: Lato;
-    -fx-font-size: 20px;
-    -fx-text-fill: #36434C;
-    -fx-font-weight: bold;
-}
-
-.textBold{
-    -fx-padding: 0 10;
-
-    -fx-font-weight: bold;
-    -fx-font-size: 25px;
-    -fx-text-fill: #36434C;
-    -fx-alignment: center-right;
 }

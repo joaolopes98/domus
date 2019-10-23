@@ -16,4 +16,8 @@ public abstract class ScheduleModel {
     public static List<Schedule> getAll(String search) {
         return GenericModel.getAll("FROM Schedule " + search);
     }
+
+    public static boolean updateAll(String search){
+        return GenericModel.updateAll("UPDATE Schedule " + search);
+    }
 }
