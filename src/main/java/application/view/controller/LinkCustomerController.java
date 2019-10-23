@@ -101,8 +101,13 @@ public class LinkCustomerController extends Controller {
         Customer customer = tableCustomers.getSelectionModel().getSelectedItem().getCustomer();
 
         if(customer != null){
-            PDVController pdv = (PDVController) oldController;
-            pdv.setLinkedCustomer(customer);
+            if(oldController instanceof PDVController) {
+                PDVController pdv = (PDVController) oldController;
+                pdv.setLinkedCustomer(customer);
+            } else if (oldController instanceof CreateScheduleController){
+                CreateScheduleController pdv = (CreateScheduleController) oldController;
+                pdv.setLinkedCustomer(customer);
+            }
             this.stage.close();
         } else {
             Window.changeScene(this.stage, "error", this,

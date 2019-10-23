@@ -1,6 +1,8 @@
 package application.view.controller;
 
 import application.controller.ScheduleField;
+import application.controller.object.Schedule;
+import application.model.ScheduleModel;
 import application.view.auxiliary.Controller;
 import application.view.auxiliary.Formatter;
 import application.view.auxiliary.Window;
@@ -9,12 +11,17 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -28,6 +35,10 @@ public class ScheduleController extends Controller {
     @FXML private TableColumn<ScheduleField, String> scheduleAction;
     private ObservableList<ScheduleField> obsSchedule = FXCollections.observableArrayList();
 
+    @FXML private Button btnCreate;
+
+    @FXML private AnchorPane waitScreen;
+
     @Override
     public void initialize(Stage oldStage, Scene scene, Controller oldController, Object... objects) {
         scene.addEventFilter(KeyEvent.KEY_PRESSED, e -> {
@@ -40,6 +51,7 @@ public class ScheduleController extends Controller {
         super.initialize(oldStage, scene, oldController, objects);
 
         setupInput();
+        setupTable();
         searchSchedule();
     }
 
@@ -50,16 +62,37 @@ public class ScheduleController extends Controller {
         });
     }
 
-    private void searchSchedule() {
+    private void setupTable(){
+        scheduleTime.setCellValueFactory(new PropertyValueFactory<>("hour"));
+        scheduleCustomer.setCellValueFactory(new PropertyValueFactory<>("customer"));
+        scheduleAction.setCellValueFactory(new PropertyValueFactory<>("action"));
+
+        tableSchedule.setItems(obsSchedule);
+    }
+
+    public void searchSchedule() {
+        obsSchedule.clear();
         Date date = Formatter.toDate(txtDate.getEditor().getText());
         if(date != null) {
             Calendar calendar = Calendar.getInstance();
             calendar.setTime(Formatter.resetDate(date));
 
-            do {
-                System.out.println(calendar.get(Calendar.HOUR_OF_DAY));
-                calendar.add(Calendar.HOUR_OF_DAY, 1);
-            } while (calendar.get(Calendar.HOUR_OF_DAY) != 0);
+            long first = Formatter.resetDate(calendar.getTime()).getTime();
+            calendar.set(Calendar.HOUR_OF_DAY, 23);
+            calendar.set(Calendar.MINUTE, 59);
+            calendar.set(Calendar.SECOND, 59);
+            calendar.set(Calendar.MILLISECOND, 0);
+            long last = calendar.getTime().getTime();
+
+            ArrayList<Schedule> schedules = new ArrayList<>(
+                    ScheduleModel.getAll("WHERE date >= '" + first + "' AND date <= '" + last + "'" +
+                            " ORDER BY date ASC"));
+
+            for (Schedule schedule : schedules) {
+                obsSchedule.add(new ScheduleField(schedule));
+            }
+
+            btnCreate.setDisable(first < Formatter.resetDate(new Date()).getTime() );
         }
     }
 
@@ -72,7 +105,6 @@ public class ScheduleController extends Controller {
             date = calendar.getTime();
             txtDate.getEditor().setText(Formatter.formatDate(date));
         }
-
     }
 
     @FXML private void nextDate(){
@@ -88,5 +120,19 @@ public class ScheduleController extends Controller {
 
     @FXML private void cancel(){
         this.stage.close();
+    }
+
+    @FXML private void create(){
+        Window.changeScene(this.stage, "createSchedule", this,
+                Formatter.toDate(txtDate.getEditor().getText()));
+    }
+
+    @Override
+    public void activeWaitScreen(boolean wait){
+        waitScreen.setVisible(wait);
+
+        if(!wait){
+            searchSchedule();
+        }
     }
 }

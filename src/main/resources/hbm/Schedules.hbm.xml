@@ -11,5 +11,9 @@
         <many-to-one name="customer" class="application.controller.object.Customer" column="customer_id"/>
         <property name="date" type="timestamp"/>
         <property name="status" type="boolean"/>
+        <set name="scheduleItems" inverse="true" cascade="all">
+            <key column="schedule_id" not-null="false"/>
+            <one-to-many class="application.controller.object.ScheduleItems"/>
+        </set>
     </class>
 </hibernate-mapping>

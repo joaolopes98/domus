@@ -1,0 +1,15 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name = "application.controller.object.ScheduleItems" table = "schedule_items">
+        <id name = "id" type = "int">
+            <generator class="increment"/>
+        </id>
+        <many-to-one name="schedule" class="application.controller.object.Schedule" column="schedule_id"/>
+        <many-to-one name="service" class="application.controller.object.Service" column="service_id"/>
+        <property name="quantity" type="integer"/>
+    </class>
+</hibernate-mapping>

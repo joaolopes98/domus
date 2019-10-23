@@ -1,0 +1,136 @@
+@import "fonts.css";
+@import "scrollBar.css";
+@import "buttons.css";
+@import "waitScreen.css";
+@import "panes.css";
+
+.textTitle{
+    -fx-font-family: Lato;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-font-size: 20px;
+}
+
+.subtitleDark{
+    -fx-text-fill: #36434C;
+    -fx-font-family: Lato;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-alignment: center;
+}
+
+.input{
+    -fx-background-color: transparent;
+    -fx-border-color: #36434C;
+    -fx-border-width: 0 0 2;
+    -fx-padding: 0 10;
+
+    -fx-font-weight: bold;
+    -fx-font-size: 25px;
+    -fx-text-fill: #36434C;
+}
+
+#tableSearch{
+    -fx-font-family: Lato;
+    -fx-padding: 0;
+    -fx-background-color: #EDEDED;
+    -fx-border-width: 2px;
+    -fx-border-color: #36434C;
+}
+
+#tableSearch .column-header {
+    -fx-background-color: #36434C;
+    -fx-font-size: 17px;
+    -fx-border-width: 0 0 2 0;
+    -fx-border-color: #36434C;
+}
+
+#tableSearch .column-header .label{
+    -fx-background-color: transparent;
+    -fx-padding: 19 7;
+    -fx-alignment: center-left;
+    -fx-text-fill: white;
+}
+
+#tableSearch .table-row-cell {
+    -fx-background-color: #EDEDED;
+    -fx-border-color: #36434C;
+    -fx-border-width: 0 0 2 0;
+    -fx-cell-size: 50px;
+}
+
+#tableSearch .table-row-cell:empty {
+    -fx-border-color: transparent;
+}
+
+#tableSearch .table-row-cell:focused .table-column{
+    -fx-background-color: #5c6f7d;
+    -fx-text-fill: white;
+}
+
+#tableSearch .table-cell {
+    -fx-font-family: Lato;
+    -fx-border-color: transparent;
+    -fx-alignment: center-left;
+    -fx-font-size: 15px;
+    -fx-text-fill: #36434C;
+    -fx-padding: 0 10;
+
+}
+
+#tableSearch .filler{
+
+}
+
+#tableScheduleItem{
+    -fx-font-family: Lato;
+    -fx-padding: 0;
+    -fx-background-color: #EDEDED;
+    -fx-border-width: 2px;
+    -fx-border-color: #36434C;
+}
+
+#tableScheduleItem .column-header {
+    -fx-background-color: #5c6f7d;
+    -fx-font-size: 14px;
+    -fx-border-width: 0 0 2 0;
+    -fx-border-color: #36434C;
+}
+
+#tableScheduleItem .column-header .label{
+    -fx-background-color: transparent;
+    -fx-padding: 10 7;
+    -fx-alignment: center-left;
+    -fx-text-fill: white;
+}
+
+#tableScheduleItem .table-row-cell {
+    -fx-background-color: #EDEDED;
+    -fx-border-color: #36434C;
+    -fx-border-width: 0 0 2 0;
+    -fx-cell-size: 50px;
+}
+
+#tableScheduleItem .table-row-cell:empty {
+    -fx-border-color: transparent;
+}
+
+#tableScheduleItem .table-row-cell:focused .table-column{
+    -fx-background-color: #EDEDED;
+}
+
+#tableScheduleItem .table-cell {
+    -fx-font-family: Lato;
+    -fx-border-color: transparent;
+    -fx-alignment: center-left;
+    -fx-font-size: 15px;
+    -fx-text-fill: #36434C;
+    -fx-padding: 0 10;
+
+}
+
+#tableScheduleItem .filler{
+    -fx-background-color: #5c6f7d;
+    -fx-border-width: 0 0 2 0;
+    -fx-border-color: #36434C;
+}

@@ -5,11 +5,11 @@ import application.controller.object.Schedule;
 import java.util.List;
 
 public abstract class ScheduleModel {
-    private static boolean create(Schedule schedule){
+    public static boolean create(Schedule schedule){
         return GenericModel.create(schedule);
     }
 
-    private static boolean update(Schedule schedule){
+    public static boolean update(Schedule schedule){
         return GenericModel.update(schedule);
     }
 

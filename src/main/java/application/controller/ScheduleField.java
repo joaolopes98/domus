@@ -20,7 +20,7 @@ public class ScheduleField {
         this.schedule = schedule;
         this.hour = Formatter.formatHour(schedule.getDate());
         this.customer = schedule.getCustomer().getName();
-        this.status = schedule.isStatus();
+        this.status = schedule.getStatus();
     }
 
     public Schedule getSchedule() {

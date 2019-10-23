@@ -78,6 +78,11 @@
                   </VBox>
                   <HBox maxHeight="40.0" spacing="10.0" VBox.vgrow="ALWAYS">
                      <children>
+                        <AnchorPane prefWidth="500.0" styleClass="paneRedDark">
+                           <children>
+                              <Button fx:id="btnCreate" mnemonicParsing="false" onAction="#create" styleClass="btnGreen" text="CADASTRAR" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                           </children>
+                        </AnchorPane>
                         <AnchorPane prefWidth="500.0" styleClass="paneRedDark" HBox.hgrow="ALWAYS">
                            <children>
                               <Button mnemonicParsing="false" onAction="#cancel" styleClass="btnRed" text="VOLTAR" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />

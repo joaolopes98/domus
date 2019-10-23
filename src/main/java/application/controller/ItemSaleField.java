@@ -3,10 +3,15 @@ package application.controller;
 import application.controller.object.Animal;
 import application.controller.object.Product;
 import application.controller.object.Service;
+import application.view.auxiliary.Controller;
 import application.view.auxiliary.Formatter;
 import application.view.auxiliary.Mask;
+import application.view.controller.CreateScheduleController;
 import application.view.controller.PDVController;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 public class ItemSaleField {
     private String code;
@@ -22,50 +27,75 @@ public class ItemSaleField {
 
     private Animal linkedAnimal;
 
-    public ItemSaleField(int code, ItemSearchField itemSearch, int quantity, PDVController pdvController) {
-        this.code = Formatter.formatStringCode(code);
+    private Button btnDelete = new Button();
 
-        this.typeProduct = itemSearch.isTypeProduct();
-        if(this.typeProduct){
-            this.product = itemSearch.getProduct();
-            this.name = product.getName();
-            this.price = Formatter.formatMoney(product.getPrice());
-        } else {
+    public ItemSaleField(int code, ItemSearchField itemSearch, int quantity, Controller controller) {
+        if(controller instanceof PDVController) {
+            PDVController pdvController = (PDVController) controller;
+            this.code = Formatter.formatStringCode(code);
+
+            this.typeProduct = itemSearch.isTypeProduct();
+            if (this.typeProduct) {
+                this.product = itemSearch.getProduct();
+                this.name = product.getName();
+                this.price = Formatter.formatMoney(product.getPrice());
+            } else {
+                this.service = itemSearch.getService();
+                this.name = service.getName();
+                this.price = Formatter.formatMoney(service.getPrice());
+            }
+
+            if (quantity != 0) this.quantity = quantity;
+            else this.quantity = 1;
+
+            Mask.money(discount);
+            discount.getStyleClass().add("inputDiscount");
+            discount.focusedProperty().addListener((observable, oldValue, newValue) -> {
+                if (newValue) {
+                    pdvController.getTableSale().getSelectionModel().select(this);
+                }
+            });
+            discount.textProperty().addListener(e -> {
+                double discount = Formatter.unmaskMoney(this.discount.getText());
+                double subtotal;
+                if (this.typeProduct) {
+                    subtotal = product.getPrice() * this.quantity;
+                } else {
+                    subtotal = service.getPrice() * this.quantity;
+                }
+                if (discount > subtotal) {
+                    this.discount.setText(Formatter.formatMoney(subtotal));
+                }
+
+                subtotal -= discount;
+                this.subtotal = Formatter.formatMoney(subtotal);
+                pdvController.updateValues();
+            });
+            if (typeProduct) {
+                this.subtotal = Formatter.formatMoney(product.getPrice() * this.quantity);
+            } else {
+                this.subtotal = Formatter.formatMoney(service.getPrice() * this.quantity);
+            }
+        } else if(controller instanceof CreateScheduleController){
+            CreateScheduleController csController = (CreateScheduleController) controller;
+
             this.service = itemSearch.getService();
             this.name = service.getName();
             this.price = Formatter.formatMoney(service.getPrice());
-        }
 
-        if(quantity != 0) this.quantity = quantity;
-        else this.quantity = 1;
+            if (quantity != 0) this.quantity = quantity;
+            else this.quantity = 1;
 
-        Mask.money(discount);
-        discount.getStyleClass().add("inputDiscount");
-        discount.focusedProperty().addListener((observable, oldValue, newValue) -> {
-            if(newValue){
-                pdvController.getTableSale().getSelectionModel().select(this);
-            }
-        });
-        discount.textProperty().addListener( e -> {
-            double discount = Formatter.unmaskMoney(this.discount.getText());
-            double subtotal;
-            if(this.typeProduct){
-                subtotal = product.getPrice() * this.quantity;
-            } else {
-                subtotal = service.getPrice() * this.quantity;
-            }
-            if(discount > subtotal){
-                this.discount.setText(Formatter.formatMoney(subtotal));
-            }
-
-            subtotal -= discount;
-            this.subtotal = Formatter.formatMoney(subtotal);
-            pdvController.updateValues();
-        });
-        if(typeProduct) {
-            this.subtotal = Formatter.formatMoney(product.getPrice() * this.quantity);
-        } else {
             this.subtotal = Formatter.formatMoney(service.getPrice() * this.quantity);
+
+            ImageView imageRemove = new ImageView(new Image("/view/img/trash.png"));
+            imageRemove.setFitHeight(25);
+            imageRemove.setFitWidth(25);
+            this.btnDelete.setGraphic(imageRemove);
+            this.btnDelete.getStyleClass().add("btnRed");
+            this.btnDelete.setOnAction( e -> csController.getObsSaleFields().remove(this));
+            this.btnDelete.setMinSize(35, 35);
+            this.btnDelete.setMaxSize(35, 35);
         }
     }
 
@@ -143,5 +173,9 @@ public class ItemSaleField {
 
     public void setLinkedAnimal(Animal linkedAnimal) {
         this.linkedAnimal = linkedAnimal;
+    }
+
+    public Button getBtnDelete() {
+        return btnDelete;
     }
 }

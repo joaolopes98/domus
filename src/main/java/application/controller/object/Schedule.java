@@ -3,13 +3,17 @@ package application.controller.object;
 import application.model.Model;
 
 import java.sql.Timestamp;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Schedule implements Model {
 
     private int id;
     private Customer customer;
     private Timestamp date;
-    private boolean status;
+    private Boolean status;
+
+    private Set<ScheduleItems> scheduleItems = new HashSet<>();
 
     public int getId() {
         return id;
@@ -35,11 +39,19 @@ public class Schedule implements Model {
         this.date = date;
     }
 
-    public boolean isStatus() {
+    public Boolean getStatus() {
         return status;
     }
 
-    public void setStatus(boolean status) {
+    public void setStatus(Boolean status) {
         this.status = status;
+    }
+
+    public Set<ScheduleItems> getScheduleItems() {
+        return scheduleItems;
+    }
+
+    public void setScheduleItems(Set<ScheduleItems> scheduleItems) {
+        this.scheduleItems = scheduleItems;
     }
 }

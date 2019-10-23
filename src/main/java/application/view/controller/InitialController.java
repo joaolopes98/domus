@@ -21,6 +21,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
+import org.hibernate.HibernateException;
 
 
 @SuppressWarnings("ALL")
@@ -116,7 +117,11 @@ public class InitialController extends Controller {
 
                         updateProgress(2,4);
                         updateMessage("Conectando ao Banco de Dados ..");
-                        HibernateUtilities.load();
+                        try {
+                            HibernateUtilities.load();
+                        } catch (HibernateException e){
+                            e.printStackTrace();
+                        }
 
                         updateProgress(3,4);
                         updateMessage("Abrindo Login ..");

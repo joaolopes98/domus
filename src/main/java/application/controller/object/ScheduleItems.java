@@ -6,7 +6,7 @@ public class ScheduleItems implements Model {
 
     private int id;
     private Schedule schedule;
-    private Product product;
+    private Service service;
     private int quantity;
 
     public int getId() {
@@ -25,12 +25,12 @@ public class ScheduleItems implements Model {
         this.schedule = schedule;
     }
 
-    public Product getProduct() {
-        return product;
+    public Service getService() {
+        return service;
     }
 
-    public void setProduct(Product product) {
-        this.product = product;
+    public void setService(Service service) {
+        this.service = service;
     }
 
     public int getQuantity() {
