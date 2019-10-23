@@ -55,10 +55,7 @@ public class ScheduleField {
                 btnConfirm.setGraphic(imageConfirm);
                 btnConfirm.getStyleClass().add("btnGreen");
                 btnConfirm.setOnAction( e -> {
-//                    schedule.setStatus(true);
-//                    if(ScheduleModel.update(schedule)) {
-//                        scheduleController.searchSchedule();
-//                    }
+                    scheduleController.setPDVSchedule(this.schedule);
                 });
                 btnConfirm.setMinSize(35, 35);
                 btnConfirm.setMaxSize(35, 35);

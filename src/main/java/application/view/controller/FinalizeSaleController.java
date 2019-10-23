@@ -3,10 +3,7 @@ package application.view.controller;
 import application.controller.ItemSaleField;
 import application.controller.PaymentField;
 import application.controller.object.*;
-import application.model.CashMovementModel;
-import application.model.PaymentMethodModel;
-import application.model.ProductModel;
-import application.model.SaleModel;
+import application.model.*;
 import application.view.auxiliary.Controller;
 import application.view.auxiliary.Formatter;
 import application.view.auxiliary.Mask;
@@ -256,6 +253,11 @@ public class FinalizeSaleController extends Controller {
         }
 
         if(SaleModel.create(sale)){
+            Schedule schedule = pdv.getLinkedSchedule();
+            if(schedule != null){
+                schedule.setStatus(true);
+                ScheduleModel.update(schedule);
+            }
             changeStock.forEach(ProductModel::update);
             this.obsSale.clear();
             this.cancel();

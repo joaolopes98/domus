@@ -137,7 +137,13 @@ public class ScheduleController extends Controller {
 
     private void resetOlders(){
         ScheduleModel.updateAll("SET status = FALSE WHERE date < '" +
-                Formatter.resetDate(new Date()).getTime() + "'");
+                Formatter.resetDate(new Date()).getTime() + "' AND status IS NULL");
+    }
+
+    public void setPDVSchedule(Schedule schedule){
+        PDVController pdvController = (PDVController) oldController;
+        pdvController.setLinkedSchedule(schedule);
+        this.stage.close();
     }
 
     @FXML private void lastDate(){

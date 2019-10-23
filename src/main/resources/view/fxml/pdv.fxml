@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.controller.PDVController">
+<AnchorPane prefHeight="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.controller.PDVController">
    <children>
       <VBox layoutX="10.0" layoutY="10.0" spacing="10.0" styleClass="paneBackground" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -102,8 +102,13 @@
                   </VBox>
                   <VBox prefWidth="1000.0" spacing="10.0" HBox.hgrow="ALWAYS">
                      <children>
-                        <VBox prefHeight="200.0" prefWidth="100.0" VBox.vgrow="ALWAYS">
+                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0" VBox.vgrow="ALWAYS">
                            <children>
+                              <AnchorPane maxHeight="60.0" minHeight="60.0">
+                                 <children>
+                                    <Button fx:id="btnSchedule" mnemonicParsing="false" onAction="#schedule" styleClass="btnBlue" text="AGENDA" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                 </children>
+                              </AnchorPane>
                               <TableView id="tableItems" fx:id="tableSale" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                                  <placeholder>
                                     <Label />

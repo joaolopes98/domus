@@ -60,6 +60,8 @@ public class PDVController extends Controller {
     private double discount = 0;
     private int code = 1;
 
+    @FXML private Button btnSchedule;
+    private Schedule linkedSchedule;
     @FXML private Button btnLinkCustomer;
     private Customer linkedCustomer;
     @FXML private Button btnLinkAnimal;
@@ -265,7 +267,13 @@ public class PDVController extends Controller {
             updateValues();
             btnFinalizeSale.setDisable(obsSaleFields.size() == 0);
             btnLinkCustomer.setDisable(obsSaleFields.size() == 0);
-            if(obsSaleFields.size() == 0) setLinkedCustomer(null);
+            if(obsSaleFields.size() == 0) {
+                setLinkedCustomer(null);
+
+                if(linkedSchedule != null) {
+                    setLinkedSchedule(null);
+                }
+            }
             btnManageOptions.setDisable(obsSaleFields.size() != 0);
 
             DecimalFormat codeFormat = new DecimalFormat("000");
@@ -328,8 +336,16 @@ public class PDVController extends Controller {
         lblDiscount.setText(Formatter.formatMoney(this.discount));
     }
 
+    @FXML private void schedule(){
+        if(linkedSchedule == null) {
+            Window.changeScene(this.stage, "schedule", this);
+        } else {
+            setLinkedSchedule(null);
+        }
+    }
+
     @FXML private void customer(){
-        Window.changeScene(this.stage, "schedule", this);
+        Window.changeScene(this.stage, "customers", this);
     }
 
     @FXML private void animal(){
@@ -422,6 +438,41 @@ public class PDVController extends Controller {
         if(!shelfDateProducts.isEmpty()) {
             Window.changeScene(this.stage, "shelfDate", this, shelfDateProducts);
         }
+    }
+
+    public void setLinkedSchedule(Schedule linkedSchedule){
+        if(linkedSchedule != null) {
+            this.linkedSchedule = linkedSchedule;
+            String message = Formatter.formatDateHour(linkedSchedule.getDate()) +  " - "
+                    + linkedSchedule.getCustomer().getName();
+            btnSchedule.setText(message);
+            btnSchedule.getStyleClass().remove("btnBlue");
+            btnSchedule.getStyleClass().add("btnYellow");
+
+            setLinkedCustomer(linkedSchedule.getCustomer());
+
+            obsSaleFields.clear();
+            linkedSchedule.getScheduleItems().forEach( item -> {
+                int code = obsSaleFields.size() + 1;
+                int quantity = item.getQuantity();
+                obsSaleFields.add(
+                        new ItemSaleField(code, new ItemSearchField(item.getService()), quantity, this));
+            });
+            resetSearch();
+
+        } else {
+            btnSchedule.setText("AGENDA");
+            this.linkedSchedule = null;
+            btnSchedule.getStyleClass().remove("btnYellow");
+            btnSchedule.getStyleClass().add("btnBlue");
+
+            setLinkedCustomer(null);
+            obsSaleFields.clear();
+        }
+    }
+
+    public Schedule getLinkedSchedule() {
+        return linkedSchedule;
     }
 
     public void setLinkedCustomer(Customer linkedCustomer) {

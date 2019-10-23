@@ -8,8 +8,8 @@
         <id name = "id" type = "int">
             <generator class="increment"/>
         </id>
-        <many-to-one name="schedule" class="application.controller.object.Schedule" column="schedule_id"/>
-        <many-to-one name="service" class="application.controller.object.Service" column="service_id"/>
+        <many-to-one name="schedule" class="application.controller.object.Schedule" column="schedule_id" lazy="false"/>
+        <many-to-one name="service" class="application.controller.object.Service" column="service_id" lazy="false"/>
         <property name="quantity" type="integer"/>
     </class>
 </hibernate-mapping>
