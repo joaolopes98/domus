@@ -1,6 +1,8 @@
 package application.view.controller;
 
+import application.controller.ItemSaleField;
 import application.controller.MedicineField;
+import application.controller.object.Animal;
 import application.view.auxiliary.Controller;
 import application.view.auxiliary.Window;
 import javafx.collections.FXCollections;
@@ -22,6 +24,7 @@ import javafx.stage.Stage;
 public class VeterinaryDashboardController extends Controller {
 
     @FXML private Button btnLinkAnimal;
+    private Animal linkedAnimal;
 
     @FXML private TableView<MedicineField> tableMedicine;
     @FXML private TableColumn<MedicineField, TextField> medName;
@@ -72,7 +75,11 @@ public class VeterinaryDashboardController extends Controller {
     }
 
     @FXML private void linkAnimal(){
-
+        if(linkedAnimal == null) {
+            Window.changeScene(this.stage, "linkAnimal", this);
+        } else {
+            setLinkedAnimal(null);
+        }
     }
 
     @FXML private void addMedicine(){
@@ -91,5 +98,23 @@ public class VeterinaryDashboardController extends Controller {
     @Override
     public void activeWaitScreen(boolean wait) {
         waitScreen.setVisible(wait);
+    }
+
+    public void setLinkedAnimal(Animal linkedAnimal) {
+        if(linkedAnimal != null) {
+            this.linkedAnimal = linkedAnimal;
+            btnLinkAnimal.setText(linkedAnimal.getName());
+            if(btnLinkAnimal.getStyleClass().contains("btnBlue")) {
+                btnLinkAnimal.getStyleClass().remove("btnBlue");
+                btnLinkAnimal.getStyleClass().add("btnYellow");
+            }
+        } else {
+            btnLinkAnimal.setText("VINCULAR ANIMAL");
+            this.linkedAnimal = null;
+            if(btnLinkAnimal.getStyleClass().contains("btnYellow")) {
+                btnLinkAnimal.getStyleClass().remove("btnYellow");
+                btnLinkAnimal.getStyleClass().add("btnBlue");
+            }
+        }
     }
 }

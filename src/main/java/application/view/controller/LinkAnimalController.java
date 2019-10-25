@@ -114,8 +114,13 @@ public class LinkAnimalController extends Controller{
         Animal animal = tableAnimals.getSelectionModel().getSelectedItem().getAnimal();
 
         if(animal != null){
-            PDVController pdv = (PDVController) oldController;
-            pdv.setLinkedAnimal(animal);
+            if(oldController instanceof PDVController) {
+                PDVController pdv = (PDVController) oldController;
+                pdv.setLinkedAnimal(animal);
+            } else if (oldController instanceof VeterinaryDashboardController){
+                VeterinaryDashboardController pdv = (VeterinaryDashboardController) oldController;
+                pdv.setLinkedAnimal(animal);
+            }
             this.stage.close();
         } else {
             Window.changeScene(this.stage, "error", this,

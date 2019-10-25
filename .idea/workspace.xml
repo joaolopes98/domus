@@ -4,13 +4,9 @@
     <list default="true" id="596f29fa-0cc5-4e5a-a056-63460e674cfd" name="Default Changelist" comment="Finalização da implementação de validade de produtos, Implementação de clientes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/banco.db" beforeDir="false" afterPath="$PROJECT_DIR$/banco.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/controller/ScheduleField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/controller/ScheduleField.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/view/controller/FinalizeSaleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/view/controller/FinalizeSaleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/view/controller/PDVController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/view/controller/PDVController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/view/controller/ScheduleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/view/controller/ScheduleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/hbm/ScheduleItems.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hbm/ScheduleItems.hbm.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/hbm/Schedules.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hbm/Schedules.hbm.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/fxml/pdv.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/fxml/pdv.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/view/controller/LinkAnimalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/view/controller/LinkAnimalController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/view/controller/VeterinaryDashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/view/controller/VeterinaryDashboardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/fxml/veterinaryDashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/fxml/veterinaryDashboard.fxml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -143,12 +139,12 @@
           <expand>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@4105edb2" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@fcfd2e8a" type="7427dc5b:ServiceModel$ServiceGroupNode" />
             </path>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@4105edb2" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@1b3a5a7a" type="9fbbdea:ServiceModel$ServiceNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@fcfd2e8a" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@5b25037a" type="9fbbdea:ServiceModel$ServiceNode" />
             </path>
           </expand>
           <select />
@@ -231,6 +227,8 @@
       <workItem from="1571696240134" duration="8839000" />
       <workItem from="1571782724835" duration="10839000" />
       <workItem from="1571806045010" duration="2315000" />
+      <workItem from="1571888405266" duration="584000" />
+      <workItem from="1572042657541" duration="2354000" />
     </task>
     <task id="LOCAL-00001" summary="Finalização de Procura e inclusão de item na comanda, e adição de desconto no item">
       <created>1558570743810</created>
