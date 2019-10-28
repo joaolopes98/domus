@@ -3,10 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="596f29fa-0cc5-4e5a-a056-63460e674cfd" name="Default Changelist" comment="Finalização da implementação de validade de produtos, Implementação de clientes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/banco.db" beforeDir="false" afterPath="$PROJECT_DIR$/banco.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/view/controller/LinkAnimalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/view/controller/LinkAnimalController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/view/controller/ManageOptionsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/view/controller/ManageOptionsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/application/view/controller/VeterinaryDashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/view/controller/VeterinaryDashboardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/fxml/veterinaryDashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/fxml/veterinaryDashboard.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/fxml/manageOptions.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/fxml/manageOptions.fxml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -87,10 +87,8 @@
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="application.view.controller" />
-      <recent name="application.model" />
-      <recent name="application.controller.object" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\joaop\Desktop\Faculdade\PROJETO\domus\src\main\resources\view\fxml" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\joaop\Desktop\Faculdade\PROJETO\domus\src\main\resources\hbm" />
@@ -104,8 +102,10 @@
       <recent name="application.view.controller" />
       <recent name="application.controller.object" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\joaop\Desktop\Faculdade\PROJETO\domus\src\main\resources\view\fxml" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="application.controller.object" />
+      <recent name="application.view.controller" />
+      <recent name="application.model" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -139,12 +139,12 @@
           <expand>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@fcfd2e8a" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@a67cf1a5" type="7427dc5b:ServiceModel$ServiceGroupNode" />
             </path>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@fcfd2e8a" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@5b25037a" type="9fbbdea:ServiceModel$ServiceNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@a67cf1a5" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@6eae6037" type="9fbbdea:ServiceModel$ServiceNode" />
             </path>
           </expand>
           <select />
@@ -228,7 +228,9 @@
       <workItem from="1571782724835" duration="10839000" />
       <workItem from="1571806045010" duration="2315000" />
       <workItem from="1571888405266" duration="584000" />
-      <workItem from="1572042657541" duration="2354000" />
+      <workItem from="1572042657541" duration="6017000" />
+      <workItem from="1572203083101" duration="1869000" />
+      <workItem from="1572211761043" duration="12751000" />
     </task>
     <task id="LOCAL-00001" summary="Finalização de Procura e inclusão de item na comanda, e adição de desconto no item">
       <created>1558570743810</created>

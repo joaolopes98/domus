@@ -1,9 +1,12 @@
 package application.view.controller;
 
-import application.controller.ItemSaleField;
+import application.controller.GenerateFunction;
 import application.controller.MedicineField;
 import application.controller.object.Animal;
+import application.controller.MedicineItem;
+import application.controller.object.User;
 import application.view.auxiliary.Controller;
+import application.view.auxiliary.Function;
 import application.view.auxiliary.Window;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -20,6 +23,20 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperExportManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+
+import javax.imageio.ImageIO;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class VeterinaryDashboardController extends Controller {
 
@@ -87,7 +104,36 @@ public class VeterinaryDashboardController extends Controller {
     }
 
     @FXML private void print(){
-        obsMedicine.clear();
+        if(linkedAnimal == null){
+            Window.changeScene(this.stage, "error", this,
+                    "Vincule um animal a receita");
+        } else {
+            ArrayList<MedicineItem> medicineItems = new ArrayList<>();
+            obsMedicine.forEach( medicineField -> medicineItems.add(new MedicineItem(medicineField)));
+
+            boolean valid = true;
+            for(MedicineItem item : medicineItems) {
+                if (item.getName().isEmpty() ||
+                        item.getQuantity() == 0 ||
+                        item.getQuantityUnity().isEmpty() ||
+                        item.getTime() == 0 ||
+                        item.getTimeMetric() == 0 ||
+                        item.getTimeUnity().isEmpty()) {
+                    valid = false;
+                    break;
+                }
+            }
+
+            if(valid){
+                Window.changeScene(this.stage, "loading", this,
+                        "GERANDO RECEITA", GenerateFunction.veterinary(obsMedicine, linkedAnimal, medicineItems));
+            } else {
+                Window.changeScene(this.stage, "error", this,
+                        "Campo zerado ou vazio dentro da tabela de medicamentos");
+            }
+
+
+        }
     }
 
     @FXML private void logout(){

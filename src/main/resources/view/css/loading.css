@@ -1,0 +1,23 @@
+@import "fonts.css";
+@import "scrollBar.css";
+@import "buttons.css";
+@import "waitScreen.css";
+@import "panes.css";
+
+.textTitle{
+    -fx-font-family: Lato;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-font-size: 20px;
+}
+
+.text{
+    -fx-font-family: Lato;
+    -fx-font-weight: bold;
+    -fx-text-fill: #5c6f7d;
+    -fx-font-size: 16px;
+}
+
+.progress-indicator{
+    -fx-progress-color: #5c6f7d;
+}

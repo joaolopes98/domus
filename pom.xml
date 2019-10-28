@@ -38,6 +38,13 @@
             <artifactId>jfoenix</artifactId>
             <version>8.0.8</version>
         </dependency>
+
+        <dependency>
+            <groupId>net.sf.jasperreports</groupId>
+            <artifactId>jasperreports</artifactId>
+            <version>6.7.0</version>
+        </dependency>
+
     </dependencies>
 
 

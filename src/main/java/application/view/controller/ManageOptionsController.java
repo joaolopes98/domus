@@ -1,6 +1,8 @@
 package application.view.controller;
 
+import application.controller.GenerateFunction;
 import application.view.auxiliary.Controller;
+import application.view.auxiliary.Function;
 import application.view.auxiliary.Window;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
@@ -44,6 +46,11 @@ public class ManageOptionsController extends Controller {
 
     @FXML private void users(){
         Window.changeScene(this.stage, "users", this);
+    }
+
+    @FXML private void reportCash(){
+        Window.changeScene(this.stage, "choseDate", this,
+                GenerateFunction.reportCash());
     }
 
     @FXML private void cancel(){
