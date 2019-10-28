@@ -3,10 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="596f29fa-0cc5-4e5a-a056-63460e674cfd" name="Default Changelist" comment="Finalização da implementação de validade de produtos, Implementação de clientes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/controller/GenerateFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/controller/GenerateFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/model/CashMovementModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/model/CashMovementModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/model/GenericModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/model/GenericModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/view/controller/ChoseDateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/view/controller/ChoseDateController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/view/controller/CreateScheduleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/view/controller/CreateScheduleController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/application/view/controller/ManageOptionsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/view/controller/ManageOptionsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/view/controller/VeterinaryDashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/view/controller/VeterinaryDashboardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/fxml/manageOptions.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/fxml/manageOptions.fxml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -230,7 +232,7 @@
       <workItem from="1571888405266" duration="584000" />
       <workItem from="1572042657541" duration="6017000" />
       <workItem from="1572203083101" duration="1869000" />
-      <workItem from="1572211761043" duration="12751000" />
+      <workItem from="1572211761043" duration="19434000" />
     </task>
     <task id="LOCAL-00001" summary="Finalização de Procura e inclusão de item na comanda, e adição de desconto no item">
       <created>1558570743810</created>

@@ -1,5 +1,6 @@
 package application.view.controller;
 
+import application.controller.GenerateFunction;
 import application.view.auxiliary.Controller;
 import application.view.auxiliary.Formatter;
 import application.view.auxiliary.Function;
@@ -15,14 +16,15 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class ChoseDateController extends Controller {
+    public static final int REPORT_CASH = 1;
 
     @FXML private JFXDatePicker txtFrom;
     @FXML private JFXDatePicker txtTo;
 
-    private Function function;
+    private int chose;
     @Override
     public void initialize(Stage oldStage, Scene scene, Controller oldController, Object... objects) {
-        this.function = (Function) objects[0];
+        this.chose = (int) objects[0];
         scene.addEventFilter(KeyEvent.KEY_PRESSED, e -> {
             if( e.getCode() == KeyCode.ESCAPE){
                 cancel();
@@ -63,8 +65,14 @@ public class ChoseDateController extends Controller {
                     "Data maior que hoje");
         } else {
             cancel();
-            Window.changeScene(this.oldStage, "loading", this,
-                    "GERANDO RELATORIO", this.function);
+
+            switch (chose){
+                case REPORT_CASH:
+                    Window.changeScene(this.oldStage, "loading", this,
+                            "GERANDO RELATORIO DE CAIXA", GenerateFunction.reportCash(from, to));
+                    break;
+            }
+
         }
 
     }

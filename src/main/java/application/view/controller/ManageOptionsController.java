@@ -50,7 +50,7 @@ public class ManageOptionsController extends Controller {
 
     @FXML private void reportCash(){
         Window.changeScene(this.stage, "choseDate", this,
-                GenerateFunction.reportCash());
+                ChoseDateController.REPORT_CASH);
     }
 
     @FXML private void cancel(){

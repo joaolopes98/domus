@@ -257,8 +257,6 @@ public class CreateScheduleController extends Controller {
                     "Esta hora não é valida");
         } else {
             String[] hour = txtTime.getEditor().getText().split(":");
-            System.out.println(hour[0]);
-            System.out.println(hour[1]);
             Calendar calendar = Calendar.getInstance();
             calendar.setTime(dateSchedule);
             calendar.set(Calendar.HOUR_OF_DAY, Integer.parseInt(hour[0]));

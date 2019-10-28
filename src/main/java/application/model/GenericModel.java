@@ -112,11 +112,11 @@ public abstract class GenericModel {
             if(!active) {
                 session.beginTransaction();
                 Query query = session.createQuery(queryHQL);
-                System.out.println(query.executeUpdate());
+                query.executeUpdate();
                 session.getTransaction().commit();
             } else {
                 Query query = session.createQuery(queryHQL);
-                System.out.println(query.executeUpdate());
+                query.executeUpdate();
             }
         } catch (Exception e) {
             session.getTransaction().rollback();
