@@ -2,10 +2,8 @@ package application.view.controller;
 
 import application.controller.ItemSaleField;
 import application.controller.ItemSearchField;
-import application.controller.object.Customer;
-import application.controller.object.Schedule;
-import application.controller.object.ScheduleItems;
-import application.controller.object.Service;
+import application.controller.object.*;
+import application.model.AccessModel;
 import application.model.ScheduleModel;
 import application.model.ServiceModel;
 import application.view.auxiliary.*;
@@ -23,6 +21,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 
 import java.sql.Timestamp;
 import java.util.*;
@@ -33,6 +32,7 @@ public class CreateScheduleController extends Controller {
     @FXML private TextField txtSearch;
     @FXML private TextField txtQuantity;
     @FXML private JFXTimePicker txtTime;
+    @FXML private ComboBox<Access> comboUser;
 
     private Customer linkedCustomer;
 
@@ -70,6 +70,33 @@ public class CreateScheduleController extends Controller {
 
     private void setupInput() {
         txtTime.getEditor().setText(Formatter.formatHour(new Date()));
+
+        ObservableList<Access> obsUsers = FXCollections.observableArrayList(AccessModel.getAll(""));
+        Callback<ListView<Access>, ListCell<Access>> cellFactoryAccess = new Callback<ListView<Access>, ListCell<Access>>() {
+            @Override
+            public ListCell<Access> call(ListView<Access> l) {
+                return new ListCell<Access>() {
+                    @Override
+                    protected void updateItem(Access item, boolean empty) {
+                        super.updateItem(item, empty);
+                        if (item == null || empty) {
+                            setGraphic(null);
+                        } else {
+                            setText(item.getName());
+                        }
+                    }
+                } ;
+            }
+        };
+        comboUser.setButtonCell(cellFactoryAccess.call(null));
+        comboUser.setCellFactory(cellFactoryAccess);
+        comboUser.setItems(obsUsers);
+        for(Access access: obsUsers){
+            if(access.getId() == User.getUser().getId()){
+                comboUser.getSelectionModel().select(access);
+                break;
+            }
+        };
     }
 
     private void setupSearch(){
@@ -267,8 +294,10 @@ public class CreateScheduleController extends Controller {
             Schedule schedule = new Schedule();
             schedule.setCustomer(linkedCustomer);
             schedule.setStatus(null);
-            schedule.setDate(new Timestamp(calendar.getTime().getTime()));
+            schedule.setAccess(comboUser.getSelectionModel().getSelectedItem());
+            schedule.setFrom_date(new Timestamp(calendar.getTime().getTime()));
 
+            int time = 0;
             Set<ScheduleItems> scheduleItems = new HashSet<>();
             for(ItemSaleField item : obsSaleFields){
                 ScheduleItems items = new ScheduleItems();
@@ -276,16 +305,29 @@ public class CreateScheduleController extends Controller {
                 items.setService(item.getService());
                 items.setQuantity(item.getQuantity());
                 scheduleItems.add(items);
+                time += item.getService().getTime();
             }
+            calendar.add(Calendar.MINUTE, time);
+            schedule.setTo_date(new Timestamp(calendar.getTime().getTime()));
             schedule.setScheduleItems(scheduleItems);
 
-            if(ScheduleModel.create(schedule)){
-                ScheduleController scheduleController = (ScheduleController) oldController;
-                scheduleController.searchSchedule();
-                this.stage.close();
+            long first = schedule.getFrom_date().getTime();
+            long last = schedule.getTo_date().getTime();
+
+            if(ScheduleModel.getAll("WHERE from_date BETWEEN '" + first + "' AND '" + last + "'" +
+                    " OR to_date BETWEEN '" + first + "' AND '" + last + "'").isEmpty()) {
+
+                if (ScheduleModel.create(schedule)) {
+                    ScheduleController scheduleController = (ScheduleController) oldController;
+                    scheduleController.searchSchedule();
+                    this.stage.close();
+                } else {
+                    Window.changeScene(this.stage, "error", this,
+                            "Não foi possivel cadastrar o agendamento");
+                }
             } else {
                 Window.changeScene(this.stage, "error", this,
-                        "Não foi possivel cadastrar o agendamento");
+                        "Horario de Agendamento Indisponivel");
             }
         }
     }

@@ -30,6 +30,35 @@
     -fx-text-fill: #36434C;
 }
 
+.comboBox{
+    -fx-background-color: #EDEDED;
+    -fx-border-color: #36434C;
+    -fx-border-width: 2px;
+
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-alignment: center-right;
+}
+
+.comboBox .list-cell{
+    -fx-background-color: #EDEDED;
+    -fx-text-fill: #5c6f7d;
+    -fx-prompt-text-fill: #5c6f7d80;
+}
+
+.comboBox .list-view{
+    -fx-background-color: #EDEDED;
+}
+
+.comboBox .list-cell:hover{
+    -fx-background-color: white;
+    -fx-cursor: hand;
+}
+
+.comboBox .arrow{
+    -fx-background-color: #5c6f7d80;
+}
+
 #tableSearch{
     -fx-font-family: Lato;
     -fx-padding: 0;

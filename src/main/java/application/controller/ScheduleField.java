@@ -18,6 +18,7 @@ public class ScheduleField {
     private Schedule schedule;
 
     private String hour;
+    private String user;
     private String customer;
     private Boolean status;
 
@@ -25,7 +26,8 @@ public class ScheduleField {
 
     public ScheduleField(Schedule schedule, Controller controller){
         this.schedule = schedule;
-        this.hour = Formatter.formatHour(schedule.getDate());
+        this.hour = Formatter.formatHour(schedule.getFrom_date()) + " - " + Formatter.formatHour(schedule.getTo_date());
+        this.user = schedule.getAccess().getName();
         this.customer = schedule.getCustomer().getName();
         this.status = schedule.getStatus();
 
@@ -73,6 +75,10 @@ public class ScheduleField {
 
     public String getHour() {
         return hour;
+    }
+
+    public String getUser() {
+        return user;
     }
 
     public String getCustomer() {

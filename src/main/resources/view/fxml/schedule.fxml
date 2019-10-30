@@ -67,7 +67,8 @@
                            </placeholder>
                            <columns>
                               <TableColumn fx:id="scheduleTime" editable="false" maxWidth="1000.0" prefWidth="75.0" sortable="false" text="HORA" />
-                              <TableColumn fx:id="scheduleCustomer" editable="false" maxWidth="4000.0" prefWidth="75.0" sortable="false" text="CLIENTE" />
+                              <TableColumn fx:id="scheduleUser" editable="false" maxWidth="3000.0" prefWidth="75.0" sortable="false" text="ATENDENTE" />
+                              <TableColumn fx:id="scheduleCustomer" editable="false" maxWidth="3000.0" prefWidth="75.0" sortable="false" text="CLIENTE" />
                               <TableColumn fx:id="scheduleAction" editable="false" maxWidth="1000.0" prefWidth="75.0" sortable="false" text="AÇÕES" />
                            </columns>
                            <columnResizePolicy>

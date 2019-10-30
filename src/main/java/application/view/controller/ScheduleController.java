@@ -32,6 +32,7 @@ public class ScheduleController extends Controller {
 
     @FXML private TableView<ScheduleField> tableSchedule;
     @FXML private TableColumn<ScheduleField, String> scheduleTime;
+    @FXML private TableColumn<ScheduleField, String> scheduleUser;
     @FXML private TableColumn<ScheduleField, String> scheduleCustomer;
     @FXML private TableColumn<ScheduleField, String> scheduleAction;
     private ObservableList<ScheduleField> obsSchedule = FXCollections.observableArrayList();
@@ -66,6 +67,7 @@ public class ScheduleController extends Controller {
 
     private void setupTable(){
         scheduleTime.setCellValueFactory(new PropertyValueFactory<>("hour"));
+        scheduleUser.setCellValueFactory(new PropertyValueFactory<>("user"));
         scheduleCustomer.setCellValueFactory(new PropertyValueFactory<>("customer"));
         scheduleAction.setCellValueFactory(new PropertyValueFactory<>("action"));
 
@@ -123,8 +125,8 @@ public class ScheduleController extends Controller {
             long last = calendar.getTime().getTime();
 
             ArrayList<Schedule> schedules = new ArrayList<>(
-                    ScheduleModel.getAll("WHERE date >= '" + first + "' AND date <= '" + last + "'" +
-                            " ORDER BY date ASC"));
+                    ScheduleModel.getAll("WHERE from_date >= '" + first + "' AND from_date <= '" + last + "'" +
+                            " ORDER BY from_date ASC"));
 
             for (Schedule schedule : schedules) {
                 obsSchedule.add(new ScheduleField(schedule, this));
@@ -136,7 +138,7 @@ public class ScheduleController extends Controller {
     }
 
     private void resetOlders(){
-        ScheduleModel.updateAll("SET status = FALSE WHERE date < '" +
+        ScheduleModel.updateAll("SET status = FALSE WHERE from_date < '" +
                 Formatter.resetDate(new Date()).getTime() + "' AND status IS NULL");
     }
 

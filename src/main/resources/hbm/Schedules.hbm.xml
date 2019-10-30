@@ -9,8 +9,10 @@
             <generator class="increment"/>
         </id>
         <many-to-one name="customer" class="application.controller.object.Customer" column="customer_id"/>
-        <property name="date" type="timestamp"/>
+        <property name="from_date" type="timestamp"/>
         <property name="status" type="boolean"/>
+        <property name="to_date" type="timestamp"/>
+        <many-to-one name="access" class="application.controller.object.Access" column="user_id"/>
         <set name="scheduleItems" inverse="true" cascade="all" lazy="false">
             <key column="schedule_id" not-null="false"/>
             <one-to-many class="application.controller.object.ScheduleItems"/>

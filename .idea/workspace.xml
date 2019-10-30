@@ -3,18 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="596f29fa-0cc5-4e5a-a056-63460e674cfd" name="Default Changelist" comment="Finalização da implementação de validade de produtos, Implementação de clientes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/banco.db" beforeDir="false" afterPath="$PROJECT_DIR$/banco.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/controller/CashItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/controller/CashItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/controller/GenerateFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/controller/GenerateFunction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/controller/object/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/controller/object/Service.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/view/controller/CreateServiceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/view/controller/CreateServiceController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/view/controller/EditServiceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/view/controller/EditServiceController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/hbm/Services.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hbm/Services.hbm.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/print/cash.jasper" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/print/cash.jasper" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/fxml/createProduct.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/fxml/createProduct.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/fxml/createService.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/fxml/createService.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/fxml/editService.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/fxml/editService.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/controller/ScheduleField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/controller/ScheduleField.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/controller/object/Schedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/controller/object/Schedule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/view/controller/CreateScheduleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/view/controller/CreateScheduleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/view/controller/PDVController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/view/controller/PDVController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/view/controller/ScheduleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/view/controller/ScheduleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/hbm/Schedules.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hbm/Schedules.hbm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/css/createSchedule.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/css/createSchedule.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/fxml/createSchedule.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/fxml/createSchedule.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/fxml/schedule.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/fxml/schedule.fxml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -147,12 +145,12 @@
           <expand>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@e43abd51" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@2e5f1ea8" type="7427dc5b:ServiceModel$ServiceGroupNode" />
             </path>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@e43abd51" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@12a78b88" type="9fbbdea:ServiceModel$ServiceNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@2e5f1ea8" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@3897fa49" type="9fbbdea:ServiceModel$ServiceNode" />
             </path>
           </expand>
           <select />
@@ -241,7 +239,8 @@
       <workItem from="1572211761043" duration="19507000" />
       <workItem from="1572318162167" duration="962000" />
       <workItem from="1572377346139" duration="1848000" />
-      <workItem from="1572387613902" duration="6997000" />
+      <workItem from="1572387613902" duration="9424000" />
+      <workItem from="1572405607831" duration="2322000" />
     </task>
     <task id="LOCAL-00001" summary="Finalização de Procura e inclusão de item na comanda, e adição de desconto no item">
       <created>1558570743810</created>

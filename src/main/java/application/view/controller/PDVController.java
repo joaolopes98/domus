@@ -443,7 +443,8 @@ public class PDVController extends Controller {
     public void setLinkedSchedule(Schedule linkedSchedule){
         if(linkedSchedule != null) {
             this.linkedSchedule = linkedSchedule;
-            String message = Formatter.formatDateHour(linkedSchedule.getDate()) +  " - "
+            String message = "Atendente : " + linkedSchedule.getAccess().getName() + " - " +
+                    Formatter.formatDateHour(linkedSchedule.getFrom_date()) +  " - Cliente : "
                     + linkedSchedule.getCustomer().getName();
             btnSchedule.setText(message);
             btnSchedule.getStyleClass().remove("btnBlue");

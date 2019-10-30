@@ -10,8 +10,10 @@ public class Schedule implements Model {
 
     private int id;
     private Customer customer;
-    private Timestamp date;
+    private Timestamp from_date;
     private Boolean status;
+    private Timestamp to_date;
+    private Access access;
 
     private Set<ScheduleItems> scheduleItems = new HashSet<>();
 
@@ -31,12 +33,12 @@ public class Schedule implements Model {
         this.customer = customer;
     }
 
-    public Timestamp getDate() {
-        return date;
+    public Timestamp getFrom_date() {
+        return from_date;
     }
 
-    public void setDate(Timestamp date) {
-        this.date = date;
+    public void setFrom_date(Timestamp from_date) {
+        this.from_date = from_date;
     }
 
     public Boolean getStatus() {
@@ -45,6 +47,22 @@ public class Schedule implements Model {
 
     public void setStatus(Boolean status) {
         this.status = status;
+    }
+
+    public Timestamp getTo_date() {
+        return to_date;
+    }
+
+    public void setTo_date(Timestamp to_date) {
+        this.to_date = to_date;
+    }
+
+    public Access getAccess() {
+        return access;
+    }
+
+    public void setAccess(Access access) {
+        this.access = access;
     }
 
     public Set<ScheduleItems> getScheduleItems() {
