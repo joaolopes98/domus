@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.8.0-2ed8dfabb690ff337a5797129f2cd92902b0c87b  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="veterinary" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a99e95e9-2ea8-4ba4-aa74-ed7d41d43dbe">
+	<parameter name="User" class="java.lang.String"/>
+	<parameter name="Crmv" class="java.lang.String"/>
+	<parameter name="Animal" class="java.lang.String"/>
+	<parameter name="Specie" class="java.lang.String"/>
+	<parameter name="Customer" class="java.lang.String"/>
+	<parameter name="Image" class="java.awt.Image"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="name" class="java.lang.String"/>
+	<field name="quantity" class="java.lang.Integer"/>
+	<field name="quantityUnity" class="java.lang.String"/>
+	<field name="time" class="java.lang.Integer"/>
+	<field name="timeMetric" class="java.lang.Integer"/>
+	<field name="timeUnity" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="81" splitType="Stretch">
+			<image hAlign="Center" vAlign="Middle">
+				<reportElement x="0" y="0" width="80" height="80" uuid="a942e552-d9ec-42b8-b547-3cb1adc73591"/>
+				<imageExpression><![CDATA[$P{Image}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="380" y="0" width="170" height="60" uuid="194cc145-fb27-441e-9cd7-b4cbae3c097e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="40" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DOMUS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="380" y="60" width="170" height="20" uuid="e2f3e66b-3cf7-44f0-89a0-69bccd5a75b4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RECEITA VETERINARIA]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="210" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<textField>
+				<reportElement x="50" y="30" width="500" height="20" uuid="a0599504-6c51-4331-b5a2-9d8cbbb21de8"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{User}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="50" y="50" width="500" height="20" uuid="bf3b9d53-7a7f-41be-84b7-d3e09eb93005">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{Crmv}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="60" y="100" width="490" height="20" uuid="f758bcde-5335-44f6-ad15-3d7e43187cea">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{Animal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="60" y="120" width="490" height="20" uuid="eaa6a530-8f7f-4158-bc6c-f26dbcdacb20">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{Specie}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="110" y="141" width="440" height="20" uuid="707b7532-e9be-4f54-9fcc-dde22dae853d">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{Customer}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="30" width="50" height="20" uuid="213d7d0d-56d0-4525-a97f-712b5630a1b8">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOME :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="50" width="50" height="20" uuid="69045942-e544-4c79-8eae-5cc2f0834387"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CRMV :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="100" width="60" height="20" uuid="252ba17c-61ff-454b-ab23-649e914c1c33"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ANIMAL :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="120" width="60" height="20" uuid="1a7747bb-6b77-49b8-bf8b-d835e4617f8c"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ESPECIE :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="140" width="110" height="21" uuid="a29b282e-63b1-4ee0-a58b-a2b50bbed913"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PROPRIETARIO(A) :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="-1" width="550" height="30" uuid="29a9374f-cf37-4040-abe5-d1fa14046ee1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[VETERINARIO(A)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="70" width="550" height="30" uuid="5a3e4ce2-8a25-4ba8-adb2-7b140df4c6fd"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CLIENTE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="170" width="550" height="30" uuid="47c698ba-7155-4861-a1cf-b00f7ea285ac"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MEDICAMENTOS]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="120" height="20" uuid="36a19f5d-0d45-4865-b426-1b1c4c9a9fb6">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="130" y="0" width="30" height="20" uuid="247b9782-989d-44cd-b7e6-2eb9fb8c99c9">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{quantity}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="170" y="0" width="80" height="20" uuid="3f17696e-0486-4252-b065-676449c24526">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{quantityUnity}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="260" y="0" width="30" height="20" uuid="4d1823df-f897-4044-8766-f895f6e4f5c1">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{time}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="410" y="0" width="30" height="20" uuid="4efb51eb-30a2-4641-84cc-9de523e2e555">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{timeMetric}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="450" y="0" width="100" height="20" uuid="14347956-1695-43b8-a664-c17f8bbb94ba">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{timeUnity}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="300" y="0" width="100" height="20" uuid="5974240d-1dcc-4718-828d-8cef1659c3db"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[VEZ(ES) A CADA]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

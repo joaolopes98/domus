@@ -12,5 +12,6 @@
         <property name="description" type="string"/>
         <property name="price" type="double"/>
         <property name="status" type="boolean"/>
+        <property name="time" type="integer"/>
     </class>
 </hibernate-mapping>

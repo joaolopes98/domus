@@ -21,6 +21,7 @@ public class EditServiceController extends Controller {
     @FXML private TextField txtName;
     @FXML private TextArea txtDescription;
     @FXML private TextField txtPrice;
+    @FXML private TextField txtTime;
 
     @FXML private AnchorPane waitScreen;
 
@@ -44,10 +45,12 @@ public class EditServiceController extends Controller {
         Mask.upperCase(txtName);
         Mask.upperCase(txtDescription);
         Mask.money(txtPrice);
+        Mask.zeroTo(txtTime, 999);
 
         txtName.setText(this.service.getName());
         txtDescription.setText(this.service.getDescription());
         txtPrice.setText(Formatter.formatMoney(this.service.getPrice()));
+        txtTime.setText(String.valueOf(this.service.getTime()));
     }
 
     @FXML private void save (){
@@ -60,14 +63,18 @@ public class EditServiceController extends Controller {
                double price = Formatter.unmaskMoney(txtPrice.getText());
                if(price != 0){
                    service.setPrice(price);
-                   service.setStatus(true);
 
-                   if(ServiceModel.update(service)){
-                       this.stage.close();
+                   int time = Formatter.unmaskInteger(txtTime.getText());
+                   if(time != 0) {
+                       service.setTime(time);
+                       service.setStatus(true);
 
-                   } else {
-                       Window.changeScene(this.stage, "error", this,
-                               "Não Foi Possivel Editar Serviço");
+                       if (ServiceModel.update(service)) {
+                           this.stage.close();
+                       } else {
+                           Window.changeScene(this.stage, "error", this,
+                                   "Não Foi Possivel Editar Serviço");
+                       }
                    }
 
                } else {

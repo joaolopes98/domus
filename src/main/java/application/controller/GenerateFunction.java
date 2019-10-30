@@ -7,6 +7,7 @@ import application.model.CashMovementModel;
 import application.view.auxiliary.Formatter;
 import application.view.auxiliary.Function;
 import javafx.collections.ObservableList;
+import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
@@ -16,6 +17,7 @@ import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
 import java.util.*;
 import java.util.List;
 
@@ -63,7 +65,7 @@ public abstract class GenerateFunction {
                 Map<String, Object> map = new HashMap<>();
                 map.put("InitialDate", Formatter.formatDate(new Date(from)));
                 map.put("FinalDate", Formatter.formatDate(new Date(to)));
-                map.put("QuantityCash", cashMovements.size());
+                map.put("QuantityCash", String.valueOf(cashMovements.size()));
 
                 File fileImage = new File(GenerateFunction.class.getResource("/view/img/logoGrande.png").getFile());
                 BufferedImage image = ImageIO.read(fileImage);
@@ -79,7 +81,7 @@ public abstract class GenerateFunction {
                     }
                 }
                 map.put("ProfitCash", Formatter.formatMoney(profitCash));
-
+                System.out.println("CRIOU");
                 JasperPrint print = JasperFillManager.fillReport(
                         GenerateFunction.class.getResourceAsStream("/print/cash.jasper"),
                         map, new JRBeanCollectionDataSource(cashItems));
@@ -87,7 +89,9 @@ public abstract class GenerateFunction {
                 new File("C:/Domus").mkdir();
                 JasperExportManager.exportReportToPdfFile(print, "C:/Domus/cash.pdf");
                 Desktop.getDesktop().open(new File("C:\\Domus\\cash.pdf"));
-            } catch (Exception e) {
+            } catch (JRException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
                 e.printStackTrace();
             }
         };

@@ -12,7 +12,7 @@ public class CashItem {
     private String finalValue;
     private String calcValue;
     private String profit;
-    private int sales;
+    private Integer sales;
     private String averageTicket;
 
     private boolean closed;
@@ -66,15 +66,11 @@ public class CashItem {
         return calcValue;
     }
 
-    public boolean isClosed() {
-        return closed;
-    }
-
     public String getProfit() {
         return profit;
     }
 
-    public int getSales() {
+    public Integer getSales() {
         return sales;
     }
 
@@ -82,15 +78,7 @@ public class CashItem {
         return averageTicket;
     }
 
-    @Override
-    public String toString() {
-        return this.cashOpen + " " +
-                this.userCash + " " +
-                this.initialValue + " " +
-                this.finalValue + " " +
-                this.calcValue + " " +
-                this.profit + " " +
-                this.sales + " " +
-                this.averageTicket;
+    public boolean isClosed() {
+        return closed;
     }
 }

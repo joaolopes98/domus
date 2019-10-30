@@ -8,6 +8,7 @@ public class Service implements Model {
     private String description;
     private double price;
     private boolean status;
+    private int time;
 
     public int getId() {
         return id;
@@ -47,5 +48,13 @@ public class Service implements Model {
 
     public void setStatus(boolean status) {
         this.status = status;
+    }
+
+    public int getTime() {
+        return time;
+    }
+
+    public void setTime(int time) {
+        this.time = time;
     }
 }
