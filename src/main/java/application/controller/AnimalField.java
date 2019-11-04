@@ -34,6 +34,17 @@ public class AnimalField {
 
             Button status = new Button();
             if (this.animal.isStatus()) {
+                Button history = new Button();
+                history.getStyleClass().add("btnYellow");
+                history.setOnAction(e ->
+                        Window.changeScene(controller.getStage(), "animalHistory", controller, this.animal));
+                history.setMinSize(30, 30);
+                history.setMaxSize(30, 30);
+                ImageView imageHistory = new ImageView(new Image("/view/img/edit.png"));
+                imageHistory.setFitHeight(20);
+                imageHistory.setFitWidth(20);
+                history.setGraphic(imageHistory);
+
                 Button edit = new Button();
                 edit.getStyleClass().add("btnBlueLight");
                 edit.setOnAction(e ->
@@ -62,7 +73,7 @@ public class AnimalField {
                 imageRemove.setFitWidth(20);
                 status.setGraphic(imageRemove);
 
-                this.action.getChildren().addAll(edit, status);
+                this.action.getChildren().addAll(history, edit, status);
             } else {
                 status.setMinSize(30, 30);
                 status.setMaxSize(30, 30);

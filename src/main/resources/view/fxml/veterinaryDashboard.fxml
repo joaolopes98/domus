@@ -30,7 +30,17 @@
                               <Button mnemonicParsing="false" onAction="#animal" styleClass="btnBlue" text="ANIMAL" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                            </children>
                         </AnchorPane>
+                        <AnchorPane maxHeight="60.0" minHeight="60.0">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#changePDV" styleClass="btnBlueLight" text="PDV" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                           </children>
+                        </AnchorPane>
                         <AnchorPane VBox.vgrow="ALWAYS" />
+                        <AnchorPane maxHeight="60.0" minHeight="60.0">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#openModalVeterinaryHistoric" styleClass="btnBlueLight" text="HISTORICO" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                           </children>
+                        </AnchorPane>
                         <AnchorPane maxHeight="60.0" minHeight="60.0">
                            <children>
                               <Button mnemonicParsing="false" onAction="#logout" styleClass="btnRed" text="LOGOUT" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />

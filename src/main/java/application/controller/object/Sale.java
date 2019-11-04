@@ -14,6 +14,7 @@ public class Sale implements Model {
     private CashMovement cashMovement;
     private Access access;
     private Customer customer;
+    private Schedule schedule;
 
     private Set<SaleItem> saleItems = new HashSet<>();
     private Set<FinancialInflow> financialInflows = new HashSet<>();
@@ -72,6 +73,14 @@ public class Sale implements Model {
 
     public void setCustomer(Customer customer) {
         this.customer = customer;
+    }
+
+    public Schedule getSchedule() {
+        return schedule;
+    }
+
+    public void setSchedule(Schedule schedule) {
+        this.schedule = schedule;
     }
 
     public Set<SaleItem> getSaleItems() {

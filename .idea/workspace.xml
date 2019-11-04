@@ -3,16 +3,27 @@
   <component name="ChangeListManager">
     <list default="true" id="596f29fa-0cc5-4e5a-a056-63460e674cfd" name="Default Changelist" comment="Finalização da implementação de validade de produtos, Implementação de clientes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/banco.db" beforeDir="false" afterPath="$PROJECT_DIR$/banco.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/controller/ScheduleField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/controller/ScheduleField.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/controller/object/Schedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/controller/object/Schedule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/controller/AnimalField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/controller/AnimalField.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/controller/GenerateFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/controller/GenerateFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/controller/MedicineItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/controller/MedicineItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/controller/object/Access.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/controller/object/Access.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/controller/object/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/controller/object/Animal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/controller/object/Sale.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/controller/object/Sale.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/model/AnimalModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/model/AnimalModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/application/view/controller/CreateScheduleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/view/controller/CreateScheduleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/view/controller/FinalizeSaleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/view/controller/FinalizeSaleController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/application/view/controller/PDVController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/view/controller/PDVController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/application/view/controller/ScheduleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/view/controller/ScheduleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/hbm/Schedules.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hbm/Schedules.hbm.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/css/createSchedule.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/css/createSchedule.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/fxml/createSchedule.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/fxml/createSchedule.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/fxml/schedule.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/fxml/schedule.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/view/controller/VeterinaryDashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/view/controller/VeterinaryDashboardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/hbm/Accesses.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hbm/Accesses.hbm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/hbm/Animals.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hbm/Animals.hbm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/hbm/Sales.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hbm/Sales.hbm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/hbm/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hbm/hibernate.cfg.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/fxml/animals.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/fxml/animals.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/fxml/pdv.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/fxml/pdv.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/fxml/veterinaryDashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/fxml/veterinaryDashboard.fxml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -85,7 +96,7 @@
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1569373401332" />
     <property name="database.console.LAST_STATE" value="true" />
     <property name="database.data.extractors.current.id" value="Tab-separated (TSV)_id" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/hbm" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/view/css" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Project" />
@@ -97,8 +108,8 @@
       <recent name="C:\Users\joaop\Desktop\Faculdade\PROJETO\domus\src\main\resources\view\fxml" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\joaop\Desktop\Faculdade\PROJETO\domus\src\main\resources\hbm" />
       <recent name="C:\Users\joaop\Desktop\Faculdade\PROJETO\domus\src\main\resources\view\css" />
+      <recent name="C:\Users\joaop\Desktop\Faculdade\PROJETO\domus\src\main\resources\hbm" />
       <recent name="C:\Users\joaop\Desktop\Faculdade\PROJETO\domus\src\main\resources\view\img" />
       <recent name="C:\Users\joaop\Desktop\Faculdade\PROJETO\domus\src\main\resources\view\fxml" />
       <recent name="C:\Users\joaop\Desktop\Faculdade\PROJETO\domus\src\main\resources\view\font" />
@@ -145,12 +156,12 @@
           <expand>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@2e5f1ea8" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@29e45266" type="7427dc5b:ServiceModel$ServiceGroupNode" />
             </path>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@2e5f1ea8" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@3897fa49" type="9fbbdea:ServiceModel$ServiceNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@29e45266" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@ea748f5" type="9fbbdea:ServiceModel$ServiceNode" />
             </path>
           </expand>
           <select />
@@ -240,7 +251,9 @@
       <workItem from="1572318162167" duration="962000" />
       <workItem from="1572377346139" duration="1848000" />
       <workItem from="1572387613902" duration="9424000" />
-      <workItem from="1572405607831" duration="2322000" />
+      <workItem from="1572405607831" duration="2557000" />
+      <workItem from="1572782857450" duration="8217000" />
+      <workItem from="1572834809092" duration="8386000" />
     </task>
     <task id="LOCAL-00001" summary="Finalização de Procura e inclusão de item na comanda, e adição de desconto no item">
       <created>1558570743810</created>

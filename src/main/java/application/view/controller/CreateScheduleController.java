@@ -305,7 +305,7 @@ public class CreateScheduleController extends Controller {
                 items.setService(item.getService());
                 items.setQuantity(item.getQuantity());
                 scheduleItems.add(items);
-                time += item.getService().getTime();
+                time += item.getService().getTime() * item.getQuantity();
             }
             calendar.add(Calendar.MINUTE, time);
             schedule.setTo_date(new Timestamp(calendar.getTime().getTime()));
@@ -315,7 +315,8 @@ public class CreateScheduleController extends Controller {
             long last = schedule.getTo_date().getTime();
 
             if(ScheduleModel.getAll("WHERE from_date BETWEEN '" + first + "' AND '" + last + "'" +
-                    " OR to_date BETWEEN '" + first + "' AND '" + last + "'").isEmpty()) {
+                    " OR to_date BETWEEN '" + first + "' AND '" + last + "' " +
+                    " AND user_id = " + schedule.getAccess().getId()).isEmpty()) {
 
                 if (ScheduleModel.create(schedule)) {
                     ScheduleController scheduleController = (ScheduleController) oldController;

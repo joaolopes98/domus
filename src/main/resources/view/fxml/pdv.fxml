@@ -255,9 +255,14 @@
                               </HBox>
                               <HBox maxHeight="53.0" prefWidth="1000.0" spacing="10.0" HBox.hgrow="ALWAYS">
                                  <children>
-                                    <AnchorPane prefWidth="500.0">
+                                    <AnchorPane fx:id="btnChangeVeterinary" prefWidth="500.0">
                                        <children>
-                                          <Button fx:id="btnManageOptions" mnemonicParsing="false" onAction="#manageOptions" styleClass="btnBlue" text="GERENCIAR" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                          <Button mnemonicParsing="false" onAction="#changeVeterinary" styleClass="btnBlueLight" text="VETERINARIO" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane fx:id="btnManageOptions" prefWidth="500.0">
+                                       <children>
+                                          <Button mnemonicParsing="false" onAction="#manageOptions" styleClass="btnBlue" text="GERENCIAR" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                        </children>
                                     </AnchorPane>
                                     <AnchorPane prefWidth="500.0">

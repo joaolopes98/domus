@@ -4,12 +4,16 @@ import application.controller.GenerateFunction;
 import application.controller.MedicineField;
 import application.controller.object.Animal;
 import application.controller.MedicineItem;
+import application.controller.object.Recipe;
+import application.controller.object.RecipeItem;
 import application.controller.object.User;
+import application.model.RecipeModel;
 import application.view.auxiliary.Controller;
 import application.view.auxiliary.Function;
 import application.view.auxiliary.Window;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -34,9 +38,8 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import java.sql.Timestamp;
+import java.util.*;
 
 public class VeterinaryDashboardController extends Controller {
 
@@ -112,6 +115,11 @@ public class VeterinaryDashboardController extends Controller {
             obsMedicine.forEach( medicineField -> medicineItems.add(new MedicineItem(medicineField)));
 
             boolean valid = true;
+            Recipe recipe = new Recipe();
+            recipe.setUser(User.getUser());
+            recipe.setAnimal(linkedAnimal);
+            recipe.setDate(new Timestamp(new Date().getTime()));
+            Set<RecipeItem> recipeItems = new HashSet<>();
             for(MedicineItem item : medicineItems) {
                 if (item.getName().isEmpty() ||
                         item.getQuantity() == 0 ||
@@ -121,12 +129,32 @@ public class VeterinaryDashboardController extends Controller {
                         item.getTimeUnity().isEmpty()) {
                     valid = false;
                     break;
+                } else {
+                    RecipeItem recipeItem = new RecipeItem();
+                    recipeItem.setName(item.getName());
+                    recipeItem.setQuantity(item.getQuantity());
+                    recipeItem.setQuantityUnity(item.getQuantityUnity());
+                    recipeItem.setTime(item.getTime());
+                    recipeItem.setTimeMetric(item.getTimeMetric());
+                    recipeItem.setTimeUnity(item.getTimeUnity());
+                    recipeItem.setRecipe(recipe);
+                    recipeItems.add(recipeItem);
                 }
             }
 
             if(valid){
-                Window.changeScene(this.stage, "loading", this,
-                        "GERANDO RECEITA", GenerateFunction.veterinary(obsMedicine, linkedAnimal, medicineItems));
+                recipe.setRecipeItems(recipeItems);
+
+                if(RecipeModel.create(recipe)){
+                    Window.changeScene(this.stage, "loading", this,
+                            "GERANDO RECEITA",
+                            GenerateFunction.veterinary(User.getUser(), linkedAnimal, medicineItems));
+                    obsMedicine.clear();
+                } else {
+                    Window.changeScene(this.stage, "error", this,
+                            "Não foi possivel salvar a receita");
+                }
+
             } else {
                 Window.changeScene(this.stage, "error", this,
                         "Campo zerado ou vazio dentro da tabela de medicamentos");
@@ -162,5 +190,14 @@ public class VeterinaryDashboardController extends Controller {
                 btnLinkAnimal.getStyleClass().add("btnBlue");
             }
         }
+    }
+
+    @FXML private void changePDV() {
+        this.stage.close();
+        Window.changeScene(new Stage(), "pdv", oldController);
+    }
+
+    @FXML private void openModalVeterinaryHistoric() {
+        Window.changeScene(this.stage, "veterinaryHistory", this);
     }
 }

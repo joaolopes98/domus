@@ -1,0 +1,19 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name = "application.controller.object.Recipe" table = "recipe">
+        <id name = "id" type = "int">
+            <generator class="increment"/>
+        </id>
+        <many-to-one name="user" class="application.controller.object.Access" column="user_id" lazy="false"/>
+        <many-to-one name="animal" class="application.controller.object.Animal" column="animal_id" lazy="false"/>
+        <property name="date" type="timestamp"/>
+        <set name="recipeItems" inverse="true" cascade="all" lazy="false">
+            <key column="recipe_id" not-null="false"/>
+            <one-to-many class="application.controller.object.RecipeItem"/>
+        </set>
+    </class>
+</hibernate-mapping>

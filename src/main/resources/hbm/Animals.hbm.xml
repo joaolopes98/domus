@@ -13,5 +13,9 @@
         <many-to-one name="customer" class="application.controller.object.Customer"
                      column="customer_id" fetch="join" lazy="false"/>
         <property name="status" type="boolean"/>
+        <set name="recipes" inverse="true" cascade="all" lazy="false">
+            <key column="animal_id" not-null="false"/>
+            <one-to-many class="application.controller.object.Recipe"/>
+        </set>
     </class>
 </hibernate-mapping>

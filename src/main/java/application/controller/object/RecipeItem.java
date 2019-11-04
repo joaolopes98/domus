@@ -1,33 +1,24 @@
-package application.controller;
+package application.controller.object;
 
-import application.controller.object.RecipeItem;
-import application.view.auxiliary.Formatter;
+import application.controller.MedicineItem;
 
-public class MedicineItem {
+public class RecipeItem {
+    private int id;
     private String name;
     private int quantity;
     private String quantityUnity;
     private int time;
     private int timeMetric;
     private String timeUnity;
+    private Recipe recipe;
 
 
-    public MedicineItem(MedicineField medicineField){
-        this.name = medicineField.getTxtName().getText();
-        this.quantity = Formatter.unmaskInteger(medicineField.getTxtQuantity().getText());
-        this.quantityUnity = medicineField.getComboQuantity().getSelectionModel().getSelectedItem();
-        this.time = Formatter.unmaskInteger(medicineField.getTxtTime().getText());
-        this.timeMetric = Formatter.unmaskInteger(medicineField.getTxtTime2().getText());
-        this.timeUnity = medicineField.getComboTime().getSelectionModel().getSelectedItem();
+    public int getId() {
+        return id;
     }
 
-    public MedicineItem(RecipeItem recipeItem){
-        this.name = recipeItem.getName();
-        this.quantity = recipeItem.getQuantity();
-        this.quantityUnity = recipeItem.getQuantityUnity();
-        this.time = recipeItem.getTime();
-        this.timeMetric = recipeItem.getTimeMetric();
-        this.timeUnity = recipeItem.getTimeUnity();
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -76,5 +67,13 @@ public class MedicineItem {
 
     public void setTimeUnity(String timeUnity) {
         this.timeUnity = timeUnity;
+    }
+
+    public Recipe getRecipe() {
+        return recipe;
+    }
+
+    public void setRecipe(Recipe recipe) {
+        this.recipe = recipe;
     }
 }

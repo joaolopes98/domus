@@ -1,0 +1,19 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name = "application.controller.object.RecipeItem" table = "recipe_items">
+        <id name = "id" type = "int">
+            <generator class="increment"/>
+        </id>
+        <property name="name" type="string"/>
+        <property name="quantity" type="int"/>
+        <property name="quantityUnity" type="string" column="quantity_unity"/>
+        <property name="time" type="int"/>
+        <property name="timeMetric" type="int" column="time_metric"/>
+        <property name="timeUnity" type="string" column="time_unity"/>
+        <many-to-one name="recipe" class="application.controller.object.Recipe" column="recipe_id"/>
+    </class>
+</hibernate-mapping>

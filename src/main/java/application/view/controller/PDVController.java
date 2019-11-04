@@ -69,8 +69,8 @@ public class PDVController extends Controller {
     @FXML private Button btnFinalizeSale;
     @FXML private Button btnCancelItem;
 
-    @FXML private Button btnManageOptions;
-    @FXML private Button btnCloseCash;
+    @FXML private AnchorPane btnChangeVeterinary;
+    @FXML private AnchorPane btnManageOptions;
 
     @FXML private Label lblUser;
     @FXML private Label lblDate;
@@ -93,8 +93,14 @@ public class PDVController extends Controller {
         this.stage.setMinHeight(720);
 
         Access user = User.getUser();
-        if(user.getRole() == 1){
+        if(user.getRole() != 3){
+            btnManageOptions.setManaged(false);
             btnManageOptions.setVisible(false);
+        }
+
+        if(user.getRole() != 2){
+            btnChangeVeterinary.setManaged(false);
+            btnChangeVeterinary.setVisible(false);
         }
 
         super.initialize(oldStage, scene, oldController, objects);
@@ -387,6 +393,11 @@ public class PDVController extends Controller {
             });
         }
 
+    }
+
+    @FXML private void changeVeterinary(){
+        this.stage.close();
+        Window.changeScene(new Stage(), "veterinaryDashboard", oldController);
     }
 
     @FXML private void manageOptions(){

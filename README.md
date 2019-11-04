@@ -1,6 +1,6 @@
 ## A Fazer
 
-- Vincular Atendente ao Agendamento e calculo de tempo ( )
+- Vincular Atendente ao Agendamento e calculo de tempo (X)
 
 - Salvar Historico de Receita Veterinaria ( )
 

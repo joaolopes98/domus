@@ -10,13 +10,13 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="600.0" maxWidth="900.0" minHeight="600.0" minWidth="900.0" styleClass="paneBlueDark" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.controller.AnimalsController">
+<AnchorPane maxHeight="600.0" maxWidth="900.0" minHeight="600.0" minWidth="900.0" styleClass="paneBlueDark" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.controller.VeterinaryHistoryController">
    <children>
       <AnchorPane maxHeight="50.0" minHeight="50.0" styleClass="paneBlueLight" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
          <children>
             <HBox alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <Label styleClass="textTitle" text="ANIMAIS" />
+                  <Label styleClass="textTitle" text="HISTORICO DE RECEITAS" />
                </children>
             </HBox>
          </children>
@@ -31,7 +31,7 @@
                            <children>
                               <AnchorPane styleClass="paneWhite" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
                                  <children>
-                                    <TextField fx:id="txtSearch" promptText="PESQUISE POR NOME, ESPÉCIE OU CLIENTE ( NOME OU CPF )" styleClass="input" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    <TextField fx:id="txtSearch" promptText="PESQUISE POR ATENDENTE OU ANIMAL" styleClass="input" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                  </children>
                               </AnchorPane>
                            </children>
@@ -40,16 +40,15 @@
                   </HBox>
                   <VBox spacing="10.0" VBox.vgrow="ALWAYS">
                      <children>
-                        <TableView id="tableAnimals" fx:id="tableAnimals" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                        <TableView id="tableAnimals" fx:id="tableRecipe" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                            <placeholder>
-                              <Label text="Nenhum Animal Encontrado" />
+                              <Label text="Nenhuma Receita Encontrado" />
                            </placeholder>
                            <columns>
-                              <TableColumn fx:id="animalCode" maxWidth="1000.0" prefWidth="75.0" text="#" />
-                              <TableColumn fx:id="animalName" maxWidth="4000.0" prefWidth="75.0" text="NOME" />
-                              <TableColumn fx:id="animalSpecie" maxWidth="3500.0" prefWidth="75.0" text="ESPÉCIE" />
-                              <TableColumn fx:id="animalCustomer" maxWidth="4000.0" prefWidth="75.0" text="CLIENTE" />
-                              <TableColumn fx:id="animalAction" maxWidth="2500.0" prefWidth="75.0" text="AÇÕES" />
+                              <TableColumn fx:id="recipeUser" maxWidth="4000.0" prefWidth="75.0" text="ATENDENTE" />
+                              <TableColumn fx:id="recipeAnimal" maxWidth="4000.0" prefWidth="75.0" text="ANIMAL" />
+                              <TableColumn fx:id="recipeDate" maxWidth="4500.0" prefWidth="75.0" text="DATA" />
+                              <TableColumn fx:id="recipeAction" maxWidth="2000.0" prefWidth="75.0" text="AÇÕES" />
                            </columns>
                            <columnResizePolicy>
                               <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -59,11 +58,6 @@
                   </VBox>
                   <HBox maxHeight="40.0" spacing="10.0" VBox.vgrow="ALWAYS">
                      <children>
-                        <AnchorPane prefWidth="500.0" styleClass="paneRedDark" HBox.hgrow="ALWAYS">
-                           <children>
-                              <Button mnemonicParsing="false" onAction="#createAnimal" styleClass="btnGreen" text="CADASTRAR" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                           </children>
-                        </AnchorPane>
                         <AnchorPane prefWidth="500.0" styleClass="paneRedDark" HBox.hgrow="ALWAYS">
                            <children>
                               <Button mnemonicParsing="false" onAction="#cancel" styleClass="btnRed" text="VOLTAR" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />

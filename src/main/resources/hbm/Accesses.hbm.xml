@@ -16,5 +16,9 @@
         <property name="password" type="string"/>
         <property name="crmv" type="string"/>
         <property name="status" type="boolean"/>
+        <set name="recipes" inverse="true" cascade="all" lazy="false">
+            <key column="user_id" not-null="false"/>
+            <one-to-many class="application.controller.object.Recipe"/>
+        </set>
     </class>
 </hibernate-mapping>

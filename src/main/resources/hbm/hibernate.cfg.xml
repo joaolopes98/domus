@@ -24,5 +24,7 @@
         <mapping resource="hbm/FinancialOutflows.hbm.xml"/>
         <mapping resource="hbm/Schedules.hbm.xml"/>
         <mapping resource="hbm/ScheduleItems.hbm.xml"/>
+        <mapping resource="hbm/Recipes.hbm.xml"/>
+        <mapping resource="hbm/RecipeItems.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>

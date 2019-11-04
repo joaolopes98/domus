@@ -2,6 +2,9 @@ package application.controller.object;
 
 import application.model.Model;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class Access implements Model {
     private int id;
     private String name;
@@ -12,6 +15,8 @@ public class Access implements Model {
     private String password;
     private String crmv;
     private boolean status;
+
+    private Set<Recipe> recipes = new HashSet<>();
 
     public int getId() {
         return id;
@@ -83,5 +88,13 @@ public class Access implements Model {
 
     public void setStatus(boolean status) {
         this.status = status;
+    }
+
+    public Set<Recipe> getRecipes() {
+        return recipes;
+    }
+
+    public void setRecipes(Set<Recipe> recipes) {
+        this.recipes = recipes;
     }
 }

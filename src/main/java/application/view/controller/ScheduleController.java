@@ -8,6 +8,7 @@ import application.view.auxiliary.Formatter;
 import application.view.auxiliary.Window;
 import com.jfoenix.controls.JFXDatePicker;
 import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
@@ -40,6 +41,7 @@ public class ScheduleController extends Controller {
     @FXML private Button btnCreate;
 
     @FXML private AnchorPane waitScreen;
+    private ScheduleController scheduleController = this;
 
     @Override
     public void initialize(Stage oldStage, Scene scene, Controller oldController, Object... objects) {
@@ -71,20 +73,6 @@ public class ScheduleController extends Controller {
         scheduleCustomer.setCellValueFactory(new PropertyValueFactory<>("customer"));
         scheduleAction.setCellValueFactory(new PropertyValueFactory<>("action"));
 
-        tableSchedule.setItems(obsSchedule);
-
-        tableSchedule.setRowFactory( e -> {
-            TableRow<ScheduleField> row = new TableRow<>();
-            row.setOnMouseClicked( f -> {
-                if(f.getClickCount() == 2 && !row.isEmpty()){
-                    Window.changeScene(this.stage, "scheduleItem", this,
-                            row.getItem().getSchedule());
-                    f.consume();
-                }
-            });
-            return row;
-        });
-
         tableSchedule.setRowFactory( new Callback<TableView<ScheduleField>, TableRow<ScheduleField>>() {
             @Override
             public TableRow<ScheduleField> call(TableView<ScheduleField> tableView) {
@@ -103,10 +91,18 @@ public class ScheduleController extends Controller {
                                 }
                             }
                         }
+                        setOnMouseClicked( e -> {
+                            if(e.getClickCount() == 2 && !empty){
+                                Window.changeScene(stage, "scheduleItem", scheduleController,
+                                        getItem().getSchedule());
+                                e.consume();
+                            }
+                        });
                     }
                 };
             }
         });
+        tableSchedule.setItems(obsSchedule);
 
     }
 

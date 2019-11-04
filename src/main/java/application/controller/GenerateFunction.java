@@ -1,5 +1,6 @@
 package application.controller;
 
+import application.controller.object.Access;
 import application.controller.object.Animal;
 import application.controller.object.CashMovement;
 import application.controller.object.User;
@@ -23,15 +24,13 @@ import java.util.List;
 
 public abstract class GenerateFunction {
 
-    public static Function veterinary(ObservableList<MedicineField> obsMedicine,
-                                      Animal linkedAnimal,
+    public static Function veterinary(Access access, Animal linkedAnimal,
                                       ArrayList<MedicineItem> medicineItems){
         return () -> {
-            obsMedicine.clear();
             try {
                 Map<String, Object> map = new HashMap<>();
-                map.put("User", User.getUser().getName());
-                map.put("Crmv", User.getUser().getCrmv());
+                map.put("User", access.getName());
+                map.put("Crmv", access.getCrmv());
                 map.put("Animal", linkedAnimal.getName());
                 map.put("Specie", linkedAnimal.getSpecie());
                 map.put("Customer", linkedAnimal.getCustomer().getName());

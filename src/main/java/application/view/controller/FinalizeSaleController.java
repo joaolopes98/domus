@@ -252,12 +252,15 @@ public class FinalizeSaleController extends Controller {
             sale.getFinancialInflows().add(financialInflow);
         }
 
+        Schedule schedule = pdv.getLinkedSchedule();
+        if(schedule != null){
+            sale.setSchedule(schedule);
+            schedule.setStatus(true);
+            ScheduleModel.update(schedule);
+        }
+
         if(SaleModel.create(sale)){
-            Schedule schedule = pdv.getLinkedSchedule();
-            if(schedule != null){
-                schedule.setStatus(true);
-                ScheduleModel.update(schedule);
-            }
+
             changeStock.forEach(ProductModel::update);
             this.obsSale.clear();
             this.cancel();
