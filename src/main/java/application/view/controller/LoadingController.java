@@ -36,7 +36,9 @@ public class LoadingController extends Controller {
                 return new Task() {
                     @Override
                     protected Object call() throws Exception {
+                        System.out.println("COMEÇOU");
                         function.run();
+                        System.out.println("TERMINOU");
                         return null;
                     }
                 };

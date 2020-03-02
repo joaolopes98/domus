@@ -68,7 +68,7 @@ public class ChoseDateController extends Controller {
 
             switch (chose){
                 case REPORT_CASH:
-                    Window.changeScene(this.oldStage, "loading", this,
+                    Window.changeScene(this.oldStage, "loading", oldController,
                             "GERANDO RELATORIO DE CAIXA", GenerateFunction.reportCash(from, to));
                     break;
             }

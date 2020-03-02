@@ -71,26 +71,26 @@ public abstract class GenerateFunction {
                 map.put("Image", image);
 
                 List<CashItem> cashItems = new ArrayList<>();
-                cashMovements.forEach( cash -> cashItems.add(new CashItem(cash)));
-
                 double profitCash = 0;
-                for(CashItem cashItem : cashItems){
-                    if(cashItem.isClosed()) {
-                        profitCash += Formatter.unmaskMoney(cashItem.getProfit());
+                for (CashMovement cash : cashMovements) {
+                    cashItems.add(new CashItem(cash));
+                    if(cash.isClosed()){
+                        double profitDouble = cash.getValue() - cash.getValue_closed_system();
+                        profitCash += profitDouble;
                     }
-                }
+                };
+
                 map.put("ProfitCash", Formatter.formatMoney(profitCash));
                 System.out.println("CRIOU");
                 JasperPrint print = JasperFillManager.fillReport(
                         GenerateFunction.class.getResourceAsStream("/print/cash.jasper"),
                         map, new JRBeanCollectionDataSource(cashItems));
                 System.out.println("SALVOU");
-                new File("C:/Domus").mkdir();
+                File dir = new File("C:/Domus");
+                if(!dir.exists()) dir.mkdir();
                 JasperExportManager.exportReportToPdfFile(print, "C:/Domus/cash.pdf");
                 Desktop.getDesktop().open(new File("C:\\Domus\\cash.pdf"));
-            } catch (JRException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
+            } catch (JRException | IOException e) {
                 e.printStackTrace();
             }
         };

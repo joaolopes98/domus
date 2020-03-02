@@ -2,9 +2,9 @@
 
 - Vincular Atendente ao Agendamento e calculo de tempo (X)
 
-- Salvar Historico de Receita Veterinaria ( )
+- Salvar Historico de Receita Veterinaria (X)
 
-- Historico de Animal ( )
+- Historico de Animal (X)
 
 - Tempo de estimado do serviço (X)
 
