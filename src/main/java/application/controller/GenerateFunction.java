@@ -1,9 +1,6 @@
 package application.controller;
 
-import application.controller.object.Access;
-import application.controller.object.Animal;
-import application.controller.object.CashMovement;
-import application.controller.object.User;
+import application.controller.object.*;
 import application.model.CashMovementModel;
 import application.view.auxiliary.Formatter;
 import application.view.auxiliary.Function;
@@ -71,16 +68,19 @@ public abstract class GenerateFunction {
                 map.put("Image", image);
 
                 List<CashItem> cashItems = new ArrayList<>();
-                double profitCash = 0;
+                int quantitySale = 0;
+                double total = 0;
                 for (CashMovement cash : cashMovements) {
-                    cashItems.add(new CashItem(cash));
-                    if(cash.isClosed()){
-                        double profitDouble = cash.getValue() - cash.getValue_closed_system();
-                        profitCash += profitDouble;
-                    }
-                };
+                    CashItem cashItem = new CashItem(cash);
+                    cashItems.add(cashItem);
+                    quantitySale += cash.getSales().size();
+                    total += cashItem.getTotal();
+                }
 
-                map.put("ProfitCash", Formatter.formatMoney(profitCash));
+                double avgTicket = total / quantitySale;
+
+                map.put("QuantitySale", quantitySale);
+                map.put("AvgTicket", Formatter.formatMoney(avgTicket));
                 System.out.println("CRIOU");
                 JasperPrint print = JasperFillManager.fillReport(
                         GenerateFunction.class.getResourceAsStream("/print/cash.jasper"),

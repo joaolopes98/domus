@@ -3,12 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="596f29fa-0cc5-4e5a-a056-63460e674cfd" name="Default Changelist" comment="Finalização da implementação de validade de produtos, Implementação de clientes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/banco.db" beforeDir="false" afterPath="$PROJECT_DIR$/banco.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/application/controller/CashItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/controller/CashItem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/application/controller/GenerateFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/controller/GenerateFunction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/view/controller/ChoseDateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/view/controller/ChoseDateController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/view/controller/LoadingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/view/controller/LoadingController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/print/cash.jasper" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/print/cash.jasper" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/print/cash.jrxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/print/cash.jrxml" afterDir="false" />
     </list>
@@ -242,7 +239,7 @@
       <workItem from="1572782857450" duration="8217000" />
       <workItem from="1572834809092" duration="8386000" />
       <workItem from="1572873524112" duration="5214000" />
-      <workItem from="1583187261575" duration="4819000" />
+      <workItem from="1583187261575" duration="9289000" />
     </task>
     <task id="LOCAL-00001" summary="Finalização de Procura e inclusão de item na comanda, e adição de desconto no item">
       <created>1558570743810</created>
@@ -342,7 +339,14 @@
       <option name="project" value="LOCAL" />
       <updated>1565660092945</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Criação parcial do relatorio de caixas">
+      <created>1583192441029</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1583192441029</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -392,6 +396,7 @@
     <MESSAGE value="Inicio da implementação de validade de produtos" />
     <MESSAGE value="Finalização da implementação de validade de produtos e criação da classe Formatter" />
     <MESSAGE value="Finalização da implementação de validade de produtos, Implementação de clientes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finalização da implementação de validade de produtos, Implementação de clientes" />
+    <MESSAGE value="Criação parcial do relatorio de caixas" />
+    <option name="LAST_COMMIT_MESSAGE" value="Criação parcial do relatorio de caixas" />
   </component>
 </project>

@@ -11,8 +11,10 @@ public class CashItem {
     private String initialValue;
     private String finalValue;
     private String sales;
+    private double avgTicket;
     private String averageTicket;
     private String userCash;
+    private double total;
 
     public CashItem(CashMovement cashMovement) {
         this.cashOpen = Formatter.formatDate(cashMovement.getDate());
@@ -27,12 +29,17 @@ public class CashItem {
         }
 
         this.sales = String.valueOf(cashMovement.getSales().size());
-        double total = 0;
+        this.total = 0;
         for (Sale sale : cashMovement.getSales()) {
-            total += sale.getValue() - sale.getDiscount();
+            this.total += sale.getValue() - sale.getDiscount();
         }
 
-        this.averageTicket = Formatter.formatMoney(total / cashMovement.getSales().size());
+        if(cashMovement.getSales().size() > 0) {
+            this.avgTicket = total / cashMovement.getSales().size();
+        } else {
+            this.avgTicket = 0;
+        }
+        this.averageTicket = Formatter.formatMoney(this.avgTicket);
     }
 
     public String getCashOpen() {
@@ -89,5 +96,21 @@ public class CashItem {
 
     public void setCashClose(String cashClose) {
         this.cashClose = cashClose;
+    }
+
+    public double getAvgTicket() {
+        return avgTicket;
+    }
+
+    public void setAvgTicket(double avgTicket) {
+        this.avgTicket = avgTicket;
+    }
+
+    public double getTotal() {
+        return total;
+    }
+
+    public void setTotal(double total) {
+        this.total = total;
     }
 }
