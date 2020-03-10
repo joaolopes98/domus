@@ -3,11 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="596f29fa-0cc5-4e5a-a056-63460e674cfd" name="Default Changelist" comment="Finalização da implementação de validade de produtos, Implementação de clientes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/banco.db" beforeDir="false" afterPath="$PROJECT_DIR$/banco.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/controller/CashItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/controller/CashItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/application/controller/GenerateFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/controller/GenerateFunction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/print/cash.jasper" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/print/cash.jasper" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/print/cash.jrxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/print/cash.jrxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/controller/AnimalField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/controller/AnimalField.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/controller/object/Sale.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/controller/object/Sale.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/model/SaleModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/model/SaleModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/application/view/controller/ChoseDateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/application/view/controller/ChoseDateController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/hbm/Sales.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hbm/Sales.hbm.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -41,6 +43,13 @@
         <item name="banco.db" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="banco.db" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
+        <item name="sales: table" type="3d80ac25:SqliteImplModel$Table" />
       </path>
     </expand>
     <select />
@@ -80,7 +89,7 @@
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1569373401332" />
     <property name="database.console.LAST_STATE" value="true" />
     <property name="database.data.extractors.current.id" value="Tab-separated (TSV)_id" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/print" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/view/css" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Project" />
@@ -88,16 +97,14 @@
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="application.controller.object" />
-      <recent name="application.view.controller" />
-      <recent name="application.model" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\joaop\Desktop\Faculdade\PROJETO\domus\src\main\resources\view\fxml" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\joaop\Desktop\Faculdade\PROJETO\domus\src\main\resources\print" />
       <recent name="C:\Users\joaop\Desktop\Faculdade\PROJETO\domus\src\main\resources\view\css" />
-      <recent name="C:\Users\joaop\Desktop\Faculdade\PROJETO\domus\src\main\resources\hbm" />
       <recent name="C:\Users\joaop\Desktop\Faculdade\PROJETO\domus\src\main\resources\view\img" />
+      <recent name="C:\Users\joaop\Desktop\Faculdade\PROJETO\domus\src\main\resources\print" />
+      <recent name="C:\Users\joaop\Desktop\Faculdade\PROJETO\domus\src\main\resources\hbm" />
       <recent name="C:\Users\joaop\Desktop\Faculdade\PROJETO\domus\src\main\resources\view\fxml" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -105,8 +112,11 @@
       <recent name="application.view.controller" />
       <recent name="application.controller.object" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\joaop\Desktop\Faculdade\PROJETO\domus\src\main\resources\view\fxml" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="application.controller" />
+      <recent name="application.controller.object" />
+      <recent name="application.view.controller" />
+      <recent name="application.model" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -140,12 +150,12 @@
           <expand>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@f4ed6e73" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@bed98c69" type="7427dc5b:ServiceModel$ServiceGroupNode" />
             </path>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@f4ed6e73" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@48dddebb" type="9fbbdea:ServiceModel$ServiceNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@bed98c69" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@1c9fa4e" type="9fbbdea:ServiceModel$ServiceNode" />
             </path>
           </expand>
           <select />
@@ -240,6 +250,9 @@
       <workItem from="1572834809092" duration="8386000" />
       <workItem from="1572873524112" duration="5214000" />
       <workItem from="1583187261575" duration="9289000" />
+      <workItem from="1583273272197" duration="1953000" />
+      <workItem from="1583283865909" duration="712000" />
+      <workItem from="1583792009922" duration="7471000" />
     </task>
     <task id="LOCAL-00001" summary="Finalização de Procura e inclusão de item na comanda, e adição de desconto no item">
       <created>1558570743810</created>
@@ -346,7 +359,14 @@
       <option name="project" value="LOCAL" />
       <updated>1583192441029</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Finalização da implementação do relatório de caixas">
+      <created>1583273379318</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1583273379318</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -397,6 +417,7 @@
     <MESSAGE value="Finalização da implementação de validade de produtos e criação da classe Formatter" />
     <MESSAGE value="Finalização da implementação de validade de produtos, Implementação de clientes" />
     <MESSAGE value="Criação parcial do relatorio de caixas" />
-    <option name="LAST_COMMIT_MESSAGE" value="Criação parcial do relatorio de caixas" />
+    <MESSAGE value="Finalização da implementação do relatório de caixas" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finalização da implementação do relatório de caixas" />
   </component>
 </project>

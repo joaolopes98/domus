@@ -15,6 +15,7 @@ public class Sale implements Model {
     private Access access;
     private Customer customer;
     private Schedule schedule;
+    private boolean active;
 
     private Set<SaleItem> saleItems = new HashSet<>();
     private Set<FinancialInflow> financialInflows = new HashSet<>();
@@ -81,6 +82,14 @@ public class Sale implements Model {
 
     public void setSchedule(Schedule schedule) {
         this.schedule = schedule;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
     }
 
     public Set<SaleItem> getSaleItems() {

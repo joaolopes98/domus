@@ -62,7 +62,7 @@ public class ChoseDateController extends Controller {
                     "Data inicial maior que a data final");
         } else if (from > now || to > now){
             Window.changeScene(this.stage, "error", this,
-                    "Data maior que hoje");
+                    "Data maior que o dia atual");
         } else {
             cancel();
 

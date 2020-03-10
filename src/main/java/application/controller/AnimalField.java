@@ -40,7 +40,7 @@ public class AnimalField {
                         Window.changeScene(controller.getStage(), "animalHistory", controller, this.animal));
                 history.setMinSize(30, 30);
                 history.setMaxSize(30, 30);
-                ImageView imageHistory = new ImageView(new Image("/view/img/edit.png"));
+                ImageView imageHistory = new ImageView(new Image("/view/img/history.png"));
                 imageHistory.setFitHeight(20);
                 imageHistory.setFitWidth(20);
                 history.setGraphic(imageHistory);

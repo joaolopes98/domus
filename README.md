@@ -4,6 +4,8 @@
 
 - Salvar Historico de Receita Veterinaria (X)
 
+- Historico de Venda ( )
+
 - Historico de Animal (X)
 
 - Tempo de estimado do serviço (X)

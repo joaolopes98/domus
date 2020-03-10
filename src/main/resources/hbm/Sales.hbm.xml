@@ -11,6 +11,7 @@
         <property name="value" type="double"/>
         <property name="discount" type="double"/>
         <property name="date" type="timestamp"/>
+        <property name="active" type="boolean"/>
         <many-to-one name="cashMovement" class="application.controller.object.CashMovement" column="cash_id"/>
         <many-to-one name="access" class="application.controller.object.Access" column="access_id"/>
         <many-to-one name="customer" class="application.controller.object.Customer" column="customer_id"/>
