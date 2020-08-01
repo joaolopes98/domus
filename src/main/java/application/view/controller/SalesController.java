@@ -93,22 +93,23 @@ public class SalesController extends Controller {
         obsSale.clear();
         ArrayList<Sale> sales = new ArrayList<>();
         if(txtSearch.getText().isEmpty()){
-            sales.addAll(SaleModel.getAll(""));
+            sales.addAll(SaleModel.getAll("ORDER BY id DESC"));
         } else {
             if(txtSearch.getText().matches("\\D+")) {
-                sales.addAll(SaleModel.getAll("WHERE name LIKE '%" + txtSearch.getText() + "%' " +
-                        "OR specie LIKE '%" + txtSearch.getText() + "%'"));
-
                 ArrayList<Customer> customers = new ArrayList<>(
                         CustomerModel.getAll(
                                 "WHERE name LIKE '%" + txtSearch.getText() + "%'"));
                 customers.forEach( customer -> sales.addAll(customer.getSales()));
             } else {
-                ArrayList<Customer> customers = new ArrayList<>(
-                        CustomerModel.getAll(
-                                "WHERE document LIKE '%" +
-                                        Formatter.unmaskOnlyNumber(txtSearch.getText()) + "%'"));
-                customers.forEach( customer -> sales.addAll(customer.getSales()));
+                if(txtSearch.getText().length() >= 11) {
+                    ArrayList<Customer> customers = new ArrayList<>(
+                            CustomerModel.getAll(
+                                    "WHERE document LIKE '%" +
+                                            Formatter.unmaskOnlyNumber(txtSearch.getText()) + "%'"));
+                    customers.forEach(customer -> sales.addAll(customer.getSales()));
+                } else {
+                    sales.addAll(SaleModel.getAll("WHERE id = " + txtSearch.getText()));
+                }
             }
         }
         sales.forEach( sale -> obsSale.add(new SaleField(sale, this)));

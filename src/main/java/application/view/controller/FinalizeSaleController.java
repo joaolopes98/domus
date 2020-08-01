@@ -215,6 +215,7 @@ public class FinalizeSaleController extends Controller {
         sale.setCashMovement(cashMovement);
         sale.setAccess(User.getUser());
         sale.setCustomer(this.pdv.getLinkedCustomer());
+        sale.setActive(true);
 
         for(ItemSaleField item: obsSale){
             SaleItem saleItem = new SaleItem();

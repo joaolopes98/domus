@@ -150,6 +150,19 @@
     -fx-font-weight: bold;
 }
 
+.inputDiscount{
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+
+    -fx-font-family: Lato;
+    -fx-font-size: 15px;
+    -fx-text-fill: #36434C;
+}
+
+.inputDiscount :disabled{
+    -fx-opacity: 1;
+}
+
 .textBold{
     -fx-padding: 0 10;
 

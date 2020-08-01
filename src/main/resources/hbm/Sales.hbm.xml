@@ -17,7 +17,7 @@
         <many-to-one name="customer" class="application.controller.object.Customer" column="customer_id"/>
         <many-to-one name="schedule" class="application.controller.object.Schedule" column="schedule_id"/>
 
-        <set name="saleItems" inverse="true" cascade="all">
+        <set name="saleItems" inverse="true" cascade="all" order-by="id ASC">
             <key column="sale_id" not-null="false"/>
             <one-to-many class="application.controller.object.SaleItem"/>
         </set>
