@@ -11,12 +11,16 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
+import java.text.Format;
+
 public class SaleHistoryController extends Controller {
 
     @FXML private Label lblSale;
     @FXML private Label lblUser;
     @FXML private Label lblCustomer;
     @FXML private Label lblDate;
+    @FXML private Label lblDiscount;
+    @FXML private Label lblTotal;
 
     private Sale sale;
     @Override
@@ -44,6 +48,8 @@ public class SaleHistoryController extends Controller {
             lblCustomer.setText(" - ");
         }
         lblDate.setText(Formatter.formatDateHour(sale.getDate()));
+        lblDiscount.setText(Formatter.formatMoney(sale.getDiscount()));
+        lblTotal.setText(Formatter.formatMoney(sale.getValue()));
     }
 
     @FXML
