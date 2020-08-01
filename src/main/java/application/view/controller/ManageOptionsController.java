@@ -40,6 +40,10 @@ public class ManageOptionsController extends Controller {
         Window.changeScene(this.stage, "products", this);
     }
 
+    @FXML private void sales(){
+        Window.changeScene(this.stage, "sales", this);
+    }
+
     @FXML private void services(){
         Window.changeScene(this.stage, "services", this);
     }

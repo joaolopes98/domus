@@ -28,8 +28,7 @@ import javafx.util.Callback;
 import java.util.ArrayList;
 
 public class SalesController extends Controller {
-    @FXML
-    private TextField txtSearch;
+    @FXML private TextField txtSearch;
     @FXML private TableView<SaleField> tableSales;
     @FXML private TableColumn<SaleField, String> saleCode;
     @FXML private TableColumn<SaleField, String> saleUser;

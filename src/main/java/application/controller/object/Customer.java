@@ -13,6 +13,7 @@ public class Customer implements Model {
     private boolean status;
 
     Set<Animal> animals = new HashSet<>();
+    Set<Sale> sales = new HashSet<>();
 
     public int getId() {
         return id;
@@ -60,5 +61,13 @@ public class Customer implements Model {
 
     public void setAnimals(Set<Animal> animals) {
         this.animals = animals;
+    }
+
+    public Set<Sale> getSales() {
+        return sales;
+    }
+
+    public void setSales(Set<Sale> sales) {
+        this.sales = sales;
     }
 }
