@@ -17,4 +17,8 @@ public abstract class SaleModel {
     public static List<Sale> getAll(String search) {
         return (List<Sale>) GenericModel.getAll("FROM Sale " + search);
     }
+
+    public static Sale get(String search){
+        return (Sale) GenericModel.get("FROM Sale " + search);
+    }
 }

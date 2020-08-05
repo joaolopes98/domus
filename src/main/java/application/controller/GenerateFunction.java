@@ -2,6 +2,7 @@ package application.controller;
 
 import application.controller.object.*;
 import application.model.CashMovementModel;
+import application.model.SaleModel;
 import application.view.auxiliary.Formatter;
 import application.view.auxiliary.Function;
 import javafx.collections.ObservableList;
@@ -90,6 +91,65 @@ public abstract class GenerateFunction {
                 if(!dir.exists()) dir.mkdir();
                 JasperExportManager.exportReportToPdfFile(print, "C:/Domus/cash.pdf");
                 Desktop.getDesktop().open(new File("C:\\Domus\\cash.pdf"));
+            } catch (JRException | IOException e) {
+                e.printStackTrace();
+            }
+        };
+    }
+
+    public static Function reportSale(long from, long to) {
+        return () -> {
+            List<Sale> sales = SaleModel.getAll(" WHERE date >= " + from + " AND " +
+                    "date <= " + to + " ORDER BY date ASC");
+
+//            Sale bigger = SaleModel.get("ORDER BY value DESC, date DESC LIMIT 1");
+//            Sale lower = SaleModel.get("ORDER BY value, date LIMIT 1");
+
+            try {
+                Map<String, Object> map = new HashMap<>();
+                map.put("InitialDate", Formatter.formatDate(new Date(from)));
+                map.put("FinalDate", Formatter.formatDate(new Date(to)));
+                map.put("QuantitySale", sales.size());
+
+                File fileImage = new File(GenerateFunction.class.getResource("/view/img/logoGrande.png").getFile());
+                BufferedImage image = ImageIO.read(fileImage);
+                map.put("Image", image);
+
+                double total = 0;
+                for (Sale sale : sales) {
+                    total += sale.getValue();
+                }
+
+                double avgTicket = total / sales.size();
+                map.put("AvgTicket", Formatter.formatMoney(avgTicket));
+
+                map.put("BiggerNumber", "AA");
+                map.put("BiggerDate", "AA");
+                map.put("BiggerUser", "AA");
+                map.put("BiggerValue", "AA");
+                map.put("BiggerDiscount", "AA");
+                map.put("BiggerCustomer", "AA");
+
+                map.put("LowerNumber", "AA");
+                map.put("LowerDate", "AA");
+                map.put("LowerUser", "AA");
+                map.put("LowerValue", "AA");
+                map.put("LowerDiscount", "AA");
+                map.put("LowerCustomer", "AA");
+
+                map.put("ChartMorning", 2);
+                map.put("ChartAfternoon", 4);
+                map.put("ChartNight", 6);
+
+                System.out.println("CRIOU");
+                JasperPrint print = JasperFillManager.fillReport(
+                        GenerateFunction.class.getResourceAsStream("/print/sale.jasper"),
+                        map);
+                System.out.println("SALVOU");
+                File dir = new File("C:/Domus");
+                if(!dir.exists()) dir.mkdir();
+                JasperExportManager.exportReportToPdfFile(print, "C:/Domus/sale.pdf");
+                Desktop.getDesktop().open(new File("C:\\Domus\\sale.pdf"));
             } catch (JRException | IOException e) {
                 e.printStackTrace();
             }
