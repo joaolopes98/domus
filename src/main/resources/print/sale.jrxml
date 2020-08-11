@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.13.0.final using JasperReports Library version 6.13.0-46ada4d1be8f3c5985fd0b6146f3ed44caed6f05  -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="cash" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a99e95e9-2ea8-4ba4-aa74-ed7d41d43dbe">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="cash" pageWidth="595" pageHeight="842" whenNoDataType="NoDataSection" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a99e95e9-2ea8-4ba4-aa74-ed7d41d43dbe">
 	<parameter name="InitialDate" class="java.lang.String"/>
 	<parameter name="FinalDate" class="java.lang.String"/>
 	<parameter name="QuantitySale" class="java.lang.Integer"/>
@@ -99,7 +99,7 @@
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial" size="20" isBold="true"/>
 				</textElement>
-				<text><![CDATA[VENDAS]]></text>
+				<text><![CDATA[VENDAS POR VALOR]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="70" y="50" width="480" height="20" uuid="01695463-3775-4491-8a65-bc877a11246d">
@@ -595,7 +595,47 @@
 		</band>
 	</detail>
 	<columnFooter>
-		<band height="220" splitType="Stretch"/>
+		<band height="302" splitType="Stretch">
+			<pieChart>
+				<chart evaluationTime="Report">
+					<reportElement x="20" y="50" width="510" height="230" uuid="d6b9a4c8-c916-4577-893d-fbba6c2c81a2"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<pieDataset>
+					<dataset resetType="Report"/>
+					<pieSeries>
+						<keyExpression><![CDATA["Manhã"]]></keyExpression>
+						<valueExpression><![CDATA[$P{ChartMorning}]]></valueExpression>
+						<labelExpression><![CDATA["Manhã"]]></labelExpression>
+					</pieSeries>
+					<pieSeries>
+						<keyExpression><![CDATA["Tarde"]]></keyExpression>
+						<valueExpression><![CDATA[$P{ChartAfternoon}]]></valueExpression>
+						<labelExpression><![CDATA["Tarde"]]></labelExpression>
+					</pieSeries>
+					<pieSeries>
+						<keyExpression><![CDATA["Noite"]]></keyExpression>
+						<valueExpression><![CDATA[$P{ChartNight}]]></valueExpression>
+						<labelExpression><![CDATA["Noite"]]></labelExpression>
+					</pieSeries>
+				</pieDataset>
+				<piePlot>
+					<plot/>
+					<itemLabel/>
+				</piePlot>
+			</pieChart>
+			<staticText>
+				<reportElement x="2" y="10" width="550" height="30" uuid="6ce53d3d-2fe9-4312-a9d5-f6dd2ff81eab">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[VENDAS POR PERIODO]]></text>
+			</staticText>
+		</band>
 	</columnFooter>
 	<pageFooter>
 		<band splitType="Stretch">

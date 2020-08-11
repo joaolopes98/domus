@@ -6,10 +6,7 @@ import application.model.SaleModel;
 import application.view.auxiliary.Formatter;
 import application.view.auxiliary.Function;
 import javafx.collections.ObservableList;
-import net.sf.jasperreports.engine.JRException;
-import net.sf.jasperreports.engine.JasperExportManager;
-import net.sf.jasperreports.engine.JasperFillManager;
-import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 
 import javax.imageio.ImageIO;
@@ -116,8 +113,24 @@ public abstract class GenerateFunction {
                 map.put("Image", image);
 
                 double total = 0;
+
+                int chartMorning = 0;
+                int chartAfternoon = 0;
+                int chartNight = 0;
                 for (Sale sale : sales) {
                     total += sale.getValue();
+
+                    Calendar calendar = Calendar.getInstance();
+                    calendar.setTime(sale.getDate());
+                    int hour = calendar.get(Calendar.HOUR_OF_DAY);
+                    if(hour < 12){
+                        chartMorning++;
+                    } else if(hour <= 18){
+                        chartAfternoon++;
+                    } else {
+                        chartNight++;
+                    }
+                    System.out.println(sale.getDate() + " - " + hour);
                 }
 
                 double avgTicket = total / sales.size();
@@ -137,20 +150,20 @@ public abstract class GenerateFunction {
                 map.put("LowerDiscount", "AA");
                 map.put("LowerCustomer", "AA");
 
-                map.put("ChartMorning", 2);
-                map.put("ChartAfternoon", 4);
-                map.put("ChartNight", 6);
+                map.put("ChartMorning", chartMorning);
+                map.put("ChartAfternoon", chartAfternoon);
+                map.put("ChartNight", chartNight);
 
                 System.out.println("CRIOU");
                 JasperPrint print = JasperFillManager.fillReport(
                         GenerateFunction.class.getResourceAsStream("/print/sale.jasper"),
-                        map);
+                        map, new JREmptyDataSource());
                 System.out.println("SALVOU");
                 File dir = new File("C:/Domus");
                 if(!dir.exists()) dir.mkdir();
                 JasperExportManager.exportReportToPdfFile(print, "C:/Domus/sale.pdf");
                 Desktop.getDesktop().open(new File("C:\\Domus\\sale.pdf"));
-            } catch (JRException | IOException e) {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         };
