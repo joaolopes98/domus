@@ -14,6 +14,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.text.Normalizer;
 import java.util.*;
 import java.util.List;
 
@@ -99,8 +100,10 @@ public abstract class GenerateFunction {
             List<Sale> sales = SaleModel.getAll(" WHERE date >= " + from + " AND " +
                     "date <= " + to + " ORDER BY date ASC");
 
-//            Sale bigger = SaleModel.get("ORDER BY value DESC, date DESC LIMIT 1");
-//            Sale lower = SaleModel.get("ORDER BY value, date LIMIT 1");
+            Sale bigger = SaleModel.get(" WHERE date >= " + from + " AND " +
+                    "date <= " + to + " ORDER BY value DESC, date DESC");
+            Sale lower = SaleModel.get(" WHERE date >= " + from + " AND " +
+                    "date <= " + to + " ORDER BY value, date");
 
             try {
                 Map<String, Object> map = new HashMap<>();
@@ -123,32 +126,57 @@ public abstract class GenerateFunction {
                     Calendar calendar = Calendar.getInstance();
                     calendar.setTime(sale.getDate());
                     int hour = calendar.get(Calendar.HOUR_OF_DAY);
-                    if(hour < 12){
+                    if(hour >= 6 && hour <= 11){
                         chartMorning++;
-                    } else if(hour <= 18){
+                    } else if(hour >= 12 && hour <= 18){
                         chartAfternoon++;
                     } else {
                         chartNight++;
                     }
-                    System.out.println(sale.getDate() + " - " + hour);
                 }
 
-                double avgTicket = total / sales.size();
-                map.put("AvgTicket", Formatter.formatMoney(avgTicket));
+                if(sales.size() != 0) {
+                    double avgTicket = total / sales.size();
+                    map.put("AvgTicket", Formatter.formatMoney(avgTicket));
 
-                map.put("BiggerNumber", "AA");
-                map.put("BiggerDate", "AA");
-                map.put("BiggerUser", "AA");
-                map.put("BiggerValue", "AA");
-                map.put("BiggerDiscount", "AA");
-                map.put("BiggerCustomer", "AA");
+                    map.put("BiggerNumber", Formatter.formatStringCode(bigger.getId()));
+                    map.put("BiggerDate", Formatter.formatDate(bigger.getDate()));
+                    map.put("BiggerUser", bigger.getAccess().getName());
+                    map.put("BiggerValue", Formatter.formatMoney(bigger.getValue()));
+                    map.put("BiggerDiscount", Formatter.formatMoney(bigger.getDiscount()));
+                    if (bigger.getCustomer() != null) {
+                        map.put("BiggerCustomer", bigger.getCustomer().getName());
+                    } else {
+                        map.put("BiggerCustomer", " - ");
+                    }
 
-                map.put("LowerNumber", "AA");
-                map.put("LowerDate", "AA");
-                map.put("LowerUser", "AA");
-                map.put("LowerValue", "AA");
-                map.put("LowerDiscount", "AA");
-                map.put("LowerCustomer", "AA");
+                    map.put("LowerNumber", Formatter.formatStringCode(lower.getId()));
+                    map.put("LowerDate", Formatter.formatDate(lower.getDate()));
+                    map.put("LowerUser", lower.getAccess().getName());
+                    map.put("LowerValue", Formatter.formatMoney(lower.getValue()));
+                    map.put("LowerDiscount", Formatter.formatMoney(lower.getDiscount()));
+                    if (lower.getCustomer() != null) {
+                        map.put("LowerCustomer", lower.getCustomer().getName());
+                    } else {
+                        map.put("LowerCustomer", " - ");
+                    }
+                } else {
+                    map.put("AvgTicket", Formatter.formatMoney(0));
+
+                    map.put("BiggerNumber", " - ");
+                    map.put("BiggerDate", " - ");
+                    map.put("BiggerUser", " - ");
+                    map.put("BiggerValue", " - ");
+                    map.put("BiggerDiscount", " - ");
+                    map.put("BiggerCustomer", " - ");
+
+                    map.put("LowerNumber", " - ");
+                    map.put("LowerDate", " - ");
+                    map.put("LowerUser", " - ");
+                    map.put("LowerValue", " - ");
+                    map.put("LowerDiscount", " - ");
+                    map.put("LowerCustomer", " - ");
+                }
 
                 map.put("ChartMorning", chartMorning);
                 map.put("ChartAfternoon", chartAfternoon);

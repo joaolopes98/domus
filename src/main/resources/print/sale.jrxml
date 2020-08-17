@@ -254,7 +254,7 @@
 					<bottomPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
 					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
-				<textElement verticalAlignment="Middle">
+				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial" size="10"/>
 					<paragraph leftIndent="5"/>
 				</textElement>
@@ -274,7 +274,7 @@
 					<bottomPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
 					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
-				<textElement verticalAlignment="Middle">
+				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial" size="10"/>
 					<paragraph leftIndent="5"/>
 				</textElement>
@@ -294,7 +294,7 @@
 					<bottomPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
 					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
-				<textElement verticalAlignment="Middle">
+				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial" size="10"/>
 					<paragraph leftIndent="5"/>
 				</textElement>
@@ -314,7 +314,7 @@
 					<bottomPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
 					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
-				<textElement verticalAlignment="Middle">
+				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial" size="10"/>
 					<paragraph leftIndent="5"/>
 				</textElement>
@@ -334,7 +334,7 @@
 					<bottomPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
 					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
-				<textElement verticalAlignment="Middle">
+				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial" size="10"/>
 					<paragraph leftIndent="5"/>
 				</textElement>
@@ -354,7 +354,7 @@
 					<bottomPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
 					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
-				<textElement verticalAlignment="Middle">
+				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial" size="10"/>
 					<paragraph leftIndent="5"/>
 				</textElement>
@@ -476,7 +476,7 @@
 					<bottomPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
 					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
-				<textElement verticalAlignment="Middle">
+				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial" size="10"/>
 					<paragraph leftIndent="5"/>
 				</textElement>
@@ -496,7 +496,7 @@
 					<bottomPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
 					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
-				<textElement verticalAlignment="Middle">
+				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial" size="10"/>
 					<paragraph leftIndent="5"/>
 				</textElement>
@@ -516,7 +516,7 @@
 					<bottomPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
 					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
-				<textElement verticalAlignment="Middle">
+				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial" size="10"/>
 					<paragraph leftIndent="5"/>
 				</textElement>
@@ -536,7 +536,7 @@
 					<bottomPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
 					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
-				<textElement verticalAlignment="Middle">
+				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial" size="10"/>
 					<paragraph leftIndent="5"/>
 				</textElement>
@@ -556,7 +556,7 @@
 					<bottomPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
 					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
-				<textElement verticalAlignment="Middle">
+				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial" size="10"/>
 					<paragraph leftIndent="5"/>
 				</textElement>
@@ -576,7 +576,7 @@
 					<bottomPen lineWidth="0.25" lineStyle="Solid" lineColor="#000000"/>
 					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
-				<textElement verticalAlignment="Middle">
+				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial" size="10"/>
 					<paragraph leftIndent="5"/>
 				</textElement>

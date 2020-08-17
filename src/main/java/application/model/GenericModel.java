@@ -33,7 +33,7 @@ public abstract class GenericModel {
         Session session = HibernateUtilities.getSession();
         try{
             Query query = session.createQuery(queryHQL);
-            object = query.uniqueResult();
+            object = query.setMaxResults(1).uniqueResult();
         } catch (Exception e){
             e.printStackTrace();
             object = null;
