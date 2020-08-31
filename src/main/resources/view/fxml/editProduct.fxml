@@ -100,6 +100,23 @@
                                     <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
                                  </padding>
                               </VBox>
+                              <VBox alignment="CENTER" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT" maxHeight="25.0" minHeight="25.0" VBox.vgrow="ALWAYS">
+                                       <children>
+                                          <Label styleClass="subtitleDark" text="CUSTO" />
+                                       </children>
+                                    </HBox>
+                                    <AnchorPane VBox.vgrow="ALWAYS">
+                                       <children>
+                                          <TextField fx:id="txtCost" layoutX="47.0" layoutY="2.0" styleClass="input" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                                 </padding>
+                              </VBox>
                            </children>
                         </HBox>
                      </children>

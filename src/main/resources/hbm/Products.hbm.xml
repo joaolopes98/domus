@@ -14,5 +14,6 @@
         <property name="quantity" type="integer"/>
         <property name="status" type="boolean"/>
         <property name="shelf_date" type="date"/>
+        <property name="cost" type="double"/>
     </class>
 </hibernate-mapping>

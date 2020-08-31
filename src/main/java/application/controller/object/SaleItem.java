@@ -12,6 +12,7 @@ public class SaleItem implements Model {
     private Product product;
     private Service service;
     private Animal animal;
+    private double cost;
 
     public int getId() {
         return id;
@@ -83,5 +84,13 @@ public class SaleItem implements Model {
 
     public void setAnimal(Animal animal) {
         this.animal = animal;
+    }
+
+    public double getCost() {
+        return cost;
+    }
+
+    public void setCost(double cost) {
+        this.cost = cost;
     }
 }
