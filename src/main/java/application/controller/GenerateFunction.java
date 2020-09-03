@@ -2,6 +2,8 @@ package application.controller;
 
 import application.controller.object.*;
 import application.model.CashMovementModel;
+import application.model.GenericModel;
+import application.model.SaleItemModel;
 import application.model.SaleModel;
 import application.view.auxiliary.Formatter;
 import application.view.auxiliary.Function;
@@ -191,6 +193,52 @@ public abstract class GenerateFunction {
                 if(!dir.exists()) dir.mkdir();
                 JasperExportManager.exportReportToPdfFile(print, "C:/Domus/sale.pdf");
                 Desktop.getDesktop().open(new File("C:\\Domus\\sale.pdf"));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        };
+    }
+
+    public static Function reportItem(long from, long to) {
+        return () -> {
+            List<Sale> sales = SaleModel.getAll(" WHERE date >= " + from + " AND " +
+                    "date <= " + to + " ORDER BY date ASC");
+
+            try {
+                Map<String, Object> map = new HashMap<>();
+                map.put("InitialDate", Formatter.formatDate(new Date(from)));
+                map.put("FinalDate", Formatter.formatDate(new Date(to)));
+
+                File fileImage = new File(GenerateFunction.class.getResource("/view/img/logoGrande.png").getFile());
+                BufferedImage image = ImageIO.read(fileImage);
+                map.put("Image", image);
+
+                double total = 0;
+                int quantityItem = 0;
+                for (Sale sale : sales) {
+                    total += sale.getValue();
+
+                    for (SaleItem saleItem : sale.getSaleItems()) {
+                        quantityItem += saleItem.getQuantity();
+                    }
+                }
+                double avgItemValue = total / quantityItem;
+
+                map.put("TotalValue", total);
+                map.put("TotalQuantity", quantityItem);
+                map.put("AvgValue", avgItemValue);
+
+                SaleItemModel.getReportItem(from, to);
+
+                System.out.println("CRIOU");
+                JasperPrint print = JasperFillManager.fillReport(
+                        GenerateFunction.class.getResourceAsStream("/print/item.jasper"),
+                        map, new JREmptyDataSource());
+                System.out.println("SALVOU");
+                File dir = new File("C:/Domus");
+                if(!dir.exists()) dir.mkdir();
+                JasperExportManager.exportReportToPdfFile(print, "C:/Domus/item.pdf");
+                Desktop.getDesktop().open(new File("C:\\Domus\\item.pdf"));
             } catch (Exception e) {
                 e.printStackTrace();
             }
