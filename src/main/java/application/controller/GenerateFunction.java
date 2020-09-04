@@ -224,16 +224,16 @@ public abstract class GenerateFunction {
                 }
                 double avgItemValue = total / quantityItem;
 
-                map.put("TotalValue", total);
+                map.put("TotalValue", Formatter.formatMoney(total));
                 map.put("TotalQuantity", quantityItem);
-                map.put("AvgValue", avgItemValue);
+                map.put("AvgValue", Formatter.formatMoney(avgItemValue));
 
-                SaleItemModel.getReportItem(from, to);
+                List<QueryReportItem> reportItems = SaleItemModel.getReportItem(from, to);
 
                 System.out.println("CRIOU");
                 JasperPrint print = JasperFillManager.fillReport(
                         GenerateFunction.class.getResourceAsStream("/print/item.jasper"),
-                        map, new JREmptyDataSource());
+                        map, new JRBeanCollectionDataSource(reportItems));
                 System.out.println("SALVOU");
                 File dir = new File("C:/Domus");
                 if(!dir.exists()) dir.mkdir();
