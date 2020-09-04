@@ -222,13 +222,43 @@ public abstract class GenerateFunction {
                         quantityItem += saleItem.getQuantity();
                     }
                 }
-                double avgItemValue = total / quantityItem;
+                double avgItemValue;
+                if(quantityItem == 0){
+                    avgItemValue = 0;
+                } else {
+                    avgItemValue = total / quantityItem;
+                }
 
                 map.put("TotalValue", Formatter.formatMoney(total));
                 map.put("TotalQuantity", quantityItem);
                 map.put("AvgValue", Formatter.formatMoney(avgItemValue));
 
                 List<QueryReportItem> reportItems = SaleItemModel.getReportItem(from, to);
+                Object[] reportProduct = SaleItemModel.getReportProduct(from, to);
+                map.put("ProductTotalValue", Formatter.formatMoney((Double) reportProduct[0]));
+                map.put("ProductCost", Formatter.formatMoney((Double) reportProduct[1]));
+                if((long)reportProduct[2] != 0) {
+                    map.put("ProductQuantity", Math.toIntExact((long) reportProduct[2]));
+                    map.put("ProductAvgPrice", Formatter.formatMoney(
+                            (Double) reportProduct[0] / Math.toIntExact((long) reportProduct[2])
+                    ));
+                } else {
+                    map.put("ProductQuantity", 0);
+                    map.put("ProductAvgPrice", Formatter.formatMoney(0));
+                }
+
+                Object[] reportService = SaleItemModel.getReportService(from, to);
+                map.put("ServiceTotalValue", Formatter.formatMoney((Double) reportService[0]));
+                map.put("ServiceTime", Formatter.formatMoney((Double) reportService[1]));
+                if((long)reportService[2] != 0) {
+                    map.put("ServiceQuantity", Math.toIntExact((long) reportService[2]));
+                    map.put("ServiceAvgPrice", Formatter.formatMoney(
+                            (Double) reportProduct[0] / Math.toIntExact((long) reportProduct[2])
+                    ));
+                } else {
+                    map.put("ServiceQuantity", 0);
+                    map.put("ServiceAvgPrice", Formatter.formatMoney(0));
+                }
 
                 System.out.println("CRIOU");
                 JasperPrint print = JasperFillManager.fillReport(

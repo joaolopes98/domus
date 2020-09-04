@@ -20,17 +20,19 @@ public class QueryReportItem {
         if ((boolean) object[3]) {
             this.type = "Produto";
             Product product = ProductModel.get("WHERE id = " + object[1]);
+            this.code = Formatter.formatStringCode(product.getId());
             this.name = product.getName();
             this.price = Formatter.formatMoney(product.getPrice());
             this.costTime = Formatter.formatMoney(product.getCost());
         } else {
             this.type = "Serviço";
             Service service = ServiceModel.get("WHERE id = " + object[0]);
+            this.code = Formatter.formatStringCode(service.getId());
             this.name = service.getName();
             this.price = Formatter.formatMoney(service.getPrice());
             this.costTime = service.getTime() + " min";
         }
-        this.quantity = (int) object[2];
+        this.quantity = Math.toIntExact((long) object[2]);
     }
 
     public String getType() {

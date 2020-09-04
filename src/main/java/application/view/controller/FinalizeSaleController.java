@@ -226,6 +226,8 @@ public class FinalizeSaleController extends Controller {
             saleItem.setSale(sale);
             if(item.isTypeProduct()) {
                 saleItem.setCost(item.getProduct().getCost());
+            } else {
+                saleItem.setTime(item.getService().getTime());
             }
 
             if(item.isTypeProduct()) {

@@ -17,5 +17,6 @@
         <many-to-one name="service" class="application.controller.object.Service" column="service_id"/>
         <many-to-one name="animal" class="application.controller.object.Animal" column="animal_id"/>
         <property name="cost" type="double"/>
+        <property name="time" type="integer"/>
     </class>
 </hibernate-mapping>

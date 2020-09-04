@@ -3,6 +3,7 @@ package application.model;
 import application.controller.QueryReportItem;
 import application.controller.object.SaleItem;
 import org.hibernate.type.BooleanType;
+import org.hibernate.type.DoubleType;
 import org.hibernate.type.LongType;
 
 import java.util.ArrayList;
@@ -44,5 +45,47 @@ public abstract class SaleItemModel {
         }
 
         return reportItems;
+    }
+
+    public static Object[] getReportProduct(long from, long to){
+        Object[] reportProduct = (Object[]) HibernateUtilities.getSession().createSQLQuery(
+                "SELECT coalesce(sum(si.subtotal), 0) as subtotal, coalesce(sum(si.cost), 0) as cost, " +
+                        "coalesce(sum(si.quantity), 0) as quantity " +
+                        "FROM sales_items si " +
+                        "JOIN sales s " +
+                        "ON si.sale_id = s.id " +
+                        "WHERE s.date >= '" + from + "' AND s.date <= '" + to + "' AND " +
+                        "si.product_id IS NOT NULL")
+                .addScalar("subtotal" , DoubleType.INSTANCE)
+                .addScalar("cost", DoubleType.INSTANCE)
+                .addScalar("quantity", LongType.INSTANCE)
+                .getSingleResult();
+
+
+        System.out.println(reportProduct[0] + " /");
+        System.out.println(reportProduct[1] + " /");
+        System.out.println(reportProduct[2]);
+        return reportProduct;
+    }
+
+    public static Object[] getReportService(long from, long to){
+        Object[] reportProduct = (Object[]) HibernateUtilities.getSession().createSQLQuery(
+                "SELECT coalesce(sum(si.subtotal), 0) as subtotal, coalesce(sum(si.time), 0) as time," +
+                        " coalesce(sum(si.quantity), 0) as quantity " +
+                        "FROM sales_items si " +
+                        "JOIN sales s " +
+                        "ON si.sale_id = s.id " +
+                        "WHERE s.date >= '" + from + "' AND s.date <= '" + to + "' AND " +
+                        "si.service_id IS NOT NULL")
+                .addScalar("subtotal" , DoubleType.INSTANCE)
+                .addScalar("time", DoubleType.INSTANCE)
+                .addScalar("quantity", LongType.INSTANCE)
+                .getSingleResult();
+
+
+        System.out.println(reportProduct[0] + " /");
+        System.out.println(reportProduct[1] + " /");
+        System.out.println(reportProduct[2]);
+        return reportProduct;
     }
 }
