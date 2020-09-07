@@ -67,6 +67,11 @@ public class ManageOptionsController extends Controller {
                 ChoseDateController.REPORT_ITEM);
     }
 
+    @FXML private void reportFinancial(){
+        Window.changeScene(this.stage, "choseDate", this,
+                ChoseDateController.REPORT_FINANCIAL);
+    }
+
     @FXML private void cancel(){
         PDVController pdv = (PDVController) this.oldController;
         pdv.updateProducts();

@@ -274,4 +274,101 @@ public abstract class GenerateFunction {
             }
         };
     }
+
+    public static Function reportFinancial(long from, long to) {
+        return () -> {
+            List<CashMovement> cashMovements = CashMovementModel.getAll(" WHERE date >= " + from + " AND " +
+                    "date <= " + to + " ORDER BY date ASC");
+
+            try {
+                Map<String, Object> map = new HashMap<>();
+                map.put("InitialDate", Formatter.formatDate(new Date(from)));
+                map.put("FinalDate", Formatter.formatDate(new Date(to)));
+
+                File fileImage = new File(GenerateFunction.class.getResource("/view/img/logoGrande.png").getFile());
+                BufferedImage image = ImageIO.read(fileImage);
+                map.put("Image", image);
+
+                int quantityCash = 0;
+                int quantitySale = 0;
+                double paymentMoney = 0;
+                double paymentCredit = 0;
+                double paymentDebit = 0;
+                double paymentTotal = 0;
+                double totalCost = 0;
+                double financialInflows = 0;
+                double financialOutflows = 0;
+                double resultTotal = 0;
+
+                for (CashMovement cashMovement : cashMovements) {
+                    quantityCash ++;
+
+                    for (Sale sale : cashMovement.getSales()) {
+                        if(sale.isActive()) {
+                            quantitySale++;
+
+                            for (SaleItem saleItem : sale.getSaleItems()) {
+                                if (saleItem.getCost() != null) {
+                                    totalCost += saleItem.getCost();
+                                }
+                            }
+                        }
+                    }
+
+                    for (FinancialInflow financialInflow : cashMovement.getFinancialInflows()) {
+                        if(financialInflow.getSale() != null){
+                            if(financialInflow.getSale().isActive()) {
+                                switch (financialInflow.getPaymentMethod().getId()) {
+
+                                    case 1:
+                                        paymentMoney += financialInflow.getValue();
+                                        break;
+
+                                    case 2:
+                                        paymentCredit += financialInflow.getValue();
+                                        break;
+
+                                    case 3:
+                                        paymentDebit += financialInflow.getValue();
+                                        break;
+                                }
+                                paymentTotal += financialInflow.getValue();
+                            }
+                        } else {
+                            financialInflows += financialInflow.getValue();
+                        }
+                    }
+
+                    for (FinancialOutflow financialOutflow : cashMovement.getFinancialOutflows()) {
+                        financialOutflows += financialOutflow.getValue();
+                    }
+
+                }
+                resultTotal = paymentTotal - totalCost + financialInflows - financialOutflows;
+
+                map.put("QuantityCash", quantityCash);
+                map.put("QuantitySale", quantitySale);
+                map.put("PaymentMoney", Formatter.formatMoney(paymentMoney));
+                map.put("PaymentCredit", Formatter.formatMoney(paymentCredit));
+                map.put("PaymentDebit", Formatter.formatMoney(paymentDebit));
+                map.put("PaymentTotal", Formatter.formatMoney(paymentTotal));
+                map.put("TotalCost", Formatter.formatMoney(totalCost));
+                map.put("FinancialInflows", Formatter.formatMoney(financialInflows));
+                map.put("FinancialOutflows", Formatter.formatMoney(financialOutflows));
+                map.put("ResultTotal", Formatter.formatMoney(resultTotal));
+
+                System.out.println("CRIOU");
+                JasperPrint print = JasperFillManager.fillReport(
+                        GenerateFunction.class.getResourceAsStream("/print/financial.jasper"),
+                        map, new JREmptyDataSource());
+                System.out.println("SALVOU");
+                File dir = new File("C:/Domus");
+                if(!dir.exists()) dir.mkdir();
+                JasperExportManager.exportReportToPdfFile(print, "C:/Domus/financial.pdf");
+                Desktop.getDesktop().open(new File("C:\\Domus\\financial.pdf"));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        };
+    }
 }
