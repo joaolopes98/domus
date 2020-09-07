@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="600.0" maxWidth="900.0" minHeight="600.0" minWidth="900.0" styleClass="paneBlueDark" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.controller.SalesController">
+<AnchorPane maxHeight="600.0" maxWidth="900.0" minHeight="600.0" minWidth="900.0" styleClass="paneBlueDark" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.controller.SalesController">
    <children>
       <AnchorPane maxHeight="50.0" minHeight="50.0" styleClass="paneBlueLight" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
          <children>
@@ -40,7 +40,7 @@
                   </HBox>
                   <VBox spacing="10.0" VBox.vgrow="ALWAYS">
                      <children>
-                        <TableView id="tableAnimals" fx:id="tableSales" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                        <TableView id="tableSales" fx:id="tableSales" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                            <placeholder>
                               <Label text="Nenhuma Venda Encontrada" />
                            </placeholder>

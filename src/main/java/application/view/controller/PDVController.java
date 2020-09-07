@@ -106,7 +106,7 @@ public class PDVController extends Controller {
         super.initialize(oldStage, scene, oldController, objects);
         this.stage.setMaximized(true);
 //        Window.setFullScreen(this.stage);
-        this.stage.setFullScreen(true);
+//        this.stage.setFullScreen(true);
         this.stage.setOnCloseRequest( e -> logout());
 
         setupSearch();

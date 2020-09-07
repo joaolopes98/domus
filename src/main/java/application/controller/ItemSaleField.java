@@ -2,6 +2,7 @@ package application.controller;
 
 import application.controller.object.Animal;
 import application.controller.object.Product;
+import application.controller.object.SaleItem;
 import application.controller.object.Service;
 import application.view.auxiliary.Controller;
 import application.view.auxiliary.Formatter;
@@ -20,6 +21,8 @@ public class ItemSaleField {
     private int quantity;
     private TextField discount = new TextField();
     private String subtotal;
+
+    private String discountString;
 
     private Product product;
     private Service service;
@@ -99,6 +102,27 @@ public class ItemSaleField {
         }
     }
 
+    public ItemSaleField(int code, SaleItem saleItem){
+        this.code = Formatter.formatStringCode(code);
+
+        this.typeProduct = saleItem.getProduct() != null;
+        if (this.typeProduct) {
+            this.product = saleItem.getProduct();
+            this.name = product.getName();
+            this.price = Formatter.formatMoney(product.getPrice());
+        } else {
+            this.service = saleItem.getService();
+            this.name = service.getName();
+            this.price = Formatter.formatMoney(service.getPrice());
+        }
+
+        this.quantity = saleItem.getQuantity();
+
+        this.discountString = Formatter.formatMoney(saleItem.getDiscount());
+
+        this.subtotal = Formatter.formatMoney(saleItem.getSubtotal());
+    }
+
     public String getCode() {
         return code;
     }
@@ -145,6 +169,14 @@ public class ItemSaleField {
 
     public void setSubtotal(String subtotal) {
         this.subtotal = subtotal;
+    }
+
+    public String getDiscountString() {
+        return discountString;
+    }
+
+    public void setDiscountString(String discountString) {
+        this.discountString = discountString;
     }
 
     public Product getProduct() {

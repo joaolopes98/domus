@@ -83,12 +83,12 @@
                            <children>
                               <AnchorPane prefWidth="500.0" styleClass="paneRedDark" HBox.hgrow="ALWAYS">
                                  <children>
-                                    <Button disable="true" mnemonicParsing="false" styleClass="btnBlue" text="RELATORIO DE PRODUTOS" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    <Button mnemonicParsing="false" onAction="#reportCash" styleClass="btnBlue" text="RELATORIO DE CAIXAS" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                  </children>
                               </AnchorPane>
                               <AnchorPane prefWidth="500.0" styleClass="paneRedDark" HBox.hgrow="ALWAYS">
                                  <children>
-                                    <Button disable="true" mnemonicParsing="false" styleClass="btnBlue" text="RELATORIO DE SERVIÇOS" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    <Button mnemonicParsing="false" onAction="#reportSale" styleClass="btnBlue" text="RELATORIO DE VENDAS" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                  </children>
                               </AnchorPane>
                            </children>
@@ -97,12 +97,12 @@
                            <children>
                               <AnchorPane prefWidth="500.0" styleClass="paneRedDark" HBox.hgrow="ALWAYS">
                                  <children>
-                                    <Button mnemonicParsing="false" onAction="#reportCash" styleClass="btnBlue" text="RELATORIO DE CAIXAS" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    <Button mnemonicParsing="false" onAction="#reportItem" styleClass="btnBlue" text="RELATORIO DE ITENS" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                  </children>
                               </AnchorPane>
                               <AnchorPane prefWidth="500.0" styleClass="paneRedDark" HBox.hgrow="ALWAYS">
                                  <children>
-                                    <Button disable="true" mnemonicParsing="false" styleClass="btnBlue" text="RELATORIO DE LUCRO" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    <Button mnemonicParsing="false" onAction="#reportFinancial" styleClass="btnBlue" text="RELATORIO FINANCEIRO" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                  </children>
                               </AnchorPane>
                            </children>

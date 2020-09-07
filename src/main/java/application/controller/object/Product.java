@@ -9,6 +9,7 @@ public class Product implements Model {
     private int id;
     private String name;
     private String ean;
+    private double cost;
     private double price;
     private int quantity;
     private boolean status;
@@ -36,6 +37,14 @@ public class Product implements Model {
 
     public void setEan(String ean) {
         this.ean = ean;
+    }
+
+    public double getCost() {
+        return cost;
+    }
+
+    public void setCost(double cost) {
+        this.cost = cost;
     }
 
     public double getPrice() {

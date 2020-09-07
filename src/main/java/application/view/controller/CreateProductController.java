@@ -23,7 +23,7 @@ public class CreateProductController extends Controller {
     @FXML private TextField txtEan;
     @FXML private JFXDatePicker txtDate;
     @FXML private TextField txtPrice;
-    @FXML private TextField txtQuantity;
+    @FXML private TextField txtCost;
 
     @FXML private AnchorPane waitScreen;
 
@@ -45,7 +45,7 @@ public class CreateProductController extends Controller {
         Mask.upperCase(txtName);
         Mask.upperCase(txtEan);
         Mask.money(txtPrice);
-        Mask.zeroTo(txtQuantity, 999);
+        Mask.money(txtCost);
 
         txtDate.getEditor().setOnMouseClicked( e -> txtDate.getEditor().setText(""));
     }
@@ -64,7 +64,7 @@ public class CreateProductController extends Controller {
                         product.setShelf_date(Formatter.toDate(txtDate.getEditor().getText()));
                     }
                     product.setPrice(price);
-                    product.setQuantity(Formatter.unmaskInteger(txtQuantity.getText()));
+                    product.setCost(Formatter.unmaskMoney(txtCost.getText()));
                     product.setStatus(true);
 
                     if (ProductModel.create(product)) {

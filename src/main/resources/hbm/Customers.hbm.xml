@@ -17,5 +17,10 @@
             <key column="customer_id" not-null="false"/>
             <one-to-many class="application.controller.object.Animal"/>
         </set>
+
+        <set name="sales" inverse="true" cascade="all" order-by="id DESC">
+            <key column="customer_id" not-null="false"/>
+            <one-to-many class="application.controller.object.Sale"/>
+        </set>
     </class>
 </hibernate-mapping>
