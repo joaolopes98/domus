@@ -120,6 +120,9 @@ public class LinkAnimalController extends Controller{
             } else if (oldController instanceof VeterinaryDashboardController){
                 VeterinaryDashboardController pdv = (VeterinaryDashboardController) oldController;
                 pdv.setLinkedAnimal(animal);
+            } else if(oldController instanceof ChoseAnimalController){
+                ChoseAnimalController choseAnimalController = (ChoseAnimalController) oldController;
+                choseAnimalController.setLinkedAnimal(animal);
             }
             this.stage.close();
         } else {
