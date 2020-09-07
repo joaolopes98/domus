@@ -224,6 +224,11 @@ public class FinalizeSaleController extends Controller {
             saleItem.setDiscount(Formatter.unmaskMoney(item.getDiscount().getText()));
             saleItem.setSubtotal(Formatter.unmaskMoney(item.getSubtotal()));
             saleItem.setSale(sale);
+            if(item.isTypeProduct()) {
+                saleItem.setCost(item.getProduct().getCost());
+            } else {
+                saleItem.setTime(item.getService().getTime());
+            }
 
             if(item.isTypeProduct()) {
                 saleItem.setProduct(item.getProduct());
@@ -261,7 +266,6 @@ public class FinalizeSaleController extends Controller {
         }
 
         if(SaleModel.create(sale)){
-
             changeStock.forEach(ProductModel::update);
             this.obsSale.clear();
             this.cancel();

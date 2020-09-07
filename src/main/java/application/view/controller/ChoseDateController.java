@@ -18,6 +18,8 @@ import java.util.Date;
 public class ChoseDateController extends Controller {
     public static final int REPORT_CASH = 1;
     public static final int REPORT_SALE = 2;
+    public static final int REPORT_ITEM = 3;
+    public static final int REPORT_FINANCIAL = 4;
 
     @FXML private JFXDatePicker txtFrom;
     @FXML private JFXDatePicker txtTo;
@@ -75,7 +77,17 @@ public class ChoseDateController extends Controller {
 
                 case REPORT_SALE:
                     Window.changeScene(this.oldStage, "loading", oldController,
-                            "GERANDO RELATORIO DE CAIXA", GenerateFunction.reportSale(from, to));
+                            "GERANDO RELATORIO DE VENDA", GenerateFunction.reportSale(from, to));
+                    break;
+
+                case REPORT_ITEM:
+                    Window.changeScene(this.oldStage, "loading", oldController,
+                            "GERANDO RELATORIO DE ITEM", GenerateFunction.reportItem(from, to));
+                    break;
+
+                case REPORT_FINANCIAL:
+                    Window.changeScene(this.oldStage, "loading", oldController,
+                            "GERANDO RELATORIO DE FINANCEIRO", GenerateFunction.reportFinancial(from, to));
                     break;
             }
 

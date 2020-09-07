@@ -10,7 +10,7 @@ import java.util.List;
 public abstract class ProductModel {
     public static List<Product> getAllSellable(){
         return GenericModel.getAll("FROM Product WHERE status = TRUE " +
-                "AND shelf_date >= '" + Formatter.resetDate(new Date()).getTime() + "'");
+                "AND (shelf_date >= '" + Formatter.resetDate(new Date()).getTime() + "' OR shelf_date IS NULL)");
     }
 
     public static List<Product> getAll(String search) {
