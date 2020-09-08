@@ -17,7 +17,7 @@ public class CashItem {
     private double total;
 
     public CashItem(CashMovement cashMovement) {
-        this.cashOpen = Formatter.formatDate(cashMovement.getDate());
+        this.cashOpen = Formatter.formatDateHour(cashMovement.getDate());
         this.userCash = cashMovement.getOpened_by().getName();
         this.initialValue = Formatter.formatMoney(cashMovement.getValue());
         if(cashMovement.isClosed()) {

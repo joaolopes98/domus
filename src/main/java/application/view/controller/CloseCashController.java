@@ -23,10 +23,11 @@ public class CloseCashController extends Controller {
     @FXML private TextField txtValue;
 
     private PDVController pdvController;
-
+    private boolean closeSystem;
 
     public void initialize(Stage oldStage, Scene scene, Controller oldController, Object... objects) {
         pdvController = (PDVController) oldController;
+        closeSystem = (boolean) objects[0];
 
         scene.addEventFilter(KeyEvent.KEY_PRESSED, e -> {
             if(e.getCode() == KeyCode.ESCAPE){
@@ -46,6 +47,10 @@ public class CloseCashController extends Controller {
 
     @FXML public void cancel() {
         stage.close();
+        if(closeSystem){
+            oldStage.close();
+            Window.changeScene(new Stage(), "initial", null);
+        }
     }
 
     @FXML public void close() {

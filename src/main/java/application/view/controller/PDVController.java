@@ -113,10 +113,22 @@ public class PDVController extends Controller {
         setupSale();
         setupInfo();
 
-        if(CashMovementModel.getOpened() == null) {
+        CashMovement cashMovement = CashMovementModel.getOpened();
+        if(cashMovement == null) {
             Window.changeScene(this.stage, "openCash", this);
         } else {
-            verifyShelfDate();
+            Calendar cal1 = Calendar.getInstance();
+            Calendar cal2 = Calendar.getInstance();
+            cal1.setTime(cashMovement.getDate());
+            cal2.setTime(new Date());
+            boolean sameDay = cal1.get(Calendar.DAY_OF_YEAR) == cal2.get(Calendar.DAY_OF_YEAR) &&
+                    cal1.get(Calendar.YEAR) == cal2.get(Calendar.YEAR);
+
+            if(sameDay){
+                verifyShelfDate();
+            } else {
+                Window.changeScene(this.stage, "closeCash",this, true);
+            }
         }
     }
 
@@ -405,7 +417,7 @@ public class PDVController extends Controller {
     }
 
     @FXML public void closeCash(){
-        Window.changeScene(this.stage, "closeCash", this);
+        Window.changeScene(this.stage, "closeCash", this, false);
     }
 
     @FXML public void logout(){
