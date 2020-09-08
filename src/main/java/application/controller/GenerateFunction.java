@@ -315,21 +315,37 @@ public abstract class GenerateFunction {
                     for (FinancialInflow financialInflow : cashMovement.getFinancialInflows()) {
                         if(financialInflow.getSale() != null){
                             if(financialInflow.getSale().isActive()) {
+                                Sale sale = financialInflow.getSale();
                                 switch (financialInflow.getPaymentMethod().getId()) {
 
                                     case 1:
-                                        paymentMoney += financialInflow.getValue();
+                                        double payment = 0;
+                                        if(sale.getFinancialInflows().size() > 1) {
+                                            for (FinancialInflow inflow : sale.getFinancialInflows()) {
+                                                payment += inflow.getValue();
+                                            }
+                                            paymentMoney += financialInflow.getValue() - (payment - sale.getValue());
+                                        } else {
+                                            paymentMoney += sale.getValue();
+                                        }
                                         break;
 
                                     case 2:
-                                        paymentCredit += financialInflow.getValue();
+                                        if(sale.getFinancialInflows().size() > 1) {
+                                            paymentCredit += financialInflow.getValue();
+                                        } else {
+                                            paymentCredit += sale.getValue();
+                                        }
                                         break;
 
                                     case 3:
-                                        paymentDebit += financialInflow.getValue();
+                                        if(sale.getFinancialInflows().size() > 1) {
+                                            paymentDebit += financialInflow.getValue();
+                                        } else {
+                                            paymentDebit += sale.getValue();
+                                        }
                                         break;
                                 }
-                                paymentTotal += financialInflow.getValue();
                             }
                         } else {
                             financialInflows += financialInflow.getValue();
@@ -341,6 +357,7 @@ public abstract class GenerateFunction {
                     }
 
                 }
+                paymentTotal = paymentMoney + paymentCredit + paymentDebit;
                 resultTotal = paymentTotal - totalCost + financialInflows - financialOutflows;
 
                 map.put("QuantityCash", quantityCash);
@@ -352,7 +369,11 @@ public abstract class GenerateFunction {
                 map.put("TotalCost", Formatter.formatMoney(totalCost));
                 map.put("FinancialInflows", Formatter.formatMoney(financialInflows));
                 map.put("FinancialOutflows", Formatter.formatMoney(financialOutflows));
-                map.put("ResultTotal", Formatter.formatMoney(resultTotal));
+                if(resultTotal >= 0) {
+                    map.put("ResultTotal", Formatter.formatMoney(resultTotal));
+                } else {
+                    map.put("ResultTotal", " - " + Formatter.formatMoney(resultTotal));
+                }
 
                 System.out.println("CRIOU");
                 JasperPrint print = JasperFillManager.fillReport(

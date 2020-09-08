@@ -22,7 +22,7 @@ public class CashItem {
         this.initialValue = Formatter.formatMoney(cashMovement.getValue());
         if(cashMovement.isClosed()) {
             this.finalValue = Formatter.formatMoney(cashMovement.getValue_closed_system());
-            this.cashClose = Formatter.formatDate(cashMovement.getClosed_at());
+            this.cashClose = Formatter.formatDateHour(cashMovement.getClosed_at());
         } else {
             this.finalValue = " - ";
             this.cashClose = " - ";
