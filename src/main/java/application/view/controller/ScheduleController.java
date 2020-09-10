@@ -35,6 +35,7 @@ public class ScheduleController extends Controller {
     @FXML private TableColumn<ScheduleField, String> scheduleTime;
     @FXML private TableColumn<ScheduleField, String> scheduleUser;
     @FXML private TableColumn<ScheduleField, String> scheduleCustomer;
+    @FXML private TableColumn<ScheduleField, String> scheduleValue;
     @FXML private TableColumn<ScheduleField, String> scheduleAction;
     private ObservableList<ScheduleField> obsSchedule = FXCollections.observableArrayList();
 
@@ -71,6 +72,7 @@ public class ScheduleController extends Controller {
         scheduleTime.setCellValueFactory(new PropertyValueFactory<>("hour"));
         scheduleUser.setCellValueFactory(new PropertyValueFactory<>("user"));
         scheduleCustomer.setCellValueFactory(new PropertyValueFactory<>("customer"));
+        scheduleValue.setCellValueFactory(new PropertyValueFactory<>("value"));
         scheduleAction.setCellValueFactory(new PropertyValueFactory<>("action"));
 
         tableSchedule.setRowFactory( new Callback<TableView<ScheduleField>, TableRow<ScheduleField>>() {

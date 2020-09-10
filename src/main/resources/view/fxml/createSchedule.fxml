@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="525.0" maxWidth="600.0" minHeight="525.0" minWidth="600.0" styleClass="paneBlueDark" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.controller.CreateScheduleController">
+<AnchorPane maxHeight="525.0" maxWidth="600.0" minHeight="525.0" minWidth="600.0" styleClass="paneBlueDark" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.controller.CreateScheduleController">
    <children>
       <AnchorPane maxHeight="50.0" minHeight="50.0" styleClass="paneBlueLight" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
          <children>
@@ -52,7 +52,7 @@
                         </VBox>
                         <HBox maxHeight="65.0" minHeight="65.0" spacing="10.0" VBox.vgrow="ALWAYS">
                            <children>
-                              <VBox alignment="CENTER" minWidth="400.0" HBox.hgrow="ALWAYS">
+                              <VBox alignment="CENTER" maxWidth="400.0" minWidth="400.0" HBox.hgrow="ALWAYS">
                                  <children>
                                     <HBox alignment="CENTER_LEFT" maxHeight="25.0" minHeight="25.0" VBox.vgrow="ALWAYS">
                                        <children>
@@ -62,6 +62,20 @@
                                     <AnchorPane maxHeight="39.0" minHeight="39.0" VBox.vgrow="ALWAYS">
                                        <children>
                                           <ComboBox fx:id="comboUser" styleClass="comboBox" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT" maxHeight="25.0" minHeight="25.0" VBox.vgrow="ALWAYS">
+                                       <children>
+                                          <Label styleClass="subtitleDark" text="TOTAL" />
+                                       </children>
+                                    </HBox>
+                                    <AnchorPane VBox.vgrow="ALWAYS">
+                                       <children>
+                                          <Label fx:id="lblValue" styleClass="infoDark" text="R$ 0,00" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                        </children>
                                     </AnchorPane>
                                  </children>

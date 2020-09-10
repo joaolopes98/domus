@@ -19,6 +19,15 @@
     -fx-alignment: center;
 }
 
+.infoDark{
+    fx-text-fill: #36434C;
+    -fx-font-family: Lato;
+    -fx-font-weight: bold;
+    -fx-font-size: 30px;
+    -fx-alignment: center-right;
+    -fx-text-fill: #36434C;
+}
+
 .input{
     -fx-background-color: transparent;
     -fx-border-color: #36434C;
