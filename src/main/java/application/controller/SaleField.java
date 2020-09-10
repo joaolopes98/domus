@@ -51,25 +51,26 @@ public class SaleField {
             imageHistory.setFitWidth(20);
             history.setGraphic(imageHistory);
 
-
-            status.setMinSize(30, 30);
-            status.setMaxSize(30, 30);
-            status.getStyleClass().add("btnRed");
-            status.setOnAction(e -> {
-                this.sale.setActive(false);
-                if (SaleModel.update(this.sale)) {
-                    salesController.updateTable();
-                } else {
-                    Window.changeScene(controller.getStage(), "error", controller,
-                            "Erro ao desabilitar venda");
-                }
-            });
-            ImageView imageRemove = new ImageView(new Image("/view/img/active.png"));
-            imageRemove.setFitHeight(20);
-            imageRemove.setFitWidth(20);
-            status.setGraphic(imageRemove);
-
-            this.action.getChildren().addAll(history, status);
+            this.action.getChildren().add(history);
+            if(!this.sale.getCashMovement().isClosed()) {
+                status.setMinSize(30, 30);
+                status.setMaxSize(30, 30);
+                status.getStyleClass().add("btnRed");
+                status.setOnAction(e -> {
+                    this.sale.setActive(false);
+                    if (SaleModel.update(this.sale)) {
+                        salesController.updateTable();
+                    } else {
+                        Window.changeScene(controller.getStage(), "error", controller,
+                                "Erro ao desabilitar venda");
+                    }
+                });
+                ImageView imageRemove = new ImageView(new Image("/view/img/active.png"));
+                imageRemove.setFitHeight(20);
+                imageRemove.setFitWidth(20);
+                status.setGraphic(imageRemove);
+                this.action.getChildren().add(status);
+            }
         } else {
             history.getStyleClass().add("btnYellow");
             history.setOnAction(e ->

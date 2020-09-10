@@ -1,6 +1,7 @@
 package application.controller;
 
 import application.controller.object.Schedule;
+import application.controller.object.ScheduleItems;
 import application.model.ScheduleModel;
 import application.view.auxiliary.Controller;
 import application.view.auxiliary.Formatter;
@@ -20,6 +21,7 @@ public class ScheduleField {
     private String hour;
     private String user;
     private String customer;
+    private String value;
     private Boolean status;
 
     private HBox action = new HBox();
@@ -29,6 +31,11 @@ public class ScheduleField {
         this.hour = Formatter.formatHour(schedule.getFrom_date()) + " - " + Formatter.formatHour(schedule.getTo_date());
         this.user = schedule.getAccess().getName();
         this.customer = schedule.getCustomer().getName();
+        double value = 0;
+        for (ScheduleItems scheduleItem : schedule.getScheduleItems()) {
+            value += scheduleItem.getQuantity() * scheduleItem.getService().getPrice();
+        }
+        this.value = Formatter.formatMoney(value);
         this.status = schedule.getStatus();
 
         if(controller instanceof ScheduleController) {
@@ -83,6 +90,10 @@ public class ScheduleField {
 
     public String getCustomer() {
         return customer;
+    }
+
+    public String getValue() {
+        return value;
     }
 
     public HBox getAction() {

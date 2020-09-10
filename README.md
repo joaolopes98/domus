@@ -1,13 +1,13 @@
 ## A Fazer
-- Cancelamento de Vendas de Caixas Antigos ()
+- Cancelamento de Vendas de Caixas Antigos (X)
 
-- Imprimir Historico Veterinario de Animais ()
+- Imprimir Historico Veterinario de Animais (X)
 
 - Informar separação de produtos e serviços ()
 
-- Fechar caixa do dia anterior ()
+- Fechar caixa do dia anterior (X)
 
-- Exibir Horario no relatorio de caixa ()
+- Exibir Horario no relatorio de caixa (X)
 
 - Vincular Atendente ao Agendamento (X) 
 

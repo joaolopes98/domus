@@ -72,7 +72,7 @@ public class VeterinaryDashboardController extends Controller {
         super.initialize(oldStage, scene, oldController, objects);
 
         this.stage.setMaximized(true);
-        this.stage.setFullScreen(true);
+//        this.stage.setFullScreen(true);
         this.stage.setOnCloseRequest( e -> logout());
 
         setupTable();
@@ -199,5 +199,9 @@ public class VeterinaryDashboardController extends Controller {
 
     @FXML private void openModalVeterinaryHistoric() {
         Window.changeScene(this.stage, "veterinaryHistory", this);
+    }
+
+    @FXML private void reportAnimalHistory(){
+        Window.changeScene(this.stage, "choseAnimal", this);
     }
 }

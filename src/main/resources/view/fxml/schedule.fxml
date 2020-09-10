@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="600.0" maxWidth="900.0" minHeight="600.0" minWidth="900.0" styleClass="paneBlueDark" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.controller.ScheduleController">
+<AnchorPane maxHeight="600.0" maxWidth="900.0" minHeight="600.0" minWidth="900.0" styleClass="paneBlueDark" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.controller.ScheduleController">
    <children>
       <AnchorPane maxHeight="50.0" minHeight="50.0" styleClass="paneBlueLight" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
          <children>
@@ -67,8 +67,9 @@
                            </placeholder>
                            <columns>
                               <TableColumn fx:id="scheduleTime" editable="false" maxWidth="1000.0" prefWidth="75.0" sortable="false" text="HORA" />
-                              <TableColumn fx:id="scheduleUser" editable="false" maxWidth="3000.0" prefWidth="75.0" sortable="false" text="ATENDENTE" />
-                              <TableColumn fx:id="scheduleCustomer" editable="false" maxWidth="3000.0" prefWidth="75.0" sortable="false" text="CLIENTE" />
+                              <TableColumn fx:id="scheduleUser" editable="false" maxWidth="2500.0" prefWidth="75.0" sortable="false" text="ATENDENTE" />
+                              <TableColumn fx:id="scheduleCustomer" editable="false" maxWidth="2500.0" prefWidth="75.0" sortable="false" text="CLIENTE" />
+                              <TableColumn fx:id="scheduleValue" editable="false" maxWidth="1000.0" prefWidth="75.0" sortable="false" text="TOTAL" />
                               <TableColumn fx:id="scheduleAction" editable="false" maxWidth="1000.0" prefWidth="75.0" sortable="false" text="AÇÕES" />
                            </columns>
                            <columnResizePolicy>

@@ -50,6 +50,7 @@ public class CreateScheduleController extends Controller {
     private ObservableList<ItemSaleField> obsSaleFields = FXCollections.observableArrayList();
 
     private Date dateSchedule;
+    @FXML private Label lblValue;
 
     @Override
     public void initialize(Stage oldStage, Scene scene, Controller oldController, Object... objects) {
@@ -239,6 +240,14 @@ public class CreateScheduleController extends Controller {
         itemQuantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
         itemAction.setCellValueFactory(new PropertyValueFactory<>("btnDelete"));
         tableItem.setItems(obsSaleFields);
+
+        obsSaleFields.addListener((ListChangeListener<? super ItemSaleField>) e -> {
+            double value = 0;
+            for (ItemSaleField obsSaleField : obsSaleFields) {
+                value += Formatter.unmaskMoney(obsSaleField.getSubtotal());
+            }
+            lblValue.setText(Formatter.formatMoney(value));
+        });
     }
 
     public ObservableList<ItemSaleField> getObsSaleFields() {

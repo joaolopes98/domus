@@ -17,12 +17,12 @@ public class CashItem {
     private double total;
 
     public CashItem(CashMovement cashMovement) {
-        this.cashOpen = Formatter.formatDate(cashMovement.getDate());
+        this.cashOpen = Formatter.formatDateHour(cashMovement.getDate());
         this.userCash = cashMovement.getOpened_by().getName();
         this.initialValue = Formatter.formatMoney(cashMovement.getValue());
         if(cashMovement.isClosed()) {
             this.finalValue = Formatter.formatMoney(cashMovement.getValue_closed_system());
-            this.cashClose = Formatter.formatDate(cashMovement.getClosed_at());
+            this.cashClose = Formatter.formatDateHour(cashMovement.getClosed_at());
         } else {
             this.finalValue = " - ";
             this.cashClose = " - ";

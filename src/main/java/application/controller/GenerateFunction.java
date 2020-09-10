@@ -1,10 +1,7 @@
 package application.controller;
 
 import application.controller.object.*;
-import application.model.CashMovementModel;
-import application.model.GenericModel;
-import application.model.SaleItemModel;
-import application.model.SaleModel;
+import application.model.*;
 import application.view.auxiliary.Formatter;
 import application.view.auxiliary.Function;
 import javafx.collections.ObservableList;
@@ -318,21 +315,37 @@ public abstract class GenerateFunction {
                     for (FinancialInflow financialInflow : cashMovement.getFinancialInflows()) {
                         if(financialInflow.getSale() != null){
                             if(financialInflow.getSale().isActive()) {
+                                Sale sale = financialInflow.getSale();
                                 switch (financialInflow.getPaymentMethod().getId()) {
 
                                     case 1:
-                                        paymentMoney += financialInflow.getValue();
+                                        double payment = 0;
+                                        if(sale.getFinancialInflows().size() > 1) {
+                                            for (FinancialInflow inflow : sale.getFinancialInflows()) {
+                                                payment += inflow.getValue();
+                                            }
+                                            paymentMoney += financialInflow.getValue() - (payment - sale.getValue());
+                                        } else {
+                                            paymentMoney += sale.getValue();
+                                        }
                                         break;
 
                                     case 2:
-                                        paymentCredit += financialInflow.getValue();
+                                        if(sale.getFinancialInflows().size() > 1) {
+                                            paymentCredit += financialInflow.getValue();
+                                        } else {
+                                            paymentCredit += sale.getValue();
+                                        }
                                         break;
 
                                     case 3:
-                                        paymentDebit += financialInflow.getValue();
+                                        if(sale.getFinancialInflows().size() > 1) {
+                                            paymentDebit += financialInflow.getValue();
+                                        } else {
+                                            paymentDebit += sale.getValue();
+                                        }
                                         break;
                                 }
-                                paymentTotal += financialInflow.getValue();
                             }
                         } else {
                             financialInflows += financialInflow.getValue();
@@ -344,6 +357,7 @@ public abstract class GenerateFunction {
                     }
 
                 }
+                paymentTotal = paymentMoney + paymentCredit + paymentDebit;
                 resultTotal = paymentTotal - totalCost + financialInflows - financialOutflows;
 
                 map.put("QuantityCash", quantityCash);
@@ -355,7 +369,11 @@ public abstract class GenerateFunction {
                 map.put("TotalCost", Formatter.formatMoney(totalCost));
                 map.put("FinancialInflows", Formatter.formatMoney(financialInflows));
                 map.put("FinancialOutflows", Formatter.formatMoney(financialOutflows));
-                map.put("ResultTotal", Formatter.formatMoney(resultTotal));
+                if(resultTotal >= 0) {
+                    map.put("ResultTotal", Formatter.formatMoney(resultTotal));
+                } else {
+                    map.put("ResultTotal", " - " + Formatter.formatMoney(resultTotal));
+                }
 
                 System.out.println("CRIOU");
                 JasperPrint print = JasperFillManager.fillReport(
@@ -366,6 +384,52 @@ public abstract class GenerateFunction {
                 if(!dir.exists()) dir.mkdir();
                 JasperExportManager.exportReportToPdfFile(print, "C:/Domus/financial.pdf");
                 Desktop.getDesktop().open(new File("C:\\Domus\\financial.pdf"));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        };
+    }
+
+    public static Function reportAnimalHistory(Animal animal) {
+        return () -> {
+            List<Recipe> recipes = RecipeModel.getAll("WHERE animal = " + animal.getId() + " ORDER BY date DESC");
+
+            try {
+                Map<String, Object> map = new HashMap<>();
+                File fileImage = new File(GenerateFunction.class.getResource("/view/img/logoGrande.png").getFile());
+                BufferedImage image = ImageIO.read(fileImage);
+                map.put("Image", image);
+
+                map.put("AnimalName", animal.getName());
+                map.put("AnimalSpecie", animal.getSpecie());
+                map.put("AnimalCustomer", animal.getCustomer().getName());
+
+
+                List<RecipeItemField> recipeItemFields = new ArrayList<>();
+                for (Recipe recipe : recipes) {
+                    String user = recipe.getUser().getUser();
+                    String date = Formatter.formatDate(recipe.getDate());
+                    String description;
+
+                    for (RecipeItem recipeItem : recipe.getRecipeItems()) {
+                        description = recipeItem.getName() + " " + recipeItem.getQuantity() + " " +
+                                recipeItem.getQuantityUnity() + " " + recipeItem.getTime() + " VEZ(ES) A CADA " +
+                                recipeItem.getTimeMetric() + " " + recipeItem.getTimeUnity();
+
+                        recipeItemFields.add(new RecipeItemField(user, date, description));
+                    }
+                }
+
+                System.out.println("CRIOU");
+                JasperPrint print = JasperFillManager.fillReport(
+                        GenerateFunction.class.getResourceAsStream("/print/animalHistory.jasper"),
+                        map, new JRBeanCollectionDataSource(recipeItemFields));
+                System.out.println("SALVOU");
+                File dir = new File("C:/Domus");
+                if(!dir.exists()) dir.mkdir();
+                JasperExportManager.exportReportToPdfFile(print, "C:/Domus/animalHistory.pdf");
+                Desktop.getDesktop().open(new File("C:\\Domus\\animalHistory.pdf"));
+
             } catch (Exception e) {
                 e.printStackTrace();
             }
