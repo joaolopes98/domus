@@ -1,3 +1,10 @@
+#DOMUS
+## Ponto de Venda para Pet shops
+
+Um sistema criado como projeto final, com o intuito de ser util para gerenciar pequenos pet shops. 
+
+
+
 ## A Fazer
 - Cancelamento de Vendas de Caixas Antigos (X)
 
