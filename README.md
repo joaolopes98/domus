@@ -3,7 +3,7 @@
  * [Sobre](#sobre)
     * [Funcionalidades](#funcionalidades)
     * [Tecnologias](#tecnologias)
- * [Dowload](#dowload)
+ * [Dowload](#download)
  * [Manual](#manual)
  
 
@@ -28,7 +28,7 @@ As tecnologias utilizadas na contrução do **Domus** foram:
 * Hibernate
 * Maven
 
-## Dowload
+## Download
 Em breve ...
 
 ## Manual
