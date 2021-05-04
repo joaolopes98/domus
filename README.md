@@ -23,10 +23,10 @@ Algumas funcionalidades existentes no sistema **Domus** são:
 
 ### Tecnologias
 As tecnologias utilizadas na contrução do **Domus** foram:
-* Java
-* JavaFX
-* Hibernate
-* Maven
+* [Java](https://www.java.com/)
+* [JavaFX](https://openjfx.io/)
+* [Hibernate](https://hibernate.org/)
+* [Maven](https://maven.apache.org/)
 
 ## Download
 Em breve ...
