@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.8.0-2ed8dfabb690ff337a5797129f2cd92902b0c87b  -->
+<!-- Created with Jaspersoft Studio version 6.13.0.final using JasperReports Library version 6.13.0-46ada4d1be8f3c5985fd0b6146f3ed44caed6f05  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="veterinary" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a99e95e9-2ea8-4ba4-aa74-ed7d41d43dbe">
 	<parameter name="User" class="java.lang.String"/>
 	<parameter name="Crmv" class="java.lang.String"/>
@@ -17,7 +17,7 @@
 	<field name="timeMetric" class="java.lang.Integer"/>
 	<field name="timeUnity" class="java.lang.String"/>
 	<background>
-		<band splitType="Stretch"/>
+		<band height="15" splitType="Stretch"/>
 	</background>
 	<title>
 		<band height="81" splitType="Stretch">
@@ -222,9 +222,57 @@
 		<band height="45" splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
-		<band height="54" splitType="Stretch"/>
+		<band height="54" splitType="Stretch">
+			<line>
+				<reportElement x="300" y="33" width="200" height="1" uuid="5987e81f-775d-4203-a5a1-8119b10b2138">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+				</reportElement>
+			</line>
+			<staticText>
+				<reportElement x="300" y="34" width="30" height="10" uuid="3273daac-1151-4df0-9113-fe7eaec0d045">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOME :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="300" y="44" width="30" height="10" uuid="fa0d7fc9-43d6-43ec-b22c-5c3198fffa12">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CRMV :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="330" y="33" width="170" height="10" uuid="b33b3b12-4d88-44b4-9b21-30baa7d021cd">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{User}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="330" y="44" width="170" height="10" uuid="998a0bc0-2be7-4465-90c2-0652ff03e996">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{Crmv}]]></textFieldExpression>
+			</textField>
+		</band>
 	</pageFooter>
 	<summary>
-		<band height="42" splitType="Stretch"/>
+		<band splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</band>
 	</summary>
 </jasperReport>

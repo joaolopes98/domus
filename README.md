@@ -1,36 +1,35 @@
-## A Fazer
-- Cancelamento de Vendas de Caixas Antigos (X)
+# DOMUS - Ponto de Venda para Pet shops
 
-- Imprimir Historico Veterinario de Animais (X)
+ * [Sobre](#sobre)
+    * [Funcionalidades](#funcionalidades)
+    * [Tecnologias](#tecnologias)
+ * [Dowload](#download)
+ * [Manual](#manual)
+ 
 
-- Informar separação de produtos e serviços ()
+## Sobre 
+Um sistema criado como projeto final, com o intuito de ser útil para gerenciar pequenos pet shops.
 
-- Fechar caixa do dia anterior (X)
+### Funcionalidades
+Algumas funcionalidades existentes no sistema **Domus** são:
+* Abertura/Fechamento de Caixas
+* Realização de Vendas
+* Cadastro de Clientes e Animais
+* Cadastro de Produtos
+* Controle de Estoque
+* Agenda
+* Gerar Receita Veterinatia
+* Gerar Reatórios de Caixas, Vendas, Itens e Financeiros
 
-- Exibir Horario no relatorio de caixa (X)
+### Tecnologias
+As tecnologias utilizadas na contrução do **Domus** foram:
+* [Java](https://www.java.com/)
+* [JavaFX](https://openjfx.io/)
+* [Hibernate](https://hibernate.org/)
+* [Maven](https://maven.apache.org/)
 
-- Vincular Atendente ao Agendamento (X) 
+## Download
+Em breve ...
 
-- Calculo de tempo no Agendamento (X)
-
-- Salvar Historico de Receita Veterinaria (X)
-
-- Historico de Venda (X)
-
-- Historico de Animal (X)
-
-- Tempo de estimado do serviço (X)
-
-- Controle de estoque / validade (X)
-
-- Agendamento (X)
-
-- Custo do Produto [Relatorio de Lucro]
-
-- Receita de veterinario / CRMV (X) [Gotas, ML, Comprimido, Aplicação e Dose]
-
-- Controle de acesso (X)
-
-## A Modificar
-
- - Maneira de dar entrada e baixa no estoque
+## Manual
+Em breve ...

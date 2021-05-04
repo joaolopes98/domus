@@ -246,11 +246,11 @@ public abstract class GenerateFunction {
 
                 Object[] reportService = SaleItemModel.getReportService(from, to);
                 map.put("ServiceTotalValue", Formatter.formatMoney((Double) reportService[0]));
-                map.put("ServiceTime", Formatter.formatMoney((Double) reportService[1]));
+                map.put("ServiceTime", reportService[1] + " min");
                 if((long)reportService[2] != 0) {
                     map.put("ServiceQuantity", Math.toIntExact((long) reportService[2]));
                     map.put("ServiceAvgPrice", Formatter.formatMoney(
-                            (Double) reportProduct[0] / Math.toIntExact((long) reportProduct[2])
+                            (Double) reportService[0] / Math.toIntExact((long) reportService[2])
                     ));
                 } else {
                     map.put("ServiceQuantity", 0);
